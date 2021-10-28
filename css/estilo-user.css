@@ -1,0 +1,15 @@
+body{
+    background: url(../images/edu.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+.main-selection{
+    margin:0 auto;
+    margin-top:35%;
+    padding: 60;
+}
+
+.modal-content{
+    background-color: rgb(0, 0, 0);
+    opacity: 65;
+    padding: 0 5px;
+}

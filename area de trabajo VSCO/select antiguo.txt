@@ -1,0 +1,24 @@
+
+senticia antiaguas de sql inicio de red medica
+
+$public="select publicacion.titulo_public,publicacion.text_public,publicacion.fecha_public
+                    ,publicacion.categoria_public,publicacion.me_gusta_pu,imagen.id_public_im,imagen.link_imagen,
+                    medico.id_medico,medico.nombre_medico,video.link_video
+                     from publicacion,imagen,medico,video
+                    WHERE  publicacion.id_medico_pu=medico.id_medico    AND publicacion.id_public=video.id_public_vi AND  publicacion.id_public=imagen.id_public_im ";
+
+
+                    TU TILISANDO INNER JOIN PARA EL SELECT inicio
+                     $public="SELECT publicacion.id_medico_pu,publicacion.titulo_public,medico.id_medico,medico.nombre_medico,imagen.link_imagen,video.link_video
+                    FROM publicacion INNER JOIN medico ON publicacion.id_medico_pu=medico.id_medico INNER JOIN imagen ON publicacion.id_public=imagen.id_public_im
+                    INNER JOIN video ON publicacion.id_public=video.id_public_vi";
+
+
+
+                  PRUEVA CON NO NULL FRACASO NO TRA LOS DATOS CORESPONDIENTE
+
+                   $public="SELECT publicacion.titulo_public,publicacion.text_public,publicacion.fecha_public
+                    ,publicacion.categoria_public,publicacion.me_gusta_pu,imagen.id_public_im,imagen.link_imagen,
+                    medico.id_medico,medico.nombre_medico,video.link_video
+                     FROM publicacion,imagen,medico,video
+                    WHERE  publicacion.id_medico_pu=medico.id_medico      AND ((imagen.id_public_im  IS NULL) OR (imagen.id_public_im =publicacion.id_public))";

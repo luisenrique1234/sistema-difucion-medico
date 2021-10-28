@@ -1,0 +1,13 @@
+body {
+  background: url(../images/login.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+#login .container #login-center #login-column #login-box {
+  margin-top: 20px;
+  max-width: 400px;
+  max-height: 430px;
+  box-shadow: 4px 4px 4px 4px #31cfcf;
+  background-color: rgb(255, 255, 255);
+  border-radius: 3px;    
+}

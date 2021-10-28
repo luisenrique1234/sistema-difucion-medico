@@ -1,0 +1,148 @@
+#modo{
+    color: rgb(168, 179, 201);
+    width: 50px;
+    font-size: 21px;
+    margin: auto;
+    cursor: pointer;
+}
+/*color del boton de cambiar modo oscuro********
+************************************************/
+.oscuro i{
+    color: #5dcfcf;
+    right: 10px;
+    top: -15px;
+}
+
+.dark{
+    background: rgb(0, 0, 0);
+}
+
+.dark h1{
+    color: white;
+}
+
+.dark .descripcion{
+    color: rgb(209, 208, 208);
+}
+.dark #modo{
+    color: rgb(74, 141, 180);
+}
+
+/*Color de barra ce navacion****************
+*******************************************/
+
+.dark .navbar {
+    background: rgb(8, 0, 0);
+    border: 0;
+    margin-bottom: 0;
+}
+.dark .navbar-nav.navbar-right >li a {
+    color: white;
+    font-size: 12px;
+    padding: 30px;
+    text-transform: uppercase;
+    font-weight: 500;
+}  
+.navbar-inverse .navbar-nav  li.active > a,  
+.navbar-inverse .navbar-nav  li.active > a:focus, 
+#header .navbar-nav.navbar-right li > a:hover,
+.navbar-inverse .navbar-nav > .open > a {
+  background-color: inherit;
+  border: 0;
+  color: #00aeef;
+}
+/* *****Color de las espacialidades"categorias"******
+******************************************************/
+.dark .categories .navbar-stacked li {
+    border-bottom: 1px solid #ececec;
+}
+
+.dark .categories .navbar-stacked li:last-child {
+    border-bottom: 0px solid #ececec;
+}
+
+.dark .categories .navbar-stacked li a {
+    font-size: 17px;
+    color: #ffffff;
+    padding: 9px 0;
+    padding-left: 0;
+}
+.dark .categories .navbar-stacked li a:hover{
+    background: none;
+    margin-left: 20px;
+    color: rgb(74, 201, 218);
+    opacity: 1;
+}
+
+.dark .categories .navbar-stacked li.active a{
+    color: rgb(94, 200, 214);
+    padding-left: 20px;
+}
+
+/*color de y posision de la caja "box" que esta en la seccion de noticias*/
+.dark #noticia{
+    margin-top: 1px;
+    max-width: 285px;
+    max-height: 300px;
+    box-shadow: 1px 1px 1px 1px #0d87ac;
+    background-color: rgb(0, 0, 0);
+    border-radius: 7px;    
+  }
+
+
+/*color de las etiquetas html de la pagina****
+*********************************************/
+
+.dark #formc{
+    margin-top: 0px;
+    max-width: 1085px;
+    max-height: 3000px;
+    box-shadow: 0px 0px 2px 2px #0d87ac;
+    background-color: #000000;
+    border-radius: 10px;    
+}
+
+.dark a{
+    color: cornsilk;
+}
+.dark p{
+    color: rgb(245, 245, 245);
+}
+
+.dark h2{
+    color: white;
+}
+.dark h3{
+    color: white;
+}
+.dark h4{
+    color: white;
+}
+.dark h5{
+    color: white;
+}
+.dark label{
+    color: white;
+}
+.dark textarea{
+    color: white;
+    background-color: rgb(4, 24, 24);
+}
+.dark input{
+    color: white;
+    background-color: rgb(4, 24, 24);
+}
+.dark select{
+    color: white;
+    background-color: rgb(4, 24, 24);
+}
+.dark tr{
+    color: white;
+    background: black;
+}
+
+
+.dark table{
+    color: rgb(0, 0, 0);
+    background-color: rgb(4, 24, 24);
+}
