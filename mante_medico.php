@@ -1,6 +1,6 @@
 <?php
 
-include('php/consultas.php');
+include('php/mante_consultas.php');
 /*esta fucion sirve para converti toddos los carateres como acentos en formato
 uti-8 indenpedientemente de cual fuera su formato de  origen todo se convertira en 
 utf-8 para que asi todos tengan el mismo formato*/
@@ -110,12 +110,6 @@ if ($_SESSION["s_medico"] === null) {
                     </div>
                 </div>
                 <div class="search">
-                    <!--<form role="form">
-                        <i class="fa fa-search"></i>
-                        <div class="field-toggle">
-                            <input type="text" class="search-form" autocomplete="off" placeholder="Buscar">
-                        </div>
-                    </form>-->
                     <div class="social-icons search">
                         <div class="oscuro">
                             <div class="modo" id="modo">
@@ -130,25 +124,25 @@ if ($_SESSION["s_medico"] === null) {
         <!-- fin de la segunda parte-->
         <div>
             <div class="panel-heading">
-                <h1> Listado Publicaciones</h1>
+                <h1> Listado de Medico</h1>
                 <div class="panel-body">
                     
-                        <!--<a href="crea_alumnos.php" class="btn btn-info pull-letf" style="background-color: #0d87ac;">NUEVO</a>-->
+                        <a href="crea_alumnos.php" class="btn btn-info pull-letf" style="background-color: #0d87ac;">NUEVO</a>
                     
                     <br>
                     <hr>
                     <table class="table" style="text-align: center;">
                         <thead>
-                            <tr style="background-color: #45bcdb; color:#FFFFFF;">
+                            <tr style="background-color: #0d87ac; color:#FFFFFF;">
                                 <!-- fila-->
-                                <th>Titulo</th>
+                                <th>Codigo medico</th>
                                 <!--th colunma-->
-                                <th>Autor</th>
-                                <th>Resumen</th>
-                                <th>Referencia</th>
-                                <th>Categoria</th>
-                                <th>Tipo de archivo</th>
-                                <th>Fecho de publicacion</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>codigo medico</th>
+                                <th>especialidad</th>
+                                <th>Rol de medico</th>
+                                <th>Estado</th>
                                 
                                 <th></th>
                                 <th></th>
@@ -156,25 +150,25 @@ if ($_SESSION["s_medico"] === null) {
                         </thead>
                         <?php
                         
-                        $query = lista_publicacion();
+                        $query = lista_medico();
                         while ($row = $query->fetch_assoc()) {
-                            $fecha2=$row["fecha_public"];
-                        $final = date_create($fecha2)->format('d/m/y');
+                            //$fecha2=$row["fecha_public"];
+                        //$final = date_create($fecha2)->format('d/m/y');
                             echo "
             <tr>
-            <td>" . $row["titulo_public"] . "</td>
-            <td>" . substr($row["autor_pu"],0,300) . "</td>
-			<td>" . substr($row["text_public"],0,300). "</td>
-			<td>" . substr($row["referencia_pu"],0,300). "</td>
-            <td>" . $row["categoria_public"] . "</td>
-            <td>" . $row["tipo_archivo"] . "</td>
-            <td>" . $final . "</td>
+            <td>" . $row["id_medico"] . "</td>
+            <td>" . substr($row["nombre_medico"],0,300) . "</td>
+			<td>" . substr($row["apellido_medico"],0,300). "</td>
+			<td>" . substr($row["codigo_medico"],0,300). "</td>
+            <td>" . $row["especialidad"] . "</td>
+            <td>" . $row["idRol"] . "</td>
+            <td>" . $row["estado"] . "</td>
 			
             <td>
-            <a href='actualizar_public.php?id=" . $row["id_public"] . "' class='btn btn-info' style='background-color: #45bcdb;'>Editar</a>
+            <a href='actualizar_medico.php?id=" . $row["id_medico"] . "' class='btn btn-info' style='background-color: #0d87ac;'>Editar</a>
             <br>
             <br>
-            <a href='php/public.php?accion=DLT&id=" . $row["id_public"] . "' class='btn btn-danger' onclick='return alertaeliminar();'>Eliminar</a>
+            <a href='php/registro_man.php?accion=DLT&id=" . $row["id_medico"] . "' class='btn btn-danger' onclick='return alertaeliminar();'>Eliminar</a>
             </td>
             </tr>
             ";
@@ -185,62 +179,8 @@ if ($_SESSION["s_medico"] === null) {
             </div>
         </div>
 
-        <div>
-            <div class="panel-heading">
-                <h1> Listado Investigaciones</h1>
-                <div class="panel-body">
-                    
-                        <!--<a href="crea_alumnos.php" class="btn btn-info pull-letf" style="background-color: #0d87ac;">NUEVO</a>-->
-                    
-                    <br>
-                    <hr>
-                    <table class="table" style="text-align: center;">
-                        <thead>
-                            <tr style="background-color: #45bcdb; color:#FFFFFF;">
-                                <!-- fila-->
-                                <th>Titulo</th>
-                                <!--th colunma-->
-                                <th>Autor</th>
-                                <th>Resumen</th>
-                                <th>Introducion</th>
-                                <th>Palabras Calves</th>
-                                <th>Antecedentes</th>
-                                <th>Fecho de publicacion</th>
-                                
-                                <th></th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <?php
-                        
-                        $query = lista_invstigacion();
-                        while ($row = $query->fetch_assoc()) {
-                            $fecha2=$row["fecha_inv"];
-                        $final = date_create($fecha2)->format('d/m/y');
-                            echo "
-            <tr>
-            <td>" . $row["titulo_inv"] . "</td>
-            <td>" . substr($row["autor_inv"],0,300) . "</td>
-			<td>" . substr($row["resume_inv"],0,300). "</td>
-			<td>" . substr($row["introducion_inv"],0,300). "</td>
-            <td>" . $row["pclave_inv"] . "</td>
-            <td>" . substr($row["Antecedente_inv"],0,300) . "</td>
-            <td>" . $final . "</td>
-			
-            <td>
-            <a href='actualizar_invest.php?id=" . $row["id_inv"] . "' class='btn btn-info' style='background-color: #45bcdb;'>Editar</a>
-            <br>
-            <br>
-            <a href='php/pcientifico.php?accion=DLT&id=" . $row["id_inv"] . "' class='btn btn-danger' onclick='return alertaeliminar();'>Eliminar</a>
-            </td>
-            </tr>
-            ";
-                        }
-                        ?>
-                    </table>
-                </div>
-            </div>
-        </div>
+        
+
         <script>
             function alertaeliminar() {
                 var respuesta = confirm("Estas seguro de Eliminar a este Publicacion");
@@ -267,6 +207,19 @@ if ($_SESSION["s_medico"] === null) {
     }
         </script>
         <!--boton flotante donde esta los diferentes acciones -->
+        <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center bottom-separator">
+                    <div class="col-sm-12">
+                        <div class=" copyright-text text-center ">
+                            <p> Sistema de difusion medica 2021. Todos los derechos reservados.</p>
+                            <p>Diseñado por<a target="_blank" href="http://luis-enrique.com">Sr.LEGG</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </footer>
         <div class="con">
                         <input type="checkbox" id="btn-mas">
                         <div class="redes">

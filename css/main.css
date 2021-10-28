@@ -1279,7 +1279,7 @@ Portfolio with right sidebar
 }
 
 .sidebar-item .media:hover{
-  border-left: 2px solid #0099AE;
+  border-left: 2px solid #45bcdb;
   padding-left: 5px;
   transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
@@ -1288,7 +1288,7 @@ Portfolio with right sidebar
 }
 
 .sidebar-item .media:hover.media .media-body h4 a{
-  color: #0099AE;
+  color: #45bcdb;
   transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
   -webkit-transition: all 0.3s ease 0s;
@@ -1557,7 +1557,7 @@ con la fecha en las publicaciones*/
   border-left-style: solid;
   border-left-width: 1px;
   height: 100%;
-  border-left-color: #0099AE;
+  border-left-color: #45bcdb;
   left: 50%;
   margin-left: -2px;
 }
@@ -1623,7 +1623,7 @@ con la fecha en las publicaciones*/
 .post-content  .post-author a{
   font-weight: 500;
   font-size: 14px;
-  color: #0099AE;
+  color: #45bcdb;
 }
 
 a.read-more{
@@ -1696,13 +1696,13 @@ fondo que sale con la fecha  */
 }
 
 .post-nav li a{
-  color: #0099AE;
+  color: #45bcdb;
   padding: 0;
   text-align: left;
 }
 
 .post-nav li a i{
-  color: #0099AE;
+  color: #45bcdb;
   margin-right: 8px;
 }
 
@@ -1837,7 +1837,7 @@ span.stButton_gradient,
 
 .author-profile .col-sm-2 img{
   width: 100%;
-  border-left: 3px solid #0099AE;
+  border-left: 3px solid #45bcdb;
 }
 
 .author-profile h3{
@@ -1951,7 +1951,7 @@ span.stButton_gradient,
 }
 
 #map-section address a:hover {
-  color:#00AEEF
+  color:#45bcdb 
 }
 
 #contact-form #message{

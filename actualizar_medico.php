@@ -1,7 +1,7 @@
 <?php
 
-include('php/consultas.php');
-$query=extraerpublic($_GET['id']);
+include('php/mante_consultas.php');
+$query=extraermedico($_GET['id']);
 	
     $row=$query->fetch_assoc();
 /*esta fucion sirve para converti toddos los carateres como acentos en formato
@@ -147,21 +147,9 @@ if ($_SESSION["s_medico"] === null){
         </div>
     </section>-->
     <!--/#action-->
-    <section id="noticia" class="padding-top">
+    <section  class="padding-top">
         <div class="container">
             <div class="row">
-                <div class="col-md-3 col-sm-5">
-                    <div class="sidebar blog-sidebar">
-                        <div class="sidebar-item categories">
-                            <h3>Especialidades</h3>
-                            <ul class="nav navbar-stacked">
-                                <li><a href="#">Pediatria</a></li>
-                                <li class="active"><a href="#">Cardiologia</a></li>
-                                <li><a href="#">Cirugia general</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-md-9 col-sm-7">
                     <div class="col-md-12 col-sm-12">
                         <div class="post-thumb">
@@ -171,49 +159,51 @@ if ($_SESSION["s_medico"] === null){
                                     <form action="php/public.php?accion=UDT" method="POST" enctype="multipart/form-data">
                                         <div class="row">
                                             <div class="wow fadeInDown">
-                                            <div class="col-md-4 col-md-offset-2 col-sm-3 col-sm-offset-2 col-lg-3 col-lg-offset-3 col-xs-12 col-xs-offset-0">
+                                            <div class="col-lg-2 col-lg-offset-7 col-xs-12 col-xs-offset-0">
                                             <div class="form-group">
-                                            <input type="hidden" name="codigop" require="" placeholder="codigo" class="form-control" readonly="" value="<?php echo $row['id_public']?>">
+                                            <label class="control-label">ID medico<span
+                                                                style="color: turquoise">*</span></label>
+                                                                <input style="background-color: #5cc4dc; color:#000000;" type="text" 
+                                                                name="idmedico" require="" placeholder="categoria" class="form-control" readonly="" value="<?php echo $row['id_medico']?>">
                                             </div>
 				                            </div>
-                                                <div class="col-lg-6 col-lg-offset-3 col-xs-12 col-xs-offset-0">
+                                                <div class="col-lg-3 col-lg-offset-7 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-                                                        <label class="control-label">Titulo<span
+
+                                                        <label class="control-label">Nombre<span
                                                                 style="color: turquoise">*</span></label>
                                                         <input type="text" name="titulo" required="required"
-                                                            placeholder="Titulo" class="form-control" value="<?php echo $row['titulo_public']?>">
+                                                            placeholder="Titulo" class="form-control" value="<?php echo $row['nombre_medico']?>">
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-5 col-lg-offset-3 col-xs-12 col-xs-offset-0">
+                                                <div class="col-lg-3 col-lg-offset-7 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-                                                        <label class="control-label">Autor</label>
-                                                        <input type="text" name="autor" required="required" placeholder="Autor" class="form-control" value="<?php echo $row['autor_pu']?>">
+                                                        <label class="control-label">Apellido</label>
+                                                        <input type="text" name="autor" required="required" placeholder="Autor" class="form-control" value="<?php echo $row['apellido_medico']?>">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-lg-8 col-lg-offset-3 col-xs-12 col-xs-offset-0">
+                                                <div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-7 col-lg-3 col-lg-offset-7 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-                                                    <label class="control-label">Resumen<span
+                                                    <label class="control-label">codigo medico<span
                                                             style="color: turquoise">*</span></label>
                                                     <div class="form-group">
-                                                        <textarea name="public" id="message" required="required"
-                                                            class="form-control" rows="8"
-                                                            placeholder="Escribe una publicacion"><?php echo $row['text_public']?></textarea>
+                                                    <input type="text" name="autor" required="required" placeholder="Autor" class="form-control" value="<?php echo $row['codigo_medico']?>">
                                                     </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-5 col-lg-offset-3 col-xs-12 col-xs-offset-0">
+                                                <div class="col-lg-3 col-lg-offset-7 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-                                                        <label class="control-label">Referencias<span
+                                                        <label class="control-label">Especialidad<span
                                                                 style="color: turquoise">*</span></label>
-                                                        <input type="text" name="referencia" required="required" placeholder="Referencias" class="form-control" value="<?php echo $row['referencia_pu']?>">
+                                                        <input type="text" name="referencia" required="required" placeholder="Referencias" class="form-control" value="<?php echo $row['especialidad']?>">
                                                     </div>
                                                 </div>
                                                 
-                                                <div class="col-md-3 col-md-offset-2 col-sm-3 col-sm-offset-2 col-lg-3 col-lg-offset-3 col-xs-12 col-xs-offset-0">
+                                                <div class="col-md-3 col-md-offset-2 col-sm-3 col-sm-offset-2 col-lg-3 col-lg-offset-7 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-                                                        <label  class="control-label">Categoria<span
+                                                        <label  class="control-label">Contraseña<span
                                                                 style="color:turquoise">*</span> </label>
-                                                        <input style="background-color: #5dcfcf; color:#000000;" type="text" name="categoria" require="" placeholder="categoria" class="form-control" readonly="" value="<?php echo $row['categoria_public']?>">
+                                                        <input style="background-color: #5dcfcf; color:#000000;" type="text" name="categoria" require="" placeholder="categoria" class="form-control" readonly="" value="<?php echo $row['contrasena_me']?>">
                                                     </div>
                                                 </div>
                                                 <!--<div  class="col-lg-2 col-lg-offset-0 col-xs-12 col-xs-offset-0">
@@ -223,7 +213,7 @@ if ($_SESSION["s_medico"] === null){
                                                 </div>-->
                                                 <!-- parte que ocupada la pantalla completa -->
                                                 <div
-                                                    class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-lg-8 col-lg-offset-3 col-xs-12 col-xs-offset-0">
+                                                    class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-6 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
                                                         <br>
                                                         <input type="submit" value="Actualizar" class="btn btn-submit">
