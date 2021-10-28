@@ -42,7 +42,7 @@ if ($_SESSION["s_medico"] === null){
     <!--Icon-Font-->
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
 
-    <!--[if lt IE 9]>
+    <!--[if lt IE 9 el remota no esta]>
 	    <script src="js/html5shiv.js"></script>
 	    <script src="js/respond.min.js"></script>
     <![endif]-->
