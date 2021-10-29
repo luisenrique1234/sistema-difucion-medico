@@ -18,6 +18,7 @@ if ($_SESSION["s_medico"] === null){
     if($_SESSION["s_idRol2"]==3){
         header("Location: ./vistas/pag_error.php");
     }
+    
 }
 
 ?>
@@ -391,7 +392,7 @@ if ($_SESSION["s_medico"] === null){
                 <div class="col-sm-12 text-center bottom-separator">
                     <div class="col-sm-12">
                         <div class=" copyright-text text-center ">
-                            <p> Sistema de difusion medica 2021. Todos los derechos reservados.</p>
+                            <p> Red medica 2021. Todos los derechos reservados.</p>
                             <p>Diseñado por<a target="_blank" href="http://luis-enrique.com">Sr.LEGG</a></p>
                         </div>
                     </div>

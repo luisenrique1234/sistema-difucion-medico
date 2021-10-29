@@ -8,7 +8,7 @@ function lista_medico(){
     include('conexion.php');
     
     
-    $sql="SELECT * FROM medico  ORDER BY id_medico ASC";
+    $sql="SELECT * FROM medico WHERE estado='A' ORDER BY id_medico ASC";
     return $result = $mysqli->query($sql);
 }
 function extraermedico($id){

@@ -14,8 +14,11 @@ function mostrar($str)
 session_start();
 if ($_SESSION["s_medico"] === null) {
     header("Location: ./login.php");
-} else {
-    if ($_SESSION["s_idRol2"] == 3) {
+} else{
+    if($_SESSION["s_idRol2"]==2){
+        header("Location: ./index.php");
+    }
+    elseif($_SESSION["s_idRol2"]==3){
         header("Location: ./vistas/pag_error.php");
     }
 }
@@ -30,7 +33,7 @@ if ($_SESSION["s_medico"] === null) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Sistama de divulgacion medico</title>
+    <title>Mantenimiento de Medicos</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/lightbox.css" rel="stylesheet">
@@ -142,6 +145,7 @@ if ($_SESSION["s_medico"] === null) {
                                 <th>codigo medico</th>
                                 <th>especialidad</th>
                                 <th>Rol de medico</th>
+                                <th>Contraseña</th>
                                 <th>Estado</th>
                                 
                                 <th></th>
@@ -150,6 +154,7 @@ if ($_SESSION["s_medico"] === null) {
                         </thead>
                         <?php
                         
+                        
                         $query = lista_medico();
                         while ($row = $query->fetch_assoc()) {
                             //$fecha2=$row["fecha_public"];
@@ -157,18 +162,19 @@ if ($_SESSION["s_medico"] === null) {
                             echo "
             <tr>
             <td>" . $row["id_medico"] . "</td>
-            <td>" . substr($row["nombre_medico"],0,300) . "</td>
-			<td>" . substr($row["apellido_medico"],0,300). "</td>
-			<td>" . substr($row["codigo_medico"],0,300). "</td>
+            <td>" . $row["nombre_medico"] . "</td>
+			<td>" . $row["apellido_medico"]. "</td>
+			<td>" . $row["codigo_medico"]. "</td>
             <td>" . $row["especialidad"] . "</td>
             <td>" . $row["idRol"] . "</td>
+            <td>" . $row["contrasena_me"] . "</td>
             <td>" . $row["estado"] . "</td>
 			
             <td>
-            <a href='actualizar_medico.php?id=" . $row["id_medico"] . "' class='btn btn-info' style='background-color: #0d87ac;'>Editar</a>
+            <a href='actualizarm_medico.php?id=" . $row["id_medico"] . "' class='btn btn-info' style='background-color: #0d87ac;'>Editar</a>
             <br>
             <br>
-            <a href='php/registro_man.php?accion=DLT&id=" . $row["id_medico"] . "' class='btn btn-danger' onclick='return alertaeliminar();'>Eliminar</a>
+            <a href='php/tablas_mantenimiento.php?accion=DLT&id=" . $row["id_medico"] . "' class='btn btn-danger' onclick='return alertaeliminar();'>Eliminar</a>
             </td>
             </tr>
             ";

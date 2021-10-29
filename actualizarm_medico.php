@@ -156,54 +156,114 @@ if ($_SESSION["s_medico"] === null){
                             <div class="panel-dafault" style="margin-top: 12px">
                                 <!--panel de crear -->
                                 <div class="panel-heading">
-                                    <form action="php/public.php?accion=UDT" method="POST" enctype="multipart/form-data">
+                                    <form action="php/tablas_mantenimiento.php?accion=UDT" method="POST" enctype="multipart/form-data">
                                         <div class="row">
                                             <div class="wow fadeInDown">
-                                            <div class="col-lg-2 col-lg-offset-7 col-xs-12 col-xs-offset-0">
+                                                
+                                            <div class="col-md-1 col-md-offset-1 col-sm-1 col-sm-offset-2 col-lg-2 col-lg-offset-5 col-xs-12 col-xs-offset-0">
                                             <div class="form-group">
                                             <label class="control-label">ID medico<span
                                                                 style="color: turquoise">*</span></label>
                                                                 <input style="background-color: #5cc4dc; color:#000000;" type="text" 
-                                                                name="idmedico" require="" placeholder="categoria" class="form-control" readonly="" value="<?php echo $row['id_medico']?>">
+                                                                name="codigom" require="" placeholder="categoria" class="form-control" readonly="" value="<?php echo $row['id_medico']?>">
                                             </div>
 				                            </div>
-                                                <div class="col-lg-3 col-lg-offset-7 col-xs-12 col-xs-offset-0">
+                                                <div class="col-md-3 col-md-offset-2 col-sm-3 col-sm-offset-2 col-lg-3 col-lg-offset-2 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
 
                                                         <label class="control-label">Nombre<span
                                                                 style="color: turquoise">*</span></label>
-                                                        <input type="text" name="titulo" required="required"
-                                                            placeholder="Titulo" class="form-control" value="<?php echo $row['nombre_medico']?>">
+                                                        <input type="text" name="nombre" required="required"
+                                                            placeholder="Nombre" class="form-control" value="<?php echo $row['nombre_medico']?>">
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-3 col-lg-offset-7 col-xs-12 col-xs-offset-0">
+                                                <div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-lg-3 col-lg-offset-5 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
                                                         <label class="control-label">Apellido</label>
-                                                        <input type="text" name="autor" required="required" placeholder="Autor" class="form-control" value="<?php echo $row['apellido_medico']?>">
+                                                        <input type="text" name="apellido" required="required" placeholder="Apellido" class="form-control" value="<?php echo $row['apellido_medico']?>">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-7 col-lg-3 col-lg-offset-7 col-xs-12 col-xs-offset-0">
+                                                <div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-lg-3 col-lg-offset-1 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
                                                     <label class="control-label">codigo medico<span
                                                             style="color: turquoise">*</span></label>
                                                     <div class="form-group">
-                                                    <input type="text" name="autor" required="required" placeholder="Autor" class="form-control" value="<?php echo $row['codigo_medico']?>">
+                                                    <input type="text" name="sqmedico" required="required" placeholder="Medioc" class="form-control" value="<?php echo $row['codigo_medico']?>">
                                                     </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-3 col-lg-offset-7 col-xs-12 col-xs-offset-0">
+                                                <div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-lg-3 col-lg-offset-5 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
                                                         <label class="control-label">Especialidad<span
                                                                 style="color: turquoise">*</span></label>
-                                                        <input type="text" name="referencia" required="required" placeholder="Referencias" class="form-control" value="<?php echo $row['especialidad']?>">
+                                                        
+
+                                                        <select name="especial" class="form-control" required="required">
+                                                            <?php
+					                                        include 'php/conexion.php';
+                                                            
+					                                        $getAlumno1 = "SELECT * FROM  especialidad";
+					                                        $gerAlumno2 = $mysqli->query ($getAlumno1);
+                                                            
+					                                        while ($row2 = mysqli_fetch_array($gerAlumno2))
+					                                        {
+					                                            $id = $row2 ['id_espec'];
+					                                        	$espe = $row2['espec_descripsion'];
+                                                            
+                                                            
+					                                        	?>
+                                                            
+                                                            
+                                                            <option value="<?php echo $espe?>" <?php if($row['especialidad']==$espe){echo "selected";} ?>><?php echo $espe;?></option>
+                                                            
+
+
+                                                            <?php
+
+					}
+
+					?>
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 
-                                                <div class="col-md-3 col-md-offset-2 col-sm-3 col-sm-offset-2 col-lg-3 col-lg-offset-7 col-xs-12 col-xs-offset-0">
+                                                <div class="col-md-3 col-md-offset-2 col-sm-3 col-sm-offset-1 col-lg-3 col-lg-offset-1 col-xs-10 col-xs-offset-0">
                                                     <div class="form-group">
                                                         <label  class="control-label">Contraseña<span
                                                                 style="color:turquoise">*</span> </label>
-                                                        <input style="background-color: #5dcfcf; color:#000000;" type="text" name="categoria" require="" placeholder="categoria" class="form-control" readonly="" value="<?php echo $row['contrasena_me']?>">
+                                                        <input  type="text" name="contra" require="" placeholder="Contraseña" class="form-control"  value="<?php echo $row['contrasena_me']?>">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 col-md-offset-2 col-sm-3 col-sm-offset-1 col-lg-3 col-lg-offset-5 col-xs-10 col-xs-offset-0">
+                                                    <div class="form-group">
+                                                        <label  class="control-label">Rol del medico<span
+                                                                style="color:turquoise">*</span> </label>
+                                                                <select name="rolm" class="form-control" required="required">
+                                                            <?php
+					                                        include 'php/conexion.php';
+                                                            
+					                                        $getAlumno1 = "SELECT * FROM rol";
+					                                        $gerAlumno2 = $mysqli->query ($getAlumno1);
+                                                            
+					                                        while ($row2 = mysqli_fetch_array($gerAlumno2))
+					                                        {
+					                                            $id2 = $row2 ['id_roles'];
+					                                        	$espe2 = $row2['descripcion'];
+                                                            
+                                                            
+					                                        	?>
+                                                            
+                                                            
+                                                            <option value="<?php echo $id2?>" <?php if($row['idRol']==$id2){echo "selected";} ?>><?php echo $espe2;?></option>
+                                                            
+
+
+                                                            <?php
+
+					}
+
+					?>
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 <!--<div  class="col-lg-2 col-lg-offset-0 col-xs-12 col-xs-offset-0">
@@ -213,14 +273,14 @@ if ($_SESSION["s_medico"] === null){
                                                 </div>-->
                                                 <!-- parte que ocupada la pantalla completa -->
                                                 <div
-                                                    class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-6 col-xs-12 col-xs-offset-0">
+                                                    class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-1 col-lg-5 col-lg-offset-6 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
                                                         <br>
                                                         <input type="submit" value="Actualizar" class="btn btn-submit">
                                     </form>
                                     <br>
                                     <br>
-                                    <a href="lista_publicm.php" class="btn btn-danger">Cancelar</a>
+                                    <a href="mante_medico.php" class="btn btn-danger">Cancelar</a>
                                 </div>
                             </div>
                         </div>
