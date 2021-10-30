@@ -12,7 +12,7 @@ function mostrar($str)
 }
 
 session_start();
-if ($_SESSION["s_medico"] === null){
+if ($_SESSION["s_medico"] === null ){
 	header("Location: ./login.php");
 }else{
     if($_SESSION["s_idRol2"]==3){

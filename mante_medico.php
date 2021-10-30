@@ -12,13 +12,13 @@ function mostrar($str)
 }
 
 session_start();
-if ($_SESSION["s_medico"] === null) {
-    header("Location: ./login.php");
+if ($_SESSION["s_admin"] === null) {
+    header("Location: ./admin_login.php");
 } else{
-    if($_SESSION["s_idRol2"]==2){
+    if($_SESSION["s_idRol3"]==2){
         header("Location: ./index.php");
     }
-    elseif($_SESSION["s_idRol2"]==3){
+    elseif($_SESSION["s_idRol3"]==3){
         header("Location: ./vistas/pag_error.php");
     }
 }
@@ -102,11 +102,11 @@ if ($_SESSION["s_medico"] === null) {
                                 <!-- <div >
                             <img src="images/predeterminado.jpg" width="100%" height="60">
                             </div>-->
-                                <a href="portfolio.html" class="btn btn-info"><?php echo $_SESSION["s_medico"]; ?>. .<i class="fa fa-user"></i></a>
+                                <a href="portfolio.html" class="btn btn-info"><?php echo $_SESSION["s_admin"]; ?>. .<i class="fa fa-user"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="pefil_medico.php">Mi perfil</a></li>
                                     <li><a href="lista_publicm.php">Mis Publicaciones</a></li>
-                                    <li><a href="bd/logout.php" onclick="return alertaactivar();">Cerrar sesion</a></li>
+                                    <li><a href="bd/logout2.php" onclick="return alertaactivar();">Cerrar sesion</a></li>
                                 </ul>
                             </li>
                         </ul>
