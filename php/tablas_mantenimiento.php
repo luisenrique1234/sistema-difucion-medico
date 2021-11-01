@@ -16,6 +16,65 @@
      desen usar la plataforma y es coresponde al archivo registro.php */
 
 
+     if ($i=="INS"){
+        
+
+        $nombre=$_POST['nombre'];
+        $apellido=$_POST['apellido'];
+        $codime2=$_POST['sqmedico'];
+        $user=$_POST['userac'];
+        $pass = md5($_POST['contra']);
+        $rol=$_POST['rolm'];
+        
+
+        $espec=$_POST['especial'];
+        //$date = (new DateTime())->format('y-m-d');
+
+    
+    $sql = " INSERT INTO `medico` ( `nombre_medico`,`apellido_medico`,`user_medico`, `codigo_medico`,`especialidadm`,`idRol`,`contrasena_me`, `estado`) 
+    VALUES (
+
+        '$nombre',
+        '$apellido',
+        '$user',
+        '$codime2',
+        '$espec',
+        '$rol',
+        '$pass',
+        'A')";
+    
+
+   if ($mysqli->query($sql))
+    {
+        $status='success';
+    }
+    else{
+        $status='error';
+        echo "error" .mysqli_error($mysqli);
+    }
+    // echo("erro descripcion:" .mysqli_error($mysqli));
+    //header("Location: ../propietarip_mant.php?s=".$status);
+
+    header("Refresh: 2; URL= ../mante_medico.php?s=".$status);
+    echo '
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+
+	swal({
+		title: "REGISTRADO",
+		icon: "success",
+	  })
+});
+
+
+</script>
+
+';
+}
+
+
 
 
 
@@ -27,7 +86,7 @@ if($i=="UDT"){
     $apellido2=$_POST['apellido'];
 
     $codigom2=$_POST['codigom'];
-
+     $userac=$_POST['userac'];
     $sqmedico=$_POST['sqmedico'];
     $espcial=$_POST['especial'];
 //$contra=$_POST['contra'];
@@ -35,8 +94,8 @@ if($i=="UDT"){
     $especi=$_POST['especial'];
     $rolme=$_POST['rolm'];
     
-    $pass = md5($_POST['contra']);
-    
+    //$pass = md5($_POST['contra']);
+    $pass = $_POST['contra'];
     
 
     
@@ -44,8 +103,9 @@ if($i=="UDT"){
     UPDATE `medico` SET
         `nombre_medico` ='$nombre2',
         `apellido_medico` ='$apellido2',
+        `user_medico` ='$userac',
         `codigo_medico` ='$sqmedico',
-        `especialidad`='$especi',
+        `especialidadm`='$especi',
         `contrasena_me`='$pass',
         `idRol`='$rolme'
         

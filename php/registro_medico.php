@@ -21,7 +21,7 @@
         $nombre=$_POST['nombre'];
         $apellido=$_POST['apellido'];
         $codime2=$_POST['codime'];
-
+        $user=$_POST['usurio'];
         $pass = md5($_POST['password']);
         
 
@@ -29,11 +29,12 @@
         //$date = (new DateTime())->format('y-m-d');
 
     
-    $sql = " INSERT INTO `medico` ( `nombre_medico`,`apellido_medico`, `codigo_medico`,`especialidad`,`idRol`,`contrasena_me`, `estado`) 
+    $sql = " INSERT INTO `medico` ( `nombre_medico`,`apellido_medico`,`user_medico`, `codigo_medico`,`especialidadm`,`idRol`,`contrasena_me`, `estado`) 
     VALUES (
 
         '$nombre',
         '$apellido',
+        '$user',
         '$codime2',
         '$espec',
         '3',

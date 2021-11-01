@@ -46,7 +46,7 @@ if ($_SESSION["s_admin"] === null) {
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://unpkg.com/sweetalert2@7.0.9/dist/sweetalert2.all.js"></script>
+    <script src="https://unpkg.com/sweetalert2@7.0.9/dist/sweetalert2.all.js"></script>
 
     <link rel="stylesheet" href="css/boton.css">
     <!--Icon-Font-->
@@ -83,20 +83,20 @@ if ($_SESSION["s_admin"] === null) {
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="admin_bien.php">Inicio</a></li>
-                            <li class="active" class="dropdown"><a href="mante_medico.php">Lista de Medico<i class="fa fa-angle-down"></i></a>
+                            <li  class="dropdown"><a href="mante_medico.php">Lista de Medico<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="mante_medico.php">Lista de medico</a></li>
                                     <li><a href="desativado_medico.php">lista desactivado medico</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="mante_public.php">Lista de publicacion<i class="fa fa-angle-down"></i></a>
+                            <li  class="dropdown"><a href="mante_public.php">Lista de publicacion<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="mante_public.php">Lista de publicacion</a></li>
                                     <li><a href="blog.html">Comentario publicacion</a></li>
                                     <li><a href="blogtwo.html">Lista destivado publicacion</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="mante_inve.php">Lista  investigaciones<i class="fa fa-angle-down"></i></a>
+                            <li class="active" class="dropdown"><a href="mante_inve.php">Lista  investigaciones<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                 <li><a href="mante_inve.php">Lista investigaciones</a></li>
                                 <li><a href="#">Comentario investigacio</a></li>
@@ -116,7 +116,7 @@ if ($_SESSION["s_admin"] === null) {
                                 <a href="portfolio.html" class="btn btn-info"><?php echo $_SESSION["s_admin"]; ?>. .<i class="fa fa-user"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="pefil_medico.php">Mi perfil</a></li>
-                                    <li><a  onclick="return alertaactivar();">Cerrar sesion</a></li>
+                                    <li><a onclick="return alertaactivar();">Cerrar sesion</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -137,7 +137,7 @@ if ($_SESSION["s_admin"] === null) {
         <!-- fin de la segunda parte-->
         <div>
             <div class="panel-heading">
-                <h1> Listado de Medico</h1>
+                <h1> Listado de Investigaciones</h1>
                 <div class="panel-body">
                     
                         <a href="nuevoma_medico.php" class="btn btn-info pull-letf" style="background-color: #0d87ac;">NUEVO</a>
@@ -148,17 +148,25 @@ if ($_SESSION["s_admin"] === null) {
                         <thead>
                             <tr style="background-color: #0d87ac; color:#FFFFFF;">
                                 <!-- fila-->
-                                <th>Codigo medico</th>
+                                <th>Codigo investigacion</th>
                                 <!--th colunma-->
-                                <th>Nombre</th>
-                                <th>Apellido</th>
-                                <th>Nombre usuario</th>
-                                <th>codigo medico</th>
-                                <th>especialidad</th>
-                                <th>Rol de medico</th>
-                                <th>Contraseña</th>
-                                <th>Estado</th>
-                                
+                                <th>Codigo medico</th>
+                                <th>Titulo investigacion</th>
+                                <th>_____Autor_____</th>
+                                <th>___________________________Resumen_________________________________</th>
+                                <th>Introduccion</th>
+                                <th>Palabra Clave</th>
+                                <th>__Antecedentes__</th>
+                                <th>___Obejetivo_general</th>
+                                <th>___Obejetivo_Especifico</th>
+                                <th>___Justificacion___</th>
+                                <th>___Hipotesis___</th>
+                                <th>___Metodologia___</th>
+                                <th>___Bibliografia___</th>
+                                <th>___Referencia___</th>
+                                <th>___Categoria___</th>
+                                <th>___Fecha___</th>
+                                <th>___Estado___</th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -166,31 +174,38 @@ if ($_SESSION["s_admin"] === null) {
                         <?php
                         
                         
-                        $query = lista_medico();
+                        $query = lista_invstigacion();
                         while ($row = $query->fetch_assoc()) {
                             //$fecha2=$row["fecha_public"];
                         //$final = date_create($fecha2)->format('d/m/y');
                             echo "
             <tr>
-            <td>" . $row["id_medico"] . "</td>
-            <td>" . $row["nombre_medico"] . "</td>
-			<td>" . $row["apellido_medico"]. "</td>
-            <td>" . $row["user_medico"]. "</td>
-			<td>" . $row["codigo_medico"]. "</td>
-            <td>" . $row["especialidadm"] . "</td>
-            <td>" . $row["idRol"] . "</td>
-            <td>" . $row["contrasena_me"] . "</td>
-            <td>" . $row["estado"] . "</td>
+            <td>" . $row["id_inv"] . "</td>
+            <td>" . $row["id_medico_inv"] . "</td>
+			<td>" . $row["titulo_inv"]. "</td>
+            <td>" . substr($row["autor_inv"],0,100). "</td>
+			<td>" . substr($row["resume_inv"],0,300). "</td>
+            <td>" . substr($row["introducion_inv"],0,100) . "</td>
+            <td>" . $row["pclave_inv"] . "</td>
+            <td>" . substr($row["Antecedente_inv"],0,200) . "</td>
+            <td>" . substr($row["objetivoge_inv"],0,300) . "</td>
+            <td>" . substr($row["objetivoes_inv"],0,300) . "</td>
+            <td>" . substr($row["justificasion_inv"],0,300) . "</td>
+            <td>" . substr($row["hipotesis_inv"],0,300) . "</td>
+            <td>" . substr($row["metodologia_inv"],0,300) . "</td>
+            <td>" . substr($row["bibliografia"],0,300) . "</td>
+            <td>" . substr($row["referencias_inv"],0,300) . "</td>
+            <td>" . substr($row["cotegoria_inv"],0,300) . "</td>
+            <td>" . substr($row["fecha_inv"],0,300) . "</td>
+            <td>" . substr($row["estado"],0,300) . "</td>
 			
             <td>
-            <a href='actualizarm_medico.php?id=" . $row["id_medico"] . "' class='btn btn-info' style='background-color: #0d87ac;'>Editar</a>
+            <a href='actualizarma_public.php?id=" . $row["id_inv"] . "' class='btn btn-info' style='background-color: #0d87ac;'>Editar</a>
             <br>
             <br>
-            <a href='php/tablas_mantenimiento.php?accion=DLT&id=" . $row["id_medico"] . "' class='btn btn-danger confirm'>Eliminar</a>
+            <a href='php/tablas_mantenimiento.php?accion=DLT&id=" . $row["id_inv"] . "' class='btn btn-danger confirm'>Eliminar</a>
             </td>
             </tr>
-
-            
             ";
                         }
                         ?>
@@ -201,9 +216,7 @@ if ($_SESSION["s_admin"] === null) {
 
         
 
-        
-            
-            <script>
+        <script>
                 $(".confirm").click(function(e) {
   e.preventDefault(); // Prevent the href from redirecting directly
   var linkURL = $(this).attr("href");

@@ -181,7 +181,7 @@ $codi= mb_detect_encoding($str,"ISO-8859-1,UTF-8");
                             </div>
                         </div>
                         <div class="sidebar-item categories">
-                            <h3>Especialidades</h3>
+                            <h3>especialidadmes</h3>
                             <ul class="nav navbar-stacked">
                                 <li><a href="#">Traumatología,<span class="pull-right">(1)</span></a></li>
                                 <li class="active"><a href="#">Farmacología<span class="pull-right">(8)</span></a></li>

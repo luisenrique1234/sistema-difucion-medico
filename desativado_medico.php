@@ -1,6 +1,6 @@
 <?php
 
-include('php/mante_consultas.php');
+include('php/consultas_desa.php');
 /*esta fucion sirve para converti toddos los carateres como acentos en formato
 uti-8 indenpedientemente de cual fuera su formato de  origen todo se convertira en 
 utf-8 para que asi todos tengan el mismo formato*/
@@ -33,7 +33,7 @@ if ($_SESSION["s_admin"] === null) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Mantenimiento de Medicos</title>
+    <title>lista de Medicos Desativado</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/lightbox.css" rel="stylesheet">
@@ -96,9 +96,9 @@ if ($_SESSION["s_admin"] === null) {
                                     <li><a href="blogtwo.html">Lista destivado publicacion</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="mante_inve.php">Lista  investigaciones<i class="fa fa-angle-down"></i></a>
+                            <li class="dropdown"><a href="cirugia_general.php">Lista  investigaciones<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                <li><a href="mante_inve.php">Lista investigaciones</a></li>
+                                <li><a href="#">Lista investigaciones</a></li>
                                 <li><a href="#">Comentario investigacio</a></li>
                                     <li><a href="#">Lista desativado investigaciones</a></li>
                                 </ul>
@@ -137,10 +137,8 @@ if ($_SESSION["s_admin"] === null) {
         <!-- fin de la segunda parte-->
         <div>
             <div class="panel-heading">
-                <h1> Listado de Medico</h1>
+                <h1> Listado de Medico Desativado</h1>
                 <div class="panel-body">
-                    
-                        <a href="nuevoma_medico.php" class="btn btn-info pull-letf" style="background-color: #0d87ac;">NUEVO</a>
                     
                     <br>
                     <hr>
@@ -166,7 +164,7 @@ if ($_SESSION["s_admin"] === null) {
                         <?php
                         
                         
-                        $query = lista_medico();
+                        $query = lista_medicodesa();
                         while ($row = $query->fetch_assoc()) {
                             //$fecha2=$row["fecha_public"];
                         //$final = date_create($fecha2)->format('d/m/y');
@@ -183,14 +181,9 @@ if ($_SESSION["s_admin"] === null) {
             <td>" . $row["estado"] . "</td>
 			
             <td>
-            <a href='actualizarm_medico.php?id=" . $row["id_medico"] . "' class='btn btn-info' style='background-color: #0d87ac;'>Editar</a>
-            <br>
-            <br>
-            <a href='php/tablas_mantenimiento.php?accion=DLT&id=" . $row["id_medico"] . "' class='btn btn-danger confirm'>Eliminar</a>
+            <a href='php/desativado_mante.php?accion=ACT&id=" . $row["id_medico"] . "' class='btn btn-info confirm' style='background-color: #0d87ac;'>Activar</a>
             </td>
             </tr>
-
-            
             ";
                         }
                         ?>
@@ -201,9 +194,7 @@ if ($_SESSION["s_admin"] === null) {
 
         
 
-        
-            
-            <script>
+        <script>
                 $(".confirm").click(function(e) {
   e.preventDefault(); // Prevent the href from redirecting directly
   var linkURL = $(this).attr("href");
@@ -212,11 +203,11 @@ if ($_SESSION["s_admin"] === null) {
 
 function warnBeforeRedirect(linkURL) {
   swal({
-    title: "¿Estas seguro de Eliminar este usuario?",
+    title: "¿Estas seguro de Activar este usuario?",
     text: "" + linkURL,
     type: "warning",
     showCancelButton: true,
-    confirmButtonText: 'Sí <i class="fa fa-user-times" aria-hidden="true"></i>',
+    confirmButtonText: 'Sí <i class="fa fa-user-plus" aria-hidden="true"></i>',
         cancelButtonText: 'Cancelar <i class="fa fa-times" aria-hidden="true"></i>',
   }).then(function(result) {
     console.log(result);

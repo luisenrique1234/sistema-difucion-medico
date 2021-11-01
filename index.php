@@ -39,9 +39,12 @@ if ($_SESSION["s_medico"] === null ){
     <link href="css/responsive.css" rel="stylesheet">
     <link href="css/dark.css" rel="stylesheet">
 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <link rel="stylesheet" href="css/boton.css">
     <!--Icon-Font-->
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
+    
 
     <!--[if lt IE 9]>
 	    <script src="js/html5shiv.js"></script>
@@ -107,7 +110,7 @@ if ($_SESSION["s_medico"] === null ){
                                 <ul role="menu" class="sub-menu">
                                 <li><a href="pefil_medico.php">Mi perfil</a></li>
                                     <li><a href="lista_publicm.php">Mis Publicaciones</a></li>
-                                    <li><a href="bd/logout.php" onclick="return alertaactivar();">Cerrar sesion</a></li>
+                                    <li><a  onclick="return alertaactivar();">Cerrar sesion</a></li>
                                 </ul>
                                  
                             </li>
@@ -178,7 +181,7 @@ if ($_SESSION["s_medico"] === null ){
                 <div class="col-md-3 col-sm-5">
                     <div class="sidebar blog-sidebar">
                         <div class="sidebar-item categories">
-                            <h3>Especialidades</h3>
+                            <h3>especialidadmes</h3>
                             <ul class="nav navbar-stacked">
                                 <li><a href="pediatria.php">Pediatria</a></li>
                                 <li class="active"><a href="Cardiologia.php">Cardiologia</a></li>
@@ -401,22 +404,26 @@ if ($_SESSION["s_medico"] === null ){
     </footer>
     <!--/#footer-->
 
-    <script>
-    function alertaactivar() {
+    </script>
+<script>
+            function alertaactivar() {
 
-        var respuesta = confirm("Estas seguro de Cerrar Sesion");
-
-        if (respuesta == true) {
-            return true;
-        } else {
-
-            return false;
-
-        }
+                Swal.fire({
+        title: '<h3>¿Estas seguro de cerrar sesion?</h3>',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: '<h5>Sí,Salir</h5>',
+        cancelButtonText: '<h5>Cancelar</h5>',
+    })
+    .then((result) => {
+   if (result.value) {
+     window.location.href = 'bd/logout.php'
+   }
+ }); 
 
 
     }
-    </script>
+        </script>
 
 
     <script type="text/javascript" src="js/jquery.js"></script>

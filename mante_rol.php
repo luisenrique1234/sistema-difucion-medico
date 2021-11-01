@@ -148,15 +148,9 @@ if ($_SESSION["s_admin"] === null) {
                         <thead>
                             <tr style="background-color: #0d87ac; color:#FFFFFF;">
                                 <!-- fila-->
-                                <th>Codigo medico</th>
+                                <th>Codigo Rol</th>
                                 <!--th colunma-->
-                                <th>Nombre</th>
-                                <th>Apellido</th>
-                                <th>Nombre usuario</th>
-                                <th>codigo medico</th>
-                                <th>especialidad</th>
-                                <th>Rol de medico</th>
-                                <th>Contraseña</th>
+                                <th>Descrision</th>
                                 <th>Estado</th>
                                 
                                 <th></th>
@@ -166,27 +160,20 @@ if ($_SESSION["s_admin"] === null) {
                         <?php
                         
                         
-                        $query = lista_medico();
+                        $query = lista_rol();
                         while ($row = $query->fetch_assoc()) {
                             //$fecha2=$row["fecha_public"];
                         //$final = date_create($fecha2)->format('d/m/y');
                             echo "
             <tr>
-            <td>" . $row["id_medico"] . "</td>
-            <td>" . $row["nombre_medico"] . "</td>
-			<td>" . $row["apellido_medico"]. "</td>
-            <td>" . $row["user_medico"]. "</td>
-			<td>" . $row["codigo_medico"]. "</td>
-            <td>" . $row["especialidadm"] . "</td>
-            <td>" . $row["idRol"] . "</td>
-            <td>" . $row["contrasena_me"] . "</td>
-            <td>" . $row["estado"] . "</td>
+            <td>" . $row["id_roles"] . "</td>
+            <td>" . $row["descripcion"] . "</td>
+			<td>" . $row["estado"]. "</td>
 			
             <td>
-            <a href='actualizarm_medico.php?id=" . $row["id_medico"] . "' class='btn btn-info' style='background-color: #0d87ac;'>Editar</a>
-            <br>
-            <br>
-            <a href='php/tablas_mantenimiento.php?accion=DLT&id=" . $row["id_medico"] . "' class='btn btn-danger confirm'>Eliminar</a>
+            <a href='actualizarm_medico.php?id=" . $row["id_roles"] . "' class='btn btn-info' style='background-color: #0d87ac;'>Editar</a>
+            
+            <a href='php/tablas_mantenimiento.php?accion=DLT&id=" . $row["id_roles"] . "' class='btn btn-danger confirm'>Eliminar</a>
             </td>
             </tr>
 

@@ -11,8 +11,8 @@ $password = (isset($_POST['password'])) ? $_POST['password'] : '';
 $pass = md5($password);
 //$pass = ($password);
 
-$consulta = "SELECT medico.id_medico AS idme, medico.idRol AS idRol, rol.descripcion AS rol2,medico.especialidad AS espe,medico.apellido_medico AS apelli,
-medico.codigo_medico AS codigome FROM medico JOIN rol ON medico.idRol = rol.id_roles WHERE nombre_medico='$usuario' AND contrasena_me='$pass' ";	
+$consulta = "SELECT medico.id_medico AS idme, medico.idRol AS idRol, rol.descripcion AS rol2,medico.especialidadm AS espe,medico.apellido_medico AS apelli,
+medico.codigo_medico AS codigome FROM medico JOIN rol ON medico.idRol = rol.id_roles WHERE user_medico='$usuario' AND contrasena_me='$pass' ";	
 $resultado = $conexion->prepare($consulta);
 $resultado->execute(); 
 

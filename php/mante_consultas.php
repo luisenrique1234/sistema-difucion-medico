@@ -18,6 +18,24 @@ function extraermedico($id){
 }
 ?>
 
+<?php 
+
+function lista_public(){
+    include('conexion.php');
+    
+    
+    $sql="SELECT * FROM publicacion WHERE estado='A' ORDER BY id_public ASC";
+    return $result = $mysqli->query($sql);
+}
+function extraerpubic($id){
+    include('conexion.php');
+    $sql="SELECT * FROM publicacion where id_public='$id'";
+    return $result = $mysqli->query($sql);
+}
+
+
+?>
+
 <?php
 
 /* parte donde esta la Consutal de todos las publicaciones de los medico lista de las publicaciones que 
@@ -27,8 +45,8 @@ ellos mis han publicado y se extra las mismas */
 function lista_invstigacion(){
     include('conexion.php');
     
-    $id_med=$_SESSION["s_idme"];
-    $sql="SELECT * FROM inv_cientifica WHERE id_medico_inv='$id_med' AND estado='A' ORDER BY fecha_inv DESC";
+    
+    $sql="SELECT * FROM inv_cientifica WHERE  estado='A' ORDER BY id_inv ASC";
     return $result = $mysqli->query($sql);
 }
 function extraerinvestigacion($id){
@@ -38,3 +56,21 @@ function extraerinvestigacion($id){
 }
 ?>
 
+<?php
+
+
+
+
+function lista_rol(){
+    include('conexion.php');
+    
+    
+    $sql="SELECT * FROM rol WHERE  estado='A' ORDER BY id_roles ASC";
+    return $result = $mysqli->query($sql);
+}
+function extraerrol($id){
+    include('conexion.php');
+    $sql="SELECT * FROM rol where id_roles='$id'";
+    return $result = $mysqli->query($sql);
+}
+?>

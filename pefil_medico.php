@@ -153,7 +153,7 @@ if ($_SESSION["s_medico"] === null) {
                                                 </div>
                                                 <div class="col-lg-5 col-lg-offset-5 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-                                                        <label class="control-label">Especialidad</label>
+                                                        <label class="control-label">especialidadm</label>
                                                         <h3><i class="fa fa-heartbeat" aria-hidden="true"></i>  <?php echo $_SESSION["s_espeme"];?></h3>
                                                     </div>
                                                 </div>

@@ -169,7 +169,7 @@ if ($_SESSION["s_medico"] === null){
                 <div class="col-md-3 col-sm-5">
                     <div class="sidebar blog-sidebar">
                         <div class="sidebar-item categories">
-                            <h3>Especialidades</h3>
+                            <h3>especialidadmes</h3>
                             <ul class="nav navbar-stacked">
                                 <li><a href="#">Pediatria</a></li>
                                 <li class="active"><a href="#">Cardiologia</a></li>

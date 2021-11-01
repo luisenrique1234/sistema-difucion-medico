@@ -23,7 +23,7 @@ if($resultado->rowCount() >= 1){
     $_SESSION["s_idRol3"] = $data[0]["idRolAd"];
     $_SESSION["s_rol_descripcion3"] = $data[0]["roles"];
 }else{
-    $_SESSION["s_usuario3"] = null;  
+    $_SESSION["s_admin"] = null;  
     $data=null;
 }
 

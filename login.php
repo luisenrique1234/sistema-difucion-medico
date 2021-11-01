@@ -13,7 +13,7 @@
 	<link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <link href="css/dark.css" rel="stylesheet">
-
+    <script src="js/jquery-3.6.0.min.js" type="text/javascript"></script>
     
     <link rel="stylesheet" href="css/login.css">
 
@@ -51,6 +51,10 @@
                             <div class="form-group">
                                 <label for="password" class="text-dark">Password</label><br>
                                 <input type="password" name="password" id="password" class="form-control">
+                                <div style="margin-top:15px;">
+                                <input style="margin-left:20px;" type="checkbox" id="mostrar_contrasena" title="clic para mostrar contraseña"/>
+                                 &nbsp;&nbsp;Mostrar Contraseña
+                                </div>
                             </div>
                             <div class="form-group text-center">                                
                                 <input type="submit" name="submit" class="btn btn-info btn-lg btn-block" value="Iniciar">
@@ -64,6 +68,18 @@
         </div>
     </div>
     
+    <script>
+$(document).ready(function () {
+  $('#mostrar_contrasena').click(function () {
+    if ($('#mostrar_contrasena').is(':checked')) {
+      $('#password').attr('type', 'text');
+    } else {
+      $('#password').attr('type', 'password');
+    }
+  });
+});
+</script>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script type="text/javascript" src="js/jquery.js"></script>

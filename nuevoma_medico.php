@@ -1,9 +1,7 @@
 <?php
 
 include('php/mante_consultas.php');
-$query=extraermedico($_GET['id']);
-	
-    $row=$query->fetch_assoc();
+
 /*esta fucion sirve para converti toddos los carateres como acentos en formato
 uti-8 indenpedientemente de cual fuera su formato de  origen todo se convertira en 
 utf-8 para que asi todos tengan el mismo formato*/
@@ -35,7 +33,7 @@ if ($_SESSION["s_admin"] === null) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Sistama de divulgacion medico</title>
+    <title>Nuevo medico mantenimiento</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/lightbox.css" rel="stylesheet">
@@ -160,40 +158,33 @@ if ($_SESSION["s_admin"] === null) {
                             <div class="panel-dafault" style="margin-top: 12px">
                                 <!--panel de crear -->
                                 <div class="panel-heading">
-                                    <form action="php/tablas_mantenimiento.php?accion=UDT" method="POST" enctype="multipart/form-data">
+                                    <form action="php/tablas_mantenimiento.php?accion=INS" method="POST" enctype="multipart/form-data">
                                         <div class="row">
                                             <div class="wow fadeInDown">
                                                 
-                                            <div class="col-md-1 col-md-offset-1 col-sm-1 col-sm-offset-2 col-lg-2 col-lg-offset-5 col-xs-12 col-xs-offset-0">
-                                            <div class="form-group">
-                                            <label class="control-label">ID medico<span
-                                                                style="color: turquoise">*</span></label>
-                                                                <input style="background-color: #5cc4dc; color:#000000;" type="text" 
-                                                                name="codigom" require="" placeholder="categoria" class="form-control" readonly="" value="<?php echo $row['id_medico']?>">
-                                            </div>
-				                            </div>
-                                                <div class="col-md-3 col-md-offset-2 col-sm-3 col-sm-offset-2 col-lg-3 col-lg-offset-2 col-xs-12 col-xs-offset-0">
+                                            
+                                                <div class="col-md-3 col-md-offset-2 col-sm-3 col-sm-offset-2 col-lg-3 col-lg-offset-5 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
 
                                                         <label class="control-label">Nombre<span
                                                                 style="color: turquoise">*</span></label>
                                                         <input type="text" name="nombre" required="required"
-                                                            placeholder="Nombre" class="form-control" value="<?php echo $row['nombre_medico']?>">
+                                                            placeholder="Nombre" class="form-control" >
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-lg-3 col-lg-offset-5 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
                                                         <label class="control-label">Apellido</label>
-                                                        <input type="text" name="apellido" required="required" placeholder="Apellido" class="form-control" value="<?php echo $row['apellido_medico']?>">
+                                                        <input type="text" name="apellido" required="required" placeholder="Apellido" class="form-control">
                                                     </div>
                                                 </div>
                                                 
                                                 <div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-lg-3 col-lg-offset-1 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-                                                    <label class="control-label">codigo medico<span
+                                                    <label class="control-label">S4 medico<span
                                                             style="color: turquoise">*</span></label>
                                                     <div class="form-group">
-                                                    <input type="text" name="sqmedico" required="required" placeholder="Medioc" class="form-control" value="<?php echo $row['codigo_medico']?>">
+                                                    <input type="text" name="sqmedico" required="required" placeholder="S4" class="form-control">
                                                     </div>
                                                     </div>
                                                 </div>
@@ -219,7 +210,7 @@ if ($_SESSION["s_admin"] === null) {
 					                                        	?>
                                                             
                                                             
-                                                            <option value="<?php echo $id?>" <?php if($row['especialidadm']==$id){echo "selected";} ?>><?php echo $espe;?></option>
+                                                            <option value="<?php echo $id?>"><?php echo $espe;?></option>
                                                             
 
 
@@ -236,7 +227,7 @@ if ($_SESSION["s_admin"] === null) {
                                                     <div class="form-group">
                                                         <label  class="control-label">Nombre de usuario<span
                                                                 style="color:turquoise">*</span> </label>
-                                                        <input  type="text" name="userac" require="" placeholder="Contraseña" class="form-control"  value="<?php echo $row['user_medico']?>">
+                                                        <input  type="text" name="userac" require="" placeholder="Usurio" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3 col-md-offset-2 col-sm-3 col-sm-offset-1 col-lg-3 col-lg-offset-5 col-xs-10 col-xs-offset-0">
@@ -259,7 +250,7 @@ if ($_SESSION["s_admin"] === null) {
 					                                        	?>
                                                             
                                                             
-                                                            <option value="<?php echo $id2?>" <?php if($row['idRol']==$id2){echo "selected";} ?>><?php echo $espe2;?></option>
+                                                            <option value="<?php echo $id2?>"><?php echo $espe2;?></option>
                                                             
 
 
@@ -275,7 +266,7 @@ if ($_SESSION["s_admin"] === null) {
                                                     <div class="form-group">
                                                         <label  class="control-label">Contraseña<span
                                                                 style="color:turquoise">*</span> </label>
-                                                        <input  type="text" name="contra" require="" placeholder="Contraseña" class="form-control" readonly="" value="<?php echo $row['contrasena_me']?>">
+                                                        <input  type="text" name="contra" require="" placeholder="Contraseña" class="form-control">
                                                     </div>
                                                 </div>
                                                 <!--<div  class="col-lg-2 col-lg-offset-0 col-xs-12 col-xs-offset-0">

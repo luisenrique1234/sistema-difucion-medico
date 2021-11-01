@@ -45,7 +45,7 @@
 
                         <div id="login-box" class="col-md-12  bg-light text-dark">
                             <form action="php/registro_medico.php?accion=INS" method="POST">
-                                <h3 class="text-center text-dark">Registro Medico</h3>
+                                <h3 class="text-center text-dark">Registró Medico</h3>
                                 <div class="form-group">
                                     <label for="usuario" class="text-dark">Nombre</label><br>
                                     <input type="text" name="nombre" id="nombre" class="form-control" required="required">
@@ -53,19 +53,41 @@
                                 <div class="form-group">
                                     <label for="usuario" class="text-dark">Apellido</label><br>
                                     <input type="text" name="apellido" id="apellido" class="form-control" required="required">
+                                    <label for="usuario" class="text-dark">Nombre de Usuario</label><br>
+                                    <input type="text" name="usurio" id="usurio" class="form-control" required="required">
                                 </div>
                                 <div class="form-group">
-                                    <label for="usuario" class="text-dark">SQARTO Medico</label><br>
+                                    <label for="usuario" class="text-dark">S4 Medico</label><br>
                                     <input type="text" name="codime" id="codigo" class="form-control" required="required">
                                 </div>
                                 <div class="form-group">
-                                <label class="control-label">Especialidad<span
-                                                                style="color:turquoise">*</span> </label>
-                                                        <select class="form-control" name="espec"
-                                                            required="required">
-                                                            <option>Pediatria</option>
-                                                            <option>Cirugia general</option>
-                                                            <option selected>Cardiologia</option>
+                                <label class="control-label">Especialidad<span style="color:turquoise">*</span> </label>
+
+                                                        <select name="espec" class="form-control" required="required">
+                                                            <?php
+					                                        include 'php/conexion.php';
+                                                            
+					                                        $getAlumno1 = "SELECT * FROM  especialidad ORDER BY espec_descripsion ASC";
+					                                        $gerAlumno2 = $mysqli->query ($getAlumno1);
+                                                            
+					                                        while ($row2 = mysqli_fetch_array($gerAlumno2))
+					                                        {
+					                                            $id = $row2 ['id_espec'];
+					                                        	$espe = $row2['espec_descripsion'];
+                                                            
+                                                            
+					                                        	?>
+                                                            
+                                                            
+                                                            <option value="<?php echo $id?>"><?php echo $espe;?></option>
+                                                            
+
+
+                                                            <?php
+
+					}
+
+					?>
                                                         </select>
                                 </div>
                                 <div class="form-group">
@@ -73,7 +95,7 @@
                                     <input type="password" name="password" id="password" class="form-control" required="required">
                                 </div>
                                 <div class="form-group text-center">
-                                    <input type="submit" value="registralr" class="btn btn-submit">
+                                    <input type="submit" value="registrate" class="btn btn-submit">
                                     <br>
                                     <h5><a href="login.php">Login</a></h5>
 

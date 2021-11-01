@@ -161,7 +161,7 @@ if ($_SESSION["s_medico"] === null) {
                                                 <div class="col-lg-5 col-lg-offset-5 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
 
-                                                        <label class="control-label">Nueva Especialidad</label>
+                                                        <label class="control-label">Nueva especialidadm</label>
                                                         <input type="text" name="especiali" required="required"
                                                             placeholder="Apelledo" class="form-control" value="<?php echo $_SESSION['s_espeme'];?>">
                                                         
