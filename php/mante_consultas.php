@@ -58,9 +58,6 @@ function extraerinvestigacion($id){
 
 <?php
 
-
-
-
 function lista_rol(){
     include('conexion.php');
     
@@ -71,6 +68,22 @@ function lista_rol(){
 function extraerrol($id){
     include('conexion.php');
     $sql="SELECT * FROM rol where id_roles='$id'";
+    return $result = $mysqli->query($sql);
+}
+?>
+
+<?php
+
+function lista_espc(){
+    include('conexion.php');
+    
+    
+    $sql="SELECT * FROM especialidad WHERE  estado='A' ORDER BY id_espec ASC";
+    return $result = $mysqli->query($sql);
+}
+function extraerespc($id){
+    include('conexion.php');
+    $sql="SELECT * FROM especialidad where id_espec='$id'";
     return $result = $mysqli->query($sql);
 }
 ?>

@@ -19,6 +19,8 @@ if ($_SESSION["s_medico"] === null){
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../css/pag_error.css">
 
+    
+
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
 
@@ -28,23 +30,37 @@ if ($_SESSION["s_medico"] === null){
 
 <body>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="jumbotron">
-                    <h1 class="display-4 text-center">Permisos</h1>
-                    <h2 class="text-center">Usuario: <span
-                            class="btn btn-info"><?php echo $_SESSION["s_medico"];?></span></h2>
-                    <p class="lead text-center">Usted NO tiene permisos de Medico</p>
-                    <h2 class="text-center">Su permiso es: <span
-                            class="btn btn-warning"><?php echo $_SESSION["s_rol_descripcion2"];?></span></h2>
-                    <hr class="my-4">
-                    <a class="btn btn-danger btn-lg" href="../bd/logout.php" role="button">Cerrar Sesión</a>
+<div id="login">
+        
+    <div class="wow bounceIn">
+        <div class="container"> 
+                                   
+            <div id="login-center" class="center justify-content-center align-items-center">
+                <div id="login-column" class="col-lg-6 col-lg-offset-3">
+
+                
+                    <br>
+                    <br>
+                    <br>
+                    <div id="login-box" class="col-md-12  bg-light text-dark">
+                        
+                            <h3 class="text-center text-dark">Su cuenta<span class="btn btn-info"><?php echo $_SESSION["s_medico"];?></span></h3>
+                            
+                            <h3 class="text-center text-dark">No</h3>
+                            <h3 class="text-center text-dark">cuenta con los permisos autorizados.</h3>
+                            <h3 class="text-center text-dark">Contacte al personal acreditado.</h3>
+                            <div class="form-group">
+                            
+                            </div>
+                            <div class="form-group text-center">                                
+                                <br>
+                                <a href="../bd/logout.php" class="btn btn-danger">SALIR</a>
+                            </div>                            
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="../jquery/jquery-3.3.1.min.js"></script>

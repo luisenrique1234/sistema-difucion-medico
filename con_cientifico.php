@@ -363,7 +363,7 @@ if ($_SESSION["s_medico"] === null){
                         <div class="sidebar-item  recent">
                         </div>
                         <div class="sidebar-item categories">
-                            <h3>especialidadmes</h3>
+                            <h3>especialidades</h3>
                             <ul class="nav navbar-stacked">
                                 <li><a href="#">Pediatria</a></li>
                                 <li class="active"><a href="#">Cardiologia</a></li>

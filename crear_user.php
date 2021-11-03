@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Registro medico</title>
+    <title>Registro médico</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/lightbox.css" rel="stylesheet">
@@ -45,7 +45,7 @@
 
                         <div id="login-box" class="col-md-12  bg-light text-dark">
                             <form action="php/registro_medico.php?accion=INS" method="POST">
-                                <h3 class="text-center text-dark">Registró Medico</h3>
+                                <h3 class="text-center text-dark">Registró Médico</h3>
                                 <div class="form-group">
                                     <label for="usuario" class="text-dark">Nombre</label><br>
                                     <input type="text" name="nombre" id="nombre" class="form-control" required="required">
@@ -57,8 +57,18 @@
                                     <input type="text" name="usurio" id="usurio" class="form-control" required="required">
                                 </div>
                                 <div class="form-group">
-                                    <label for="usuario" class="text-dark">S4 Medico</label><br>
+                                    <label for="usuario" class="text-dark">Exequátur</label><br>
                                     <input type="text" name="codime" id="codigo" class="form-control" required="required">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usuario" class="text-dark">Provincia</label><br>
+                                    <select name="provicia" class="form-control" required="required">
+                                        <option value="La Vega" selected>La Vega</option>
+                                        <option value="Santiago">Santiago</option>
+                                        <option value="Valverde">Valverde</option>
+                                        <option value="Valverde">Valverde</option>
+                                        <option value="Santiago Rodríguez">Santiago Rodríguez</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                 <label class="control-label">Especialidad<span style="color:turquoise">*</span> </label>

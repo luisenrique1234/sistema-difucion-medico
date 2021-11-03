@@ -61,7 +61,7 @@ if ($_SESSION["s_admin"] === null) {
                             <h3 class="text-center text-dark">Bienvenido <span class="btn btn-info"><?php echo $_SESSION["s_admin"];?></span></h3>
                             
                             <h3 class="text-center text-dark">AL</h3>
-                            <h3 class="text-center text-dark">Sistema de difusión medico</h3>
+                            <h3 class="text-center text-dark">Sistema de difusion de información médico</h3>
                             <div class="form-group">
                             
                             </div>
@@ -86,6 +86,5 @@ if ($_SESSION["s_admin"] === null) {
     <script type="text/javascript" src="js/temad.js"></script> 
     
     <script src="plugins/sweet_alert2/sweetalert2.all.min.js"></script>
-    <script src="codigo.js"></script>
 </body>
 </html>

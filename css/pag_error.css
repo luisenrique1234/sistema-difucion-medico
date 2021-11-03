@@ -1,15 +1,13 @@
-body{
-    background: url(../images/pagerror.jpg) no-repeat center center fixed;
+body {
+    background: url(../images/errormedico.jpg) no-repeat center center fixed;
     background-size: cover;
-}
-.main-selection{
-    margin:0 auto;
-    margin-top:35%;
-    padding: 60;
-}
-
-.modal-content{
-    background-color: white;
-    opacity: 65;
-    padding: 0 5px;
-}
+  }
+  
+  #login .container #login-center #login-column #login-box {
+    margin-top: 20px;
+    max-width: 600px;
+    max-height: 630px;
+    box-shadow: 4px 4px 4px 4px #45bcdb;
+    background-color: rgb(255, 255, 255);
+    border-radius: 3px;    
+  }

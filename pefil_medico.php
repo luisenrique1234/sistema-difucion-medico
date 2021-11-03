@@ -30,7 +30,7 @@ if ($_SESSION["s_medico"] === null) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Sistama de divulgacion medico</title>
+    <title>Sistama de divulgacion médico</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/lightbox.css" rel="stylesheet">
@@ -144,7 +144,7 @@ if ($_SESSION["s_medico"] === null) {
                                                 </div>
                                                 <div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-lg-8 col-lg-offset-5 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-                                                    <label class="control-label">Codigo Medico</label>
+                                                    <label class="control-label">Código Médico</label>
                                                     <div class="form-group">
                                                     <h3><i class="fa fa-barcode" aria-hidden="true"></i>  <?php echo $_SESSION["s_codime"];?></h3>
                                                     

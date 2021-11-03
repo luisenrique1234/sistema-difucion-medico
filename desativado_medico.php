@@ -33,7 +33,7 @@ if ($_SESSION["s_admin"] === null) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>lista de Medicos Desativado</title>
+    <title>lista de Médicos Desativado</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/lightbox.css" rel="stylesheet">
@@ -83,10 +83,10 @@ if ($_SESSION["s_admin"] === null) {
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="admin_bien.php">Inicio</a></li>
-                            <li class="active" class="dropdown"><a href="mante_medico.php">Lista de Medico<i class="fa fa-angle-down"></i></a>
+                            <li class="active" class="dropdown"><a href="mante_medico.php">Lista de Médico<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                    <li><a href="mante_medico.php">Lista de medico</a></li>
-                                    <li><a href="desativado_medico.php">lista desactivado medico</a></li>
+                                    <li><a href="mante_medico.php">Lista de médico</a></li>
+                                    <li><a href="desativado_medico.php">lista desactivado médico</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown"><a href="mante_public.php">Lista de publicacion<i class="fa fa-angle-down"></i></a>
@@ -105,8 +105,8 @@ if ($_SESSION["s_admin"] === null) {
                             </li>
                             <li class="dropdown"><a href="cirugia_general.php">Roles<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                <li><a href="#">Roles medico</a></li>
-                                <li><a href="#">Especialidades medicos</a></li>
+                                <li><a href="#">Roles médico</a></li>
+                                <li><a href="#">Especialidades médicos</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -137,7 +137,7 @@ if ($_SESSION["s_admin"] === null) {
         <!-- fin de la segunda parte-->
         <div>
             <div class="panel-heading">
-                <h1> Listado de Medico Desativado</h1>
+                <h1> Listado de Médico Desativado</h1>
                 <div class="panel-body">
                     
                     <br>
@@ -146,14 +146,14 @@ if ($_SESSION["s_admin"] === null) {
                         <thead>
                             <tr style="background-color: #0d87ac; color:#FFFFFF;">
                                 <!-- fila-->
-                                <th>Codigo medico</th>
+                                <th>Código medico</th>
                                 <!--th colunma-->
                                 <th>Nombre</th>
                                 <th>Apellido</th>
                                 <th>Nombre usuario</th>
-                                <th>codigo medico</th>
+                                <th>código médico</th>
                                 <th>especialidad</th>
-                                <th>Rol de medico</th>
+                                <th>Rol de médico</th>
                                 <th>Contraseña</th>
                                 <th>Estado</th>
                                 
@@ -223,7 +223,7 @@ function warnBeforeRedirect(linkURL) {
         title: '<h3>¿Estas seguro de cerrar sesion?</h3>',
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: '<h5>Sí,Salir</h5>',
+        confirmButtonText: '<h5>Salir</h5>',
         cancelButtonText: '<h5>Cancelar</h5>',
     })
     .then((result) => {

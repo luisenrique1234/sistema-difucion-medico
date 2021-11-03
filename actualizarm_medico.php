@@ -35,7 +35,7 @@ if ($_SESSION["s_admin"] === null) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Sistama de divulgacion medico</title>
+    <title>Sistama de divulgacion médico</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/lightbox.css" rel="stylesheet">
@@ -190,7 +190,7 @@ if ($_SESSION["s_admin"] === null) {
                                                 
                                                 <div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-lg-3 col-lg-offset-1 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-                                                    <label class="control-label">codigo medico<span
+                                                    <label class="control-label">código médico<span
                                                             style="color: turquoise">*</span></label>
                                                     <div class="form-group">
                                                     <input type="text" name="sqmedico" required="required" placeholder="Medioc" class="form-control" value="<?php echo $row['codigo_medico']?>">
@@ -241,7 +241,7 @@ if ($_SESSION["s_admin"] === null) {
                                                 </div>
                                                 <div class="col-md-3 col-md-offset-2 col-sm-3 col-sm-offset-1 col-lg-3 col-lg-offset-5 col-xs-10 col-xs-offset-0">
                                                     <div class="form-group">
-                                                        <label  class="control-label">Rol del medico<span
+                                                        <label  class="control-label">Rol del médico<span
                                                                 style="color:turquoise">*</span> </label>
                                                                 <select name="rolm" class="form-control" required="required">
                                                             <?php

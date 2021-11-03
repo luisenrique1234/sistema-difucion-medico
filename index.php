@@ -30,7 +30,7 @@ if ($_SESSION["s_medico"] === null ){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Sistama de divulgacion medico</title>
+    <title>Sistama de divulgacion médico</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/lightbox.css" rel="stylesheet">
@@ -101,7 +101,13 @@ if ($_SESSION["s_medico"] === null ){
                                     <li><a href="#">Anestecia Local</a></li>
                                 </ul>
                             </li>
-                            <li >
+                            <li class="dropdown"><a href="stream_medico.php">Directos<i class="fa fa-angle-down"></i></a>
+                                <ul role="menu" class="sub-menu">
+                                    <li><a href="stream_medico.php">Directos médicos</a></li>
+                                </ul>
+                            </li>
+
+                            <li>
                         
                            <!-- <div >
                             <img src="images/predeterminado.jpg" width="100%" height="60">
@@ -181,7 +187,7 @@ if ($_SESSION["s_medico"] === null ){
                 <div class="col-md-3 col-sm-5">
                     <div class="sidebar blog-sidebar">
                         <div class="sidebar-item categories">
-                            <h3>especialidadmes</h3>
+                            <h3>Especialidades</h3>
                             <ul class="nav navbar-stacked">
                                 <li><a href="pediatria.php">Pediatria</a></li>
                                 <li class="active"><a href="Cardiologia.php">Cardiologia</a></li>
@@ -358,7 +364,7 @@ if ($_SESSION["s_medico"] === null ){
                     <div class="con">
                         <input type="checkbox" id="btn-mas">
                         <div class="redes">
-                            <a href="#" class="fa fa-user-circle"></a>
+                            <a href="graficosme.php" class="fa fa-bar-chart" aria-hidden="true"></a>
                             
                             <a href="buscador_m.php" class="fa fa-search"></a>
                             <a href="cientifico.php" class="fa fa-h-square" aria-hidden="true"></a>
@@ -412,7 +418,7 @@ if ($_SESSION["s_medico"] === null ){
         title: '<h3>¿Estas seguro de cerrar sesion?</h3>',
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: '<h5>Sí,Salir</h5>',
+        confirmButtonText: '<h5>Salir</h5>',
         cancelButtonText: '<h5>Cancelar</h5>',
     })
     .then((result) => {
