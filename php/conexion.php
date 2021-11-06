@@ -10,3 +10,7 @@ if( $mysqli -> connect_errno){
 }
 
 ?>
+<?php
+
+$conexion = mysqli_connect("localhost", "root", "", "red_medica");
+?>

@@ -24,6 +24,7 @@ if ($_SESSION["s_admin"] === null) {
 }
 
 
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -45,8 +46,11 @@ if ($_SESSION["s_admin"] === null) {
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://unpkg.com/sweetalert2@7.0.9/dist/sweetalert2.all.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert2@7.0.9/dist/sweetalert2.all.js"></script>-->
+
+<link href="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">
+<script src="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.js" type="text/javascript"></script>
 
     <link rel="stylesheet" href="css/boton.css">
     <!--Icon-Font-->
@@ -141,23 +145,26 @@ if ($_SESSION["s_admin"] === null) {
                 <div class="panel-body">
                     
                         <a href="nuevoma_medico.php" class="btn btn-info pull-letf" style="background-color: #0d87ac;">NUEVO</a>
+                        
+                        
+                        <a href="reportes/reporte_medicodom.php" class="btn btn-danger">Reporte <i class="fa fa-print" aria-hidden="true"></i></a>
                     
                     <br>
                     <hr>
-                    <table class="table" style="text-align: center;">
+                    <table  class="table tabla1" style="text-align: center;">
                         <thead>
                             <tr style="background-color: #0d87ac; color:#FFFFFF;">
                                 <!-- fila-->
-                                <th>Código médico</th>
+                                <th data-sortable="true">Código médico</th>
                                 <!--th colunma-->
-                                <th>Nombre</th>
-                                <th>Apellido</th>
-                                <th>Nombre usuario</th>
-                                <th>código médico</th>
-                                <th>especialidad</th>
-                                <th>Rol de médico</th>
-                                <th>Contraseña</th>
-                                <th>Estado</th>
+                                <th data-hidden="true">Nombre</th>
+                                <th data-hidden="true">Apellido</th>
+                                <th data-hidden="true">Nombre usuario</th>
+                                <th data-hidden="true">código médico</th>
+                                <th data-hidden="true">especialidad</th>
+                                <th data-hidden="true">Rol de médico</th>
+                                <th data-hidden="true">Contraseña</th>
+                                <th data-hidden="true">Estado</th>
                                 
                                 <th></th>
                                 <th></th>
@@ -186,7 +193,7 @@ if ($_SESSION["s_admin"] === null) {
             <a href='actualizarm_medico.php?id=" . $row["id_medico"] . "' class='btn btn-info' style='background-color: #0d87ac;'>Editar</a>
             <br>
             <br>
-            <a href='php/tablas_mantenimiento.php?accion=DLT&id=" . $row["id_medico"] . "' class='btn btn-danger confirm'>Eliminar</a>
+            <a  onclick='return alereliminar(".$row['id_medico'].");'  class='btn btn-danger confirm'>Eliminar</a>
             </td>
             </tr>
 
@@ -203,47 +210,7 @@ if ($_SESSION["s_admin"] === null) {
 
         
             
-            <script>
-                $(".confirm").click(function(e) {
-  e.preventDefault(); // Prevent the href from redirecting directly
-  var linkURL = $(this).attr("href");
-  warnBeforeRedirect(linkURL);
-});
-
-function warnBeforeRedirect(linkURL) {
-  swal({
-    title: "¿Estas seguro de Eliminar este usuario?",
-    text: "" + linkURL,
-    type: "warning",
-    showCancelButton: true,
-    confirmButtonText: 'Sí <i class="fa fa-user-times" aria-hidden="true"></i>',
-        cancelButtonText: 'Cancelar <i class="fa fa-times" aria-hidden="true"></i>',
-  }).then(function(result) {
-    console.log(result);
-    if (result.value) {
-      window.location.href = linkURL;
-    }
-  });
-}
             
-            function alertaactivar() {
-
-                Swal.fire({
-        title: '<h3>¿Estas seguro de cerrar sesion?</h3>',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: '<h5>Salir</h5>',
-        cancelButtonText: '<h5>Cancelar</h5>',
-    })
-    .then((result) => {
-   if (result.value) {
-     window.location.href = 'bd/logout2.php'
-   }
- }); 
-
-
-    }
-        </script>
         <!--boton flotante donde esta los diferentes acciones -->
         <footer>
         <div class="container">
@@ -277,6 +244,8 @@ function warnBeforeRedirect(linkURL) {
         <script type="text/javascript" src="js/lightbox.min.js"></script>
         <script type="text/javascript" src="js/wow.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/mante_buscador.js"></script>
+        <script type="text/javascript" src="js/mante_alertas.js"></script>
         <!--LUgar donde esta el ativador del modo oscuro -->
         <script type="text/javascript" src="js/temad.js"></script>
     </body>

@@ -45,8 +45,9 @@ if ($_SESSION["s_admin"] === null) {
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/sweetalert2@7.0.9/dist/sweetalert2.all.js"></script>
+    
+    <link href="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">
+    <script src="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.js" type="text/javascript"></script>
 
     <link rel="stylesheet" href="css/boton.css">
     <!--Icon-Font-->
@@ -144,29 +145,28 @@ if ($_SESSION["s_admin"] === null) {
                     
                     <br>
                     <hr>
-                    <table class="table" style="text-align: center;">
+                    <table class="table tabla1" style="text-align: center;">
                         <thead>
                             <tr style="background-color: #0d87ac; color:#FFFFFF;">
                                 <!-- fila-->
-                                <th>Código investigacion</th>
-                                <!--th colunma-->
-                                <th>Código médico</th>
-                                <th>Titulo investigacion</th>
-                                <th>_____Autor_____</th>
-                                <th>___________________________Resumen_________________________________</th>
-                                <th>Introduccion</th>
-                                <th>Palabra Clave</th>
-                                <th>__Antecedentes__</th>
-                                <th>___Obejetivo_general</th>
-                                <th>___Obejetivo_Especifico</th>
-                                <th>___Justificacion___</th>
-                                <th>___Hipotesis___</th>
-                                <th>___Metodologia___</th>
-                                <th>___Bibliografia___</th>
-                                <th>___Referencia___</th>
-                                <th>___Categoria___</th>
-                                <th>___Fecha___</th>
-                                <th>___Estado___</th>
+                                <th data-hidden="true">Código investigacion</th>
+                                <th data-hidden="true">Código médico</th>
+                                <th data-hidden="true">Titulo investigacion</th>
+                                <th data-hidden="true">_____Autor_____</th>
+                                <th data-hidden="true">___________________________Resumen_________________________________</th>
+                                <th data-hidden="true">Introduccion</th>
+                                <th data-hidden="true">Palabra Clave</th>
+                                <th data-hidden="true">__Antecedentes__</th>
+                                <th data-hidden="true">___Obejetivo_general</th>
+                                <th data-hidden="true">___Obejetivo_Especifico</th>
+                                <th data-hidden="true">___Justificacion___</th>
+                                <th data-hidden="true">___Hipotesis___</th>
+                                <th data-hidden="true">___Metodologia___</th>
+                                <th data-hidden="true">___Bibliografia___</th>
+                                <th data-hidden="true">___Referencia___</th>
+                                <th data-hidden="true">___Categoria___</th>
+                                <th data-hidden="true">___Fecha___</th>
+                                <th data-hidden="true">___Estado___</th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -203,7 +203,7 @@ if ($_SESSION["s_admin"] === null) {
             <a href='actualizarma_public.php?id=" . $row["id_inv"] . "' class='btn btn-info' style='background-color: #0d87ac;'>Editar</a>
             <br>
             <br>
-            <a href='php/tablas_mantenimiento.php?accion=DLT&id=" . $row["id_inv"] . "' class='btn btn-danger confirm'>Eliminar</a>
+            <a onclick='return alerinves(".$row["id_inv"].");' class='btn btn-danger confirm'>Eliminar</a>
             </td>
             </tr>
             ";
@@ -216,47 +216,7 @@ if ($_SESSION["s_admin"] === null) {
 
         
 
-        <script>
-                $(".confirm").click(function(e) {
-  e.preventDefault(); // Prevent the href from redirecting directly
-  var linkURL = $(this).attr("href");
-  warnBeforeRedirect(linkURL);
-});
-
-function warnBeforeRedirect(linkURL) {
-  swal({
-    title: "¿Estas seguro de Eliminar este usuario?",
-    text: "" + linkURL,
-    type: "warning",
-    showCancelButton: true,
-    confirmButtonText: 'Sí <i class="fa fa-user-times" aria-hidden="true"></i>',
-        cancelButtonText: 'Cancelar <i class="fa fa-times" aria-hidden="true"></i>',
-  }).then(function(result) {
-    console.log(result);
-    if (result.value) {
-      window.location.href = linkURL;
-    }
-  });
-}
-            
-            function alertaactivar() {
-
-                Swal.fire({
-        title: '<h3>¿Estas seguro de cerrar sesion?</h3>',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: '<h5>Salir</h5>',
-        cancelButtonText: '<h5>Cancelar</h5>',
-    })
-    .then((result) => {
-   if (result.value) {
-     window.location.href = 'bd/logout2.php'
-   }
- }); 
-
-
-    }
-        </script>
+        
         <!--boton flotante donde esta los diferentes acciones -->
         <footer>
         <div class="container">
@@ -290,6 +250,8 @@ function warnBeforeRedirect(linkURL) {
         <script type="text/javascript" src="js/lightbox.min.js"></script>
         <script type="text/javascript" src="js/wow.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/mante_buscador.js"></script>
+        <script type="text/javascript" src="js/mante_alertas.js"></script>
         <!--LUgar donde esta el ativador del modo oscuro -->
         <script type="text/javascript" src="js/temad.js"></script>
     </body>

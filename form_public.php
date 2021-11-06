@@ -38,6 +38,7 @@ if ($_SESSION["s_medico"] === null){
     <link href="css/dark.css" rel="stylesheet">
 
     <link rel="stylesheet" href="css/boton.css">
+    <link rel="stylesheet" href="css/cientifico.css">
     <!--Icon-Font-->
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
 
@@ -132,10 +133,10 @@ if ($_SESSION["s_medico"] === null){
     <section id="page-breadcrumb">
         <div class="vertical-center sun">
             <div class="container">
-                <div class="row">
+                <div class="col-lg-6 col-lg-offset-3 col-xs-12 col-xs-offset-0">
                     <div>
                         <div class="col-sm-12">
-                            <h1 class="title">Publicar</h1>
+                            <h1 class="title">Formulario de publicacion</h1>
                             <p></p>
                         </div>
                     </div>
@@ -144,10 +145,10 @@ if ($_SESSION["s_medico"] === null){
         </div>
     </section>-->
     <!--/#action-->
-    <section id="noticia" class="padding-top">
+    <section  class="padding-top">
         <div class="container">
             <div class="row">
-                <div class="col-md-3 col-sm-5">
+                <div id="noticia"  class="col-md-3 col-sm-5">
                     <div class="sidebar blog-sidebar">
                         <div class="sidebar-item categories">
                             <h3>Especialidades</h3>
@@ -159,15 +160,21 @@ if ($_SESSION["s_medico"] === null){
                         </div>
                     </div>
                 </div>
-                <div class="col-md-9 col-sm-7">
+                <div class="wow fadeInDown">
+                <div id="cienfico" class="col-md-9 col-sm-7">
                     <div class="col-md-12 col-sm-12">
                         <div class="post-thumb">
                             <div class="panel-dafault" style="margin-top: 12px">
                                 <!--panel de crear -->
-                                <div class="panel-heading">
+                                <div  class="panel-heading">
                                     <form action="php/public.php?accion=INS" method="POST" enctype="multipart/form-data">
                                         <div class="row">
-                                            <div class="wow fadeInDown">
+                                            <div >
+                                                <div class="col-lg-10 col-lg-offset-2 col-xs-12 col-xs-offset-0">
+                                               <h1 class="title">Formulario de publicacion</h1>
+                                                <br>
+                                                </div>
+                                                
                                                 <div class="col-lg-6 col-lg-offset-3 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
                                                         <label class="control-label">Titulo<span
@@ -206,9 +213,9 @@ if ($_SESSION["s_medico"] === null){
                                                 </div>
                                                 <div class="col-md-3 col-md-offset-2 col-sm-3 col-sm-offset-2 col-lg-3 col-lg-offset-3 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-                                                        <label  class="control-label">Categoria<span
-                                                                style="color:turquoise">*</span> </label>
-                                                                <input style="background-color: #5dcfcf; color:#000000;" type="text" name="categoria" require="" placeholder="categoria" class="form-control" readonly="" value="<?php echo $_SESSION["s_espeme"];?>">
+                                                        <!--<label  class="control-label">Categoria<span
+                                                                style="color:turquoise">*</span> </label>-->
+                                                                <input style="background-color: #45bcdb; color:#000000;" type="hidden"  name="categoria" require="" placeholder="categoria" class="form-control" readonly="" value="<?php echo $_SESSION["s_espeme"];?>">
                                                     </div>
                                                 </div>
                                                 <div  class="col-lg-2 col-lg-offset-0 col-xs-12 col-xs-offset-0">
@@ -231,6 +238,7 @@ if ($_SESSION["s_medico"] === null){
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
         </div>

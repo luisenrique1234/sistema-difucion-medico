@@ -12,7 +12,7 @@
   @import url(http://fonts.googleapis.com/css?family=Noto+Sans:400,700);
 
   body {
-    background: #f6feff;
+    background: #cbeffc;
     font-family: 'Lato', sans-serif;
     font-weight: 300;
     font-size: 14px;
@@ -26,13 +26,13 @@
 
 
   a{
-    color:#C03035;
+    color:#0890ff;
   }
 
   a:hover {
     outline: none;
     text-decoration:none;
-    color:#4fcccd;
+    color:#000000;
   }
 
   a:focus {
@@ -49,7 +49,6 @@
 
 
   
-
   .overflow{
     overflow: hidden;
   }
@@ -224,7 +223,7 @@
 }
 
 .navbar {
-  background: #fff;
+  background: #cbeffc;
   border: 0;
   margin-bottom: 0;
 }
@@ -256,9 +255,11 @@
 
 /*  Dropdown menu*/
 
+
 ul.sub-menu {
   display: none;
   list-style: none;
+  background: #cbeffc;
   padding: 0;
   margin: 0;
 }
@@ -266,6 +267,7 @@ ul.sub-menu {
 #header .navbar-nav li ul.sub-menu li a{
   color: #818285;
   padding: 5px 0;
+  background: #cbeffc;
   font-size: 13px;
   display: block;
   text-transform: capitalize;
@@ -273,7 +275,7 @@ ul.sub-menu {
 
 #header .navbar-nav li ul.sub-menu li .active{
   background: #00aeef;
-  color: #fff;
+  color: #cbeffc;
   position: relative;
 }
 
@@ -294,7 +296,7 @@ ul.sub-menu {
 
 #header .navbar-nav li ul.sub-menu li a:hover,
 #header .navbar-nav li ul.sub-menu li a:focus{
-  background: #00aeef;
+  background: #45bcdb;
   color: #fff;
 }
 
@@ -344,7 +346,7 @@ ul.sub-menu {
   max-width: 285px;
   max-height: 300px;
   box-shadow: 1px 1px 1px 1px #0d87ac;
-  background-color: rgb(255, 255, 255);
+  background-color: #cbeffc;
   border-radius: 7px;    
 }
 
@@ -464,7 +466,7 @@ en la parte final de la pagina****/
 
 .btn-submit {
   width: 100%;
-  background-color: #4fcccd;
+  background-color: #45bcdb;
   color: #fff;
   font-size: 14px;
   font-weight: 300;
@@ -472,7 +474,7 @@ en la parte final de la pagina****/
   text-transform: uppercase;
   border-radius: 3px;
   margin-top: 5px;
-  border-bottom: 3px solid #2f9697;
+  border-bottom: 3px solid #45bcdb;
   box-shadow: none;
   padding: 10px;
 }
@@ -673,7 +675,7 @@ en la parte final de la pagina****/
 
 .title {
   color: #686565;
-  font-size: 50px;
+  font-size: 35px;
 }
 
 .single-features {

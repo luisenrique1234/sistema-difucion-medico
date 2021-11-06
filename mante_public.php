@@ -45,8 +45,8 @@ if ($_SESSION["s_admin"] === null) {
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/sweetalert2@7.0.9/dist/sweetalert2.all.js"></script>
+    <link href="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">
+    <script src="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.js" type="text/javascript"></script>
 
     <link rel="stylesheet" href="css/boton.css">
     <!--Icon-Font-->
@@ -141,28 +141,27 @@ if ($_SESSION["s_admin"] === null) {
                 <div class="panel-body">
                     
                         <a href="nuevoma_medico.php" class="btn btn-info pull-letf" style="background-color: #0d87ac;">NUEVO</a>
-                    
+                        <a href="reportes/reporte_public.php" class="btn btn-danger">Reporte <i class="fa fa-print" aria-hidden="true"></i></a>
                     <br>
                     <hr>
-                    <table class="table" style="text-align: center;">
+                    <table class="table tabla1" style="text-align: center;">
                         <thead>
                             <tr style="background-color: #0d87ac; color:#FFFFFF;">
                                 <!-- fila-->
-                                <th>Código public</th>
-                                <!--th colunma-->
-                                <th>Código médico</th>
-                                <th>Tituo</th>
-                                <th>_____Autor_____</th>
-                                <th>___________________________Publicacion_________________________________</th>
-                                <th>Referencia</th>
-                                <th>Link archivo</th>
-                                <th>Fecha publicacion</th>
-                                <th>Categaria</th>
-                                <th>Tipo de archivo</th>
-                                <th>votos</th>
-                                <th>Estado</th>
-                                <th></th>
-                                <th></th>
+                                <th data-hidden="true">Código public</th>
+                                <th data-hidden="true">Código médico</th>
+                                <th data-hidden="true">Tituo</th>
+                                <th data-hidden="true">_____Autor_____</th>
+                                <th data-hidden="true">___________________________Publicacion_________________________________</th>
+                                <th data-hidden="true">Referencia</th>
+                                <th data-hidden="true">Link archivo</th>
+                                <th data-hidden="true">Fecha publicacion</th>
+                                <th data-hidden="true">Categaria</th>
+                                <th data-hidden="true">Tipo de archivo</th>
+                                <th data-hidden="true">votos</th>
+                                <th data-hidden="true">Estado</th>
+                                <th data-hidden="true"></th>
+                                <th data-hidden="true"></th>
                             </tr>
                         </thead>
                         <?php
@@ -191,7 +190,7 @@ if ($_SESSION["s_admin"] === null) {
             <a href='actualizarma_public.php?id=" . $row["id_public"] . "' class='btn btn-info' style='background-color: #0d87ac;'>Editar</a>
             <br>
             <br>
-            <a href='php/tablas_mantenimiento.php?accion=DLT&id=" . $row["id_public"] . "' class='btn btn-danger confirm'>Eliminar</a>
+            <a onclick='return alerpublicele(".$row['id_public'].");' class='btn btn-danger confirm'>Eliminar</a>
             </td>
             </tr>
             ";
@@ -203,48 +202,6 @@ if ($_SESSION["s_admin"] === null) {
         </div>
 
         
-
-        <script>
-                $(".confirm").click(function(e) {
-  e.preventDefault(); // Prevent the href from redirecting directly
-  var linkURL = $(this).attr("href");
-  warnBeforeRedirect(linkURL);
-});
-
-function warnBeforeRedirect(linkURL) {
-  swal({
-    title: "¿Estas seguro de Eliminar este usuario?",
-    text: "" + linkURL,
-    type: "warning",
-    showCancelButton: true,
-    confirmButtonText: 'Sí <i class="fa fa-user-times" aria-hidden="true"></i>',
-        cancelButtonText: 'Cancelar <i class="fa fa-times" aria-hidden="true"></i>',
-  }).then(function(result) {
-    console.log(result);
-    if (result.value) {
-      window.location.href = linkURL;
-    }
-  });
-}
-            
-            function alertaactivar() {
-
-                Swal.fire({
-        title: '<h3>¿Estas seguro de cerrar sesion?</h3>',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: '<h5>Salir</h5>',
-        cancelButtonText: '<h5>Cancelar</h5>',
-    })
-    .then((result) => {
-   if (result.value) {
-     window.location.href = 'bd/logout2.php'
-   }
- }); 
-
-
-    }
-        </script>
         <!--boton flotante donde esta los diferentes acciones -->
         <footer>
         <div class="container">
@@ -278,6 +235,8 @@ function warnBeforeRedirect(linkURL) {
         <script type="text/javascript" src="js/lightbox.min.js"></script>
         <script type="text/javascript" src="js/wow.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/mante_buscador.js"></script>
+        <script type="text/javascript" src="js/mante_alertas.js"></script>
         <!--LUgar donde esta el ativador del modo oscuro -->
         <script type="text/javascript" src="js/temad.js"></script>
     </body>

@@ -3,6 +3,15 @@
     max-width: 1085px;
     max-height: 3000px;
     box-shadow: 0px 0px 2px 2px #0d87ac;
-    background-color: #f6feff;
+    background-color: #cbeffc;
+    border-radius: 10px;    
+}
+
+#cienfico{
+    margin-top: 0px;
+    max-width: 795px;
+    max-height: 850px;
+    box-shadow: 0px 0px 2px 2px #0d87ac;
+    background-color: #cbeffc;
     border-radius: 10px;    
 }
