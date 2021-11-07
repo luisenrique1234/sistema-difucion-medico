@@ -77,7 +77,7 @@ if ($_SESSION["s_admin"] === null) {
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="index.php">
-                            <h1><img src="images/admin-logo.png" alt="logo" width="100" height="100"></h1>
+                            <img src="images/admin-logo.png" alt="logo" width="70" height="70">
                         </a>
                     </div>
                     <div class="collapse navbar-collapse">
@@ -92,21 +92,21 @@ if ($_SESSION["s_admin"] === null) {
                             <li class="active" class="dropdown"><a href="mante_public.php">Lista de publicacion<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="mante_public.php">Lista de publicacion</a></li>
-                                    <li><a href="blog.html">Comentario publicacion</a></li>
-                                    <li><a href="blogtwo.html">Lista destivado publicacion</a></li>
+                                    <li><a href="#">Comentario publicacion</a></li>
+                                    <li><a href="desativado_public.php">Lista destivado publicacion</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown"><a href="mante_inve.php">Lista  investigaciones<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                 <li><a href="mante_inve.php">Lista investigaciones</a></li>
                                 <li><a href="#">Comentario investigacio</a></li>
-                                    <li><a href="#">Lista desativado investigaciones</a></li>
+                                    <li><a href="desacti_inve.php">Lista desativado investigaciones</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown"><a href="mante_rol.php">Roles<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                 <li><a href="mante_rol.php">Roles médico</a></li>
-                                <li><a href="#">Especialidades médicos</a></li>
+                                <li><a href="mante_espec.php">Especialidades médicos</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -136,11 +136,14 @@ if ($_SESSION["s_admin"] === null) {
     </header>
         <!-- fin de la segunda parte-->
         <div>
+        <br>
+        <br>
+        <br>
             <div class="panel-heading">
                 <h1> Listado de Publicacion</h1>
                 <div class="panel-body">
                     
-                        <a href="nuevoma_medico.php" class="btn btn-info pull-letf" style="background-color: #0d87ac;">NUEVO</a>
+                        <a href="nuevoma_public.php" class="btn btn-info pull-letf" style="background-color: #0d87ac;">NUEVO</a>
                         <a href="reportes/reporte_public.php" class="btn btn-danger">Reporte <i class="fa fa-print" aria-hidden="true"></i></a>
                     <br>
                     <hr>
@@ -187,7 +190,7 @@ if ($_SESSION["s_admin"] === null) {
             <td>" . $row["estado"] . "</td>
 			
             <td>
-            <a href='actualizarma_public.php?id=" . $row["id_public"] . "' class='btn btn-info' style='background-color: #0d87ac;'>Editar</a>
+            <a href='actualizama_public.php?id=" . $row["id_public"] . "' class='btn btn-info' style='background-color: #0d87ac;'>Editar</a>
             <br>
             <br>
             <a onclick='return alerpublicele(".$row['id_public'].");' class='btn btn-danger confirm'>Eliminar</a>

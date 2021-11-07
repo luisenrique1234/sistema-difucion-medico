@@ -67,9 +67,8 @@ if ($_SESSION["s_medico"] === null){
                         </button>
 
                         <a class="navbar-brand" href="index.php">
-                            <h1><img src="images/logo.png" alt="logo" width="100" height="100"></h1>
+                            <img src="images/logo.png" alt="logo" width="70" height="70">
                         </a>
-
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">

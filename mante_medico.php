@@ -81,7 +81,7 @@ if ($_SESSION["s_admin"] === null) {
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="index.php">
-                            <h1><img src="images/admin-logo.png" alt="logo" width="100" height="100"></h1>
+                            <img src="images/admin-logo.png" alt="logo" width="70" height="70">
                         </a>
                     </div>
                     <div class="collapse navbar-collapse">
@@ -96,28 +96,28 @@ if ($_SESSION["s_admin"] === null) {
                             <li class="dropdown"><a href="mante_public.php">Lista de publicacion<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="mante_public.php">Lista de publicacion</a></li>
-                                    <li><a href="blog.html">Comentario publicacion</a></li>
-                                    <li><a href="blogtwo.html">Lista destivado publicacion</a></li>
+                                    <li><a href="#">Comentario publicacion</a></li>
+                                    <li><a href="desativado_public.php">Lista destivado publicacion</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown"><a href="mante_inve.php">Lista  investigaciones<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                 <li><a href="mante_inve.php">Lista investigaciones</a></li>
                                 <li><a href="#">Comentario investigacio</a></li>
-                                    <li><a href="#">Lista desativado investigaciones</a></li>
+                                    <li><a href="desacti_inve.php">Lista desativado investigaciones</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown"><a href="mante_rol.php">Roles<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                 <li><a href="mante_rol.php">Roles médico</a></li>
-                                <li><a href="#">Especialidades médicos</a></li>
+                                <li><a href="mante_espec.php">Especialidades médicos</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <!-- <div >
                             <img src="images/predeterminado.jpg" width="100%" height="60">
                             </div>-->
-                                <a href="portfolio.html" class="btn btn-info"><?php echo $_SESSION["s_admin"]; ?>. .<i class="fa fa-user"></i></a>
+                                <a href="#" class="btn btn-info"><?php echo $_SESSION["s_admin"]; ?>. .<i class="fa fa-user"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="pefil_medico.php">Mi perfil</a></li>
                                     <li><a  onclick="return alertaactivar();">Cerrar sesion</a></li>
@@ -140,6 +140,9 @@ if ($_SESSION["s_admin"] === null) {
     </header>
         <!-- fin de la segunda parte-->
         <div>
+            <br>
+            <br>
+            <br>
             <div class="panel-heading">
                 <h1> Listado de Médico</h1>
                 <div class="panel-body">
@@ -163,7 +166,7 @@ if ($_SESSION["s_admin"] === null) {
                                 <th data-hidden="true">código médico</th>
                                 <th data-hidden="true">especialidad</th>
                                 <th data-hidden="true">Rol de médico</th>
-                                <th data-hidden="true">Contraseña</th>
+                                <th data-hidden="true">Provincia</th>
                                 <th data-hidden="true">Estado</th>
                                 
                                 <th></th>
@@ -186,7 +189,7 @@ if ($_SESSION["s_admin"] === null) {
 			<td>" . $row["codigo_medico"]. "</td>
             <td>" . $row["especialidadm"] . "</td>
             <td>" . $row["idRol"] . "</td>
-            <td>" . $row["contrasena_me"] . "</td>
+            <td>" . $row["provincia_me"] . "</td>
             <td>" . $row["estado"] . "</td>
 			
             <td>

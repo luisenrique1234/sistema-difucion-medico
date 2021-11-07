@@ -45,6 +45,7 @@ if ($_SESSION["s_admin"] === null) {
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    
     <link href="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">
     <script src="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.js" type="text/javascript"></script>
 
@@ -83,20 +84,20 @@ if ($_SESSION["s_admin"] === null) {
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="admin_bien.php">Inicio</a></li>
-                            <li class="active" class="dropdown"><a href="mante_medico.php">Lista de Medico<i class="fa fa-angle-down"></i></a>
+                            <li  class="dropdown"><a href="mante_medico.php">Lista de Médico<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="mante_medico.php">Lista de médico</a></li>
                                     <li><a href="desativado_medico.php">lista desactivado médico</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="mante_public.php">Lista de publicacion<i class="fa fa-angle-down"></i></a>
+                            <li  class="dropdown"><a href="mante_public.php">Lista de publicacion<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="mante_public.php">Lista de publicacion</a></li>
                                     <li><a href="#">Comentario publicacion</a></li>
                                     <li><a href="desativado_public.php">Lista destivado publicacion</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="mante_inve.php">Lista  investigaciones<i class="fa fa-angle-down"></i></a>
+                            <li class="active" class="dropdown"><a href="mante_inve.php">Lista  investigaciones<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                 <li><a href="mante_inve.php">Lista investigaciones</a></li>
                                 <li><a href="#">Comentario investigacio</a></li>
@@ -116,7 +117,7 @@ if ($_SESSION["s_admin"] === null) {
                                 <a href="portfolio.html" class="btn btn-info"><?php echo $_SESSION["s_admin"]; ?>. .<i class="fa fa-user"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="pefil_medico.php">Mi perfil</a></li>
-                                    <li><a  onclick="return alertaactivar();">Cerrar sesion</a></li>
+                                    <li><a onclick="return alertaactivar();">Cerrar sesion</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -137,10 +138,10 @@ if ($_SESSION["s_admin"] === null) {
         <!-- fin de la segunda parte-->
         <div>
             <div class="panel-heading">
+            <br>
                 <br>
                 <br>
-                <br>
-                <h1> Listado de Especialidades médicas</h1>
+                <h1> Listado de Investigaciones desactivado</h1>
                 <div class="panel-body">
                     
                         <a href="nuevoma_medico.php" class="btn btn-info pull-letf" style="background-color: #0d87ac;">NUEVO</a>
@@ -151,11 +152,24 @@ if ($_SESSION["s_admin"] === null) {
                         <thead>
                             <tr style="background-color: #0d87ac; color:#FFFFFF;">
                                 <!-- fila-->
-                                <th data-hidden="true">Código Especialidad</th>
-                                <!--th colunma-->
-                                <th data-hidden="true">Descrision</th>
-                                <th data-hidden="true">Estado</th>
-                                
+                                <th data-hidden="true">Código investigacion</th>
+                                <th data-hidden="true">Código médico</th>
+                                <th data-hidden="true">Titulo investigacion</th>
+                                <th data-hidden="true">_____Autor_____</th>
+                                <th data-hidden="true">___________________________Resumen_________________________________</th>
+                                <th data-hidden="true">Introduccion</th>
+                                <th data-hidden="true">Palabra Clave</th>
+                                <th data-hidden="true">__Antecedentes__</th>
+                                <th data-hidden="true">___Obejetivo_general</th>
+                                <th data-hidden="true">___Obejetivo_Especifico</th>
+                                <th data-hidden="true">___Justificacion___</th>
+                                <th data-hidden="true">___Hipotesis___</th>
+                                <th data-hidden="true">___Metodologia___</th>
+                                <th data-hidden="true">___Bibliografia___</th>
+                                <th data-hidden="true">___Referencia___</th>
+                                <th data-hidden="true">___Categoria___</th>
+                                <th data-hidden="true">___Fecha___</th>
+                                <th data-hidden="true">___Estado___</th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -163,24 +177,35 @@ if ($_SESSION["s_admin"] === null) {
                         <?php
                         
                         
-                        $query = lista_espc();
+                        $query = lista_invsdesactiva();
                         while ($row = $query->fetch_assoc()) {
                             //$fecha2=$row["fecha_public"];
                         //$final = date_create($fecha2)->format('d/m/y');
                             echo "
             <tr>
-            <td>" . $row["id_espec"] . "</td>
-            <td>" . $row["espec_descripsion"] . "</td>
-			<td>" . $row["estado"]. "</td>
+            <td>" . $row["id_inv"] . "</td>
+            <td>" . $row["id_medico_inv"] . "</td>
+			<td>" . $row["titulo_inv"]. "</td>
+            <td>" . substr($row["autor_inv"],0,100). "</td>
+			<td>" . substr($row["resume_inv"],0,300). "</td>
+            <td>" . substr($row["introducion_inv"],0,100) . "</td>
+            <td>" . $row["pclave_inv"] . "</td>
+            <td>" . substr($row["Antecedente_inv"],0,200) . "</td>
+            <td>" . substr($row["objetivoge_inv"],0,300) . "</td>
+            <td>" . substr($row["objetivoes_inv"],0,300) . "</td>
+            <td>" . substr($row["justificasion_inv"],0,300) . "</td>
+            <td>" . substr($row["hipotesis_inv"],0,300) . "</td>
+            <td>" . substr($row["metodologia_inv"],0,300) . "</td>
+            <td>" . substr($row["bibliografia"],0,300) . "</td>
+            <td>" . substr($row["referencias_inv"],0,300) . "</td>
+            <td>" . substr($row["cotegoria_inv"],0,300) . "</td>
+            <td>" . substr($row["fecha_inv"],0,300) . "</td>
+            <td>" . substr($row["estado"],0,300) . "</td>
 			
             <td>
-            <a href='actualizarm_espec.php?id=" . $row["id_espec"] . "' class='btn btn-info' style='background-color: #0d87ac;'>Editar</a>
-            
-            <a onclick='return aleraespci(".$row['id_espec'].");' class='btn btn-danger confirm'>Eliminar</a>
+            <a onclick='return aleractivarinv(".$row["id_inv"].");' class='btn btn-info' style='background-color: #0d87ac;'>Activar</a>
             </td>
             </tr>
-
-            
             ";
                         }
                         ?>
@@ -191,8 +216,6 @@ if ($_SESSION["s_admin"] === null) {
 
         
 
-        
-            
         
         <!--boton flotante donde esta los diferentes acciones -->
         <footer>

@@ -102,6 +102,15 @@
     border-radius: 10px;    
 }
 
+.dark #cienfico{
+    margin-top: 0px;
+    max-width: 795px;
+    max-height: 850px;
+    box-shadow: 0px 0px 2px 2px #0d87ac;
+    background-color: #000000;
+    border-radius: 10px;    
+}
+
 .dark a{
     color: cornsilk;
 }

@@ -40,7 +40,6 @@ ob_start();
     <link href="http://<?php echo $_SERVER["HTTP_HOST"]?>/medico-red/css/font-awesome.min.css" rel="stylesheet">
     <link href="http://<?php echo $_SERVER["HTTP_HOST"]?>/medico-red/css/lightbox.css" rel="stylesheet">
     <link href="http://<?php echo $_SERVER["HTTP_HOST"]?>/medico-red/css/animate.min.css" rel="stylesheet">
-    <link href="http://<?php echo $_SERVER["HTTP_HOST"]?>/medico-red/css/main.css" rel="stylesheet">
     <link href="http://<?php echo $_SERVER["HTTP_HOST"]?>/medico-red/css/responsive.css" rel="stylesheet">
 
     <link href="../css/dark.css" rel="stylesheet">
@@ -91,14 +90,14 @@ ob_start();
                                 <!-- fila-->
                                 <th data-sortable="true">Código médico</th>
                                 <!--th colunma-->
-                                <th data-hidden="true">Nombre</th>
-                                <th data-hidden="true">Apellido</th>
-                                <th data-hidden="true">Nombre usuario</th>
-                                <th data-hidden="true">código médico</th>
-                                <th data-hidden="true">especialidad</th>
-                                <th data-hidden="true">Rol de médico</th>
-                                <th data-hidden="true">Contraseña</th>
-                                <th data-hidden="true">Estado</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Nombre usuario</th>
+                                <th>código médico</th>
+                                <th>especialidad</th>
+                                <th>Rol de médico</th>
+                                <th>Provincia</th>
+                                <th>Estado</th>
                                 
                                 <th></th>
                                 <th></th>
@@ -120,7 +119,7 @@ ob_start();
 			<td>" . $row["codigo_medico"]. "</td>
             <td>" . $row["especialidadm"] . "</td>
             <td>" . $row["idRol"] . "</td>
-            <td>" . $row["contrasena_me"] . "</td>
+            <td>" . $row["provincia_me"] . "</td>
             <td>" . $row["estado"] . "</td>
 			
             

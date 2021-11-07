@@ -74,9 +74,8 @@ if ($_SESSION["s_medico"] === null){
                         </button>
 
                         <a class="navbar-brand" href="index.php">
-                            <h1><img src="images/logo.png" alt="logo" width="100" height="100"></h1>
+                            <img src="images/logo.png" alt="logo" width="70" height="70">
                         </a>
-
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
@@ -369,16 +368,6 @@ if ($_SESSION["s_medico"] === null){
     <!--/#footer-->
 
     <!--codigo del mesange cierre de sesion-->
-    <script>
-    function alertaactivar() {
-        var respuesta = confirm("Estas seguro de Cerrar Sesion");
-        if (respuesta == true) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    </script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/lightbox.min.js"></script>

@@ -69,9 +69,8 @@ if ($_SESSION["s_medico"] === null) {
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="index.php">
-                            <h1><img src="images/logo.png" alt="logo" width="100" height="100"></h1>
-                        </a>
-                    </div>
+                            <img src="images/logo.png" alt="logo" width="70" height="70">
+                        </a>                    </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li class="active"><a href="index.php">Inicio</a></li>
@@ -130,6 +129,9 @@ if ($_SESSION["s_medico"] === null) {
         <!-- fin de la segunda parte-->
         <div>
             <div class="panel-heading">
+                <br>
+                <br>
+                <br>
                 <h1> Listado Publicaciones</h1>
                 <div class="panel-body">
                     

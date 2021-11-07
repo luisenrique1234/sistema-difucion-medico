@@ -24,7 +24,8 @@ if ($_SESSION["s_admin"] === null) {
 }
 
 $date = (new DateTime())->format('d/m/y');
-ob_start();
+//ob_start();
+
 
 ?>
 <!DOCTYPE html>
@@ -35,35 +36,19 @@ ob_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Reporte publicaciones</title>
+    <title>Mantenimiento de publicaciones</title>
     <link href="http://<?php echo $_SERVER["HTTP_HOST"]?>/medico-red/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://<?php echo $_SERVER["HTTP_HOST"]?>/medico-red/css/font-awesome.min.css" rel="stylesheet">
     <link href="http://<?php echo $_SERVER["HTTP_HOST"]?>/medico-red/css/lightbox.css" rel="stylesheet">
     <link href="http://<?php echo $_SERVER["HTTP_HOST"]?>/medico-red/css/animate.min.css" rel="stylesheet">
     <link href="http://<?php echo $_SERVER["HTTP_HOST"]?>/medico-red/css/responsive.css" rel="stylesheet">
+    
 
-    <link href="css/dark.css" rel="stylesheet">
-
-
-    <!--Icon-Font-->
-    <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
-
-    <!--[if lt IE 9]>
-	    <script src="js/html5shiv.js"></script>
-	    <script src="js/respond.min.js"></script>
-    <![endif]-->
-    <link rel="shortcut icon" href="images/ico/ico.png">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/ico.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/ico.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/ico.png">
-    <link rel="apple-touch-icon-precomposed" href="images/ico/ico.png">
 </head>
 <!--/head-->
 
-<body class="dark">
-    
-
-    <a class="navbar-brand" href="index.php">
+<body>
+<a class="navbar-brand" href="index.php">
                             <h1><img src="http://<?php echo $_SERVER["HTTP_HOST"]?>/medico-red/images/logo.png" alt="logo" width="100" height="100"></h1>
                         </a>
         <!-- fin de la segunda parte-->
@@ -75,8 +60,7 @@ ob_start();
             </div>
             <h4 style="text-align: center;"> Fecha:  <?php echo $date;  ?></h4>
                 <div class="panel-body">
-                    
-                    
+                        
                     <br>
                     <hr>
                     <table class="table tabla1" style="text-align: center;">
@@ -91,14 +75,12 @@ ob_start();
                                 <th>Fecha publicacion</th>
                                 <th>Categaria</th>
                                 <th>Estado</th>
-                                <th></th>
-                                <th></th>
                             </tr>
                         </thead>
                         <?php
                         
                         
-                        $query = lista_public();
+                        $query = lista_pudestivado();
                         while ($row = $query->fetch_assoc()) {
                             //$fecha2=$row["fecha_public"];
                         //$final = date_create($fecha2)->format('d/m/y');
@@ -145,6 +127,6 @@ $dompdf->setPaper('A3', 'landscape');
 
 $dompdf->render();
 
-$dompdf->stream("lista_de_publicacion.pdf", array("Attachent" => true));
+$dompdf->stream("lista_de_publicacion_desactivadas.pdf", array("Attachent" => true));
 
 ?>

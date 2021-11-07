@@ -36,6 +36,18 @@ function extraerpubic($id){
 
 ?>
 
+<?php 
+function lista_pudestivado(){
+    include('conexion.php');
+    
+    
+    $sql="SELECT * FROM publicacion WHERE estado='I' ORDER BY id_public ASC";
+    return $result = $mysqli->query($sql);
+}
+
+
+?>
+
 <?php
 
 /* parte donde esta la Consutal de todos las publicaciones de los medico lista de las publicaciones que 
@@ -55,6 +67,20 @@ function extraerinvestigacion($id){
     return $result = $mysqli->query($sql);
 }
 ?>
+
+<?php
+
+
+
+function lista_invsdesactiva(){
+    include('conexion.php');
+    
+    
+    $sql="SELECT * FROM inv_cientifica WHERE  estado='I' ORDER BY id_inv ASC";
+    return $result = $mysqli->query($sql);
+}
+?>
+
 
 <?php
 

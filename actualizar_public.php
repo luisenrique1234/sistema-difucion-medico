@@ -69,9 +69,8 @@ if ($_SESSION["s_medico"] === null){
                         </button>
 
                         <a class="navbar-brand" href="index.php">
-                            <h1><img src="images/logo.png" alt="logo" width="100" height="100"></h1>
+                            <img src="images/logo.png" alt="logo" width="70" height="70">
                         </a>
-
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
@@ -131,37 +130,28 @@ if ($_SESSION["s_medico"] === null){
         </div>
     </header>
     <!--/#header-->
-    <!--id la imagen de triangulor que se usa para el inicio
+    <!--id la imagen de triangulor que se usa para el inicio-->
     <section id="page-breadcrumb">
         <div class="vertical-center sun">
             <div class="container">
-                <div class="row">
+                <div class="center">
                     <div>
                         <div class="col-sm-12">
-                            <h1 class="title">Publicar</h1>
+                            <br>
+                            <br>
+                            <br>
+                            <h1 class="title">Actualizar Publicacion</h1>
                             <p></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>-->
+    </section>
     <!--/#action-->
-    <section id="noticia" class="padding-top">
+    <section>
         <div class="container">
             <div class="row">
-                <div class="col-md-3 col-sm-5">
-                    <div class="sidebar blog-sidebar">
-                        <div class="sidebar-item categories">
-                            <h3>especialidades</h3>
-                            <ul class="nav navbar-stacked">
-                                <li><a href="#">Pediatria</a></li>
-                                <li class="active"><a href="#">Cardiologia</a></li>
-                                <li><a href="#">Cirugia general</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-md-9 col-sm-7">
                     <div class="col-md-12 col-sm-12">
                         <div class="post-thumb">

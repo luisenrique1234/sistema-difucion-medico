@@ -65,16 +65,8 @@ if ($_SESSION["s_medico"] === null ){
             <div class="navbar navbar-inverse" role="banner">
                 <div class="container">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse"
-                            data-target=".navbar-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-
                         <a class="navbar-brand" href="index.php">
-                            <h1><img src="images/logo.png" alt="logo" width="100" height="100"></h1>
+                            <img src="images/logo.png" alt="logo" width="70" height="70">
                         </a>
 
                     </div>
@@ -142,7 +134,6 @@ if ($_SESSION["s_medico"] === null ){
         </div>
         </div>
     </header>
-
     <!--/#header-->
     <!--id la imagen de triangulor que se usa para el inicio
     <section id="page-breadcrumb">

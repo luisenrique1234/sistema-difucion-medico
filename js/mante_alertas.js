@@ -29,7 +29,7 @@ cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></
 })
 .then((result) => {
 if (result.value) {
-window.location.href = 'php/tablas_mantenimiento.php?accion=DLT&id='+codigo3
+window.location.href = 'php/tablas_mantenimiento.php?accion=DLTPU&id='+codigo3
 }
 }); 
 
@@ -48,7 +48,7 @@ cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></
 })
 .then((result) => {
 if (result.value) {
-window.location.href = 'php/tablas_mantenimiento.php?accion=DLT&id='+codigo3
+window.location.href = 'php/tablas_mantenimiento.php?accion=DLTINV&id='+codigo3
 }
 }); 
 
@@ -67,7 +67,45 @@ cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></
 })
 .then((result) => {
 if (result.value) {
-window.location.href = 'php/desativado_mante.php?accion=ACT&id='+codigo2
+window.location.href = 'php/tablas_mantenimiento.php?accion=ACT&id='+codigo2
+}
+}); 
+
+
+}
+
+function aleractivarpu(codigo2) {
+
+  Swal.fire({
+title: '<h3>¿Estas seguro de Activar  el ID:'+codigo2+'?</h3>',
+icon: 'warning',
+showCancelButton: true,
+confirmButtonColor: '#45bcdb',
+confirmButtonText: '<h5>Sí <i class="fa fa-user-plus" aria-hidden="true"></i></h5>',
+cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></h5>'
+})
+.then((result) => {
+if (result.value) {
+window.location.href = 'php/tablas_mantenimiento.php?accion=ACTPU&id='+codigo2
+}
+}); 
+
+
+}
+
+function aleractivarinv(codigo2) {
+
+  Swal.fire({
+title: '<h3>¿Estas seguro de Activar  el ID:'+codigo2+'?</h3>',
+icon: 'warning',
+showCancelButton: true,
+confirmButtonColor: '#45bcdb',
+confirmButtonText: '<h5>Sí <i class="fa fa-user-plus" aria-hidden="true"></i></h5>',
+cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></h5>'
+})
+.then((result) => {
+if (result.value) {
+window.location.href = 'php/tablas_mantenimiento.php?accion=ACTINV&id='+codigo2
 }
 }); 
 
@@ -86,7 +124,7 @@ cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></
 })
 .then((result) => {
 if (result.value) {
-window.location.href = 'php/desativado_mante.php?accion=ACT&id='+codigo2
+window.location.href = 'php/tablas_mantenimiento.php?accion=DLTROL&id='+codigo2
 }
 }); 
 
@@ -105,7 +143,7 @@ cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></
 })
 .then((result) => {
 if (result.value) {
-window.location.href = 'php/desativado_mante.php?accion=ACT&id='+codigo2
+window.location.href = 'php/tablas_mantenimiento.php?accion=DLTESP&id='+codigo2
 }
 }); 
 

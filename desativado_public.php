@@ -33,7 +33,7 @@ if ($_SESSION["s_admin"] === null) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Mantenimiento de Médicos</title>
+    <title>Mantenimiento de publicaciones</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/lightbox.css" rel="stylesheet">
@@ -83,16 +83,16 @@ if ($_SESSION["s_admin"] === null) {
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="admin_bien.php">Inicio</a></li>
-                            <li class="active" class="dropdown"><a href="mante_medico.php">Lista de Medico<i class="fa fa-angle-down"></i></a>
+                            <li  class="dropdown"><a href="mante_medico.php">Lista de Médico<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="mante_medico.php">Lista de médico</a></li>
                                     <li><a href="desativado_medico.php">lista desactivado médico</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="mante_public.php">Lista de publicacion<i class="fa fa-angle-down"></i></a>
+                            <li class="active" class="dropdown"><a href="mante_public.php">Lista de publicacion<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="mante_public.php">Lista de publicacion</a></li>
-                                    <li><a href="#">Comentario publicacion</a></li>
+                                    <li><a href="blog.html">Comentario publicacion</a></li>
                                     <li><a href="desativado_public.php">Lista destivado publicacion</a></li>
                                 </ul>
                             </li>
@@ -116,7 +116,7 @@ if ($_SESSION["s_admin"] === null) {
                                 <a href="portfolio.html" class="btn btn-info"><?php echo $_SESSION["s_admin"]; ?>. .<i class="fa fa-user"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="pefil_medico.php">Mi perfil</a></li>
-                                    <li><a  onclick="return alertaactivar();">Cerrar sesion</a></li>
+                                    <li><a onclick="return alertaactivar();">Cerrar sesion</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -136,51 +136,61 @@ if ($_SESSION["s_admin"] === null) {
     </header>
         <!-- fin de la segunda parte-->
         <div>
+        <br>
+        <br>
+        <br>
             <div class="panel-heading">
-                <br>
-                <br>
-                <br>
-                <h1> Listado de Especialidades médicas</h1>
+                <h1> Listado de Publicacion desactivados</h1>
                 <div class="panel-body">
-                    
-                        <a href="nuevoma_medico.php" class="btn btn-info pull-letf" style="background-color: #0d87ac;">NUEVO</a>
-                    
+                        <a href="reportes/reporte_desactivapu.php" class="btn btn-danger">Reporte <i class="fa fa-print" aria-hidden="true"></i></a>
                     <br>
                     <hr>
                     <table class="table tabla1" style="text-align: center;">
                         <thead>
                             <tr style="background-color: #0d87ac; color:#FFFFFF;">
                                 <!-- fila-->
-                                <th data-hidden="true">Código Especialidad</th>
-                                <!--th colunma-->
-                                <th data-hidden="true">Descrision</th>
+                                <th data-hidden="true">Código public</th>
+                                <th data-hidden="true">Código médico</th>
+                                <th data-hidden="true">Tituo</th>
+                                <th data-hidden="true">_____Autor_____</th>
+                                <th data-hidden="true">___________________________Publicacion_________________________________</th>
+                                <th data-hidden="true">Referencia</th>
+                                <th data-hidden="true">Link archivo</th>
+                                <th data-hidden="true">Fecha publicacion</th>
+                                <th data-hidden="true">Categaria</th>
+                                <th data-hidden="true">Tipo de archivo</th>
+                                <th data-hidden="true">votos</th>
                                 <th data-hidden="true">Estado</th>
-                                
-                                <th></th>
-                                <th></th>
+                                <th data-hidden="true"></th>
+                                <th data-hidden="true"></th>
                             </tr>
                         </thead>
                         <?php
                         
                         
-                        $query = lista_espc();
+                        $query = lista_pudestivado();
                         while ($row = $query->fetch_assoc()) {
                             //$fecha2=$row["fecha_public"];
                         //$final = date_create($fecha2)->format('d/m/y');
                             echo "
             <tr>
-            <td>" . $row["id_espec"] . "</td>
-            <td>" . $row["espec_descripsion"] . "</td>
-			<td>" . $row["estado"]. "</td>
+            <td>" . $row["id_public"] . "</td>
+            <td>" . $row["id_medico_pu"] . "</td>
+			<td>" . $row["titulo_public"]. "</td>
+            <td>" . substr($row["autor_pu"],0,100). "</td>
+			<td>" . substr($row["text_public"],0,300). "</td>
+            <td>" . substr($row["referencia_pu"],0,100) . "</td>
+            <td>" . $row["link_archivo"] . "</td>
+            <td>" . $row["fecha_public"] . "</td>
+            <td>" . $row["categoria_public"] . "</td>
+            <td>" . $row["tipo_archivo"] . "</td>
+            <td>" . $row["me_gusta_pu"] . "</td>
+            <td>" . $row["estado"] . "</td>
 			
             <td>
-            <a href='actualizarm_espec.php?id=" . $row["id_espec"] . "' class='btn btn-info' style='background-color: #0d87ac;'>Editar</a>
-            
-            <a onclick='return aleraespci(".$row['id_espec'].");' class='btn btn-danger confirm'>Eliminar</a>
+            <a onclick='return aleractivarpu(".$row['id_public'].");' class='btn btn-danger' style='background-color: #0d87ac;'>Activar</a>
             </td>
             </tr>
-
-            
             ";
                         }
                         ?>
@@ -189,10 +199,6 @@ if ($_SESSION["s_admin"] === null) {
             </div>
         </div>
 
-        
-
-        
-            
         
         <!--boton flotante donde esta los diferentes acciones -->
         <footer>

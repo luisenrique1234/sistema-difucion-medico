@@ -77,7 +77,7 @@ if ($_SESSION["s_admin"] === null) {
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="index.php">
-                            <h1><img src="images/admin-logo.png" alt="logo" width="100" height="100"></h1>
+                            <img src="images/admin-logo.png" alt="logo" width="70" height="70">
                         </a>
                     </div>
                     <div class="collapse navbar-collapse">
@@ -93,20 +93,20 @@ if ($_SESSION["s_admin"] === null) {
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="mante_public.php">Lista de publicacion</a></li>
                                     <li><a href="blog.html">Comentario publicacion</a></li>
-                                    <li><a href="blogtwo.html">Lista destivado publicacion</a></li>
+                                    <li><a href="desativado_public.php">Lista destivado publicacion</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown"><a href="cirugia_general.php">Lista  investigaciones<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                 <li><a href="#">Lista investigaciones</a></li>
                                 <li><a href="#">Comentario investigacio</a></li>
-                                    <li><a href="#">Lista desativado investigaciones</a></li>
+                                    <li><a href="desacti_inve.php">Lista desativado investigaciones</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown"><a href="cirugia_general.php">Roles<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                 <li><a href="#">Roles médico</a></li>
-                                <li><a href="#">Especialidades médicos</a></li>
+                                <li><a href="mante_espec.php">Especialidades médicos</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -137,6 +137,9 @@ if ($_SESSION["s_admin"] === null) {
         <!-- fin de la segunda parte-->
         <div>
             <div class="panel-heading">
+                <br>
+                <br>
+                <br>
                 <h1> Listado de Médico Desativado</h1>
                 <div class="panel-body">
                 <a href="reportes/#" class="btn btn-danger">Reporte <i class="fa fa-print" aria-hidden="true"></i></a>
