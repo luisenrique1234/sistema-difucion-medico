@@ -169,6 +169,24 @@ window.location.href = 'bd/logout2.php'
 
 }
 
+function alercerrarsision() {
+
+  Swal.fire({
+title: '<h3>¿Estas seguro de cerrar sesión?</h3>',
+icon: 'warning',
+showCancelButton: true,
+confirmButtonColor: '#45bcdb',
+confirmButtonText: '<h5>Salir</h5>',
+cancelButtonText: '<h5>Cancelar</h5>'
+})
+.then((result) => {
+if (result.value) {
+window.location.href = '../bd/logout2.php'
+}
+}); 
+
+
+}
 
 /*<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert2@7.0.9/dist/sweetalert2.all.js"></script>*/
