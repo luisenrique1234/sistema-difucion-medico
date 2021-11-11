@@ -8,7 +8,9 @@ function lista_medico(){
     include('conexion.php');
     
     
-    $sql="SELECT * FROM medico WHERE estado='A' ORDER BY id_medico ASC";
+    $sql="SELECT medico.id_medico,medico.nombre_medico,medico.apellido_medico,medico.user_medico,medico.codigo_medico,medico.provincia_me,
+    especialidad.espec_descripsion,rol.descripcion FROM medico,especialidad,rol WHERE medico.especialidadm=especialidad.id_espec 
+    AND medico.idRol=rol.id_roles AND medico.estado='A' ORDER BY id_medico ASC";
     return $result = $mysqli->query($sql);
 }
 function extraermedico($id){
@@ -24,7 +26,9 @@ function lista_public(){
     include('conexion.php');
     
     
-    $sql="SELECT * FROM publicacion WHERE estado='A' ORDER BY id_public ASC";
+    $sql="SELECT publicacion.id_public,publicacion.titulo_public,publicacion.autor_pu,publicacion.text_public,publicacion.referencia_pu,
+    publicacion.link_archivo,publicacion.fecha_public,publicacion.tipo_archivo,publicacion.me_gusta_pu,especialidad.espec_descripsion,medico.nombre_medico FROM publicacion,medico,especialidad
+     WHERE publicacion.id_medico_pu=medico.id_medico AND publicacion.categoria_public=especialidad.id_espec AND publicacion.estado='A' ORDER BY id_public ASC";
     return $result = $mysqli->query($sql);
 }
 function extraerpubic($id){
@@ -41,7 +45,9 @@ function lista_pudestivado(){
     include('conexion.php');
     
     
-    $sql="SELECT * FROM publicacion WHERE estado='I' ORDER BY id_public ASC";
+    $sql="SELECT publicacion.id_public,publicacion.titulo_public,publicacion.autor_pu,publicacion.text_public,publicacion.referencia_pu,
+    publicacion.link_archivo,publicacion.fecha_public,publicacion.tipo_archivo,publicacion.me_gusta_pu,especialidad.espec_descripsion,medico.nombre_medico FROM publicacion,medico,especialidad
+     WHERE publicacion.id_medico_pu=medico.id_medico AND publicacion.categoria_public=especialidad.id_espec AND publicacion.estado='I' ORDER BY id_public ASC";
     return $result = $mysqli->query($sql);
 }
 
@@ -58,7 +64,9 @@ function lista_invstigacion(){
     include('conexion.php');
     
     
-    $sql="SELECT * FROM inv_cientifica WHERE  estado='A' ORDER BY id_inv ASC";
+    $sql="SELECT inv_cientifica.id_inv,inv_cientifica.titulo_inv,inv_cientifica.autor_inv,inv_cientifica.resume_inv,inv_cientifica.introducion_inv,inv_cientifica.fecha_inv,
+    medico.nombre_medico,especialidad.espec_descripsion FROM inv_cientifica,medico,especialidad  WHERE inv_cientifica.id_medico_inv=medico.id_medico 
+    AND inv_cientifica.cotegoria_inv=especialidad.id_espec  AND inv_cientifica.estado='A' ORDER BY id_inv ASC";
     return $result = $mysqli->query($sql);
 }
 function extraerinvestigacion($id){

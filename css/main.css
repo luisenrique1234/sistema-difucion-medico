@@ -12,7 +12,7 @@
   @import url(http://fonts.googleapis.com/css?family=Noto+Sans:400,700);
 
   body {
-    background: #cbeffc;
+    background: #e0f7ff;
     font-family: 'Lato', sans-serif;
     font-weight: 300;
     font-size: 14px;
@@ -227,7 +227,7 @@
 }
 
 .navbar {
-  background: #cbeffc;
+  background: #e0f7ff;
   border: 0;
   margin-bottom: 0;
 }
@@ -263,7 +263,7 @@
 ul.sub-menu {
   display: none;
   list-style: none;
-  background: #cbeffc;
+  background: #e0f7ff;
   padding: 0;
   margin: 0;
 }
@@ -271,7 +271,7 @@ ul.sub-menu {
 #header .navbar-nav li ul.sub-menu li a{
   color: #818285;
   padding: 5px 0;
-  background: #cbeffc;
+  background: #e0f7ff;
   font-size: 13px;
   display: block;
   text-transform: capitalize;
@@ -279,7 +279,7 @@ ul.sub-menu {
 
 #header .navbar-nav li ul.sub-menu li .active{
   background: #00aeef;
-  color: #cbeffc;
+  color: #e0f7ff;
   position: relative;
 }
 
@@ -350,7 +350,7 @@ ul.sub-menu {
   max-width: 285px;
   max-height: 300px;
   box-shadow: 1px 1px 1px 1px #0d87ac;
-  background-color: #cbeffc;
+  background-color: #e0f7ff;
   border-radius: 7px;    
 }
 

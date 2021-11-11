@@ -190,7 +190,7 @@ if ($_SESSION["s_admin"] === null) {
                                                 
                                                 <div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-lg-3 col-lg-offset-1 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-                                                    <label class="control-label">código médico<span
+                                                    <label class="control-label">Exequátur<span
                                                             style="color: turquoise">*</span></label>
                                                     <div class="form-group">
                                                     <input type="text" name="sqmedico" required="required" placeholder="Medioc" class="form-control" value="<?php echo $row['codigo_medico']?>">
@@ -305,17 +305,7 @@ if ($_SESSION["s_admin"] === null) {
 
     <!--boton flotante donde esta los diferentes acciones -->
     <div class="con">
-                        <input type="checkbox" id="btn-mas">
-                        <div class="redes">
-                            <a href="#" class="fa fa-user-circle"></a>
-                            
-                            <a href="buscador_m.php" class="fa fa-search"></a>
-                            <a href="cientifico.php" class="fa fa-h-square" aria-hidden="true"></a>
-                            <a href="./contador/dashboard.php" class="fa fa-bar-chart" aria-hidden="true"></a>
-                        </div>
-                        <div class="btn-mas">
-                            <label for="btn-mas" class="fa fa-plus"></label>
-                        </div>
+    <?php include_once "./php/boton.php"; ?>
                     </div>
                     <!--*******************************************************-->
     <footer>

@@ -39,6 +39,7 @@ if ($_SESSION["s_medico"] === null){
     <link href="css/dark.css" rel="stylesheet">
 
     <link rel="stylesheet" href="css/boton.css">
+    <script src="./contador.js"></script>
     <!--Icon-Font-->
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
 
@@ -183,10 +184,10 @@ if ($_SESSION["s_medico"] === null){
                     include 'php/conexion.php';
                     $espesicialidad =$_SESSION["s_espeme"];
                     
-                    $inve = "SELECT inv_cientifica.id_inv,inv_cientifica.titulo_inv,inv_cientifica.autor_inv,inv_cientifica.resume_inv,inv_cientifica.introducion_inv,
+                    $inve = "SELECT inv_cientifica.id_inv,inv_cientifica.titulo_inv,inv_cientifica.autor_inv,inv_cientifica.resume_inv,inv_cientifica.introducion_inv,inv_cientifica.me_gusta_inv,
                     inv_cientifica.pclave_inv,inv_cientifica.Antecedente_inv,DATE_FORMAT(inv_cientifica.fecha_inv,'%d/%m/%y') AS fecha,inv_cientifica.objetivoge_inv,inv_cientifica.objetivoes_inv,
-                    inv_cientifica.cotegoria_inv,medico.nombre_medico,medico.apellido_medico FROM inv_cientifica,medico WHERE inv_cientifica.id_medico_inv=medico.id_medico AND inv_cientifica.cotegoria_inv='$espesicialidad' AND inv_cientifica.estado='A' 
-                    AND inv_cientifica.cotegoria_inv='Cardiología' ORDER BY fecha DESC";
+                    inv_cientifica.cotegoria_inv,medico.nombre_medico,medico.apellido_medico,especialidad.espec_descripsion FROM inv_cientifica,medico,especialidad WHERE inv_cientifica.id_medico_inv=medico.id_medico AND inv_cientifica.cotegoria_inv='$espesicialidad' AND inv_cientifica.estado='A' 
+                    AND inv_cientifica.cotegoria_inv='2' AND inv_cientifica.cotegoria_inv=especialidad.id_espec ORDER BY me_gusta_inv DESC";
                     $inve2 = $mysqli->query($inve);
                     while ($res = mysqli_fetch_array($inve2)) {
                        /* $link_imagen = $res['link_imagen'];
@@ -230,12 +231,16 @@ if ($_SESSION["s_medico"] === null){
                                             <ul class="nav navbar-nav post-nav">
                                                 <li>
                                                     <h4><a href="#"><i
-                                                                class="fa fa-tag"></i><?php mostrar($res['cotegoria_inv']); ?></a>
+                                                                class="fa fa-tag"></i><?php mostrar($res['espec_descripsion']); ?></a>
                                                     </h4>
                                                 </li>
                                                 <li>
                                                     <h4><a href="#"><i class="fa fa-tag"></i>Investigacion
                                                             </a></h4>
+                                                </li>
+                                                <li>
+                                                <h4><a href="#"><i class="fa fa-heart" aria-hidden="true"></i>Me gustas
+                                                            <?php mostrar($res['me_gusta_inv']); ?></a></h4>
                                                 </li>
                                                 <li>
                                                     <h4><a href="#"><i class="fa fa-comments"></i>3 comentarios</a></h4>
@@ -255,7 +260,7 @@ if ($_SESSION["s_medico"] === null){
                     include 'php/conexion.php';
                     $public = "SELECT publicacion.id_public,publicacion.titulo_public,publicacion.text_public,publicacion.link_imagen,publicacion.link_video,
                     publicacion.link_audio,publicacion.link_archivo,DATE_FORMAT(publicacion.fecha_public,'%d/%m/%y') AS fecha,publicacion.categoria_public,publicacion.me_gusta_pu,
-                    medico.nombre_medico,medico.apellido_medico FROM publicacion,medico WHERE publicacion.id_medico_pu=medico.id_medico AND publicacion.categoria_public='Cardiología'  ORDER BY publicacion.me_gusta_pu DESC";
+                    medico.nombre_medico,medico.apellido_medico,especialidad.espec_descripsion FROM publicacion,medico,especialidad WHERE publicacion.id_medico_pu=medico.id_medico AND publicacion.categoria_public='2' AND publicacion.categoria_public=especialidad.id_espec ORDER BY publicacion.me_gusta_pu DESC";
                     $public2 = $mysqli->query($public);
                     while ($res = mysqli_fetch_array($public2)) {
                         $link_imagen = $res['link_imagen'];
@@ -311,21 +316,21 @@ if ($_SESSION["s_medico"] === null){
                                         <br>
                                         <?php
                                             if ($archivo != '') {
-                                                echo ('<h4 class="post-author"><a href="php/' . $archivo . '"download="sistema-difucion-medica">Descargar Archivo</a></h4>');
+                                                echo ('<h4 class="post-author"><a href="php/' . $archivo . '"download="sistema-difucion-medica"><i class="fa fa-download"></i> Descargar Archivo</a></h4>');
                                             }elseif ($video !=''){
-                                                echo ('<h4 class="post-author"><a href="php/' . $video . '"download="sistema-difucion-medica">Descargar Archivo</a></h4>');
+                                                echo ('<h4 class="post-author"><a href="php/' . $video . '"download="sistema-difucion-medica"><i class="fa fa-download"></i> Descargar Archivo</a></h4>');
                                             }elseif ($audio !=''){
-                                                echo ('<h4 class="post-author"><a href="php/' . $audio . '"download="sistema-difucion-medica">Descargar Archivo</a></h4>');
+                                                echo ('<h4 class="post-author"><a href="php/' . $audio . '"download="sistema-difucion-medica"><i class="fa fa-download"></i> Descargar Archivo</a></h4>');
                                             } ?>
                                         <div class="post-bottom overflow">
                                             <ul class="nav navbar-nav post-nav">
                                                 <li>
                                                     <h4><a href="#"><i
-                                                                class="fa fa-tag"></i><?php mostrar($res['categoria_public']); ?></a>
+                                                                class="fa fa-tag"></i><?php mostrar($res['espec_descripsion']); ?></a>
                                                     </h4>
                                                 </li>
                                                 <li>
-                                                    <h4><a href="#"><i class="fa fa-download"></i>Descargas
+                                                    <h4><a href="#"><i class="fa fa-heart" aria-hidden="true"></i>Me gustas
                                                             <?php mostrar($res['me_gusta_pu']); ?></a></h4>
                                                 </li>
                                                 <li>

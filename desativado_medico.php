@@ -149,16 +149,14 @@ if ($_SESSION["s_admin"] === null) {
                         <thead>
                             <tr style="background-color: #0d87ac; color:#FFFFFF;">
                                 <!-- fila-->
-                                <th data-hidden="true">Código medico</th>
+                                <th data-sortable="true">Código médico</th>
                                 <!--th colunma-->
                                 <th data-hidden="true">Nombre</th>
                                 <th data-hidden="true">Apellido</th>
                                 <th data-hidden="true">Nombre usuario</th>
-                                <th data-hidden="true">código médico</th>
-                                <th data-hidden="true">especialidad</th>
+                                <th data-hidden="true">Especialidad</th>
                                 <th data-hidden="true">Rol de médico</th>
-                                <th data-hidden="true">Contraseña</th>
-                                <th data-hidden="true">Estado</th>
+                                <th data-hidden="true">Provincia</th>
                                 
                                 <th></th>
                                 <th></th>
@@ -177,11 +175,9 @@ if ($_SESSION["s_admin"] === null) {
             <td>" . $row["nombre_medico"] . "</td>
 			<td>" . $row["apellido_medico"]. "</td>
             <td>" . $row["user_medico"]. "</td>
-			<td>" . $row["codigo_medico"]. "</td>
-            <td>" . $row["especialidadm"] . "</td>
-            <td>" . $row["idRol"] . "</td>
-            <td>" . $row["contrasena_me"] . "</td>
-            <td>" . $row["estado"] . "</td>
+            <td>" . $row["espec_descripsion"] . "</td>
+            <td>" . $row["descripcion"] . "</td>
+            <td>" . $row["provincia_me"] . "</td>
 			
             <td>
             <a onclick='return aleractivar2(".$row['id_medico'].");' class='btn btn-info' style='background-color: #0d87ac;'>Activar</a>
@@ -213,17 +209,7 @@ if ($_SESSION["s_admin"] === null) {
             </div>
     </footer>
         <div class="con">
-                        <input type="checkbox" id="btn-mas">
-                        <div class="redes">
-                            <a href="#" class="fa fa-user-circle"></a>
-                            
-                            <a href="buscador_m.php" class="fa fa-search"></a>
-                            <a href="cientifico.php" class="fa fa-h-square" aria-hidden="true"></a>
-                            <a href="./contador/dashboard.php" class="fa fa-bar-chart" aria-hidden="true"></a>
-                        </div>
-                        <div class="btn-mas">
-                            <label for="btn-mas" class="fa fa-plus"></label>
-                        </div>
+        <?php include_once "./php/boton.php"; ?>
                     </div>
                     <!--*******************************************************-->
         <script type="text/javascript" src="js/jquery.js"></script>

@@ -67,7 +67,7 @@ cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></
 })
 .then((result) => {
 if (result.value) {
-window.location.href = 'php/tablas_mantenimiento.php?accion=ACT&id='+codigo2
+window.location.href = 'php/tablas_mantenimiento.php?accion=ACTME&id='+codigo2
 }
 }); 
 

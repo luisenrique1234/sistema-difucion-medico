@@ -153,23 +153,13 @@ if ($_SESSION["s_admin"] === null) {
                             <tr style="background-color: #0d87ac; color:#FFFFFF;">
                                 <!-- fila-->
                                 <th data-hidden="true">Código investigacion</th>
-                                <th data-hidden="true">Código médico</th>
+                                <th data-hidden="true">Nombre médico</th>
                                 <th data-hidden="true">Titulo investigacion</th>
                                 <th data-hidden="true">_____Autor_____</th>
                                 <th data-hidden="true">___________________________Resumen_________________________________</th>
                                 <th data-hidden="true">Introduccion</th>
-                                <th data-hidden="true">Palabra Clave</th>
-                                <th data-hidden="true">__Antecedentes__</th>
-                                <th data-hidden="true">___Obejetivo_general</th>
-                                <th data-hidden="true">___Obejetivo_Especifico</th>
-                                <th data-hidden="true">___Justificacion___</th>
-                                <th data-hidden="true">___Hipotesis___</th>
-                                <th data-hidden="true">___Metodologia___</th>
-                                <th data-hidden="true">___Bibliografia___</th>
-                                <th data-hidden="true">___Referencia___</th>
                                 <th data-hidden="true">___Categoria___</th>
                                 <th data-hidden="true">___Fecha___</th>
-                                <th data-hidden="true">___Estado___</th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -184,23 +174,13 @@ if ($_SESSION["s_admin"] === null) {
                             echo "
             <tr>
             <td>" . $row["id_inv"] . "</td>
-            <td>" . $row["id_medico_inv"] . "</td>
+            <td>" . $row["nombre_medico"] . "</td>
 			<td>" . $row["titulo_inv"]. "</td>
             <td>" . substr($row["autor_inv"],0,100). "</td>
 			<td>" . substr($row["resume_inv"],0,300). "</td>
             <td>" . substr($row["introducion_inv"],0,100) . "</td>
-            <td>" . $row["pclave_inv"] . "</td>
-            <td>" . substr($row["Antecedente_inv"],0,200) . "</td>
-            <td>" . substr($row["objetivoge_inv"],0,300) . "</td>
-            <td>" . substr($row["objetivoes_inv"],0,300) . "</td>
-            <td>" . substr($row["justificasion_inv"],0,300) . "</td>
-            <td>" . substr($row["hipotesis_inv"],0,300) . "</td>
-            <td>" . substr($row["metodologia_inv"],0,300) . "</td>
-            <td>" . substr($row["bibliografia"],0,300) . "</td>
-            <td>" . substr($row["referencias_inv"],0,300) . "</td>
-            <td>" . substr($row["cotegoria_inv"],0,300) . "</td>
+            <td>" . substr($row["espec_descripsion"],0,300) . "</td>
             <td>" . substr($row["fecha_inv"],0,300) . "</td>
-            <td>" . substr($row["estado"],0,300) . "</td>
 			
             <td>
             <a href='actualizama_invest.php?id=" . $row["id_inv"] . "' class='btn btn-info' style='background-color: #0d87ac;'>Editar</a>
@@ -235,17 +215,7 @@ if ($_SESSION["s_admin"] === null) {
             </div>
     </footer>
         <div class="con">
-                        <input type="checkbox" id="btn-mas">
-                        <div class="redes">
-                            <a href="#" class="fa fa-user-circle"></a>
-                            
-                            <a href="buscador_m.php" class="fa fa-search"></a>
-                            <a href="cientifico.php" class="fa fa-h-square" aria-hidden="true"></a>
-                            <a href="./contador/dashboard.php" class="fa fa-bar-chart" aria-hidden="true"></a>
-                        </div>
-                        <div class="btn-mas">
-                            <label for="btn-mas" class="fa fa-plus"></label>
-                        </div>
+        <?php include_once "./php/boton.php"; ?>
                     </div>
                     <!--*******************************************************-->
         <script type="text/javascript" src="js/jquery.js"></script>

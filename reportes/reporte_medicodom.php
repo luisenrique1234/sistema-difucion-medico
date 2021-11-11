@@ -93,11 +93,9 @@ ob_start();
                                 <th>Nombre</th>
                                 <th>Apellido</th>
                                 <th>Nombre usuario</th>
-                                <th>código médico</th>
-                                <th>especialidad</th>
+                                <th>Especialidad</th>
                                 <th>Rol de médico</th>
                                 <th>Provincia</th>
-                                <th>Estado</th>
                                 
                                 <th></th>
                                 <th></th>
@@ -116,11 +114,9 @@ ob_start();
             <td>" . $row["nombre_medico"] . "</td>
 			<td>" . $row["apellido_medico"]. "</td>
             <td>" . $row["user_medico"]. "</td>
-			<td>" . $row["codigo_medico"]. "</td>
-            <td>" . $row["especialidadm"] . "</td>
-            <td>" . $row["idRol"] . "</td>
+            <td>" . $row["espec_descripsion"] . "</td>
+            <td>" . $row["descripcion"] . "</td>
             <td>" . $row["provincia_me"] . "</td>
-            <td>" . $row["estado"] . "</td>
 			
             
             </td>

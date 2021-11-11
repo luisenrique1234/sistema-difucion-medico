@@ -33,7 +33,7 @@ if ($_SESSION["s_admin"] === null) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Graficos Médico</title>
+    <title>Mantenimiento Gráficos</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/lightbox.css" rel="stylesheet">
@@ -76,7 +76,7 @@ if ($_SESSION["s_admin"] === null) {
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="admin_bien.php">Inicio</a></li>
-                            <li class="active" class="dropdown"><a href="mante_medico.php">Lista de Medico<i
+                            <li class="dropdown"><a href="mante_medico.php">Lista de Medico<i
                                         class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="mante_medico.php">Lista de médico</a></li>
@@ -141,7 +141,7 @@ if ($_SESSION["s_admin"] === null) {
                             <br>
                             <br>
                             <br>
-                            <h2>Graficoss</h2>
+                            <h2>Gráficos General</h2>
 
                         </div>
                     </div>
@@ -173,7 +173,7 @@ if ($_SESSION["s_admin"] === null) {
                                                 <!-- Card Header - Dropdown -->
                                                 <div
                                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                                    <h4 class="m-0 font-weight-bold text-primary">Visitas de la pagina</h4>
+                                                    <h4 class="m-0 font-weight-bold text-primary"><i class="fa fa-heartbeat" aria-hidden="true"></i> Me gustas de publicaciones</h4>
                                                 </div>
                                                 <!-- Cuerpo de la grafica lineas -->
                                                 <!-- Cuerpo de la grafica lineas -->
@@ -195,7 +195,7 @@ if ($_SESSION["s_admin"] === null) {
                                                 <!-- Card Header - Dropdown -->
                                                 <div
                                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                                    <h4 class="m-0 font-weight-bold text-primary">Fuente de trafico</h4>
+                                                    <h4 class="m-0 font-weight-bold text-primary"><i class="fa fa-map-marker" aria-hidden="true"></i> Provincia de los medicos</h4>
                                                 </div>
                                                 <!-- Cuerpo de la grafica  circular -->
                                                 <!-- Cuerpo de la grafica circular -->
@@ -218,7 +218,7 @@ if ($_SESSION["s_admin"] === null) {
                                                 <!-- Card Header - Dropdown -->
                                                 <div
                                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                                    <h4 class="m-0 font-weight-bold text-primary">Especialidades medicas</h4>
+                                                    <h4 class="m-0 font-weight-bold text-primary"><i class="fa fa-stethoscope" aria-hidden="true"></i> Especialidades medicas</h4>
                                                 </div>
                                                 <!-- Cuerpo de la grafica  circular -->
                                                 <!-- Cuerpo de la grafica circular -->
@@ -238,12 +238,12 @@ if ($_SESSION["s_admin"] === null) {
 
                                     </div>
 
-                                    <div class="col-xl-8 col-lg-7">
+                                    <div class="col-xl-8 col-lg-12">
                                         <div class="card shadow mb-4">
                                             <!-- Card Header - Dropdown -->
                                             <div
                                                 class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                                <h4 class="m-0 font-weight-bold text-primary">visitas de la publicacion</h4>
+                                                <h4 class="m-0 font-weight-bold text-primary"><i class="fa fa-heartbeat" aria-hidden="true"></i>Me gustas de investigacion</h4>
                                             </div>
                                             <!-- Cuerpo de la grafica lineas -->
                                             <!-- Cuerpo de la grafica lineas -->
@@ -264,16 +264,9 @@ if ($_SESSION["s_admin"] === null) {
 
                                     <!--boton flotante donde esta los diferentes acciones -->
                                     <div class="con">
-                                        <input type="checkbox" id="btn-mas">
-                                        <div class="redes">
-                                            <a href="#" class="fa fa-user-circle"></a>
-                                            <a href="cientifico.php" class="fa fa-h-square" aria-hidden="true"></a>
-                                            <a href="buscador_m.php" class="fa fa-search"></a>
-                                            <a href="./contador/dashboard.php" class="fa fa-bar-chart" aria-hidden="true"></a>
-                                        </div>
-                                        <div class="btn-mas">
-                                            <label for="btn-mas" class="fa fa-plus"></label>
-                                        </div>
+                                    <?php include_once "./php/boton.php"; ?>
+
+
                                     </div>
                                     <!--*******************************************************-->
                                     <!--/Response-area-->
@@ -287,11 +280,10 @@ if ($_SESSION["s_admin"] === null) {
                         <div class="sidebar-item  recent">
                         </div>
                         <div class="sidebar-item categories">
-                            <h3>Especialidades</h3>
+                            <h3>Más Gráficos</h3>
                             <ul class="nav navbar-stacked">
-                                <li><a href="#">Pediatria</a></li>
-                                <li class="active"><a href="#">Cardiologia</a></li>
-                                <li><a href="#">Cirugia general</a></li>
+                                <li><a href="./contador/dashboard.php">Visitas</a></li>
+                                <li><a href="#">Publicaciones</a></li>
                             </ul>
                         </div>
                     </div>
@@ -341,10 +333,10 @@ if ($_SESSION["s_admin"] === null) {
 
     <script type="text/javascript">
     $(document).ready(function() {
-        $('#cargalineal').load('lineal.php');
-        $('#cargacircular').load('circular.php');
-        $('#cargacircular_2').load('circular_2.php');
-        $('#graficalineal_2').load('lineal_2.php');
+        $('#cargalineal').load('grafico/lineal.php');
+        $('#cargacircular').load('grafico/circular.php');
+        $('#cargacircular_2').load('grafico/circular_2.php');
+        $('#graficalineal_2').load('grafico/lineal_2.php');
 
     });
     </script>

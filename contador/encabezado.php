@@ -30,6 +30,9 @@ if ($_SESSION["s_admin"] === null) {
     <link href="../css/dark.css" rel="stylesheet">
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link rel="shortcut icon" href="../images/ico/ico.png">
+    <link rel="stylesheet" href="../css/boton.css">
 </head>
 
 <body>
@@ -48,7 +51,7 @@ if ($_SESSION["s_admin"] === null) {
   </div>
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-end">
-      <a class="navbar-item">
+      <a href="../admin_bien.php" class="navbar-item">
         Inicio
       </a>
 

@@ -130,6 +130,10 @@ if ($_SESSION["s_medico"] === null){
         </div>
     </header>
     <!--/#header-->
+    <br>
+    <br>
+    <br>
+    <br>
     <section id="page-breadcrumb">
         <div class="vertical-center sun">
             <div class="container">
@@ -168,18 +172,6 @@ if ($_SESSION["s_medico"] === null){
     <!-- Card Header - Dropdown -->
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
       <h4 class="m-0 font-weight-bold text-primary">Me gustas de la publicacion</h4>
-      <div class="dropdown no-arrow">
-        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-          <div class="dropdown-header">Dropdown Header:</div>
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </div>
     </div>
     <!-- Cuerpo de la grafica lineas -->
     <!-- Cuerpo de la grafica lineas -->
@@ -187,7 +179,7 @@ if ($_SESSION["s_medico"] === null){
     <!-- Cuerpo de la grafica lineas -->
     <!-- Cuerpo de la grafica lineas -->
     <div class="card-body">
-      <div  id="cargalineal">
+      <div  id="graficalinealme">
       
       </div>
     </div>
@@ -201,18 +193,6 @@ if ($_SESSION["s_medico"] === null){
     <!-- Card Header - Dropdown -->
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
       <h4 class="m-0 font-weight-bold text-primary">Fuente de trafico</h4>
-      <div class="dropdown no-arrow">
-        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-          <div class="dropdown-header">Encabezado desplegable:</div>
-          <a class="dropdown-item" href="#">Accion</a>
-          <a class="dropdown-item" href="#">Otra accion</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Otas acciones</a>
-        </div>
-      </div>
     </div>
     <!-- Cuerpo de la grafica  circular -->
     <!-- Cuerpo de la grafica circular -->
@@ -220,7 +200,7 @@ if ($_SESSION["s_medico"] === null){
     <!-- Cuerpo de la grafica circula -->
     <!-- Cuerpo de la grafica circular -->
     <div class="card shadow mb-4">
-      <div id="cargacircular">
+      <div id="graficacircular_me">
       
         
       </div>
@@ -235,18 +215,6 @@ if ($_SESSION["s_medico"] === null){
     <!-- Card Header - Dropdown -->
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
       <h4 class="m-0 font-weight-bold text-primary">Especialidades medicas</h4>
-      <div class="dropdown no-arrow">
-        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-          <div class="dropdown-header">Encabezado desplegable:</div>
-          <a class="dropdown-item" href="#">Accion</a>
-          <a class="dropdown-item" href="#">Otra accion</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Otas acciones</a>
-        </div>
-      </div>
     </div>
     <!-- Cuerpo de la grafica  circular -->
     <!-- Cuerpo de la grafica circular -->
@@ -254,7 +222,7 @@ if ($_SESSION["s_medico"] === null){
     <!-- Cuerpo de la grafica circula -->
     <!-- Cuerpo de la grafica circular -->
     <div class="card shadow mb-4">
-      <div id="cargacircular_2">
+      <div id="cargacircular_me2">
       
         
       </div>
@@ -270,19 +238,7 @@ if ($_SESSION["s_medico"] === null){
   <div class="card shadow mb-4">
     <!-- Card Header - Dropdown -->
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-      <h4 class="m-0 font-weight-bold text-primary">visitas de la publicacion</h4>
-      <div class="dropdown no-arrow">
-        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-          <div class="dropdown-header">Dropdown Header:</div>
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </div>
+      <h4 class="m-0 font-weight-bold text-primary">Me gustas de la Investigacion</h4>
     </div>
     <!-- Cuerpo de la grafica lineas -->
     <!-- Cuerpo de la grafica lineas -->
@@ -290,7 +246,7 @@ if ($_SESSION["s_medico"] === null){
     <!-- Cuerpo de la grafica lineas -->
     <!-- Cuerpo de la grafica lineas -->
     <div class="card-body">
-      <div  id="graficalineal_2">
+      <div  id="graficalineal_me2">
       
       </div>
     </div>
@@ -379,10 +335,10 @@ if ($_SESSION["s_medico"] === null){
 
     <script type="text/javascript">
 $(document).ready(function(){
-	$('#cargalineal').load('lineal.php');
-  $('#cargacircular').load('circular.php');
-  $('#cargacircular_2').load('circular_2.php');
-  $('#graficalineal_2').load('lineal_2.php');
+	$('#graficalinealme').load('grafico/lineal_medico.php');
+  $('#graficacircular_me').load('grafico/circular_medico.php');
+  $('#cargacircular_me2').load('grafico/circular_medico2.php');
+  $('#graficalineal_me2').load('grafico/lineal_medico2.php');
 
 });
 

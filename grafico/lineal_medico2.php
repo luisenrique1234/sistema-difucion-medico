@@ -1,7 +1,10 @@
 <?php
-require_once "php/conexion_grafico.php";
+
+session_start();
+$codigome=$_SESSION["s_idme"];
+require_once "../php/conexion_grafico.php";
 $conexion=conexion();
-$sql="SELECT fecha_public,me_gusta_pu from publicacion ";
+$sql="SELECT fecha_inv,me_gusta_inv FROM inv_cientifica WHERE id_medico_inv='$codigome' ";
 $result=mysqli_query($conexion,$sql);
 $valoresy=array();//montos
 $valoresx=array();//ventas
@@ -16,8 +19,12 @@ while($ver=mysqli_fetch_row($result)){
  $datosx=json_encode($valoresx);
  $datosy=json_encode($valoresy);
 
+ //echo ("<h4>$datosy</h4>");
+ 
+ //echo ("<h4>$datosx</h4>");
+
 ?>
-<div id="graficalineal"></div>
+<div id="graficalineal_me2"></div>
 
 <script type="text/javascript">
  function crearCadenaLineal(json){
@@ -47,6 +54,6 @@ var trace1 = {
 
 var data = [trace1];
 
-Plotly.newPlot('graficalineal', data);
+Plotly.newPlot('graficalineal_me2', data);
 
 </script>

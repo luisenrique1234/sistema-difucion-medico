@@ -83,16 +83,17 @@ ob_start();
                         <thead>
                             <tr style="background-color: #0d87ac; color:#FFFFFF;">
                                 <!-- fila-->
-                                <th>Código public</th>
-                                <th>Tituo</th>
-                                <th>_____Autor_____</th>
-                                <th>___________________________Publicacion_________________________________</th>
-                                <th>Referencia</th>
-                                <th>Fecha publicacion</th>
-                                <th>Categaria</th>
-                                <th>Estado</th>
-                                <th></th>
-                                <th></th>
+                                <th data-hidden="true">Código public</th>
+                                <th data-hidden="true">Nombre médico</th>
+                                <th data-hidden="true">Tituo</th>
+                                <th data-hidden="true">_____Autor_____</th>
+                                <th data-hidden="true">_____________________Publicacion__________________________</th>
+                                <th data-hidden="true">Referencia</th>
+                                <th data-hidden="true">Fecha publicacion</th>
+                                <th data-hidden="true">Categaria</th>
+                                <th data-hidden="true">votos</th>
+                                <th data-hidden="true"></th>
+                                <th data-hidden="true"></th>
                             </tr>
                         </thead>
                         <?php
@@ -105,14 +106,15 @@ ob_start();
                             echo "
             <tr>
             <td>" . $row["id_public"] . "</td>
+            <td>" . $row["nombre_medico"] . "</td>
 			<td>" . $row["titulo_public"]. "</td>
             <td>" . substr($row["autor_pu"],0,100). "</td>
 			<td>" . substr($row["text_public"],0,300). "</td>
             <td>" . substr($row["referencia_pu"],0,100) . "</td>
             <td>" . $row["fecha_public"] . "</td>
-            <td>" . $row["categoria_public"] . "</td>
-            <td>" . $row["estado"] . "</td>
-			
+            <td>" . $row["espec_descripsion"] . "</td>
+            <td>" . $row["me_gusta_pu"] . "</td>
+
             <td>
             </td>
             </tr>

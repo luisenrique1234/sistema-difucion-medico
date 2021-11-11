@@ -1,8 +1,8 @@
 <?php
-require_once "php/conexion_grafico.php";
+require_once "../php/conexion_grafico.php";
 $conexion=conexion();
 
- $sql2="SELECT espec_descripsion, COUNT(*) AS total FROM especialidad GROUP BY espec_descripsion";
+ $sql2="SELECT provincia_me, COUNT(*) AS total FROM medico GROUP BY provincia_me";
 $result2=mysqli_query($conexion,$sql2);
 $valoresy=array();//cantida de cliente de una ciudad
 $valoresz=array();// ciudad
@@ -19,11 +19,14 @@ $valoresz=array();// ciudad
  $datosy=json_encode($valoresy);
  $datosz=json_encode($valoresz);
  
+ //echo ("<h4>$datosy</h4>");
+ 
+ //echo ("<h4>$datosz</h4>");
 
  
 
 ?>
-<div id="cargacircular_2"></div>
+<div id="graficacircular_me"></div>
 
 <script type="text/javascript">
  function crearCadenacirCular(json){
@@ -60,7 +63,7 @@ var layout = {
   showlegend: false
   }
 
-Plotly.newPlot('cargacircular_2', data, layout);
+Plotly.newPlot('graficacircular_me', data, layout);
 
 
 </script>

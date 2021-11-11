@@ -149,18 +149,17 @@ if ($_SESSION["s_admin"] === null) {
                         <thead>
                             <tr style="background-color: #0d87ac; color:#FFFFFF;">
                                 <!-- fila-->
+                                <tr style="background-color: #0d87ac; color:#FFFFFF;">
+                                <!-- fila-->
                                 <th data-hidden="true">Código public</th>
-                                <th data-hidden="true">Código médico</th>
+                                <th data-hidden="true">Nombre médico</th>
                                 <th data-hidden="true">Tituo</th>
                                 <th data-hidden="true">_____Autor_____</th>
-                                <th data-hidden="true">___________________________Publicacion_________________________________</th>
+                                <th data-hidden="true">_________________Publicacion______________________</th>
                                 <th data-hidden="true">Referencia</th>
-                                <th data-hidden="true">Link archivo</th>
                                 <th data-hidden="true">Fecha publicacion</th>
                                 <th data-hidden="true">Categaria</th>
-                                <th data-hidden="true">Tipo de archivo</th>
                                 <th data-hidden="true">votos</th>
-                                <th data-hidden="true">Estado</th>
                                 <th data-hidden="true"></th>
                                 <th data-hidden="true"></th>
                             </tr>
@@ -175,17 +174,14 @@ if ($_SESSION["s_admin"] === null) {
                             echo "
             <tr>
             <td>" . $row["id_public"] . "</td>
-            <td>" . $row["id_medico_pu"] . "</td>
+            <td>" . $row["nombre_medico"] . "</td>
 			<td>" . $row["titulo_public"]. "</td>
             <td>" . substr($row["autor_pu"],0,100). "</td>
 			<td>" . substr($row["text_public"],0,300). "</td>
             <td>" . substr($row["referencia_pu"],0,100) . "</td>
-            <td>" . $row["link_archivo"] . "</td>
             <td>" . $row["fecha_public"] . "</td>
-            <td>" . $row["categoria_public"] . "</td>
-            <td>" . $row["tipo_archivo"] . "</td>
+            <td>" . $row["espec_descripsion"] . "</td>
             <td>" . $row["me_gusta_pu"] . "</td>
-            <td>" . $row["estado"] . "</td>
 			
             <td>
             <a onclick='return aleractivarpu(".$row['id_public'].");' class='btn btn-danger' style='background-color: #0d87ac;'>Activar</a>
@@ -215,17 +211,7 @@ if ($_SESSION["s_admin"] === null) {
             </div>
     </footer>
         <div class="con">
-                        <input type="checkbox" id="btn-mas">
-                        <div class="redes">
-                            <a href="#" class="fa fa-user-circle"></a>
-                            
-                            <a href="buscador_m.php" class="fa fa-search"></a>
-                            <a href="cientifico.php" class="fa fa-h-square" aria-hidden="true"></a>
-                            <a href="./contador/dashboard.php" class="fa fa-bar-chart" aria-hidden="true"></a>
-                        </div>
-                        <div class="btn-mas">
-                            <label for="btn-mas" class="fa fa-plus"></label>
-                        </div>
+        <?php include_once "./php/boton.php"; ?>
                     </div>
                     <!--*******************************************************-->
         <script type="text/javascript" src="js/jquery.js"></script>

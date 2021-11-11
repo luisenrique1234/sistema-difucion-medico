@@ -348,16 +348,7 @@ if ($_SESSION["s_admin"] === null) {
 
     <!--boton flotante donde esta los diferentes acciones -->
     <div class="con">
-        <input type="checkbox" id="btn-mas">
-        <div class="redes">
-            <a href="#" class="fa fa-user-circle"></a>
-            <a href="buscador_m.php" class="fa fa-search"></a>
-            <a href="cientifico.php" class="fa fa-h-square" aria-hidden="true"></a>
-            <a href="./contador/dashboard.php" class="fa fa-bar-chart" aria-hidden="true"></a>
-        </div>
-        <div class="btn-mas">
-            <label for="btn-mas" class="fa fa-plus"></label>
-        </div>
+        <?php include_once "./php/boton.php"; ?>
     </div>
     <!--*******************************************************-->
     <footer>

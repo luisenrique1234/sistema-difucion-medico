@@ -24,6 +24,7 @@ $visitas = obtenerVisitasEnRango($inicio, $fin);
     <div class="columns">
 
         <div class="column">
+        <h5>Visitas de las paginas</h5>
             <div class="card">
                 <header class="card-header">
                     <p class="card-header-title">
@@ -129,6 +130,9 @@ $visitas = obtenerVisitasEnRango($inicio, $fin);
         </div>
     </div>
 </section>
+<div class="con">
+        <?php include_once "../php/boton.php"; ?>
+                    </div>
 <script type="text/javascript">
     // Pasar variable de PHP a JS
     const visitantes = <?php echo json_encode($visitantes) ?>;
