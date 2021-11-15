@@ -36,7 +36,7 @@ $date = (new DateTime())->format('d/m/y');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Mantenimiento de publicaciones</title>
+    <title>Mantenimiento de publicaciónes</title>
     <link href="http://<?php echo $_SERVER["HTTP_HOST"]?>/medico-red/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://<?php echo $_SERVER["HTTP_HOST"]?>/medico-red/css/font-awesome.min.css" rel="stylesheet">
     <link href="http://<?php echo $_SERVER["HTTP_HOST"]?>/medico-red/css/lightbox.css" rel="stylesheet">
@@ -54,8 +54,8 @@ $date = (new DateTime())->format('d/m/y');
         <!-- fin de la segunda parte-->
         <div>
         <div style="text-align: center;">
-                <h3>Sistema de difusion de información médico</h3>
-                <h3> Listado de Publicaciones</h3>
+                <h3>Sistema de difusión de información médico</h3>
+                <h3> Listado de Publicaciónes</h3>
                 
             </div>
             <h4 style="text-align: center;"> Fecha:  <?php echo $date;  ?></h4>

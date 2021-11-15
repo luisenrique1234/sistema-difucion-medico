@@ -29,7 +29,7 @@ if ($_SESSION["s_medico"] === null){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>publicacion cientifica</title>
+    <title>publicación cientifica</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/lightbox.css" rel="stylesheet">
@@ -104,7 +104,7 @@ if ($_SESSION["s_medico"] === null){
                                         class="fa fa-user"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="pefil_medico.php">Mi perfil</a></li>
-                                    <li><a href="lista_publicm.php">Mis Publicaciones</a></li>
+                                    <li><a href="lista_publicm.php">Mis Publicaciónes</a></li>
                                     <li><a href="bd/logout.php" onclick="return alertaactivar();">Cerrar sesion</a></li>
                                 </ul>
 
@@ -338,16 +338,7 @@ if ($_SESSION["s_medico"] === null){
 
                                         <!--boton flotante donde esta los diferentes acciones -->
                     <div class="con">
-                        <input type="checkbox" id="btn-mas">
-                        <div class="redes">
-                            <a href="#" class="fa fa-user-circle"></a>
-                            <a href="buscador_m.php" class="fa fa-search"></a>
-                            <a href="cientifico.php" class="fa fa-h-square" aria-hidden="true"></a>
-                            <a href="form_public.php" class="fa fa-stethoscope"></a>
-                        </div>
-                        <div class="btn-mas">
-                            <label for="btn-mas" class="fa fa-plus"></label>
-                        </div>
+                    <?php include_once "./php/boton_medico.php"; ?>
                     </div>
                     <!--*******************************************************-->
                                     <!--/Response-area-->
@@ -395,7 +386,7 @@ if ($_SESSION["s_medico"] === null){
                 <div class="col-sm-12 text-center bottom-separator">
                     <div class="col-sm-12">
                         <div class=" copyright-text text-center ">
-                            <p> Sistema de difusion medica 2021. Todos los derechos reservados.</p>
+                            <p> Sistema de difusión medica 2021. Todos los derechos reservados.</p>
                             <p>Diseñado por<a target="_blank" href="http://luis-enrique.com">Sr.LEGG</a></p>
                         </div>
                     </div>

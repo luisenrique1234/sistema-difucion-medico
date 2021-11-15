@@ -76,14 +76,14 @@ if ($_SESSION["s_admin"] === null) {
                             <li class="active" class="dropdown"><a href="mante_medico.php">Lista de Medico<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="mante_medico.php">Lista de médico</a></li>
-                                    <li><a href="desativado_medico.php">lista desactivado médico</a></li>
+                                    <li><a href="desativado_medico.php">lista desactivados médico</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="mante_public.php">Lista de publicacion<i class="fa fa-angle-down"></i></a>
+                            <li class="dropdown"><a href="mante_public.php">Lista de Publicación<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                    <li><a href="mante_public.php">Lista de publicacion</a></li>
-                                    <li><a href="#">Comentario publicacion</a></li>
-                                    <li><a href="desativado_public.php">Lista destivado publicacion</a></li>
+                                    <li><a href="mante_public.php">Lista de Publicación</a></li>
+                                    <li><a href="#">Comentario Publicación</a></li>
+                                    <li><a href="desativado_public.php">Lista destivado Publicación</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown"><a href="mante_inve.php">Lista  investigaciones<i class="fa fa-angle-down"></i></a>
@@ -357,7 +357,7 @@ if ($_SESSION["s_admin"] === null) {
                 <div class="col-sm-12 text-center bottom-separator">
                     <div class="col-sm-12">
                         <div class=" copyright-text text-center ">
-                            <p>Sistema de difusion medica 2021. Todos los derechos reservados.</p>
+                            <p>Sistema de difusión medica 2021. Todos los derechos reservados.</p>
                             <p>Diseñado por <a target="_blank" href="http://luis-enrique.com">Sr.LEGG</a></p>
                         </div>
                     </div>

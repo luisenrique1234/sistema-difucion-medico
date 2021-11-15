@@ -140,7 +140,7 @@ if ($_SESSION["s_admin"] === null) {
         <br>
         <br>
             <div class="panel-heading">
-                <h1> Listado de Publicacion</h1>
+                <h1> Listado de Publicación</h1>
                 <div class="panel-body">
                     
                         <a href="nuevoma_public.php" class="btn btn-info pull-letf" style="background-color: #0d87ac;">NUEVO</a>
@@ -206,7 +206,7 @@ if ($_SESSION["s_admin"] === null) {
                 <div class="col-sm-12 text-center bottom-separator">
                     <div class="col-sm-12">
                         <div class=" copyright-text text-center ">
-                            <p> Sistema de difusion medica 2021. Todos los derechos reservados.</p>
+                            <p> Sistema de difusión medica 2021. Todos los derechos reservados.</p>
                             <p>Diseñado por<a target="_blank" href="http://luis-enrique.com">Sr.LEGG</a></p>
                         </div>
                     </div>

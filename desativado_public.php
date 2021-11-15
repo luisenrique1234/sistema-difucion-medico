@@ -33,7 +33,7 @@ if ($_SESSION["s_admin"] === null) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Mantenimiento de publicaciones</title>
+    <title>Mantenimiento de publicaciónes</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/lightbox.css" rel="stylesheet">
@@ -89,18 +89,18 @@ if ($_SESSION["s_admin"] === null) {
                                     <li><a href="desativado_medico.php">lista desactivado médico</a></li>
                                 </ul>
                             </li>
-                            <li class="active" class="dropdown"><a href="mante_public.php">Lista de publicacion<i class="fa fa-angle-down"></i></a>
+                            <li class="active" class="dropdown"><a href="mante_public.php">Lista de publicación<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                    <li><a href="mante_public.php">Lista de publicacion</a></li>
-                                    <li><a href="blog.html">Comentario publicacion</a></li>
-                                    <li><a href="desativado_public.php">Lista destivado publicacion</a></li>
+                                    <li><a href="mante_public.php">Lista de publicación</a></li>
+                                    <li><a href="blog.html">Comentario publicación</a></li>
+                                    <li><a href="desativado_public.php">Lista destivado publicación</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown"><a href="mante_inve.php">Lista  investigaciones<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                 <li><a href="mante_inve.php">Lista investigaciones</a></li>
                                 <li><a href="#">Comentario investigacio</a></li>
-                                    <li><a href="desacti_inve.php">Lista desativado investigaciones</a></li>
+                                    <li><a href="desacti_inve.php">Lista desactivado investigaciones</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown"><a href="mante_rol.php">Roles<i class="fa fa-angle-down"></i></a>
@@ -140,7 +140,7 @@ if ($_SESSION["s_admin"] === null) {
         <br>
         <br>
             <div class="panel-heading">
-                <h1> Listado de Publicacion desactivados</h1>
+                <h1> Listado de Publicación Desactivados</h1>
                 <div class="panel-body">
                         <a href="reportes/reporte_desactivapu.php" class="btn btn-danger">Reporte <i class="fa fa-print" aria-hidden="true"></i></a>
                     <br>
@@ -155,9 +155,9 @@ if ($_SESSION["s_admin"] === null) {
                                 <th data-hidden="true">Nombre médico</th>
                                 <th data-hidden="true">Tituo</th>
                                 <th data-hidden="true">_____Autor_____</th>
-                                <th data-hidden="true">_________________Publicacion______________________</th>
+                                <th data-hidden="true">_________________Publicación______________________</th>
                                 <th data-hidden="true">Referencia</th>
-                                <th data-hidden="true">Fecha publicacion</th>
+                                <th data-hidden="true">Fecha publicación</th>
                                 <th data-hidden="true">Categaria</th>
                                 <th data-hidden="true">votos</th>
                                 <th data-hidden="true"></th>
@@ -203,7 +203,7 @@ if ($_SESSION["s_admin"] === null) {
                 <div class="col-sm-12 text-center bottom-separator">
                     <div class="col-sm-12">
                         <div class=" copyright-text text-center ">
-                            <p> Sistema de difusion medica 2021. Todos los derechos reservados.</p>
+                            <p> Sistema de difusión medica 2021. Todos los derechos reservados.</p>
                             <p>Diseñado por<a target="_blank" href="http://luis-enrique.com">Sr.LEGG</a></p>
                         </div>
                     </div>

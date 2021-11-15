@@ -169,6 +169,8 @@ window.location.href = 'bd/logout2.php'
 
 }
 
+
+
 function alercerrarsision() {
 
   Swal.fire({

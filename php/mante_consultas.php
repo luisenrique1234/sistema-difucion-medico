@@ -84,7 +84,9 @@ function lista_invsdesactiva(){
     include('conexion.php');
     
     
-    $sql="SELECT * FROM inv_cientifica WHERE  estado='I' ORDER BY id_inv ASC";
+    $sql="SELECT inv_cientifica.id_inv,inv_cientifica.titulo_inv,inv_cientifica.autor_inv,inv_cientifica.resume_inv,inv_cientifica.introducion_inv,inv_cientifica.fecha_inv,
+    medico.nombre_medico,especialidad.espec_descripsion FROM inv_cientifica,medico,especialidad  WHERE inv_cientifica.id_medico_inv=medico.id_medico 
+    AND inv_cientifica.cotegoria_inv=especialidad.id_espec  AND inv_cientifica.estado='I' ORDER BY id_inv ASC";
     return $result = $mysqli->query($sql);
 }
 ?>

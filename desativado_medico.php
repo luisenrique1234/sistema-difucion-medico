@@ -33,7 +33,7 @@ if ($_SESSION["s_admin"] === null) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Lista de Médicos Desativado</title>
+    <title>Lista de Médicos Desactivado</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/lightbox.css" rel="stylesheet">
@@ -89,18 +89,18 @@ if ($_SESSION["s_admin"] === null) {
                                     <li><a href="desativado_medico.php">lista desactivado médico</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="mante_public.php">Lista de publicacion<i class="fa fa-angle-down"></i></a>
+                            <li class="dropdown"><a href="mante_public.php">Lista de publicación<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                    <li><a href="mante_public.php">Lista de publicacion</a></li>
-                                    <li><a href="blog.html">Comentario publicacion</a></li>
-                                    <li><a href="desativado_public.php">Lista destivado publicacion</a></li>
+                                    <li><a href="mante_public.php">Lista de publicación</a></li>
+                                    <li><a href="blog.html">Comentario publicación</a></li>
+                                    <li><a href="desativado_public.php">Lista destivado publicación</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="cirugia_general.php">Lista  investigaciones<i class="fa fa-angle-down"></i></a>
+                            <li class="dropdown"><a href="cirugia_general.php">Lista  investigaciónes<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                 <li><a href="#">Lista investigaciones</a></li>
                                 <li><a href="#">Comentario investigacio</a></li>
-                                    <li><a href="desacti_inve.php">Lista desativado investigaciones</a></li>
+                                    <li><a href="desacti_inve.php">Lista desactivado investigaciones</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown"><a href="cirugia_general.php">Roles<i class="fa fa-angle-down"></i></a>
@@ -140,7 +140,7 @@ if ($_SESSION["s_admin"] === null) {
                 <br>
                 <br>
                 <br>
-                <h1> Listado de Médico Desativado</h1>
+                <h1> Listado de Médico Desactivados</h1>
                 <div class="panel-body">
                 <a href="reportes/#" class="btn btn-danger">Reporte <i class="fa fa-print" aria-hidden="true"></i></a>
                     <br>
@@ -201,7 +201,7 @@ if ($_SESSION["s_admin"] === null) {
                 <div class="col-sm-12 text-center bottom-separator">
                     <div class="col-sm-12">
                         <div class=" copyright-text text-center ">
-                            <p> Sistema de difusion medica 2021. Todos los derechos reservados.</p>
+                            <p> Sistema de difusión medica 2021. Todos los derechos reservados.</p>
                             <p>Diseñado por<a target="_blank" href="http://luis-enrique.com">Sr.LEGG</a></p>
                         </div>
                     </div>

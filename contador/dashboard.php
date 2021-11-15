@@ -55,7 +55,7 @@ $visitas = obtenerVisitasEnRango($inicio, $fin);
                     </div>
                 </div>
                 <footer class="card-footer">
-                    <small class="mx-2 my-2">By Sistema de difusion de informacion médico</small>
+                    <small class="mx-2 my-2">By Sistema de difusión de información médico</small>
                 </footer>
             </div>
         </div>
@@ -124,7 +124,7 @@ $visitas = obtenerVisitasEnRango($inicio, $fin);
                     </div>
                 </div>
                 <footer class="card-footer">
-                    <small class="mx-2 my-2">By sistema de difusion de informacion médico</small>
+                    <small class="mx-2 my-2">By sistema de difusión de información médico</small>
                 </footer>
             </div>
         </div>

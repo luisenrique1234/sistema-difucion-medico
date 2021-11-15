@@ -44,7 +44,7 @@ if ($_SESSION["s_medico"] === null){
     <link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <link href="css/dark.css" rel="stylesheet">
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="css/boton.css">
     <!--Icon-Font-->
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
@@ -62,85 +62,16 @@ if ($_SESSION["s_medico"] === null){
 <!--/head-->
 <body class="dark">
 
-<header id="header">
-        
-        <div class="dark1">
-            <div class="navbar navbar-inverse" role="banner">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse"
-                            data-target=".navbar-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
+<?php include_once "./php/menu.php"; ?>
 
-                        
-                    </div>
-                    <div class="collapse navbar-collapse">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="active"><a href="index.php">Inicio</a></li>
-                            <li class="dropdown"><a href="pediatria.php">Pediatria<i class="fa fa-angle-down"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <li><a href="aboutus.html">Enbarosos</a></li>
-                                    <li><a href="aboutus2.html">Maltrato infantil</a></li>
-                                    <li><a href="service.html">Salud infantil</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown"><a href="Cardiologia.php">Cardiologia<i class="fa fa-angle-down"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <li><a href="blog.html">Ataques al corazon</a></li>
-                                    <li><a href="blogtwo.html">Arritmia cardiaca</a></li>
-                                    <li><a href="blogone.html">Taquicardia</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown"><a href="cirugia_general.php">Cirugia general<i class="fa fa-angle-down"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <li><a href="#">Anestecia</a></li>
-                                    <li><a href="#">Anestecia Local</a></li>
-                                </ul>
-                            </li>
-                            <li >
-                        
-                           <!-- <div >
-                            <img src="images/predeterminado.jpg" width="100%" height="60">
-                            </div>-->
-                                <a href="portfolio.html" class="btn btn-info"><?php  echo $_SESSION["s_medico"];?>.  .<i class="fa fa-user"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <li><a href="pefil_medico.php">Mi perfil</a></li>
-                                    <li><a href="lista_publicm.php">Mis Publicaciones</a></li>
-                                    <li><a href="bd/logout.php" onclick="return alertaactivar();">Cerrar sesion</a></li>
-                                </ul>
-                                 
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="search">
-                    <form role="form">
-                        <i class="fa fa-search"></i>
-                        <div class="field-toggle">
-                            <input type="text" class="search-form" autocomplete="off" placeholder="Buscar">
-                        </div>
-                    </form>
-                    <div class="social-icons search">
-                        <div class="oscuro">
-                            <div class="modo" id="modo">
-                                <i class="fa fa-adjust" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-
+<br>
+<br>
+<br>
+<br>
 
     <div class="col-lg-1 col-lg-offset-0 col-xs-12 col-xs-offset-0">
         <a class="navbar-brand" href="index.php">
-                <img src="images/logo.png" alt="logo" width="100" height="100"></a>
+                <img src="images/buscar.png" alt="logo" width="100" height="100"></a>
         </div>
 
 <div class="container mt-5">
@@ -312,45 +243,21 @@ if ($_SESSION["s_medico"] === null){
 </div>
 
 <!--boton flotante donde esta los diferentes acciones -->
-                    <div class="con">
-                        <input type="checkbox" id="btn-mas">
-                        <div class="redes">
-                            <a href="#" class="fa fa-user-circle"></a>
-                            <a href="buscador_m.php" class="fa fa-search"></a>
-                            <a href="cientifico.php" class="fa fa-h-square" aria-hidden="true"></a>
-                            <a href="form_public.php" class="fa fa-stethoscope"></a>
-                        </div>
-                        <div class="btn-mas">
-                            <label for="btn-mas" class="fa fa-plus"></label>
-                        </div>
-                    </div>
-                    <!--*******************************************************-->
+        <div class="con">
+        <?php include_once "./php/boton_medico.php"; ?>
+        </div>
+        <!--*******************************************************-->
 
 
     </div>
 </div>
 
-<script>
-    function alertaactivar() {
-
-        var respuesta = confirm("Estas seguro de Cerrar Sesion");
-
-        if (respuesta == true) {
-            return true;
-        } else {
-
-            return false;
-
-        }
-
-
-    }
-    </script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/lightbox.min.js"></script>
     <script type="text/javascript" src="js/wow.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/medico_alerta.js"></script>
     <!--LUgar donde esta el ativador del modo oscuro -->
     <script type="text/javascript" src="js/temad.js"></script>
 

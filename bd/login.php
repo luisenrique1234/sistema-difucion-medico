@@ -11,7 +11,8 @@ $password = (isset($_POST['password'])) ? $_POST['password'] : '';
 $pass = md5($password);
 //$pass = ($password);
 
-$consulta = "SELECT medico.id_medico AS idme, medico.idRol AS idRol, rol.descripcion AS rol2,medico.especialidadm AS espe,medico.apellido_medico AS apelli,
+$consulta = "SELECT medico.id_medico AS idme, medico.idRol AS idRol, rol.descripcion AS rol2,medico.especialidadm AS espe,medico.apellido_medico AS apelli,medico.nombre_medico AS nombre,
+medico.provincia_me AS prov,
 medico.codigo_medico AS codigome FROM medico JOIN rol ON medico.idRol = rol.id_roles WHERE user_medico='$usuario' AND contrasena_me='$pass' ";	
 $resultado = $conexion->prepare($consulta);
 $resultado->execute(); 
@@ -25,6 +26,10 @@ if($resultado->rowCount() >= 1){
     $_SESSION["s_espeme"] = $data[0]["espe"];
 
     $_SESSION["s_apellido"] = $data[0]["apelli"];
+
+    $_SESSION["s_nombre"] = $data[0]["nombre"];
+
+    $_SESSION["s_provincia"] = $data[0]["prov"];
 
     $_SESSION["s_codime"] = $data[0]["codigome"];
 

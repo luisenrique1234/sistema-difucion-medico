@@ -90,18 +90,18 @@ if ($_SESSION["s_admin"] === null) {
                                     <li><a href="desativado_medico.php">lista desactivado médico</a></li>
                                 </ul>
                             </li>
-                            <li  class="dropdown"><a href="mante_public.php">Lista de publicacion<i class="fa fa-angle-down"></i></a>
+                            <li  class="dropdown"><a href="mante_public.php">Lista de publicación<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                    <li><a href="mante_public.php">Lista de publicacion</a></li>
-                                    <li><a href="#">Comentario publicacion</a></li>
-                                    <li><a href="desativado_public.php">Lista destivado publicacion</a></li>
+                                    <li><a href="mante_public.php">Lista de publicación</a></li>
+                                    <li><a href="#">Comentario publicación</a></li>
+                                    <li><a href="desativado_public.php">Lista destivado publicación</a></li>
                                 </ul>
                             </li>
                             <li class="active" class="dropdown"><a href="mante_inve.php">Lista  investigaciones<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                 <li><a href="mante_inve.php">Lista investigaciones</a></li>
                                 <li><a href="#">Comentario investigacio</a></li>
-                                    <li><a href="desacti_inve.php">Lista desativado investigaciones</a></li>
+                                    <li><a href="desacti_inve.php">Lista desactivado investigaciones</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown"><a href="mante_rol.php">Roles<i class="fa fa-angle-down"></i></a>
@@ -141,7 +141,7 @@ if ($_SESSION["s_admin"] === null) {
             <br>
                 <br>
                 <br>
-                <h1> Listado de Investigaciones desactivado</h1>
+                <h1> Listado de Investigaciones Desactivado</h1>
                 <div class="panel-body">
                     
                         <a href="nuevoma_medico.php" class="btn btn-info pull-letf" style="background-color: #0d87ac;">NUEVO</a>
@@ -152,24 +152,15 @@ if ($_SESSION["s_admin"] === null) {
                         <thead>
                             <tr style="background-color: #0d87ac; color:#FFFFFF;">
                                 <!-- fila-->
+                                
                                 <th data-hidden="true">Código investigacion</th>
-                                <th data-hidden="true">Código médico</th>
+                                <th data-hidden="true">Nombre médico</th>
                                 <th data-hidden="true">Titulo investigacion</th>
                                 <th data-hidden="true">_____Autor_____</th>
                                 <th data-hidden="true">___________________________Resumen_________________________________</th>
                                 <th data-hidden="true">Introduccion</th>
-                                <th data-hidden="true">Palabra Clave</th>
-                                <th data-hidden="true">__Antecedentes__</th>
-                                <th data-hidden="true">___Obejetivo_general</th>
-                                <th data-hidden="true">___Obejetivo_Especifico</th>
-                                <th data-hidden="true">___Justificacion___</th>
-                                <th data-hidden="true">___Hipotesis___</th>
-                                <th data-hidden="true">___Metodologia___</th>
-                                <th data-hidden="true">___Bibliografia___</th>
-                                <th data-hidden="true">___Referencia___</th>
                                 <th data-hidden="true">___Categoria___</th>
                                 <th data-hidden="true">___Fecha___</th>
-                                <th data-hidden="true">___Estado___</th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -184,23 +175,13 @@ if ($_SESSION["s_admin"] === null) {
                             echo "
             <tr>
             <td>" . $row["id_inv"] . "</td>
-            <td>" . $row["id_medico_inv"] . "</td>
+            <td>" . $row["nombre_medico"] . "</td>
 			<td>" . $row["titulo_inv"]. "</td>
             <td>" . substr($row["autor_inv"],0,100). "</td>
 			<td>" . substr($row["resume_inv"],0,300). "</td>
             <td>" . substr($row["introducion_inv"],0,100) . "</td>
-            <td>" . $row["pclave_inv"] . "</td>
-            <td>" . substr($row["Antecedente_inv"],0,200) . "</td>
-            <td>" . substr($row["objetivoge_inv"],0,300) . "</td>
-            <td>" . substr($row["objetivoes_inv"],0,300) . "</td>
-            <td>" . substr($row["justificasion_inv"],0,300) . "</td>
-            <td>" . substr($row["hipotesis_inv"],0,300) . "</td>
-            <td>" . substr($row["metodologia_inv"],0,300) . "</td>
-            <td>" . substr($row["bibliografia"],0,300) . "</td>
-            <td>" . substr($row["referencias_inv"],0,300) . "</td>
-            <td>" . substr($row["cotegoria_inv"],0,300) . "</td>
+            <td>" . substr($row["espec_descripsion"],0,300) . "</td>
             <td>" . substr($row["fecha_inv"],0,300) . "</td>
-            <td>" . substr($row["estado"],0,300) . "</td>
 			
             <td>
             <a onclick='return aleractivarinv(".$row["id_inv"].");' class='btn btn-info' style='background-color: #0d87ac;'>Activar</a>
@@ -224,7 +205,7 @@ if ($_SESSION["s_admin"] === null) {
                 <div class="col-sm-12 text-center bottom-separator">
                     <div class="col-sm-12">
                         <div class=" copyright-text text-center ">
-                            <p> Sistema de difusion medica 2021. Todos los derechos reservados.</p>
+                            <p> Sistema de difusión medica 2021. Todos los derechos reservados.</p>
                             <p>Diseñado por<a target="_blank" href="http://luis-enrique.com">Sr.LEGG</a></p>
                         </div>
                     </div>

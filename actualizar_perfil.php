@@ -57,69 +57,7 @@ if ($_SESSION["s_medico"] === null) {
 <!--/head-->
 
 <body class="dark" >
-    <header id="header">
-        <div class="wow fadeInDown">
-            <div class="navbar navbar-inverse" role="banner">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="index.php">
-                            <img src="images/logo.png" alt="logo" width="70" height="70">
-                        </a>                    </div>
-                    <div class="collapse navbar-collapse">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="active"><a href="index.php">Inicio</a></li>
-                            <li class="dropdown"><a href="pediatria.php">Pediatria<i class="fa fa-angle-down"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <li><a href="aboutus.html">Enbarosos</a></li>
-                                    <li><a href="aboutus2.html">Maltrato infantil</a></li>
-                                    <li><a href="service.html">Salud infantil</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown"><a href="Cardiologia.php">Cardiologia<i class="fa fa-angle-down"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <li><a href="blog.html">Ataques al corazon</a></li>
-                                    <li><a href="blogtwo.html">Arritmia cardiaca</a></li>
-                                    <li><a href="blogone.html">Taquicardia</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown"><a href="cirugia_general.php">Cirugia general<i class="fa fa-angle-down"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <li><a href="#">Anestecia</a></li>
-                                    <li><a href="#">Anestecia Local</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <!-- <div >
-                            <img src="images/predeterminado.jpg" width="100%" height="60">
-                            </div>-->
-                                <a href="portfolio.html" class="btn btn-info"><?php echo $_SESSION["s_medico"]; ?>. .<i class="fa fa-user"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <li><a href="pefil_medico.php">Mi perfil</a></li>
-                                    <li><a href="lista_publicm.php">Mis Publicaciones</a></li>
-                                    <li><a href="bd/logout.php" onclick="return alertaactivar();">Cerrar sesion</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="search">
-                    <div class="social-icons search">
-                        <div class="oscuro">
-                            <div class="modo" id="modo">
-                                <i class="fa fa-adjust" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+<?php include_once "./php/menu.php"; ?>
         <!-- fin de la segunda parte-->
         <div class="col-md-9 col-sm-7">
                     <div class="col-md-12 col-sm-12">
@@ -138,36 +76,69 @@ if ($_SESSION["s_medico"] === null) {
                                                     <h1><img src="images/perfil/perfil.png"  width="150" height="150"></h1>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-4 col-lg-offset-5 col-xs-12 col-xs-offset-0">
+
+
+                                                <div class="col-md-1 col-md-offset-1 col-sm-1 col-sm-offset-2 col-lg-2 col-lg-offset-5 col-xs-12 col-xs-offset-0">
+                                            <div class="form-group">
+                                                                <input style="background-color: #5cc4dc; color:#000000;" type="hidden" 
+                                                                name="codigom" require="" placeholder="categoria" class="form-control" readonly="" value="<?php echo $row['id_medico']?>">
+                                            </div>
+				                            </div>
+                                                <div class="col-md-1 col-md-offset-1 col-sm-1 col-sm-offset-2 col-lg-3 col-lg-offset-5 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-                                                        <br>
-                                                        <label class="control-label">Nuevo Nombre</label>
+
+                                                        <label class="control-label">Nombre<span
+                                                                style="color: turquoise">*</span></label>
                                                         <input type="text" name="nombre" required="required"
-                                                            placeholder="Nombre" class="form-control" value="<?php echo $_SESSION['s_medico'];?>">
-
-                                                            <label class="control-label">Nuevo Apellido</label>
-                                                        <input type="text" name="apellido" required="required"
-                                                            placeholder="Apelledo" class="form-control" value="<?php echo $_SESSION['s_apellido'];?>">
+                                                            placeholder="Nombre" class="form-control" value="<?php echo $_SESSION["s_nombre"]?>">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-lg-8 col-lg-offset-5 col-xs-12 col-xs-offset-0">
+                                                <div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-lg-3 col-lg-offset-5 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-
-                                                    <label class="control-label">Nuevo código</label>
-                                                        <input type="text" name="codigom" required="required"
-                                                            placeholder="Apelledo" class="form-control" value="<?php echo $_SESSION['s_codime'];?>">
-                                                    </div>
+                                                        <label class="control-label">Apellido</label>
+                                                        <input type="text" name="apellido" required="required" placeholder="Apellido" class="form-control" value="<?php echo $_SESSION["s_apellido"]?>">
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-5 col-lg-offset-5 col-xs-12 col-xs-offset-0">
+                                                
+                                                <div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-lg-3 col-lg-offset-1 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-
-                                                        <label class="control-label">Nueva especialidadm</label>
-                                                        <input type="text" name="especiali" required="required"
-                                                            placeholder="Apelledo" class="form-control" value="<?php echo $_SESSION['s_espeme'];?>">
-                                                        
+                                                    <label class="control-label">Exequátur<span
+                                                            style="color: turquoise">*</span></label>
+                                                    <div class="form-group">
+                                                    <input type="text" name="sqmedico" required="required" placeholder="Medioc" class="form-control" value="<?php echo $_SESSION["s_codime"]?>">
+                                                    </div>
                                                     </div>
                                                 </div>
+                                                <div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-lg-3 col-lg-offset-5 col-xs-12 col-xs-offset-0">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Provincia<span
+                                                                style="color: turquoise">*</span></label>
+
+                                                                
+                                    <label for="usuario" class="text-dark"></label><br>
+                                    <select name="provicia" class="form-control" required="required">
+                                        <option value="La Vega" selected>La Vega</option>
+                                        <option value="Santiago">Santiago</option>
+                                        <option value="Valverde">Valverde</option>
+                                        <option value="Valverde">Valverde</option>
+                                        <option value="Santiago Rodríguez">Santiago Rodríguez</option>
+                                    </select>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-3 col-md-offset-2 col-sm-3 col-sm-offset-1 col-lg-3 col-lg-offset-1 col-xs-10 col-xs-offset-0">
+                                                    <div class="form-group">
+                                                        <label  class="control-label">Nombre de usuario<span
+                                                                style="color:turquoise">*</span> </label>
+                                                        <input  type="text" name="userac" require="" placeholder="Contraseña" class="form-control"  value="<?php echo $_SESSION["s_medico"]?>">
+                                                    </div>
+                                                </div>
+                                                <!--<div class="col-md-3 col-md-offset-2 col-sm-3 col-sm-offset-1 col-lg-3 col-lg-offset-5 col-xs-10 col-xs-offset-0">
+                                                    <div class="form-group">
+                                                        <label  class="control-label">Rol del médico<span
+                                                                style="color:turquoise">*</span> </label>
+                                                    </div>
+                                                </div>-->
                                                 
                                                 
                                                 <!-- parte que ocupada la pantalla completa -->
@@ -192,7 +163,7 @@ if ($_SESSION["s_medico"] === null) {
         
         <script>
             function alertaeliminar() {
-                var respuesta = confirm("Estas seguro de Eliminar a este Publicacion");
+                var respuesta = confirm("Estas seguro de Eliminar a este Publicación");
                 if (respuesta == true) {
                     return true;
                 } else {
@@ -217,17 +188,7 @@ if ($_SESSION["s_medico"] === null) {
         </script>
         <!--boton flotante donde esta los diferentes acciones -->
         <div class="con">
-                        <input type="checkbox" id="btn-mas">
-                        <div class="redes">
-                            <a href="#" class="fa fa-user-circle"></a>
-                            
-                            <a href="buscador_m.php" class="fa fa-search"></a>
-                            <a href="cientifico.php" class="fa fa-h-square" aria-hidden="true"></a>
-                            <a href="form_public.php" class="fa fa-stethoscope"></a>
-                        </div>
-                        <div class="btn-mas">
-                            <label for="btn-mas" class="fa fa-plus"></label>
-                        </div>
+        <?php include_once "./php/boton_medico.php"; ?>
                     </div>
                     <!--*******************************************************-->
         <script type="text/javascript" src="js/jquery.js"></script>

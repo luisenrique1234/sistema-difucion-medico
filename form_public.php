@@ -36,7 +36,7 @@ if ($_SESSION["s_medico"] === null){
     <link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <link href="css/dark.css" rel="stylesheet">
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="css/boton.css">
     <link rel="stylesheet" href="css/cientifico.css">
     <!--Icon-Font-->
@@ -53,80 +53,8 @@ if ($_SESSION["s_medico"] === null){
     <link rel="apple-touch-icon-precomposed" href="images/ico/ico.png">
 </head>
 <body class="dark">
-    <header id="header">
-        <div class="dark1">
-            <div class="navbar navbar-inverse" role="banner">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse"
-                            data-target=".navbar-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
 
-                        <a class="navbar-brand" href="index.php">
-                            <img src="images/logo.png" alt="logo" width="70" height="70">
-                        </a>
-                    </div>
-                    <div class="collapse navbar-collapse">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="active"><a href="index.php">Inicio</a></li>
-                            <li class="dropdown"><a href="pediatria.php">Pediatria<i class="fa fa-angle-down"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <li><a href="aboutus.html">Enbarosos</a></li>
-                                    <li><a href="aboutus2.html">Maltrato infantil</a></li>
-                                    <li><a href="service.html">Salud infantil</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown"><a href="Cardiologia.php">Cardiologia<i class="fa fa-angle-down"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <li><a href="blog.html">Ataques al corazon</a></li>
-                                    <li><a href="blogtwo.html">Arritmia cardiaca</a></li>
-                                    <li><a href="blogone.html">Taquicardia</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown"><a href="cirugia_general.php">Cirugia general<i class="fa fa-angle-down"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <li><a href="#">Anestecia</a></li>
-                                    <li><a href="#">Anestecia Local</a></li>
-                                </ul>
-                            </li>
-                            <li >
-                        
-                           <!-- <div >
-                            <img src="images/predeterminado.jpg" width="100%" height="60">
-                            </div>-->
-                                <a href="portfolio.html" class="btn btn-info"><?php  echo $_SESSION["s_medico"];?>.  .<i class="fa fa-user"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <li><a href="pefil_medico.php">Mi perfil</a></li>
-                                    <li><a href="lista_publicm.php">Mis Publicaciones</a></li>
-                                    <li><a href="bd/logout.php" onclick="return alertaactivar();">Cerrar sesion</a></li>
-                                </ul>
-                                 
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="search">
-                    <form role="form">
-                        <i class="fa fa-search"></i>
-                        <div class="field-toggle">
-                            <input type="text" class="search-form" autocomplete="off" placeholder="Search">
-                        </div>
-                    </form>
-                    <div class="social-icons search">
-                        <div class="oscuro">
-                            <div class="modo" id="modo">
-                                <i class="fa fa-adjust" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+<?php include_once "./php/menu.php"; ?>
     <!--/#header-->
     <!--id la imagen de triangulor que se usa para el inicio
     <section id="page-breadcrumb">
@@ -170,7 +98,7 @@ if ($_SESSION["s_medico"] === null){
                                         <div class="row">
                                             <div >
                                                 <div class="col-lg-10 col-lg-offset-2 col-xs-12 col-xs-offset-0">
-                                               <h1 class="title">Formulario de publicacion</h1>
+                                               <h1 class="title">Formulario de publicación</h1>
                                                 <br>
                                                 </div>
                                                 
@@ -245,17 +173,7 @@ if ($_SESSION["s_medico"] === null){
 
     <!--boton flotante donde esta los diferentes acciones -->
     <div class="con">
-                        <input type="checkbox" id="btn-mas">
-                        <div class="redes">
-                            <a href="#" class="fa fa-user-circle"></a>
-                            
-                            <a href="buscador_m.php" class="fa fa-search"></a>
-                            <a href="cientifico.php" class="fa fa-h-square" aria-hidden="true"></a>
-                            <a href="form_public.php" class="fa fa-stethoscope"></a>
-                        </div>
-                        <div class="btn-mas">
-                            <label for="btn-mas" class="fa fa-plus"></label>
-                        </div>
+    <?php include_once "./php/boton_medico.php"; ?>
                     </div>
                     <!--*******************************************************-->
     <footer>
@@ -264,7 +182,7 @@ if ($_SESSION["s_medico"] === null){
                 <div class="col-sm-12 text-center bottom-separator">
                     <div class="col-sm-12">
                         <div class=" copyright-text text-center ">
-                            <p>Sistema de difusion medica 2021. Todos los derechos reservados.</p>
+                            <p>Sistema de difusión medica 2021. Todos los derechos reservados.</p>
                             <p>Diseñado por <a target="_blank" href="http://luis-enrique.com">Sr.LEGG</a></p>
                         </div>
                     </div>
@@ -272,29 +190,13 @@ if ($_SESSION["s_medico"] === null){
             </div>
     </footer>
     <!--/#footer-->
-    <script>
-    function alertaactivar() {
-
-        var respuesta = confirm("Estas seguro de Cerrar Sesion");
-
-        if (respuesta == true) {
-            return true;
-        } else {
-
-            return false;
-
-        }
-
-
-    }
-    </script>
-
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/lightbox.min.js"></script>
     <script type="text/javascript" src="js/wow.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/temad.js"></script>
+    <script type="text/javascript" src="js/medico_alerta.js"></script>
 </body>
 
 </html>

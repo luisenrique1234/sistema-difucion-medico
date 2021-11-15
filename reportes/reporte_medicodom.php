@@ -76,7 +76,7 @@ ob_start();
         <!-- fin de la segunda parte-->
         <div>
             <div style="text-align: center;">
-                <h3>Sistema de difusion de información médico</h3>
+                <h3>Sistema de difusión de información médico</h3>
                 <h3> Listado de Médico</h3>
 
             </div>

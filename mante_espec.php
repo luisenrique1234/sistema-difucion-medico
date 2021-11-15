@@ -100,7 +100,7 @@ if ($_SESSION["s_admin"] === null) {
                                 <ul role="menu" class="sub-menu">
                                 <li><a href="mante_inve.php">Lista investigaciones</a></li>
                                 <li><a href="#">Comentario investigacio</a></li>
-                                    <li><a href="desacti_inve.php">Lista desativado investigaciones</a></li>
+                                    <li><a href="desacti_inve.php">Lista desactivado investigaciones</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown"><a href="mante_rol.php">Roles<i class="fa fa-angle-down"></i></a>
@@ -154,7 +154,6 @@ if ($_SESSION["s_admin"] === null) {
                                 <th data-hidden="true">Código Especialidad</th>
                                 <!--th colunma-->
                                 <th data-hidden="true">Descrision</th>
-                                <th data-hidden="true">Estado</th>
                                 
                                 <th></th>
                                 <th></th>
@@ -171,7 +170,6 @@ if ($_SESSION["s_admin"] === null) {
             <tr>
             <td>" . $row["id_espec"] . "</td>
             <td>" . $row["espec_descripsion"] . "</td>
-			<td>" . $row["estado"]. "</td>
 			
             <td>
             <a href='actualizarm_espec.php?id=" . $row["id_espec"] . "' class='btn btn-info' style='background-color: #0d87ac;'>Editar</a>
@@ -201,7 +199,7 @@ if ($_SESSION["s_admin"] === null) {
                 <div class="col-sm-12 text-center bottom-separator">
                     <div class="col-sm-12">
                         <div class=" copyright-text text-center ">
-                            <p> Sistema de difusion medica 2021. Todos los derechos reservados.</p>
+                            <p> Sistema de difusión medica 2021. Todos los derechos reservados.</p>
                             <p>Diseñado por<a target="_blank" href="http://luis-enrique.com">Sr.LEGG</a></p>
                         </div>
                     </div>

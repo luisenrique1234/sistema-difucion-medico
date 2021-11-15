@@ -35,7 +35,7 @@ ob_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Reporte publicaciones</title>
+    <title>Reporte publicaciónes</title>
     <link href="http://<?php echo $_SERVER["HTTP_HOST"]?>/medico-red/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://<?php echo $_SERVER["HTTP_HOST"]?>/medico-red/css/font-awesome.min.css" rel="stylesheet">
     <link href="http://<?php echo $_SERVER["HTTP_HOST"]?>/medico-red/css/lightbox.css" rel="stylesheet">
@@ -69,8 +69,8 @@ ob_start();
         <!-- fin de la segunda parte-->
         <div>
         <div style="text-align: center;">
-                <h3>Sistema de difusion de información médico</h3>
-                <h3> Listado de Publicaciones</h3>
+                <h3>Sistema de difusión de información médico</h3>
+                <h3> Listado de Publicaciónes</h3>
                 
             </div>
             <h4 style="text-align: center;"> Fecha:  <?php echo $date;  ?></h4>
@@ -87,7 +87,7 @@ ob_start();
                                 <th data-hidden="true">Nombre médico</th>
                                 <th data-hidden="true">Tituo</th>
                                 <th data-hidden="true">_____Autor_____</th>
-                                <th data-hidden="true">_____________________Publicacion__________________________</th>
+                                <th data-hidden="true">_____________________Publicación__________________________</th>
                                 <th data-hidden="true">Referencia</th>
                                 <th data-hidden="true">Fecha publicacion</th>
                                 <th data-hidden="true">Categaria</th>

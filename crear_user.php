@@ -66,7 +66,6 @@
                                         <option value="La Vega" selected>La Vega</option>
                                         <option value="Santiago">Santiago</option>
                                         <option value="Valverde">Valverde</option>
-                                        <option value="Valverde">Valverde</option>
                                         <option value="Santiago Rodríguez">Santiago Rodríguez</option>
                                     </select>
                                 </div>

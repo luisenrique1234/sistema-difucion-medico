@@ -268,16 +268,7 @@ if ($_SESSION["s_medico"] === null){
 
                                         <!--boton flotante donde esta los diferentes acciones -->
                     <div class="con">
-                        <input type="checkbox" id="btn-mas">
-                        <div class="redes">
-                            <a href="#" class="fa fa-user-circle"></a>
-                            <a href="cientifico.php" class="fa fa-h-square" aria-hidden="true"></a>
-                            <a href="buscador_m.php" class="fa fa-search"></a>
-                            <a href="form_public.php" class="fa fa-stethoscope"></a>
-                        </div>
-                        <div class="btn-mas">
-                            <label for="btn-mas" class="fa fa-plus"></label>
-                        </div>
+                    <?php include_once "./php/boton_medico.php"; ?>
                     </div>
                     <!--*******************************************************-->
                                     <!--/Response-area-->
@@ -323,7 +314,7 @@ if ($_SESSION["s_medico"] === null){
                 <div class="col-sm-12 text-center bottom-separator">
                     <div class="col-sm-12">
                         <div class=" copyright-text text-center ">
-                            <p> Sistema de difusion medica 2021. Todos los derechos reservados.</p>
+                            <p> Sistema de difusión medica 2021. Todos los derechos reservados.</p>
                             <p>Diseñado por<a target="_blank" href="http://luis-enrique.com">Sr.LEGG</a></p>
                         </div>
                     </div>

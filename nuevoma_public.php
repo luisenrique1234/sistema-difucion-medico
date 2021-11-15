@@ -93,7 +93,7 @@ if ($_SESSION["s_admin"] === null) {
                                 <ul role="menu" class="sub-menu">
                                 <li><a href="mante_inve.php">Lista investigaciones</a></li>
                                 <li><a href="#">Comentario investigacio</a></li>
-                                    <li><a href="desacti_inve.php">Lista desativado investigaciones</a></li>
+                                    <li><a href="desacti_inve.php">Lista desactivado investigaciones</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown"><a href="mante_rol.php">Roles<i class="fa fa-angle-down"></i></a>
@@ -274,17 +274,7 @@ if ($_SESSION["s_admin"] === null) {
 
     <!--boton flotante donde esta los diferentes acciones -->
     <div class="con">
-                        <input type="checkbox" id="btn-mas">
-                        <div class="redes">
-                            <a href="#" class="fa fa-user-circle"></a>
-                            
-                            <a href="buscador_m.php" class="fa fa-search"></a>
-                            <a href="cientifico.php" class="fa fa-h-square" aria-hidden="true"></a>
-                            <a href="./contador/dashboard.php" class="fa fa-bar-chart" aria-hidden="true"></a>
-                        </div>
-                        <div class="btn-mas">
-                            <label for="btn-mas" class="fa fa-plus"></label>
-                        </div>
+    <?php include_once "./php/boton_medico.php"; ?>
                     </div>
                     <!--*******************************************************-->
     <footer>
@@ -293,7 +283,7 @@ if ($_SESSION["s_admin"] === null) {
                 <div class="col-sm-12 text-center bottom-separator">
                     <div class="col-sm-12">
                         <div class=" copyright-text text-center ">
-                            <p>Sistema de difusion medica 2021. Todos los derechos reservados.</p>
+                            <p>Sistema de difusión medica 2021. Todos los derechos reservados.</p>
                             <p>Diseñado por <a target="_blank" href="http://luis-enrique.com">Sr.LEGG</a></p>
                         </div>
                     </div>

@@ -41,7 +41,7 @@ if ($_SESSION["s_medico"] === null){
     <link rel="stylesheet" href="css/boton.css">
 
     <script src="js/plotly-latest.min.js"></script>
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://vjs.zencdn.net/7.5.4/video-js.css" rel="stylesheet">
     <script src='https://vjs.zencdn.net/7.5.4/video.js'></script>
     <!--Icon-Font-->
@@ -60,75 +60,10 @@ if ($_SESSION["s_medico"] === null){
 <!--/head-->
 
 <body>
-    <header id="header">
-        <div class="dark1">
-            <div class="navbar navbar-inverse" role="banner">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse"
-                            data-target=".navbar-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
 
-                        <a class="navbar-brand" href="index.php">
-                            <img src="images/logo.png" alt="logo" width="70" height="70">
-                        </a>
-                    </div>
-                    <div class="collapse navbar-collapse">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="active"><a href="index.php">Inicio</a></li>
-                            <li class="dropdown"><a href="#">Pediatria<i class="fa fa-angle-down"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <li><a href="aboutus.html">Enbarosos</a></li>
-                                    <li><a href="aboutus2.html">Maltrato infantil</a></li>
-                                    <li><a href="service.html">Salud infantil</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown"><a href="Cardiologia.php">Cardiologia<i class="fa fa-angle-down"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <li><a href="blog.html">Ataques al corazon</a></li>
-                                    <li><a href="blogtwo.html">Arritmia cardiaca</a></li>
-                                    <li><a href="blogone.html">Taquicardia</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown"><a href="cirugia_general.php">Cirugia general<i class="fa fa-angle-down"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <li><a href="#">Anestecia</a></li>
-                                    <li><a href="#">Anestecia Local</a></li>
-                                </ul>
-                            </li>
-                            <li>
+<?php include_once "./php/menu.php"; ?>
 
-                                <!-- <div >
-                            <img src="images/predeterminado.jpg" width="100%" height="60">
-                            </div>-->
-                                <a href="portfolio.html" class="btn btn-info"><?php  echo $_SESSION["s_medico"];?>. .<i
-                                        class="fa fa-user"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <li><a href="pefil_medico.php">Mi perfil</a></li>
-                                    <li><a href="lista_publicm.php">Mis Publicaciones</a></li>
-                                    <li><a href="bd/logout.php" onclick="return alertaactivar();">Cerrar sesion</a></li>
-                                </ul>
 
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="search">
-                    <div class="social-icons search">
-                        <div class="oscuro">
-                            <div class="modo" id="modo">
-                                <i class="fa fa-adjust" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
     <!--/#header-->
     <br>
     <br>
@@ -140,7 +75,7 @@ if ($_SESSION["s_medico"] === null){
                 <div class="row">
                     <div>
                         <div class="col-sm-12">
-                            <h3>Graficos de Publicaciones</h3>
+                            <h3>Gráficos de Publicaciónes</h3>
                             
                         </div>
                     </div>
@@ -171,7 +106,7 @@ if ($_SESSION["s_medico"] === null){
   <div class="card shadow mb-4">
     <!-- Card Header - Dropdown -->
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-      <h4 class="m-0 font-weight-bold text-primary">Me gustas de la publicacion</h4>
+      <h4 class="m-0 font-weight-bold text-primary"><i class="fa fa-heartbeat" aria-hidden="true"></i> Me gustas de la publicación</h4>
     </div>
     <!-- Cuerpo de la grafica lineas -->
     <!-- Cuerpo de la grafica lineas -->
@@ -192,7 +127,7 @@ if ($_SESSION["s_medico"] === null){
   <div class="card shadow mb-4">
     <!-- Card Header - Dropdown -->
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-      <h4 class="m-0 font-weight-bold text-primary">Fuente de trafico</h4>
+      <h4 class="m-0 font-weight-bold text-primary"><i class="fa fa-map-marker" aria-hidden="true"></i> Fuente de trafico</h4>
     </div>
     <!-- Cuerpo de la grafica  circular -->
     <!-- Cuerpo de la grafica circular -->
@@ -214,7 +149,7 @@ if ($_SESSION["s_medico"] === null){
   <div class="card shadow mb-4">
     <!-- Card Header - Dropdown -->
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-      <h4 class="m-0 font-weight-bold text-primary">Especialidades medicas</h4>
+      <h4 class="m-0 font-weight-bold text-primary"><i class="fa fa-stethoscope" aria-hidden="true"></i> Especialidades medicas</h4>
     </div>
     <!-- Cuerpo de la grafica  circular -->
     <!-- Cuerpo de la grafica circular -->
@@ -238,7 +173,7 @@ if ($_SESSION["s_medico"] === null){
   <div class="card shadow mb-4">
     <!-- Card Header - Dropdown -->
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-      <h4 class="m-0 font-weight-bold text-primary">Me gustas de la Investigacion</h4>
+      <h4 class="m-0 font-weight-bold text-primary"><i class="fa fa-heartbeat" aria-hidden="true"></i> Me gustas de la Investigacion</h4>
     </div>
     <!-- Cuerpo de la grafica lineas -->
     <!-- Cuerpo de la grafica lineas -->
@@ -259,16 +194,7 @@ if ($_SESSION["s_medico"] === null){
 
                                         <!--boton flotante donde esta los diferentes acciones -->
                     <div class="con">
-                        <input type="checkbox" id="btn-mas">
-                        <div class="redes">
-                            <a href="#" class="fa fa-user-circle"></a>
-                            <a href="cientifico.php" class="fa fa-h-square" aria-hidden="true"></a>
-                            <a href="buscador_m.php" class="fa fa-search"></a>
-                            <a href="form_public.php" class="fa fa-stethoscope"></a>
-                        </div>
-                        <div class="btn-mas">
-                            <label for="btn-mas" class="fa fa-plus"></label>
-                        </div>
+                    <?php include_once "./php/boton_medico.php"; ?>
                     </div>
                     <!--*******************************************************-->
                                     <!--/Response-area-->
@@ -314,7 +240,7 @@ if ($_SESSION["s_medico"] === null){
                 <div class="col-sm-12 text-center bottom-separator">
                     <div class="col-sm-12">
                         <div class=" copyright-text text-center ">
-                            <p> Sistema de difusion medica 2021. Todos los derechos reservados.</p>
+                            <p> Sistema de difusión medica 2021. Todos los derechos reservados.</p>
                             <p>Diseñado por<a target="_blank" href="http://luis-enrique.com">Sr.LEGG</a></p>
                         </div>
                     </div>
@@ -329,6 +255,7 @@ if ($_SESSION["s_medico"] === null){
     <script type="text/javascript" src="js/lightbox.min.js"></script>
     <script type="text/javascript" src="js/wow.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/medico_alerta.js"></script>
     <!--LUgar donde esta el ativador del modo oscuro -->
     <script type="text/javascript" src="js/temad.js"></script>
 

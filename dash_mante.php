@@ -80,15 +80,15 @@ if ($_SESSION["s_admin"] === null) {
                                         class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="mante_medico.php">Lista de médico</a></li>
-                                    <li><a href="desativado_medico.php">lista desactivado médico</a></li>
+                                    <li><a href="desativado_medico.php">lista desactivados médico</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="mante_public.php">Lista de publicacion<i
+                            <li class="dropdown"><a href="mante_public.php">Lista de publicación<i
                                         class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                    <li><a href="mante_public.php">Lista de publicacion</a></li>
-                                    <li><a href="#">Comentario publicacion</a></li>
-                                    <li><a href="desativado_public.php">Lista destivado publicacion</a></li>
+                                    <li><a href="mante_public.php">Lista de publicación</a></li>
+                                    <li><a href="#">Comentario publicación</a></li>
+                                    <li><a href="desativado_public.php">Lista destivado publicación</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown"><a href="mante_inve.php">Lista investigaciones<i
@@ -96,7 +96,7 @@ if ($_SESSION["s_admin"] === null) {
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="mante_inve.php">Lista investigaciones</a></li>
                                     <li><a href="#">Comentario investigacio</a></li>
-                                    <li><a href="desacti_inve.php">Lista desativado investigaciones</a></li>
+                                    <li><a href="desacti_inve.php">Lista desactivados investigaciones</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown"><a href="mante_rol.php">Roles<i class="fa fa-angle-down"></i></a>
@@ -173,7 +173,7 @@ if ($_SESSION["s_admin"] === null) {
                                                 <!-- Card Header - Dropdown -->
                                                 <div
                                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                                    <h4 class="m-0 font-weight-bold text-primary"><i class="fa fa-heartbeat" aria-hidden="true"></i> Me gustas de publicaciones</h4>
+                                                    <h4 class="m-0 font-weight-bold text-primary"><i class="fa fa-heartbeat" aria-hidden="true"></i> Me gustas de publicaciónes</h4>
                                                 </div>
                                                 <!-- Cuerpo de la grafica lineas -->
                                                 <!-- Cuerpo de la grafica lineas -->
@@ -283,7 +283,7 @@ if ($_SESSION["s_admin"] === null) {
                             <h3>Más Gráficos</h3>
                             <ul class="nav navbar-stacked">
                                 <li><a href="./contador/dashboard.php">Visitas</a></li>
-                                <li><a href="#">Publicaciones</a></li>
+                                <li><a href="#">Publicaciónes</a></li>
                             </ul>
                         </div>
                     </div>
@@ -311,7 +311,7 @@ if ($_SESSION["s_admin"] === null) {
                 <div class="col-sm-12 text-center bottom-separator">
                     <div class="col-sm-12">
                         <div class=" copyright-text text-center ">
-                            <p> Sistema de difusion medica 2021. Todos los derechos reservados.</p>
+                            <p> Sistema de difusión medica 2021. Todos los derechos reservados.</p>
                             <p>Diseñado por<a target="_blank" href="http://luis-enrique.com">Sr.LEGG</a></p>
                         </div>
                     </div>

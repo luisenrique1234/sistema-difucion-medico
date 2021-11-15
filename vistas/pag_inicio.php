@@ -53,13 +53,13 @@ if ($_SESSION["s_usuario"] === null){
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Desativados
+          Desactivados
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="../lista_alum_desacti.php">lista de Alumnos Desativados</a>
-          <a class="dropdown-item" href="#">Grupos Desativados</a>
+          <a class="dropdown-item" href="../lista_alum_desacti.php">lista de Alumnos Desactivados</a>
+          <a class="dropdown-item" href="#">Grupos Desactivados</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Bloques Desativados</a>
+          <a class="dropdown-item" href="#">Bloques Desactivados</a>
         </div>
       </li>
     </ul>
