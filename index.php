@@ -32,7 +32,7 @@ if ($_SESSION["s_medico"] === null ){
     <meta name="author" content="">
     <title>Sistama de divulgacion médico</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
+   <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/lightbox.css" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
@@ -42,7 +42,7 @@ if ($_SESSION["s_medico"] === null ){
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <link rel="stylesheet" href="css/boton.css">
-    <script src="./contador.js"></script>
+    <!--<script src="./contador.js"></script>-->
     <!--Icon-Font-->
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
     
@@ -146,11 +146,7 @@ if ($_SESSION["s_medico"] === null ){
                                         
 
 
-                                        <div class="post-overlay">
-                                            <span class="uppercase"><a href="#">
-                                                    <h4><?php mostrar($res['fecha']); ?></h4>
-                                                </a></span>
-                                        </div>
+                                        
 
                                     </div>
                                    
@@ -229,11 +225,7 @@ if ($_SESSION["s_medico"] === null ){
                                             } */?>
 
 
-                                        <div class="post-overlay">
-                                            <span class="uppercase"><a href="#">
-                                                    <h4><?php mostrar($res['fecha']); ?></h4>
-                                                </a></span>
-                                        </div>
+                                        
 
                                     </div>
                                     <?php
