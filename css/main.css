@@ -194,6 +194,17 @@
   margin-top: 27px;
 }
 
+.mesconf{
+  top: 31px;
+  position: relative;
+  left: 60px;
+}
+
+.misconferencia{
+  position: relative;
+  right: 190px;
+}
+
 
 .field-toggle{
   position: relative;

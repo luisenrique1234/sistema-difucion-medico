@@ -36,7 +36,7 @@ if ($_SESSION["s_medico"] === null){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Conferencia</title>
+    <title>Mis Conferencia</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/lightbox.css" rel="stylesheet">
@@ -85,9 +85,9 @@ if ($_SESSION["s_medico"] === null){
 <div class="card-body">
 
         
-<h3 class="col-lg-5 col-lg-offset-5 col-xs-12 col-xs-offset-0">Conferencia</h3>
+<h3 class="col-lg-5 col-lg-offset-5 col-xs-12 col-xs-offset-0">Mis Conferencia</h3>
 
-<form id="form2" name="form2" method="POST" action="conferencia_me.php">
+<form id="form2" name="form2" method="POST" action="mis_conferencia.php">
         
         <div>
 
@@ -101,19 +101,19 @@ if ($_SESSION["s_medico"] === null){
                         <table class="table">
                                 <thead>
                                         <div>
-                                                <div class="col-lg-2 col-lg-offset-1 col-xs-12 col-xs-offset-0">    
+                                                <!--<div class="col-lg-2 col-lg-offset-1 col-xs-12 col-xs-offset-0">    
                                                 <label  class="control-label">Filtrar por Actividad</label>
                                                         <select  id="assigned-tutor-filter" id="buscaetapa" name="buscaetapa" class="form-control mt-2">
-                                                                <?php if ($_POST["buscaetapa"] != ''){ ?>
-                                                                <option value="<?php echo $_POST["buscaetapa"]; ?>"><?php echo $_POST["buscaetapa"]; ?></option>
-                                                                <?php } ?>
+                                                                <?php //if ($_POST["buscaetapa"] != ''){ ?>
+                                                                <option value="<?php //echo $_POST["buscaetapa"]; ?>"><?php //echo $_POST["buscaetapa"]; ?></option>
+                                                                <?php //} ?>
                                                                 <option value="Todos">Todos</option>
                                                                 <option value="En vivo">En vivo</option>
                                                                 <option value="Programada">Progrmadas</option>
                                                         </select>
                                                 </div>
                                                 
-                                                <!--<div class=" col-lg-2 col-lg-offset-0 col-xs-12 col-xs-offset-0">
+                                                <div class=" col-lg-2 col-lg-offset-0 col-xs-12 col-xs-offset-0">
                                                         
                                                         <label  class="control-label">Fecha desde:</label>
                                                         <input style="border-radius: 25px;" type="date" id="buscafechadesde" name="buscafechadesde" class="form-control mt-2" value="<?php //echo $_POST["buscafechadesde"]; ?>" style="border: #bababa 1px solid; color:#0d87ac;">
@@ -122,31 +122,36 @@ if ($_SESSION["s_medico"] === null){
                                                         
                                                         <label  class="control-label">Fecha hasta:</label>
                                                         <input style="border-radius: 25px;" type="date" id="buscafechahasta" name="buscafechahasta" class="form-control mt-2" value="<?php //echo $_POST["buscafechahasta"]; ?>" style="border: #bababa 1px solid; color:#0d87ac;" >
-                                                </div>-->
+                                                </div>
                                                 <div class="col-lg-2 col-lg-offset-0 col-xs-12 col-xs-offset-0">
                                                 <label  class="control-label">Filtrar por Especialidades</label>
                                                         <select  id="subject-filter" id="buscarespec" name="buscarespec" class="form-control mt-2">
-                                                                <?php if ($_POST["buscarespec"] != ''){ ?>
-                                                                <option value="<?php echo $_POST["buscarespec"]; ?>"><?php echo $_POST["buscarespec"]; ?></option>
-                                                                <?php } ?>
+                                                                <?php //if ($_POST["buscarespec"] != ''){ ?>
+                                                                <option value="<?php //echo $_POST["buscarespec"]; ?>"><?php //echo $_POST["buscarespec"]; ?></option>
+                                                                <?php //} ?>
                                                                 <option value="Todos">Todos</option>
                                                                 <option value="General">General</option>
                                                                 <option value="Cirugia general">Cirugia general</option>
                                                                 <option value="Pediatria">Pediatria</option>
                                                                 <option value="Cardiologia">Cardiología</option>
                                                         </select>
-                                                </div>
-                                                <div class="col-lg-1 col-lg-offset-0 col-xs-12 col-xs-offset-0">
+                                                </div>-->
+                                                <div class="col-lg-3 col-lg-offset-0 col-xs-12 col-xs-offset-0">
                                                 <!--<input type="submit" class="btn btn-info" value="Ver"  style="margin-top: 30px;">-->
                                                 <button class="btn btn-info conferencia" type="sumit" ><i class="fa fa-search" aria-hidden="true"></i></button>
                                                 </div>
-                                                <div class="col-lg-4 col-lg-offset-0 col-xs-12 col-xs-offset-0 ">
+                                                <div class="col-lg-6 col-lg-offset-0 col-xs-12 col-xs-offset-0 misconferencia">
                                                 <label  class="form-label">Titulo de la Conferencia</label>
                                                 
                                                 
                                                 <input   type="text" class="form-control"  id="buscar" name="buscar" value="<?php echo $_POST["buscar"]?>"  >
-                                                
                                                     </div>
+
+                                                    <div class="col-lg-2 col-lg-offset-0 col-xs-12 col-xs-offset-0  misconferencia">
+                                                <label  class="control-label mesconf">Agregar Conferencia</label>
+                                                <a class='btn btn-info' href="#" role="button"><i class="fa fa-video-camera" aria-hidden="true">  <i class="fa fa-plus" aria-hidden="true"></i></i></a>
+                                                
+                                                </div>
                                         </div>
                                 </thead>
                         </table>
@@ -158,27 +163,13 @@ if ($_SESSION["s_medico"] === null){
         <?php 
         /*FILTRO de busqueda////////////////////////////////////////////*/
 
-        if ($_POST["buscar"] == '' AND $_POST["buscaetapa"] =='Todos' AND $_POST["buscarespec"] =='Todos' ){ $filtro = "";}else{
-        if ($_POST["buscar"] != '' AND $_POST["buscaetapa"] =='Todos'  AND $_POST["buscarespec"] =='Todos'  ){ $filtro = "AND conferencia.titulo_confe LIKE '%".$_POST["buscar"]."%'";}
-        
-        if ($_POST["buscar"] == '' AND $_POST["buscaetapa"] !='Todos'  AND $_POST["buscarespec"] =='Todos'  ){ $filtro = "AND conferencia.etapa_confe = '".$_POST["buscaetapa"]."'";}
-        
-        //echo("<h4>$filtro</h4>");
-        if ($_POST["buscar"] != '' AND $_POST["buscaetapa"] !='Todos'  AND $_POST["buscarespec"] =='Todos'  ){ $filtro = "AND conferencia.titulo_confe LIKE '%".$_POST["buscar"]."%' AND conferencia.etapa_confe = '".$_POST["buscaetapa"]."'";}
-        
-        if ($_POST["buscar"] == '' AND $_POST["buscaetapa"] !='Todos'  AND $_POST["buscarespec"] !='Todos'  ){ $filtro = "AND conferencia.etapa_confe   = '".$_POST["buscaetapa"]."' AND especialidad.espec_descripsion = '".$_POST["buscarespec"]."' ";}
-        
-        if ($_POST["buscar"] != '' AND $_POST["buscaetapa"] !='Todos'  AND $_POST["buscarespec"] !='Todos'  ){ $filtro = "AND conferencia.titulo_confe  LIKE '%".$_POST["buscar"]."%' AND conferencia.etapa_confe = '".$_POST["buscaetapa"]."' AND especialidad.espec_descripsion= '".$_POST["buscarespec"]."' ";}
-        
-        
-        if ($_POST["buscar"] == '' AND $_POST["buscarespec"] !='Todos'  AND $_POST["buscaetapa"] =='Todos' ){ $filtro = "AND especialidad.espec_descripsion = '".$_POST["buscarespec"]."'";}
-        
-        if ($_POST["buscar"] != '' AND $_POST["buscarespec"] !='Todos' AND $_POST["buscaetapa"] =='Todos' ){ $filtro = "AND conferencia.titulo_confe  LIKE '%".$_POST["buscar"]."%' AND especialidad.espec_descripsion = '".$_POST["buscarespec"]."'";}
+        if ($_POST["buscar"] == ''  ){ $filtro = "";}else{
+        if ($_POST["buscar"] != ''  ){ $filtro = "AND conferencia.titulo_confe LIKE '%".$_POST["buscar"]."%'";}
         
         }
-
+        $id_med=$_SESSION["s_idme"];
         $sql2=("SELECT conferencia.id_confe,conferencia.titulo_confe,conferencia.autores_confe,conferencia.material_confe,conferencia.fachainicio,conferencia.fechafinal,conferencia.categoria_confe,
-        conferencia.etapa_confe,especialidad.espec_descripsion FROM conferencia,especialidad WHERE conferencia.categoria_confe=especialidad.id_espec $filtro ");
+        conferencia.etapa_confe,conferencia.visttas_confe,especialidad.espec_descripsion FROM conferencia,especialidad WHERE conferencia.categoria_confe=especialidad.id_espec AND conferencia.id_userme='$id_med' AND conferencia.estado='A' $filtro ");
         $sql= $mysqli->query($sql2);
         $numeroSql = mysqli_num_rows($sql);
 
@@ -188,7 +179,7 @@ if ($_SESSION["s_medico"] === null){
 
 <div style="
             padding : 4px;
-            height : 500px;
+            height : 300px;
             overflow : auto; ">
 
 <p  style=" left: 120px; position: relative; font-weight: bold;  color:rgb(94, 200, 214);"><i class="fa fa-area-chart" aria-hidden="true"></i> <?php echo $numeroSql; ?> Resultados encontrados</p>
@@ -214,20 +205,20 @@ if ($_SESSION["s_medico"] === null){
                         ?>
                     
                         <tr class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0" >
-                        <td ><h5 style="display: inline;">Titulo:</h5><?php echo $rowSql["titulo_confe"]; ?>   &nbsp;&nbsp; <h5 style="display: inline;">Desde:</h5><?php echo $inicial; ?>
+                        <td>
+                        <i class="fa fa-bell" aria-hidden="true"><?php echo $rowSql["visttas_confe"];?></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-eye" aria-hidden="true"><?php echo $rowSql["visttas_confe"];?>  </i>
+                        <br>
+                        <h5 style="display: inline;">Titulo:</h5><?php echo $rowSql["titulo_confe"]; ?>   &nbsp;&nbsp; <h5 style="display: inline;">Desde:</h5><?php echo $inicial; ?>
                         <br><h5 style="display: inline;">Por:</h5> <?php echo $rowSql["autores_confe"]; ?>&nbsp;&nbsp;  <h5 style="display: inline;">Hasta:</h5><?php echo $final; ?>
                         <br>
                         <h5 style="display: inline;">Especialidad:</h5> <?php echo $rowSql["espec_descripsion"]; ?> &nbsp;&nbsp; <h5 style="display: inline;"> Material:</h5> <?php echo $rowSql["material_confe"]; ?></td>
                         
-
                         <?php 
-                        if ($rowSql["etapa_confe"]=='En vivo' ) {
-                         echo "<td style='text-align: center; font-size: 49px;'> <a class='btn btn-info' style='left: 60px; position: relative; font-size: 19px;' href='memoriac.php?id=".$rowSql["id_confe"]."'  role='button'><i class='fa fa-youtube-play' aria-hidden='true'></i></a></td>";   
-                        }elseif( $rowSql["etapa_confe"]=='Programada'){
-                                echo "<td style='text-align: center; font-size: 49px;'> <a class='btn btn-info' style='left: 78px; position: relative; font-size: 19px;' href='memoriac.php?id=".$rowSql["id_confe"]."'  role='button'><i class='fa fa-calendar-plus-o' aria-hidden='true'></i></a></td>";
-                        }
-                        
+                         echo "<td style='text-align: center; font-size: 49px;'> <a onclick='return alereliminarconfe(".$rowSql["id_confe"].");' class='btn btn-danger' style='left: 60px; position: relative; font-size: 19px;'  role='button'><i class='fa fa-trash' aria-hidden='true'></i></i></a></td>  
+                        <td style='text-align: center; font-size: 49px;'> <a onclick='return alerinves('".$rowSql["id_confe"]."'); class='btn btn-success' style='left: 78px; position: relative; font-size: 19px;'   role='button'><i class='fa fa-pencil' aria-hidden='true'></i></a></td>";
                         ?>
+                        
+                        
                         
                         </tr>
                

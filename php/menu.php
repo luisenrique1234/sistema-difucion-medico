@@ -12,7 +12,7 @@
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li class="active"><a href="index.php">Inicio</a></li>
-                            <li class="dropdown"><a href="pediatria.php">Investigaciones<i class="fa fa-angle-down"></i></a>
+                            <li class="dropdown"><a href="conferencia_me.php">Investigaciones<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="aboutus.html">Enbarosos</a></li>
                                     <li><a href="aboutus2.html">Maltrato infantil</a></li>
@@ -42,7 +42,7 @@
                                 <ul role="menu" class="sub-menu">
                                 <li><a href="pefil_medico.php">Editar mi perfil</a></li>
                                     <li><a href="lista_publicm.php">Mis investigaciones</a></li>
-                                    <li><a href="lista_publicm.php">Mis Conferencia</a></li>
+                                    <li><a href="mis_conferencia.php">Mis Conferencia</a></li>
                                     <li><a  onclick="return alercerrarme();">Cerrar sesión</a></li>
                                 </ul>
                                  
