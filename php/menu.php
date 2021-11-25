@@ -19,7 +19,7 @@
                                     <li><a href="service.html">Salud infantil</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a style="border-radius: 75px;" class="btn btn-info" href="Cardiologia.php">Conferencia</a>
+                            <li class="dropdown"><a style="border-radius: 75px;" class="btn btn-info" href="conferencia_me.php">Conferencia</a>
                                 <!--<ul role="menu" class="sub-menu">
                                     <li><a href="blog.html">Ataques al corazon</a></li>
                                     <li><a href="blogtwo.html">Arritmia cardiaca</a></li>

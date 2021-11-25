@@ -178,7 +178,7 @@ if ($_SESSION["s_medico"] === null){
         }
 
         $sql2=("SELECT conferencia.id_confe,conferencia.titulo_confe,conferencia.autores_confe,conferencia.material_confe,conferencia.fachainicio,conferencia.fechafinal,conferencia.categoria_confe,
-        conferencia.etapa_confe,especialidad.espec_descripsion FROM conferencia,especialidad WHERE conferencia.categoria_confe=especialidad.id_espec $filtro ");
+        conferencia.etapa_confe,conferencia.link_confe,especialidad.espec_descripsion FROM conferencia,especialidad WHERE conferencia.categoria_confe=especialidad.id_espec $filtro ");
         $sql= $mysqli->query($sql2);
         $numeroSql = mysqli_num_rows($sql);
 
@@ -222,7 +222,7 @@ if ($_SESSION["s_medico"] === null){
 
                         <?php 
                         if ($rowSql["etapa_confe"]=='En vivo' ) {
-                         echo "<td style='text-align: center; font-size: 49px;'> <a class='btn btn-info' style='left: 60px; position: relative; font-size: 19px;' href='memoriac.php?id=".$rowSql["id_confe"]."'  role='button'><i class='fa fa-youtube-play' aria-hidden='true'></i></a></td>";   
+                         echo "<td style='text-align: center; font-size: 49px;'> <a class='btn btn-info' style='left: 60px; position: relative; font-size: 19px;' href='".$rowSql["link_confe"]."'target='_blank'  role='button'><i class='fa fa-youtube-play' aria-hidden='true'></i></a></td>";   
                         }elseif( $rowSql["etapa_confe"]=='Programada'){
                                 echo "<td style='text-align: center; font-size: 49px;'> <a class='btn btn-info' style='left: 78px; position: relative; font-size: 19px;' href='memoriac.php?id=".$rowSql["id_confe"]."'  role='button'><i class='fa fa-calendar-plus-o' aria-hidden='true'></i></a></td>";
                         }

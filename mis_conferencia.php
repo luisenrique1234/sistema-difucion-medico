@@ -149,7 +149,7 @@ if ($_SESSION["s_medico"] === null){
 
                                                     <div class="col-lg-2 col-lg-offset-0 col-xs-12 col-xs-offset-0  misconferencia">
                                                 <label  class="control-label mesconf">Agregar Conferencia</label>
-                                                <a class='btn btn-info' href="#" role="button"><i class="fa fa-video-camera" aria-hidden="true">  <i class="fa fa-plus" aria-hidden="true"></i></i></a>
+                                                <a class='btn btn-info' href="formu_conferencia.php" role="button"><i class="fa fa-video-camera" aria-hidden="true">  <i class="fa fa-plus" aria-hidden="true"></i></i></a>
                                                 
                                                 </div>
                                         </div>
@@ -198,6 +198,8 @@ if ($_SESSION["s_medico"] === null){
                 <tbody >
                 <?php while ($rowSql = mysqli_fetch_assoc($sql)){ 
                         
+                        $archivo= $rowSql["material_confe"];
+                        
                         $fecha2=$rowSql["fachainicio"];
                         $inicial = date_create($fecha2)->format('d/m/y  g:iA');
                         $fecha3=$rowSql["fechafinal"];
@@ -211,7 +213,8 @@ if ($_SESSION["s_medico"] === null){
                         <h5 style="display: inline;">Titulo:</h5><?php echo $rowSql["titulo_confe"]; ?>   &nbsp;&nbsp; <h5 style="display: inline;">Desde:</h5><?php echo $inicial; ?>
                         <br><h5 style="display: inline;">Por:</h5> <?php echo $rowSql["autores_confe"]; ?>&nbsp;&nbsp;  <h5 style="display: inline;">Hasta:</h5><?php echo $final; ?>
                         <br>
-                        <h5 style="display: inline;">Especialidad:</h5> <?php echo $rowSql["espec_descripsion"]; ?> &nbsp;&nbsp; <h5 style="display: inline;"> Material:</h5> <?php echo $rowSql["material_confe"]; ?></td>
+                        <h5 style="display: inline;">Especialidad:</h5> <?php echo $rowSql["espec_descripsion"]; ?> &nbsp;&nbsp; <?php  if ($archivo != '') {
+                                                echo ('<h5 style="display: inline;"><a href="php/' . $archivo . '"download="sistema-difucion-medica-conferencia"><i class="fa fa-download"></i>Descargar material de apoyo</a></h5>'); }?>    </td>
                         
                         <?php 
                          echo "<td style='text-align: center; font-size: 49px;'> <a onclick='return alereliminarconfe(".$rowSql["id_confe"].");' class='btn btn-danger' style='left: 60px; position: relative; font-size: 19px;'  role='button'><i class='fa fa-trash' aria-hidden='true'></i></i></a></td>  
