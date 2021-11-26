@@ -31,7 +31,7 @@ $minuini=substr($rowSql["fachainicio"],14,2);
 
 $minuhoy=substr($DatesantoTime,14,2);
 
-$salir=true;
+
 //fecha final
 $diafinal=substr($rowSql["fechafinal"], 8, 3);
 
@@ -43,15 +43,15 @@ $minufinal=substr($rowSql["fechafinal"],14,2);
 
 //substr($DatesantoTime, 1, 3);
 
-echo"<h4>-final minutos--k".$minufinal."k--hoy dia---k".$minuhoy."</h4>
+echo"<h4>-final minutos--k".$fechafinal."k--hoy dia---k".$DatesantoTime."</h4>
 
 ";
 
 //while($salir){
 
-if ($diaini == $diahoy AND $horaini <= $horahoy AND $minuini <= $minuhoy AND $horafinal >= $horahoy ) {
+if ($diaini == $diahoy AND $horaini <= $horahoy AND $minuini <= $minuhoy AND $horafinal >= $horahoy AND $minufinal >= $minuhoy ) {
     echo"<h3> Es hora de la reunion ".$DatesantoTime."</h3>";
-    $salir=false;
+    
 }
 
 //}
@@ -59,6 +59,9 @@ if ($diaini == $diahoy AND $horaini <= $horahoy AND $minuini <= $minuhoy AND $ho
 
 }
 
+//$page = $_SERVER['PHP_SELF'];
+//$sec = "10";
+//header("Refresh: $sec; url=$page");
 
 /*
 date_default_timezone_set('America/Santo_Domingo');    
@@ -70,3 +73,31 @@ echo "La fecha y hora actuales en Toronto son $DateAndTime2.";
 */
 
 ?>
+
+<script type="text/javascript">
+     $(document).ready(function(){
+
+var swal_alert = localStorage.getItem("alert");
+
+if(swal_alert != 1){
+    Swal.fire({
+title: '<h3>¿Estas seguro de eliminar esta Investigacion?</h3>',
+icon: 'warning',
+showCancelButton: true,
+confirmButtonColor: '#45bcdb',
+confirmButtonText: '<h5>Sí <i class="fa fa-user-times" aria-hidden="true"></i></h5>',
+cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></h5>'
+})
+.then((result) => {
+if (result.value) {
+window.location.href = 'php/pcientifico.php?accion=DLT&id='+codigo
+}
+});
+}
+
+localStorage.setItem("alert", "1");
+
+});
+
+    </script>
+

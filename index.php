@@ -154,7 +154,7 @@ if ($_SESSION["s_medico"] === null ){
                                     <div class="post-content overflow">
                                         <h2><?php mostrar($res['titulo_inv']); ?></h2>
                                         <?php echo '<h3 class="post-author"><a href="#">Publicador:' . $nombre . " " . $apellido . '</a></h3>' ?>
-                                        <h3>Resumen dos</h3>
+                                        <h3>Resumen</h3>
                                         <p><?php mostrar($res['resume_inv']); ?></p>
                                         <?php echo("<p>Escrito por:$autor</p>");?>
                                         <?php echo ("<h5>Publicado el: $fecha </h5>"); ?>
