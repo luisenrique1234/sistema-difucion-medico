@@ -51,6 +51,37 @@ echo"<h4>-final minutos--k".$fechafinal."k--hoy dia---k".$DatesantoTime."</h4>
 
 if ($diaini == $diahoy AND $horaini <= $horahoy AND $minuini <= $minuhoy AND $horafinal >= $horahoy AND $minufinal >= $minuhoy ) {
     echo"<h3> Es hora de la reunion ".$DatesantoTime."</h3>";
+    echo'
+<script type="text/javascript">
+     $(document).ready(function(){
+
+var swal_alert = localStorage.getItem("alert");
+
+if(swal_alert != 1){
+    Swal.fire({
+title: "<h3>La conferencia a comensado desea ir a verla</h3>",
+icon: "warning",
+showCancelButton: true,
+confirmButtonColor: "#45bcdb",
+confirmButtonText: "<h5>Sí</h5>",
+cancelButtonText: "<h5>Cancelar</h5>"
+})
+.then((result) => {
+if (result.value) {
+window.location.href = "php/pcientifico.php?accion=DLT&id="
+}
+});
+}
+
+localStorage.setItem("alert", "1");
+
+});
+
+    </script>
+
+
+';
+
     
 }
 
@@ -72,32 +103,8 @@ $DateAndTime2 = date('m-d-Y h:i:s a', time());
 echo "La fecha y hora actuales en Toronto son $DateAndTime2.";
 */
 
+
+
 ?>
 
-<script type="text/javascript">
-     $(document).ready(function(){
-
-var swal_alert = localStorage.getItem("alert");
-
-if(swal_alert != 1){
-    Swal.fire({
-title: '<h3>¿Estas seguro de eliminar esta Investigacion?</h3>',
-icon: 'warning',
-showCancelButton: true,
-confirmButtonColor: '#45bcdb',
-confirmButtonText: '<h5>Sí <i class="fa fa-user-times" aria-hidden="true"></i></h5>',
-cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></h5>'
-})
-.then((result) => {
-if (result.value) {
-window.location.href = 'php/pcientifico.php?accion=DLT&id='+codigo
-}
-});
-}
-
-localStorage.setItem("alert", "1");
-
-});
-
-    </script>
 
