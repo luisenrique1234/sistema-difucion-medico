@@ -8,7 +8,7 @@ $sql2=("SELECT conferencia.id_confe,conferencia.titulo_confe,conferencia.autores
 
 while ($rowSql = mysqli_fetch_assoc($sql)){ 
 
-
+    $cambio=true;
     date_default_timezone_set('America/Santo_Domingo');    
     $DatesantoTime = date('Y-m-d H:i:s', time());  
 
@@ -85,8 +85,14 @@ localStorage.setItem("alert", "1");
     
 }
 
-//}
+if( $horafinal == $horahoy AND $minufinal == $minuhoy ){
+    $cambio=false;
+    echo"<h3> Ya terminno la reuncion ".$cambio."</h3>";
 
+}
+
+//}
+echo"<h3> salida ".$cambio."</h3>";
 
 }
 
@@ -106,5 +112,25 @@ echo "La fecha y hora actuales en Toronto son $DateAndTime2.";
 
 
 ?>
+
+
+
+               <script type="text/javascript">
+/*
+    Swal.fire({
+title: "<h3>La conferencia a comensado desea ir a verla</h3>",
+icon: "warning",
+showCancelButton: true,
+confirmButtonColor: "#45bcdb",
+confirmButtonText: "<h5>Sí</h5>",
+cancelButtonText: "<h5>Cancelar</h5>"
+})
+.then((result) => {
+if (result.value) {
+window.location.href = "php/pcientifico.php?accion=DLT&id="
+}
+});*/
+
+    </script>
 
 

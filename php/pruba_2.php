@@ -14,6 +14,7 @@
 <body>
     <div id="pruebarecarga"> </div>
 <?php echo rand(1,400) ?>
+
     <script type="text/javascript">
     $(document).ready(function(){
         setInterval(
