@@ -29,7 +29,7 @@ if ($_SESSION["s_medico"] === null){
 
 
 //$page = $_SERVER['PHP_SELF'];
-//$sec = "10";
+//$sec = "2";
 //header("Refresh: $sec; url=$page");
 
 $buscar='';
@@ -104,7 +104,7 @@ $buscarespec='Todos';
 
             
 
-                <div >
+                <div>
 
                         <table class="table">
                                 <thead>
@@ -212,7 +212,7 @@ $buscarespec='Todos';
                                 <th style="text-align: center;">Ver</th>
                         </tr>
                 </thead>-->
-                <tbody id="pruebarecarga">
+                <tbody>
                 
                 <?php while ($rowSql = mysqli_fetch_assoc($sql)){ 
                         
@@ -297,7 +297,7 @@ window.location.href = "php/pcientifico.php?accion=DLT&id="
                                             $status='successdlt';
                                         }
                                         
-                            }
+                            } 
                         }elseif( $rowSql["etapa_confe"]=='Programada'){
                                 echo "<td style='text-align: center; font-size: 49px;'> <a class='btn btn-info' style='left: 78px; position: relative; font-size: 19px;' href='memoriac.php?id=".$rowSql["id_confe"]."'  role='button'><i class='fa fa-calendar-plus-o' aria-hidden='true'></i></a></td>";
                                 
@@ -333,6 +333,7 @@ window.location.href = "php/pcientifico.php?accion=DLT&id="
 
                                         
                                                                         }
+                                                                        
                         }elseif( $rowSql["etapa_confe"]=='Terminada'){
                                 echo "<td style='text-align: center; font-size: 49px;'> <a class='btn btn-info' style='left: 78px; position: relative; font-size: 19px;' href='memoriac.php?id=".$rowSql["id_confe"]."'  role='button'><i class='fa fa-times' aria-hidden='true'></i></a></td>";
 
@@ -347,7 +348,7 @@ window.location.href = "php/pcientifico.php?accion=DLT&id="
         </table>
 </div>
 </div>
-
+<div id="pruebarecarga"></div>
 
 
 </div>
@@ -368,9 +369,12 @@ window.location.href = "php/pcientifico.php?accion=DLT&id="
 <script>
 $(document).ready(function() {
       var refreshId =  setInterval( function(){
-    $('#pruebarecarga').load();//actualizas el div
+    $('#pruebarecarga').load('php/refrecar_conferecia.php');
    }, 1000 );
 });
+
+</script>
+
 
 </script>
     <script type="text/javascript" src="js/jquery.js"></script>
