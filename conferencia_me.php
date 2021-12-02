@@ -199,8 +199,9 @@ $buscarespec='Todos';
             height : 500px;
             overflow : auto; ">
 
-<p  style=" left: 120px; position: relative; font-weight: bold;  color:rgb(94, 200, 214);"><i class="fa fa-area-chart" aria-hidden="true"></i> <?php echo $numeroSql; ?> Resultados encontrados</p>
+
 <div  class="table-responsive">
+<p  class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0"  style="   color:rgb(94, 200, 214);"><i class="fa fa-area-chart" aria-hidden="true"></i> <?php echo $numeroSql; ?> Resultados encontrados</p>
         <table class="table">
                 <!--<thead>
                         <tr style="background-color: #0d87ac; color:#FFFFFF;">

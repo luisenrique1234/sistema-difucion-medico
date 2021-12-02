@@ -4,7 +4,7 @@
 
 
 // Desactivar toda notificación de error si quieres ver los errores tienes que quitar esta linea
-//error_reporting(0);
+error_reporting(0);
 
 
 
@@ -27,6 +27,7 @@ if ($_SESSION["s_medico"] === null){
     }
 }
 
+$buscar='';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -144,7 +145,7 @@ if ($_SESSION["s_medico"] === null){
                                                 <label  class="form-label">Titulo de la Conferencia</label>
                                                 
                                                 
-                                                <input   type="text" class="form-control"  id="buscar" name="buscar" value="<?php echo $_POST["buscar"]?>"  >
+                                                <input   type="text" class="form-control"  id="buscar" name="buscar" value="<?php  echo $buscar = $_POST["buscar"]?>"  >
                                                     </div>
 
                                                     <div class="col-lg-2 col-lg-offset-0 col-xs-12 col-xs-offset-0  misconferencia">
@@ -163,8 +164,8 @@ if ($_SESSION["s_medico"] === null){
         <?php 
         /*FILTRO de busqueda////////////////////////////////////////////*/
 
-        if ($_POST["buscar"] == ''  ){ $filtro = "";}else{
-        if ($_POST["buscar"] != ''  ){ $filtro = "AND conferencia.titulo_confe LIKE '%".$_POST["buscar"]."%'";}
+        if ($buscar == ''  ){ $filtro = "";}else{
+        if ($buscar != ''  ){ $filtro = "AND conferencia.titulo_confe LIKE '%".$buscar."%'";}
         
         }
         $id_med=$_SESSION["s_idme"];
@@ -179,11 +180,11 @@ if ($_SESSION["s_medico"] === null){
 
 <div style="
             padding : 4px;
-            height : 300px;
+            height : 500px;
             overflow : auto; ">
 
-<p  style=" left: 120px; position: relative; font-weight: bold;  color:rgb(94, 200, 214);"><i class="fa fa-area-chart" aria-hidden="true"></i> <?php echo $numeroSql; ?> Resultados encontrados</p>
 <div  class="table-responsive">
+<p  class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0"  style="   color:rgb(94, 200, 214);"><i class="fa fa-area-chart" aria-hidden="true"></i> <?php echo $numeroSql; ?> Resultados encontrados</p>
         <table class="table">
                 <!--<thead>
                         <tr style="background-color: #0d87ac; color:#FFFFFF;">
