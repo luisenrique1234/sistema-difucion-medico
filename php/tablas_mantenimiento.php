@@ -55,7 +55,7 @@
     // echo("erro descripcion:" .mysqli_error($mysqli));
     //header("Location: ../propietarip_mant.php?s=".$status);
 
-    header("Refresh: 2; URL= ../mante_medico.php?s=".$status);
+    header("Refresh: 2; URL= ../mantenimiento/mante_medico.php?s=".$status);
     echo '
 <script type="text/javascript">
 
@@ -151,7 +151,7 @@ if ($i == "INSPU") {
 
             }
         }else{
-            header("Refresh: 4; URL= ../nuevoma_public.php");
+            header("Refresh: 4; URL= ../mantenimiento/nuevoma_public.php");
         echo '
             <script type="text/javascript">
 
@@ -169,7 +169,7 @@ if ($i == "INSPU") {
             ; exit;
         }
     }else{
-        header("Refresh: 3; URL= ../nuevome_public.php");
+        header("Refresh: 3; URL= ../mantenimiento/nuevome_public.php");
         echo '
             <script type="text/javascript">
 
@@ -237,7 +237,7 @@ if ($i == "INSPU") {
     // echo("erro descripcion:" .mysqli_error($mysqli));
     //header("Location: ../propietarip_mant.php?s=".$status);
      
-    header("Refresh: 2; URL= ../mante_public.php?=" . $status);
+    header("Refresh: 2; URL= ../mantenimiento/mante_public.php?=" . $status);
     echo '
 <script type="text/javascript">
 
@@ -305,7 +305,7 @@ if($i=="UDT"){
     // echo("erro descripcion:" .mysqli_error($mysqli));
     //header("Location: ../propietarip_mant.php?s=".$msj);
 
-    header("Refresh: 2; URL= ../mante_medico.php?s=".$msj);
+    header("Refresh: 2; URL= ../mantenimiento/mante_medico.php?s=".$msj);
     echo '
 <script type="text/javascript">
 
@@ -358,7 +358,7 @@ if($i=="UDTPU"){
     // echo("erro descripcion:" .mysqli_error($mysqli));
     //header("Location: ../propietarip_mant.php?s=".$msj);
 
-    header("Refresh: 2; URL= ../mante_public.php?s=".$status);
+    header("Refresh: 2; URL= ../mantenimiento/mante_public.php?s=".$status);
     echo '
 <script type="text/javascript">
 
@@ -401,7 +401,7 @@ if($i=="UDTROL"){
     // echo("erro descripcion:" .mysqli_error($mysqli));
     //header("Location: ../propietarip_mant.php?s=".$msj);
 
-    header("Refresh: 2; URL= ../mante_rol.php?s=".$status);
+    header("Refresh: 2; URL= ../mantenimiento/mante_rol.php?s=".$status);
     echo '
 <script type="text/javascript">
 
@@ -444,7 +444,7 @@ if($i=="UDTEPC"){
     // echo("erro descripcion:" .mysqli_error($mysqli));
     //header("Location: ../propietarip_mant.php?s=".$msj);
 
-    header("Refresh: 2; URL= ../mante_espec.php?s=".$status);
+    header("Refresh: 2; URL= ../mantenimiento/mante_espec.php?s=".$status);
     echo '
 <script type="text/javascript">
 
@@ -521,7 +521,7 @@ if($i=="UDTINV"){
     // echo("erro descripcion:" .mysqli_error($mysqli));
     //header("Location: ../propietarip_mant.php?s=".$msj);
 
-    header("Refresh: 2; URL= ../mante_inve.php?s=".$status);
+    header("Refresh: 2; URL= ../mantenimiento/mante_inve.php?s=".$status);
     echo '
 <script type="text/javascript">
 
@@ -561,7 +561,7 @@ if($i=="ACTINV"){
     // echo("erro descripcion:" .mysqli_error($mysqli));
     //header("Location: ../propietarip_mant.php?s=".$msj);
 
-    header("Refresh: 2; URL= ../desacti_inve.php?s=".$status);
+    header("Refresh: 2; URL= ../mantenimiento/desacti_inve.php?s=".$status);
     echo '
 <script type="text/javascript">
 
@@ -601,7 +601,7 @@ if($i=="ACTPU"){
     // echo("erro descripcion:" .mysqli_error($mysqli));
     //header("Location: ../propietarip_mant.php?s=".$msj);
 
-    header("Refresh: 2; URL= ../desativado_public.php?s=".$status);
+    header("Refresh: 2; URL= ../mantenimiento/desativado_public.php?s=".$status);
     echo '
 <script type="text/javascript">
 
@@ -643,7 +643,7 @@ if($i=="ACTME"){
     // echo("erro descripcion:" .mysqli_error($mysqli));
     //header("Location: ../propietarip_mant.php?s=".$msj);
 
-    header("Refresh: 2; URL= ../desativado_medico.php?s=".$status);
+    header("Refresh: 2; URL= ../mantenimiento/desativado_medico.php?s=".$status);
     echo '
 <script type="text/javascript">
 
@@ -683,7 +683,7 @@ if($i=="DLT"){
     // echo("erro descripcion:" .mysqli_error($mysqli));
     //header("Location: ../propietarip_mant.php?s=".$msj);
 
-    header("Refresh: 2; URL= ../mante_medico.php?s=".$msj);
+    header("Refresh: 2; URL= ../mantenimiento/mante_medico.php?s=".$msj);
     echo '
 <script type="text/javascript">
 
@@ -724,7 +724,7 @@ if($i=="DLTPU"){
     // echo("erro descripcion:" .mysqli_error($mysqli));
     //header("Location: ../propietarip_mant.php?s=".$msj);
 
-    header("Refresh: 2; URL= ../mante_public.php?s=".$status);
+    header("Refresh: 2; URL= ../mantenimiento/mante_public.php?s=".$status);
     echo '
 <script type="text/javascript">
 
@@ -764,7 +764,7 @@ if($i=="DLTINV"){
     // echo("erro descripcion:" .mysqli_error($mysqli));
     //header("Location: ../propietarip_mant.php?s=".$msj);
 
-    header("Refresh: 2; URL= ../mante_inve.php?s=".$status);
+    header("Refresh: 2; URL= ../mantenimiento/mante_inve.php?s=".$status);
     echo '
 <script type="text/javascript">
 
@@ -805,7 +805,7 @@ if($i=="DLTROL"){
     // echo("erro descripcion:" .mysqli_error($mysqli));
     //header("Location: ../propietarip_mant.php?s=".$msj);
 
-    header("Refresh: 2; URL= ../mante_rol.php?s=".$status);
+    header("Refresh: 2; URL= ../mantenimiento/mante_rol.php?s=".$status);
     echo '
 <script type="text/javascript">
 
@@ -845,7 +845,7 @@ if($i=="DLTESP"){
     // echo("erro descripcion:" .mysqli_error($mysqli));
     //header("Location: ../propietarip_mant.php?s=".$msj);
 
-    header("Refresh: 2; URL= ../mante_espec.php?s=".$status);
+    header("Refresh: 2; URL= ../mantenimiento/mante_espec.php?s=".$status);
     echo '
 <script type="text/javascript">
 

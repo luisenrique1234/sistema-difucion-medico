@@ -10,7 +10,7 @@ cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></
 })
 .then((result) => {
 if (result.value) {
-window.location.href = 'php/tablas_mantenimiento.php?accion=DLT&id='+codigo
+window.location.href = '../php/tablas_mantenimiento.php?accion=DLT&id='+codigo
 }
 }); 
 
@@ -29,7 +29,7 @@ cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></
 })
 .then((result) => {
 if (result.value) {
-window.location.href = 'php/tablas_mantenimiento.php?accion=DLTPU&id='+codigo3
+window.location.href = '../php/tablas_mantenimiento.php?accion=DLTPU&id='+codigo3
 }
 }); 
 
@@ -48,7 +48,7 @@ cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></
 })
 .then((result) => {
 if (result.value) {
-window.location.href = 'php/tablas_mantenimiento.php?accion=DLTINV&id='+codigo3
+window.location.href = '../php/tablas_mantenimiento.php?accion=DLTINV&id='+codigo3
 }
 }); 
 
@@ -67,7 +67,7 @@ cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></
 })
 .then((result) => {
 if (result.value) {
-window.location.href = 'php/tablas_mantenimiento.php?accion=ACTME&id='+codigo2
+window.location.href = '../php/tablas_mantenimiento.php?accion=ACTME&id='+codigo2
 }
 }); 
 
@@ -86,7 +86,7 @@ cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></
 })
 .then((result) => {
 if (result.value) {
-window.location.href = 'php/tablas_mantenimiento.php?accion=ACTPU&id='+codigo2
+window.location.href = '../php/tablas_mantenimiento.php?accion=ACTPU&id='+codigo2
 }
 }); 
 
@@ -105,7 +105,7 @@ cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></
 })
 .then((result) => {
 if (result.value) {
-window.location.href = 'php/tablas_mantenimiento.php?accion=ACTINV&id='+codigo2
+window.location.href = '../php/tablas_mantenimiento.php?accion=ACTINV&id='+codigo2
 }
 }); 
 
@@ -124,7 +124,7 @@ cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></
 })
 .then((result) => {
 if (result.value) {
-window.location.href = 'php/tablas_mantenimiento.php?accion=DLTROL&id='+codigo2
+window.location.href = '../php/tablas_mantenimiento.php?accion=DLTROL&id='+codigo2
 }
 }); 
 
@@ -143,7 +143,7 @@ cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></
 })
 .then((result) => {
 if (result.value) {
-window.location.href = 'php/tablas_mantenimiento.php?accion=DLTESP&id='+codigo2
+window.location.href = '../php/tablas_mantenimiento.php?accion=DLTESP&id='+codigo2
 }
 }); 
 
@@ -162,7 +162,7 @@ cancelButtonText: '<h5>Cancelar</h5>'
 })
 .then((result) => {
 if (result.value) {
-window.location.href = 'bd/logout2.php'
+window.location.href = '../bd/logout2.php'
 }
 }); 
 

@@ -37,4 +37,16 @@ function extraerinvestigacion($id){
     return $result = $mysqli->query($sql);
 }
 ?>
+<?php
 
+/* parte donde esta la Consutal de todos las publicaciones de los medico lista de las publicaciones que 
+ellos mis han publicado y se extra las mismas */
+
+
+
+function extraerconferencia($id){
+    include('conexion.php');
+    $sql="SELECT * FROM conferencia where  	id_confe='$id'";
+    return $result = $mysqli->query($sql);
+}
+?>
