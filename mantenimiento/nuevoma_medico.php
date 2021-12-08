@@ -205,7 +205,7 @@ if ($_SESSION["s_admin"] === null) {
                                                     class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-1 col-lg-5 col-lg-offset-6 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
                                                         <br>
-                                                        <input type="submit" value="Actualizar" class="btn btn-info btn-lg btn-block"">
+                                                        <input type="submit" value="Actualizar" class="btn btn-info btn-lg btn-block">
                                     </form>
                                     <br>
                                 

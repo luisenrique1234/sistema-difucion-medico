@@ -1,6 +1,6 @@
 <?php
 
-include('../php/mante_consultas.php');
+include('../php/consultas_desa.php');
 /*esta fucion sirve para converti toddos los carateres como acentos en formato
 uti-8 indenpedientemente de cual fuera su formato de  origen todo se convertira en 
 utf-8 para que asi todos tengan el mismo formato*/
@@ -24,7 +24,6 @@ if ($_SESSION["s_admin"] === null) {
 }
 
 
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -34,7 +33,7 @@ if ($_SESSION["s_admin"] === null) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Mantenimiento de Médicos</title>
+    <title>Lista de Médicos Desactivado</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/lightbox.css" rel="stylesheet">
@@ -46,11 +45,8 @@ if ($_SESSION["s_admin"] === null) {
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://unpkg.com/sweetalert2@7.0.9/dist/sweetalert2.all.js"></script>-->
-
-<link href="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">
-<script src="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">
+    <script src="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.js" type="text/javascript"></script>
 
     <link rel="stylesheet" href="../css/boton.css">
     <!--Icon-Font-->
@@ -72,21 +68,16 @@ if ($_SESSION["s_admin"] === null) {
 <?php include_once "../php/mante_menu.php"; ?>
         <!-- fin de la segunda parte-->
         <div>
-            <br>
-            <br>
-            <br>
             <div class="panel-heading">
-                <h1> Listado de Médico</h1>
+                <br>
+                <br>
+                <br>
+                <h1> Listado de Médico Desactivados</h1>
                 <div class="panel-body">
-                    
-                        <a href="nuevoma_medico.php" class="btn btn-info pull-letf" style="background-color: #0d87ac;">NUEVO</a>
-                        
-                        
-                        <a href="../reportes/reporte_medicodom.php" class="btn btn-danger">Reporte <i class="fa fa-print" aria-hidden="true"></i></a>
-                    
+                <a href="reportes/#" class="btn btn-danger">Reporte <i class="fa fa-print" aria-hidden="true"></i></a>
                     <br>
                     <hr>
-                    <table  class="table tabla1" style="text-align: center;">
+                    <table class="table tabla1" style="text-align: center;">
                         <thead>
                             <tr style="background-color: #0d87ac; color:#FFFFFF;">
                                 <!-- fila-->
@@ -106,7 +97,7 @@ if ($_SESSION["s_admin"] === null) {
                         <?php
                         
                         
-                        $query = lista_medico();
+                        $query = lista_medicodesa();
                         while ($row = $query->fetch_assoc()) {
                             //$fecha2=$row["fecha_public"];
                         //$final = date_create($fecha2)->format('d/m/y');
@@ -121,14 +112,9 @@ if ($_SESSION["s_admin"] === null) {
             <td>" . $row["provincia_me"] . "</td>
 			
             <td>
-            <a href='actualizarm_medico.php?id=" . $row["id_medico"] . "' class='btn btn-info' style='background-color: #0d87ac;'>Editar</a>
-            <br>
-            <br>
-            <a  onclick='return alereliminar(".$row['id_medico'].");'  class='btn btn-danger confirm'>Eliminar</a>
+            <a onclick='return aleractivar2(".$row['id_medico'].");' class='btn btn-info' style='background-color: #0d87ac;'>Activar</a>
             </td>
             </tr>
-
-            
             ";
                         }
                         ?>
@@ -140,8 +126,6 @@ if ($_SESSION["s_admin"] === null) {
         
 
         
-            
-            
         <!--boton flotante donde esta los diferentes acciones -->
         <footer>
         <div class="container">
@@ -167,7 +151,7 @@ if ($_SESSION["s_admin"] === null) {
         <script type="text/javascript" src="../js/main.js"></script>
         <script type="text/javascript" src="../js/mante_buscador.js"></script>
         <script type="text/javascript" src="../js/mante_alertas.js"></script>
-        <!--LUgar donde esta el ativador del../ modo oscuro -->
+        <!--LUgar donde esta el ativador del modo oscuro -->
         <script type="text/javascript" src="../js/temad.js"></script>
     </body>
 </html>

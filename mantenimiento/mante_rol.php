@@ -24,7 +24,6 @@ if ($_SESSION["s_admin"] === null) {
 }
 
 
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -46,11 +45,8 @@ if ($_SESSION["s_admin"] === null) {
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://unpkg.com/sweetalert2@7.0.9/dist/sweetalert2.all.js"></script>-->
-
-<link href="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">
-<script src="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">
+    <script src="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.js" type="text/javascript"></script>
 
     <link rel="stylesheet" href="../css/boton.css">
     <!--Icon-Font-->
@@ -72,32 +68,24 @@ if ($_SESSION["s_admin"] === null) {
 <?php include_once "../php/mante_menu.php"; ?>
         <!-- fin de la segunda parte-->
         <div>
-            <br>
-            <br>
-            <br>
             <div class="panel-heading">
-                <h1> Listado de Médico</h1>
+            <br>
+                <br>
+                <br>
+                <h1> Listado de Roles</h1>
                 <div class="panel-body">
                     
                         <a href="nuevoma_medico.php" class="btn btn-info pull-letf" style="background-color: #0d87ac;">NUEVO</a>
-                        
-                        
-                        <a href="../reportes/reporte_medicodom.php" class="btn btn-danger">Reporte <i class="fa fa-print" aria-hidden="true"></i></a>
                     
                     <br>
                     <hr>
-                    <table  class="table tabla1" style="text-align: center;">
+                    <table class="table tabla1" style="text-align: center;">
                         <thead>
                             <tr style="background-color: #0d87ac; color:#FFFFFF;">
                                 <!-- fila-->
-                                <th data-sortable="true">Código médico</th>
+                                <th data-hidden="true">Código Rol</th>
                                 <!--th colunma-->
-                                <th data-hidden="true">Nombre</th>
-                                <th data-hidden="true">Apellido</th>
-                                <th data-hidden="true">Nombre usuario</th>
-                                <th data-hidden="true">Especialidad</th>
-                                <th data-hidden="true">Rol de médico</th>
-                                <th data-hidden="true">Provincia</th>
+                                <th data-hidden="true">Descrision</th>
                                 
                                 <th></th>
                                 <th></th>
@@ -106,25 +94,19 @@ if ($_SESSION["s_admin"] === null) {
                         <?php
                         
                         
-                        $query = lista_medico();
+                        $query = lista_rol();
                         while ($row = $query->fetch_assoc()) {
                             //$fecha2=$row["fecha_public"];
                         //$final = date_create($fecha2)->format('d/m/y');
                             echo "
             <tr>
-            <td>" . $row["id_medico"] . "</td>
-            <td>" . $row["nombre_medico"] . "</td>
-			<td>" . $row["apellido_medico"]. "</td>
-            <td>" . $row["user_medico"]. "</td>
-            <td>" . $row["espec_descripsion"] . "</td>
+            <td>" . $row["id_roles"] . "</td>
             <td>" . $row["descripcion"] . "</td>
-            <td>" . $row["provincia_me"] . "</td>
 			
             <td>
-            <a href='actualizarm_medico.php?id=" . $row["id_medico"] . "' class='btn btn-info' style='background-color: #0d87ac;'>Editar</a>
-            <br>
-            <br>
-            <a  onclick='return alereliminar(".$row['id_medico'].");'  class='btn btn-danger confirm'>Eliminar</a>
+            <a href='actualizarm_rol.php?id=" . $row["id_roles"] . "' class='btn btn-info' style='background-color: #0d87ac;'>Editar</a>
+            
+            <a onclick='return alerarol(".$row['id_roles'].");' class='btn btn-danger confirm'>Eliminar</a>
             </td>
             </tr>
 
