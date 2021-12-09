@@ -25,13 +25,13 @@
         $user=$_POST['userac'];
         $pass = md5($_POST['contra']);
         $rol=$_POST['rolm'];
-        
+        $prov=$_POST["provicia"];
 
         $espec=$_POST['especial'];
         //$date = (new DateTime())->format('y-m-d');
 
     
-    $sql = " INSERT INTO `medico` ( `nombre_medico`,`apellido_medico`,`user_medico`, `codigo_medico`,`especialidadm`,`idRol`,`contrasena_me`, `estado`) 
+    $sql = " INSERT INTO `medico` ( `nombre_medico`,`apellido_medico`,`user_medico`, `codigo_medico`,`especialidadm`,`provincia_me`,`idRol`,`contrasena_me`, `estado`) 
     VALUES (
 
         '$nombre',
@@ -39,6 +39,7 @@
         '$user',
         '$codime2',
         '$espec',
+        '$prov',
         '$rol',
         '$pass',
         'A')";

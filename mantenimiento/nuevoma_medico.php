@@ -87,9 +87,9 @@ if ($_SESSION["s_admin"] === null) {
                                     <form action="../php/tablas_mantenimiento.php?accion=INS" method="POST" enctype="multipart/form-data">
                                         <div class="row">
                                             <div class="wow fadeInDown">
-                                                
                                             
-                                                <div class="col-md-3 col-md-offset-2 col-sm-3 col-sm-offset-2 col-lg-3 col-lg-offset-5 col-xs-12 col-xs-offset-0">
+                                            
+                                                <div class="col-md-3 col-md-offset-2 col-sm-3 col-sm-offset-2 col-lg-3 col-lg-offset-9 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
 
                                                         <label class="control-label">Nombre<span
@@ -110,10 +110,11 @@ if ($_SESSION["s_admin"] === null) {
                                                     <label class="control-label">Exequátur<span
                                                             style="color: turquoise">*</span></label>
                                                     <div class="form-group">
-                                                    <input type="text" name="sqmedico" required="required" placeholder="S4" class="form-control">
+                                                    <input type="text" name="sqmedico" required="required" placeholder="Exequátur" class="form-control">
                                                     </div>
                                                     </div>
                                                 </div>
+                                                
                                                 <div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-lg-3 col-lg-offset-5 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
                                                         <label class="control-label">especialidadm<span
@@ -201,6 +202,18 @@ if ($_SESSION["s_admin"] === null) {
                                                     <input type="file" name="archivo"  required="required" />
                                                 </div>-->
                                                 <!-- parte que ocupada la pantalla completa -->
+                                                
+                                                <div class="col-md-3 col-md-offset-2 col-sm-3 col-sm-offset-2 col-lg-3 col-lg-offset-5 col-xs-12 col-xs-offset-0">
+                                                <div class="form-group">
+                                                    <label for="usuario" class="text-dark">Provincia</label><br>
+                                                    <select name="provicia" class="form-control" required="required">
+                                                        <option value="La Vega" selected>La Vega</option>
+                                                        <option value="Santiago">Santiago</option>
+                                                        <option value="Valverde">Valverde</option>
+                                                        <option value="Santiago Rodríguez">Santiago Rodríguez</option>
+                                                    </select>
+                                                </div>
+                                                </div>
                                                 <div
                                                     class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-1 col-lg-5 col-lg-offset-6 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
