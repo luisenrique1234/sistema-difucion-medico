@@ -3,7 +3,7 @@ include ('conexion.php');
 
 
 $sql2=("SELECT conferencia.id_confe,conferencia.titulo_confe,conferencia.autores_confe,conferencia.material_confe,conferencia.fachainicio,conferencia.fechafinal,conferencia.categoria_confe,
-        conferencia.etapa_confe,conferencia.link_confe,especialidad.espec_descripsion FROM conferencia,especialidad WHERE conferencia.categoria_confe=especialidad.id_espec ");
+        conferencia.etapa_confe,conferencia.link_confe FROM conferencia,medico,recordatorio WHERE conferencia.id_confe=recordatorio.id_confererec AND medico.id_medico=recordatorio.id_medicorec");
         $sql= $mysqli->query($sql2);
 
 while ($rowSql = mysqli_fetch_assoc($sql)){ 
@@ -11,7 +11,8 @@ while ($rowSql = mysqli_fetch_assoc($sql)){
     $cambio=true;
     date_default_timezone_set('America/Santo_Domingo');    
     $DatesantoTime = date('Y-m-d H:i:s', time());  
-
+    $link=$rowSql["link_confe"];
+    $titulo=$rowSql["titulo_confe"];
 //$date = (new DateTime())->format('Y-m-d g:i:s ');
 $fechainicio=$rowSql["fachainicio"];
 
@@ -42,8 +43,8 @@ $horafinal=substr($rowSql["fechafinal"],10,3);
 $minufinal=substr($rowSql["fechafinal"],14,2);
 
 //substr($DatesantoTime, 1, 3);
-
-
+$titulo=$rowSql["titulo_confe"];
+echo"<h3>".$titulo."</h3>";
 
 
 if ($diaini == $diahoy AND $horaini <= $horahoy AND $minuini <= $minuhoy AND $horafinal >= $horahoy AND $minufinal >= $minuhoy AND $rowSql["etapa_confe"]=='Programada') {
@@ -65,6 +66,23 @@ if ($diaini == $diahoy AND $horaini <= $horahoy AND $minuini <= $minuhoy AND $ho
     })();
     
     </script>";
+    echo'
+<script type="text/javascript">
+    Swal.fire({
+title: "<h3>La conferencia de '.$titulo.' ha comenzado desea ir</h3>",
+icon: "warning",
+showCancelButton: true,
+confirmButtonColor: "#45bcdb",
+confirmButtonText: "<h5>Sí</h5>",
+cancelButtonText: "<h5>Cancelar</h5>"
+})
+.then((result) => {
+if (result.value) {
+window.location.href = "'.$link.'"
+}
+});
+
+    </script>';
     
 }
 

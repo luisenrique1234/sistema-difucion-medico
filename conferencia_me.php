@@ -27,7 +27,6 @@ if ($_SESSION["s_medico"] === null){
     }
 }
 
-
 //$page = $_SERVER['PHP_SELF'];
 //$sec = "2";
 //header("Refresh: $sec; url=$page");
@@ -301,27 +300,11 @@ window.location.href = "php/pcientifico.php?accion=DLT&id="
                                         
                             } 
                         }elseif( $rowSql["etapa_confe"]=='Programada'){
-                                echo "<td style='text-align: center; font-size: 49px;'> <a class='btn btn-info' style='left: 78px; position: relative; font-size: 19px;' href='memoriac.php?id=".$rowSql["id_confe"]."'  role='button'><i class='fa fa-calendar-plus-o' aria-hidden='true'></i></a></td>";
+                                echo "<td style='text-align: center; font-size: 49px;'> <a class='btn btn-info' style='left: 78px; position: relative; font-size: 19px;' href='php/conferencia_regi.php?accion=INSREC&id=".$rowSql["id_confe"]."'  role='button'><i class='fa fa-calendar-plus-o' aria-hidden='true'></i></a></td>";
                                 
                                 if ($diaini == $diahoy AND $horaini <= $horahoy AND $minuini <= $minuhoy AND $horafinal >= $horahoy AND $minufinal >= $minuhoy ) {
                                         echo"<h3> Es hora de la reunion ".$DatesantoTime."</h3>";
-                                        echo'
-<script type="text/javascript">
-    Swal.fire({
-title: "<h3>La conferencia a comensado desea ir a verla</h3>",
-icon: "warning",
-showCancelButton: true,
-confirmButtonColor: "#45bcdb",
-confirmButtonText: "<h5>Sí</h5>",
-cancelButtonText: "<h5>Cancelar</h5>"
-})
-.then((result) => {
-if (result.value) {
-window.location.href = "php/pcientifico.php?accion=DLT&id="
-}
-});
-
-    </script>';
+                                        
                                         $codigo=$rowSql["id_confe"];
                                         $sql="
                                         UPDATE `conferencia` SET
@@ -334,7 +317,7 @@ window.location.href = "php/pcientifico.php?accion=DLT&id="
                                         }
 
                                         
-                                                                        }
+                                        }
                                                                         
                         }elseif( $rowSql["etapa_confe"]=='Terminada'){
                                 echo "<td style='text-align: center; font-size: 49px;'> <a class='btn btn-info' style='left: 78px; position: relative; font-size: 19px;' href='memoriac.php?id=".$rowSql["id_confe"]."'  role='button'><i class='fa fa-times' aria-hidden='true'></i></a></td>";
@@ -372,7 +355,7 @@ window.location.href = "php/pcientifico.php?accion=DLT&id="
 $(document).ready(function() {
       var refreshId =  setInterval( function(){
     $('#pruebarecarga').load('php/refrecar_conferecia.php');
-   }, 1000 );
+   }, 5000 );
 });
 
 </script>
