@@ -216,6 +216,7 @@ $buscarespec='Todos';
                 
                 <?php while ($rowSql = mysqli_fetch_assoc($sql)){ 
                         $archivo= $rowSql["material_confe"];
+                        $titulo2=$rowSql["titulo_confe"];
                         $fecha2=$rowSql["fachainicio"];
                         $inicial = date_create($fecha2)->format('d/m/y  g:iA');
                         $fecha3=$rowSql["fechafinal"];
@@ -287,16 +288,7 @@ window.location.href = "php/pcientifico.php?accion=DLT&id="
 
     </script>';
                                 
-                                $codigo=$rowSql["id_confe"];
-                                        $sql="
-                                        UPDATE `conferencia` SET
-                                            `etapa_confe`='Terminada'
-                                        WHERE
-                                             id_confe='$codigo'";
-
-                                        if($mysqli->query($sql)){
-                                            $status='successdlt';
-                                        }
+                                
                                         
                             } 
                         }elseif( $rowSql["etapa_confe"]=='Programada'){
@@ -323,7 +315,6 @@ window.location.href = "php/pcientifico.php?accion=DLT&id="
                                 echo "<td style='text-align: center; font-size: 49px;'> <a class='btn btn-info' style='left: 78px; position: relative; font-size: 19px;' href='memoriac.php?id=".$rowSql["id_confe"]."'  role='button'><i class='fa fa-times' aria-hidden='true'></i></a></td>";
 
                         }
-                        
                         ?>
                         
                         </tr>
