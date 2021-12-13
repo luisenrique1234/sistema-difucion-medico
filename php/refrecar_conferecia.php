@@ -8,7 +8,7 @@ $sql2=("SELECT conferencia.id_confe,conferencia.titulo_confe,conferencia.autores
 
 while ($rowSql = mysqli_fetch_assoc($sql)){ 
 
-    $cambio=true;
+    
     date_default_timezone_set('America/Santo_Domingo');    
     $DatesantoTime = date('Y-m-d H:i:s', time());  
     $link=$rowSql["link_confe"];
@@ -85,7 +85,7 @@ $sql2=("SELECT conferencia.id_confe,conferencia.titulo_confe,conferencia.fachain
 
 while ($rowSql = mysqli_fetch_assoc($sql)){ 
 
-    $cambio=true;
+    
     date_default_timezone_set('America/Santo_Domingo');    
     $DatesantoTime = date('Y-m-d H:i:s', time());
     $titulo=$rowSql["titulo_confe"];

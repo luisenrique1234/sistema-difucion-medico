@@ -7,8 +7,10 @@
 <?php
     include 'conexion2p.php';
     $i = '';
-if (isset($_GET['accion'])) {
+    $S ='';
+if (isset($_GET['accion']) OR isset($_GET['acciones'])) {
     $i = $_GET['accion'];
+    $S = $_GET['acciones'];
 }
 
 /* En esta parte se registra lo nuevos medicos que 
@@ -155,59 +157,6 @@ $(document).ready(function(){
 }
 
 
-if ($i == "INSREC") {
-
-    $id=$_GET['id'];
-    session_start();
-    $id_me=$_SESSION["s_idme"];
-
-    
-    //$date = (new DateTime())->format('y-m-d');
-    //echo ("<h4>$date</h4>");
-    //echo ("<h4>$new_imgen</h4>");
-    //exit;
-
-
-    $sql = " INSERT INTO `recordatorio` ( `id_medicorec`,`id_confererec`,`estado`) 
-    VALUES (
-
-        '$id_me',
-        '$id',
-        'A')";
-    
-
-      
-    if ($mysqli->query($sql)) {
-        
-        $status = 'success';
-    } else {
-        $status = 'error';
-        echo "error" . mysqli_error($mysqli);
-    }
-    // echo("erro descripcion:" .mysqli_error($mysqli));
-    //header("Location: ../propietarip_mant.php?s=".$status);
-     
-    header("Refresh: 2; URL= ../conferencia_me.php?s=" .$status);
-    echo '
-<script type="text/javascript">
-
-
-$(document).ready(function(){
-
-	swal({
-		title: "Recordatorio Activado",
-		icon: "success",
-	  })
-});
-
-
-</script>
-
-' ;
-
-}
-
-
 
 if($i=="UDTCON"){
     $msj='';
@@ -304,6 +253,7 @@ $(document).ready(function(){
 
 ';
 }
+
 
 
 ?>

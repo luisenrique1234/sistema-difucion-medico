@@ -185,7 +185,7 @@ $buscarespec='Todos';
         }
 
         $sql2=("SELECT conferencia.id_confe,conferencia.titulo_confe,conferencia.autores_confe,conferencia.material_confe,conferencia.fachainicio,conferencia.fechafinal,conferencia.categoria_confe,
-        conferencia.etapa_confe,conferencia.link_confe,especialidad.espec_descripsion FROM conferencia,especialidad WHERE conferencia.categoria_confe=especialidad.id_espec $filtro ");
+        conferencia.etapa_confe,conferencia.recordatorio,conferencia.link_confe,especialidad.espec_descripsion FROM conferencia,especialidad WHERE conferencia.categoria_confe=especialidad.id_espec $filtro ");
         $sql= $mysqli->query($sql2);
         $numeroSql = mysqli_num_rows($sql);
 
@@ -266,7 +266,7 @@ $minufinal=substr($rowSql["fechafinal"],14,2);
 
                         <?php 
                         if ($rowSql["etapa_confe"]=='En vivo' ) {
-                         echo "<td style='text-align: center; font-size: 49px;'> <a class='btn btn-info' style='left: 60px; position: relative; font-size: 19px;' href='".$rowSql["link_confe"]."'target='_blank'  role='button'><i class='fa fa-youtube-play' aria-hidden='true'></i></a></td>";
+                         echo "<td style='text-align: center; font-size: 49px;'> <a class='btn btn-info' style='left: 60px; position: relative; font-size: 19px;' href='php/rec_suma_link.php?accion=VISITA&id=".$rowSql["id_confe"]."&vis=".++$rowSql["recordatorio"]."'target='_blank'  role='button'><i class='fa fa-youtube-play' aria-hidden='true'></i></a></td>";
                            
                          if( $horafinal == $horahoy AND $minufinal == $minuhoy ){
                                 echo"<h3> Ya terminno la reuncion ".$minufinal."</h3>";
@@ -292,7 +292,7 @@ window.location.href = "php/pcientifico.php?accion=DLT&id="
                                         
                             } 
                         }elseif( $rowSql["etapa_confe"]=='Programada'){
-                                echo "<td style='text-align: center; font-size: 49px;'> <a class='btn btn-info' style='left: 78px; position: relative; font-size: 19px;' href='php/conferencia_regi.php?accion=INSREC&id=".$rowSql["id_confe"]."'  role='button'><i class='fa fa-calendar-plus-o' aria-hidden='true'></i></a></td>";
+                                echo "<td style='text-align: center; font-size: 49px;'> <a class='btn btn-info' style='left: 78px; position: relative; font-size: 19px;' href='php/rec_suma_link.php?accion=INSREC&id=".$rowSql["id_confe"]."&acciones=SUMA&rec=".++$rowSql["recordatorio"]."'  role='button'><i class='fa fa-calendar-plus-o' aria-hidden='true'></i></a></td>";
                                 
                                 if ($diaini == $diahoy AND $horaini <= $horahoy AND $minuini <= $minuhoy AND $horafinal >= $horahoy AND $minufinal >= $minuhoy ) {
                                         echo"<h3> Es hora de la reunion ".$DatesantoTime."</h3>";
