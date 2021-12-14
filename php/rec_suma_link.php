@@ -1,6 +1,6 @@
 <head>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="../codigo.js"></script>
 </head>
  
@@ -76,10 +76,10 @@ if ($i == "INSREC") {
 
 $(document).ready(function(){
 
-	swal({
-		title: "Recordatorio Activado",
-		icon: "success",
-	  })
+	Swal.fire({
+        icon: "success",
+        title: "Recordatorio Activado"
+      })
 });
 
 
@@ -89,14 +89,14 @@ $(document).ready(function(){
 
 }
 
-if($S=="VISITA"){
-    $msj='';
-    $suma=$_GET['rec'];
+if($i=="VISITA"){
+    $sumavist=$_GET['vist'];
+    $linkd=$_GET['linkd'];
     $codigo=$_GET['id'];
-
+    //exit;
     $sql="
     UPDATE `conferencia` SET
-        `recordatorio`='$suma'
+        `visttas_confe`='$sumavist'
     WHERE
     id_confe='$codigo'";
 
@@ -107,6 +107,43 @@ if($S=="VISITA"){
         $status='errordlt';
         echo "error" .mysqli_error($mysqli);
     }
+
+    header("Refresh: 2; URL=$linkd");
+    echo '
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+
+    let timerInterval
+Swal.fire({
+  title: "Redirigiendo",
+  timer: 2000,
+  timerProgressBar: true,
+  didOpen: () => {
+    Swal.showLoading()
+    const b = Swal.getHtmlContainer().querySelector("b")
+    timerInterval = setInterval(() => {
+      b.textContent = Swal.getTimerLeft()
+    }, 100)
+  },
+  willClose: () => {
+    clearInterval(timerInterval)
+  }
+}).then((result) => {
+  /* Read more about handling dismissals below */
+  if (result.dismiss === Swal.DismissReason.timer) {
+    console.log("I was closed by the timer")
+  }
+})
+    
+});
+
+
+</script>
+
+' ;
+
 }
 
 

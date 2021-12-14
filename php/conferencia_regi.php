@@ -7,10 +7,8 @@
 <?php
     include 'conexion2p.php';
     $i = '';
-    $S ='';
-if (isset($_GET['accion']) OR isset($_GET['acciones'])) {
+if (isset($_GET['accion'])) {
     $i = $_GET['accion'];
-    $S = $_GET['acciones'];
 }
 
 /* En esta parte se registra lo nuevos medicos que 

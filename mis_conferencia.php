@@ -170,7 +170,7 @@ $buscar='';
         }
         $id_med=$_SESSION["s_idme"];
         $sql2=("SELECT conferencia.id_confe,conferencia.titulo_confe,conferencia.autores_confe,conferencia.material_confe,conferencia.fachainicio,conferencia.fechafinal,conferencia.categoria_confe,
-        conferencia.etapa_confe,conferencia.visttas_confe,especialidad.espec_descripsion FROM conferencia,especialidad WHERE conferencia.categoria_confe=especialidad.id_espec AND conferencia.id_userme='$id_med' AND conferencia.estado='A' $filtro ");
+        conferencia.etapa_confe,conferencia.visttas_confe,conferencia.recordatorio,especialidad.espec_descripsion FROM conferencia,especialidad WHERE conferencia.categoria_confe=especialidad.id_espec AND conferencia.id_userme='$id_med' AND conferencia.estado='A' $filtro ");
         $sql= $mysqli->query($sql2);
         $numeroSql = mysqli_num_rows($sql);
 
@@ -209,7 +209,7 @@ $buscar='';
                     
                         <tr class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0" >
                         <td>
-                        <i class="fa fa-bell" aria-hidden="true"><?php echo $rowSql["visttas_confe"];?></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-eye" aria-hidden="true"><?php echo $rowSql["visttas_confe"];?>  </i>
+                        <i class="fa fa-bell" aria-hidden="true"><?php echo $rowSql["recordatorio"];?></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-eye" aria-hidden="true"><?php echo $rowSql["visttas_confe"];?>  </i>
                         <br>
                         <h5 style="display: inline;">Titulo:</h5><?php echo $rowSql["titulo_confe"]; ?>   &nbsp;&nbsp; <h5 style="display: inline;">Desde:</h5><?php echo $inicial; ?>
                         <br><h5 style="display: inline;">Por:</h5> <?php echo $rowSql["autores_confe"]; ?>&nbsp;&nbsp;  <h5 style="display: inline;">Hasta:</h5><?php echo $final; ?>
