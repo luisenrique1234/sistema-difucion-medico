@@ -3,7 +3,34 @@
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="../codigo.js"></script>
 </head>
- 
+<?php 
+include ('conexion.php');
+
+$id=$_GET['id'];
+    session_start();
+    $id_me=$_SESSION["s_idme"];
+    $cambio=false;
+
+$sql2=("SELECT* FROM recordatorio");
+        $sql= $mysqli->query($sql2);
+
+while ($rowSql = mysqli_fetch_assoc($sql)){ 
+
+  $medio=$rowSql['id_medicorec'];
+  $conferc=$rowSql['id_confererec'];
+  
+  if ($id==$rowSql['id_confererec'] AND $id_me==$rowSql['id_medicorec']) {
+    $cambio=true;
+  }
+
+  
+}
+
+
+//exit;
+?>
+
+
 <?php
     include 'conexion2p.php';
     $i = '';
@@ -15,6 +42,10 @@ if (isset($_GET['accion']) OR isset($_GET['acciones'])) {
 
 
 
+
+
+
+if($cambio==false){
 if($S=="SUMA"){
     $msj='';
     $suma=$_GET['rec'];
@@ -40,7 +71,6 @@ if ($i == "INSREC") {
     $id=$_GET['id'];
     //echo ("<h4>coferecia $id</h4>");
     //exit;
-    session_start();
     $id_me=$_SESSION["s_idme"];
 
     
@@ -88,6 +118,28 @@ $(document).ready(function(){
 ' ;
 
 }
+
+}elseif ($cambio==true) {
+
+  header("Refresh: 2; URL= ../conferencia_me.php");
+    echo '
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+
+	Swal.fire({
+        icon: "success",
+        title: "Ya Tiene el recordatorio activado para esta conferencia"
+      })
+});
+
+
+</script>
+
+' ;
+}
+
 
 if($i=="VISITA"){
     $sumavist=$_GET['vist'];
