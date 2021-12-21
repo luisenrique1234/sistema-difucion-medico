@@ -4,7 +4,7 @@
 
 
 // Desactivar toda notificación de error si quieres ver los errores tienes que quitar esta linea
-//error_reporting(0);
+error_reporting(0);
 
 
 
@@ -27,6 +27,13 @@ if ($_SESSION["s_medico"] === null){
     }
 }
 
+//$page = $_SERVER['PHP_SELF'];
+//$sec = "2";
+//header("Refresh: $sec; url=$page");
+
+$buscar='';
+$buscaetapa='Todos';
+$buscarespec='Todos';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -48,7 +55,7 @@ if ($_SESSION["s_medico"] === null){
     <link rel="stylesheet" href="css/boton.css">
     <!--Icon-Font-->
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <!--[if lt IE 9]>
 	    <script src="js/html5shiv.js"></script>
 	    <script src="js/respond.min.js"></script>
@@ -96,7 +103,7 @@ if ($_SESSION["s_medico"] === null){
 
             
 
-                <div >
+                <div>
 
                         <table class="table">
                                 <thead>
@@ -105,7 +112,7 @@ if ($_SESSION["s_medico"] === null){
                                                 <label  class="control-label">Filtrar por Actividad</label>
                                                         <select  id="assigned-tutor-filter" id="buscaetapa" name="buscaetapa" class="form-control mt-2">
                                                                 <?php if ($_POST["buscaetapa"] != ''){ ?>
-                                                                <option value="<?php echo $_POST["buscaetapa"]; ?>"><?php echo $_POST["buscaetapa"]; ?></option>
+                                                                <option value="<?php echo $_POST["buscaetapa"]; ?>"><?php echo $buscaetapa= $_POST["buscaetapa"]; ?></option>
                                                                 <?php } ?>
                                                                 <option value="Todos">Todos</option>
                                                                 <option value="En vivo">En vivo</option>
@@ -127,7 +134,7 @@ if ($_SESSION["s_medico"] === null){
                                                 <label  class="control-label">Filtrar por Especialidades</label>
                                                         <select  id="subject-filter" id="buscarespec" name="buscarespec" class="form-control mt-2">
                                                                 <?php if ($_POST["buscarespec"] != ''){ ?>
-                                                                <option value="<?php echo $_POST["buscarespec"]; ?>"><?php echo $_POST["buscarespec"]; ?></option>
+                                                                <option value="<?php echo $_POST["buscarespec"]; ?>"><?php echo $buscarespec= $_POST["buscarespec"]; ?></option>
                                                                 <?php } ?>
                                                                 <option value="Todos">Todos</option>
                                                                 <option value="General">General</option>
@@ -144,7 +151,7 @@ if ($_SESSION["s_medico"] === null){
                                                 <label  class="form-label">Titulo de la Conferencia</label>
                                                 
                                                 
-                                                <input   type="text" class="form-control"  id="buscar" name="buscar" value="<?php echo $_POST["buscar"]?>"  >
+                                                <input   type="text" class="form-control"  id="buscar" name="buscar" value="<?php  echo $buscar = $_POST["buscar"]?>"  >
                                                 
                                                     </div>
                                         </div>
@@ -157,28 +164,28 @@ if ($_SESSION["s_medico"] === null){
         
         <?php 
         /*FILTRO de busqueda////////////////////////////////////////////*/
-
-        if ($_POST["buscar"] == '' AND $_POST["buscaetapa"] =='Todos' AND $_POST["buscarespec"] =='Todos' ){ $filtro = "";}else{
-        if ($_POST["buscar"] != '' AND $_POST["buscaetapa"] =='Todos'  AND $_POST["buscarespec"] =='Todos'  ){ $filtro = "AND conferencia.titulo_confe LIKE '%".$_POST["buscar"]."%'";}
         
-        if ($_POST["buscar"] == '' AND $_POST["buscaetapa"] !='Todos'  AND $_POST["buscarespec"] =='Todos'  ){ $filtro = "AND conferencia.etapa_confe = '".$_POST["buscaetapa"]."'";}
+        if ($buscar == '' AND $buscaetapa =='Todos' AND $buscarespec =='Todos' ){ $filtro = "";}else{
+        if ($buscar != '' AND $buscaetapa =='Todos'  AND $buscarespec =='Todos'  ){ $filtro = "AND conferencia.titulo_confe LIKE '%".$buscar."%'";}
+        
+        if ($buscar == '' AND $buscaetapa !='Todos'  AND $buscarespec =='Todos'  ){ $filtro = "AND conferencia.etapa_confe = '".$buscaetapa."'";}
         
         //echo("<h4>$filtro</h4>");
-        if ($_POST["buscar"] != '' AND $_POST["buscaetapa"] !='Todos'  AND $_POST["buscarespec"] =='Todos'  ){ $filtro = "AND conferencia.titulo_confe LIKE '%".$_POST["buscar"]."%' AND conferencia.etapa_confe = '".$_POST["buscaetapa"]."'";}
+        if ($buscar != '' AND $buscaetapa !='Todos'  AND $buscarespec =='Todos'  ){ $filtro = "AND conferencia.titulo_confe LIKE '%".$buscar."%' AND conferencia.etapa_confe = '".$buscaetapa."'";}
         
-        if ($_POST["buscar"] == '' AND $_POST["buscaetapa"] !='Todos'  AND $_POST["buscarespec"] !='Todos'  ){ $filtro = "AND conferencia.etapa_confe   = '".$_POST["buscaetapa"]."' AND especialidad.espec_descripsion = '".$_POST["buscarespec"]."' ";}
+        if ($buscar == '' AND $buscaetapa !='Todos'  AND $buscarespec !='Todos'  ){ $filtro = "AND conferencia.etapa_confe   = '".$buscaetapa."' AND especialidad.espec_descripsion = '".$buscarespec."' ";}
         
-        if ($_POST["buscar"] != '' AND $_POST["buscaetapa"] !='Todos'  AND $_POST["buscarespec"] !='Todos'  ){ $filtro = "AND conferencia.titulo_confe  LIKE '%".$_POST["buscar"]."%' AND conferencia.etapa_confe = '".$_POST["buscaetapa"]."' AND especialidad.espec_descripsion= '".$_POST["buscarespec"]."' ";}
+        if ($buscar != '' AND $buscaetapa !='Todos'  AND $buscarespec !='Todos'  ){ $filtro = "AND conferencia.titulo_confe  LIKE '%".$buscar."%' AND conferencia.etapa_confe = '".$buscaetapa."' AND especialidad.espec_descripsion= '".$buscarespec."' ";}
         
         
-        if ($_POST["buscar"] == '' AND $_POST["buscarespec"] !='Todos'  AND $_POST["buscaetapa"] =='Todos' ){ $filtro = "AND especialidad.espec_descripsion = '".$_POST["buscarespec"]."'";}
+        if ($buscar == '' AND $buscarespec !='Todos'  AND $buscaetapa =='Todos' ){ $filtro = "AND especialidad.espec_descripsion = '".$buscarespec."'";}
         
-        if ($_POST["buscar"] != '' AND $_POST["buscarespec"] !='Todos' AND $_POST["buscaetapa"] =='Todos' ){ $filtro = "AND conferencia.titulo_confe  LIKE '%".$_POST["buscar"]."%' AND especialidad.espec_descripsion = '".$_POST["buscarespec"]."'";}
+        if ($buscar != '' AND $buscarespec !='Todos' AND $buscaetapa =='Todos' ){ $filtro = "AND conferencia.titulo_confe  LIKE '%".$buscar."%' AND especialidad.espec_descripsion = '".$buscarespec."'";}
         
         }
 
         $sql2=("SELECT conferencia.id_confe,conferencia.titulo_confe,conferencia.autores_confe,conferencia.material_confe,conferencia.fachainicio,conferencia.fechafinal,conferencia.categoria_confe,
-        conferencia.etapa_confe,conferencia.link_confe,especialidad.espec_descripsion FROM conferencia,especialidad WHERE conferencia.categoria_confe=especialidad.id_espec $filtro ");
+        conferencia.etapa_confe,conferencia.recordatorio,conferencia.link_confe,conferencia.visttas_confe,especialidad.espec_descripsion FROM conferencia,especialidad WHERE conferencia.categoria_confe=especialidad.id_espec $filtro ");
         $sql= $mysqli->query($sql2);
         $numeroSql = mysqli_num_rows($sql);
 
@@ -191,8 +198,9 @@ if ($_SESSION["s_medico"] === null){
             height : 500px;
             overflow : auto; ">
 
-<p  style=" left: 120px; position: relative; font-weight: bold;  color:rgb(94, 200, 214);"><i class="fa fa-area-chart" aria-hidden="true"></i> <?php echo $numeroSql; ?> Resultados encontrados</p>
+
 <div  class="table-responsive">
+<p  class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0"  style="   color:rgb(94, 200, 214);"><i class="fa fa-area-chart" aria-hidden="true"></i> <?php echo $numeroSql; ?> Resultados encontrados</p>
         <table class="table">
                 <!--<thead>
                         <tr style="background-color: #0d87ac; color:#FFFFFF;">
@@ -204,29 +212,109 @@ if ($_SESSION["s_medico"] === null){
                                 <th style="text-align: center;">Ver</th>
                         </tr>
                 </thead>-->
-                <tbody >
+                <tbody>
+                
                 <?php while ($rowSql = mysqli_fetch_assoc($sql)){ 
-                        
+                        $archivo= $rowSql["material_confe"];
+                        $titulo2=$rowSql["titulo_confe"];
                         $fecha2=$rowSql["fachainicio"];
                         $inicial = date_create($fecha2)->format('d/m/y  g:iA');
                         $fecha3=$rowSql["fechafinal"];
                         $final = date_create($fecha3)->format('d/m/y  g:iA');
+
+                        date_default_timezone_set('America/Santo_Domingo');    
+    $DatesantoTime = date('Y-m-d H:i:s', time());  
+
+//$date = (new DateTime())->format('Y-m-d g:i:s ');
+$fechainicio=$rowSql["fachainicio"];
+
+$fechafinal=$rowSql["fechafinal"];
+//dia
+$diaini=substr($rowSql["fachainicio"], 8, 3);
+
+$diahoy=substr($DatesantoTime, 8, 3);
+
+//horas 
+$horaini=substr($rowSql["fachainicio"],10,3);
+
+$horahoy=substr($DatesantoTime, 10, 3);
+
+//minutos
+$minuini=substr($rowSql["fachainicio"],14,2);
+
+$minuhoy=substr($DatesantoTime,14,2);
+
+
+//fecha final
+$diafinal=substr($rowSql["fechafinal"], 8, 3);
+
+//hora
+$horafinal=substr($rowSql["fechafinal"],10,3);
+
+//minu
+$minufinal=substr($rowSql["fechafinal"],14,2);
+
                         ?>
                     
                         <tr class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0" >
-                        <td ><h5 style="display: inline;">Titulo:</h5><?php echo $rowSql["titulo_confe"]; ?>   &nbsp;&nbsp; <h5 style="display: inline;">Desde:</h5><?php echo $inicial; ?>
+                        <td ><h4 style="display: inline;">Titulo:</h4><?php echo  $rowSql["titulo_confe"]; ?>   &nbsp;&nbsp; <h5 style="display: inline;">Desde:</h5><?php echo $inicial; ?>
                         <br><h5 style="display: inline;">Por:</h5> <?php echo $rowSql["autores_confe"]; ?>&nbsp;&nbsp;  <h5 style="display: inline;">Hasta:</h5><?php echo $final; ?>
                         <br>
-                        <h5 style="display: inline;">Especialidad:</h5> <?php echo $rowSql["espec_descripsion"]; ?> &nbsp;&nbsp; <h5 style="display: inline;"> Material:</h5> <?php echo $rowSql["material_confe"]; ?></td>
+                        <h5 style="display: inline;">Especialidad:</h5> <?php echo $rowSql["espec_descripsion"]; ?> &nbsp;&nbsp; <?php  if ($archivo != '') {
+                                                echo ('<h5 style="display: inline;"><a href="php/' . $archivo . '"download="sistema-difucion-medica-conferencia"><i class="fa fa-download"></i>Descargar material de apoyo</a></h5>'); }?> </td>
                         
 
                         <?php 
                         if ($rowSql["etapa_confe"]=='En vivo' ) {
-                         echo "<td style='text-align: center; font-size: 49px;'> <a class='btn btn-info' style='left: 60px; position: relative; font-size: 19px;' href='".$rowSql["link_confe"]."'target='_blank'  role='button'><i class='fa fa-youtube-play' aria-hidden='true'></i></a></td>";   
+                         echo "<td style='text-align: center; font-size: 49px;'> <a class='btn btn-info' style='left: 60px; position: relative; font-size: 19px;' href='php/rec_suma_link.php?accion=VISITA&id=".$rowSql["id_confe"]."&vist=".++$rowSql["visttas_confe"]."&linkd=".$rowSql["link_confe"]."&acciones=no'target='_blank'  role='button'><i class='fa fa-youtube-play' aria-hidden='true'></i></a></td>";
+                           
+                         if( $horafinal == $horahoy AND $minufinal == $minuhoy ){
+                                echo"<h3> Ya terminno la reuncion ".$minufinal."</h3>";
+                                echo'
+<script type="text/javascript">
+    Swal.fire({
+title: "<h3>ya termino la conferencia</h3>",
+icon: "warning",
+showCancelButton: true,
+confirmButtonColor: "#45bcdb",
+confirmButtonText: "<h5>Sí</h5>",
+cancelButtonText: "<h5>Cancelar</h5>"
+})
+.then((result) => {
+if (result.value) {
+window.location.href = "php/pcientifico.php?accion=DLT&id="
+}
+});
+
+    </script>';
+                                
+                                
+                                        
+                            } 
                         }elseif( $rowSql["etapa_confe"]=='Programada'){
-                                echo "<td style='text-align: center; font-size: 49px;'> <a class='btn btn-info' style='left: 78px; position: relative; font-size: 19px;' href='memoriac.php?id=".$rowSql["id_confe"]."'  role='button'><i class='fa fa-calendar-plus-o' aria-hidden='true'></i></a></td>";
+                                echo "<td style='text-align: center; font-size: 49px;'> <a class='btn btn-info' style='left: 78px; position: relative; font-size: 19px;' href='php/rec_suma_link.php?accion=INSREC&id=".$rowSql["id_confe"]."&acciones=SUMA&rec=".++$rowSql["recordatorio"]."'  role='button'><i class='fa fa-calendar-plus-o' aria-hidden='true'></i></a></td>";
+                                
+                                if ($diaini == $diahoy AND $horaini <= $horahoy AND $minuini <= $minuhoy AND $horafinal >= $horahoy AND $minufinal >= $minuhoy ) {
+                                        echo"<h3> Es hora de la reunion ".$DatesantoTime."</h3>";
+                                        
+                                        $codigo=$rowSql["id_confe"];
+                                        $sql="
+                                        UPDATE `conferencia` SET
+                                            `etapa_confe`='En vivo'
+                                        WHERE
+                                             id_confe='$codigo'";
+
+                                        if($mysqli->query($sql)){
+                                            $status='successdlt';
+                                        }
+
+                                        
+                                        }
+                                                                        
+                        }elseif( $rowSql["etapa_confe"]=='Terminada'){
+                                echo "<td style='text-align: center; font-size: 49px;'> <a class='btn btn-info' style='left: 78px; position: relative; font-size: 19px;' href='memoriac.php?id=".$rowSql["id_confe"]."'  role='button'><i class='fa fa-times' aria-hidden='true'></i></a></td>";
+
                         }
-                        
                         ?>
                         
                         </tr>
@@ -236,7 +324,7 @@ if ($_SESSION["s_medico"] === null){
         </table>
 </div>
 </div>
-
+<div id="pruebarecarga"></div>
 
 
 </div>
@@ -254,7 +342,17 @@ if ($_SESSION["s_medico"] === null){
 
     </div>
 </div>
+<script>
+$(document).ready(function() {
+      var refreshId =  setInterval( function(){
+    $('#pruebarecarga').load('php/refrecar_conferecia.php');
+   }, 5000 );
+});
 
+</script>
+
+
+</script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/lightbox.min.js"></script>

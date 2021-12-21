@@ -4,7 +4,7 @@
 
 
 // Desactivar toda notificación de error si quieres ver los errores tienes que quitar esta linea
-//error_reporting(0);
+error_reporting(0);
 
 
 
@@ -27,6 +27,7 @@ if ($_SESSION["s_medico"] === null){
     }
 }
 
+$buscar='';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -144,7 +145,7 @@ if ($_SESSION["s_medico"] === null){
                                                 <label  class="form-label">Titulo de la Conferencia</label>
                                                 
                                                 
-                                                <input   type="text" class="form-control"  id="buscar" name="buscar" value="<?php echo $_POST["buscar"]?>"  >
+                                                <input   type="text" class="form-control"  id="buscar" name="buscar" value="<?php  echo $buscar = $_POST["buscar"]?>"  >
                                                     </div>
 
                                                     <div class="col-lg-2 col-lg-offset-0 col-xs-12 col-xs-offset-0  misconferencia">
@@ -163,13 +164,13 @@ if ($_SESSION["s_medico"] === null){
         <?php 
         /*FILTRO de busqueda////////////////////////////////////////////*/
 
-        if ($_POST["buscar"] == ''  ){ $filtro = "";}else{
-        if ($_POST["buscar"] != ''  ){ $filtro = "AND conferencia.titulo_confe LIKE '%".$_POST["buscar"]."%'";}
+        if ($buscar == ''  ){ $filtro = "";}else{
+        if ($buscar != ''  ){ $filtro = "AND conferencia.titulo_confe LIKE '%".$buscar."%'";}
         
         }
         $id_med=$_SESSION["s_idme"];
         $sql2=("SELECT conferencia.id_confe,conferencia.titulo_confe,conferencia.autores_confe,conferencia.material_confe,conferencia.fachainicio,conferencia.fechafinal,conferencia.categoria_confe,
-        conferencia.etapa_confe,conferencia.visttas_confe,especialidad.espec_descripsion FROM conferencia,especialidad WHERE conferencia.categoria_confe=especialidad.id_espec AND conferencia.id_userme='$id_med' AND conferencia.estado='A' $filtro ");
+        conferencia.etapa_confe,conferencia.visttas_confe,conferencia.recordatorio,especialidad.espec_descripsion FROM conferencia,especialidad WHERE conferencia.categoria_confe=especialidad.id_espec AND conferencia.id_userme='$id_med' AND conferencia.estado='A' $filtro ");
         $sql= $mysqli->query($sql2);
         $numeroSql = mysqli_num_rows($sql);
 
@@ -179,11 +180,11 @@ if ($_SESSION["s_medico"] === null){
 
 <div style="
             padding : 4px;
-            height : 300px;
+            height : 500px;
             overflow : auto; ">
 
-<p  style=" left: 120px; position: relative; font-weight: bold;  color:rgb(94, 200, 214);"><i class="fa fa-area-chart" aria-hidden="true"></i> <?php echo $numeroSql; ?> Resultados encontrados</p>
 <div  class="table-responsive">
+<p  class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0"  style="   color:rgb(94, 200, 214);"><i class="fa fa-area-chart" aria-hidden="true"></i> <?php echo $numeroSql; ?> Resultados encontrados</p>
         <table class="table">
                 <!--<thead>
                         <tr style="background-color: #0d87ac; color:#FFFFFF;">
@@ -208,7 +209,7 @@ if ($_SESSION["s_medico"] === null){
                     
                         <tr class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0" >
                         <td>
-                        <i class="fa fa-bell" aria-hidden="true"><?php echo $rowSql["visttas_confe"];?></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-eye" aria-hidden="true"><?php echo $rowSql["visttas_confe"];?>  </i>
+                        <i class="fa fa-bell" aria-hidden="true"><?php echo $rowSql["recordatorio"];?></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-eye" aria-hidden="true"><?php echo $rowSql["visttas_confe"];?>  </i>
                         <br>
                         <h5 style="display: inline;">Titulo:</h5><?php echo $rowSql["titulo_confe"]; ?>   &nbsp;&nbsp; <h5 style="display: inline;">Desde:</h5><?php echo $inicial; ?>
                         <br><h5 style="display: inline;">Por:</h5> <?php echo $rowSql["autores_confe"]; ?>&nbsp;&nbsp;  <h5 style="display: inline;">Hasta:</h5><?php echo $final; ?>
@@ -218,7 +219,7 @@ if ($_SESSION["s_medico"] === null){
                         
                         <?php 
                          echo "<td style='text-align: center; font-size: 49px;'> <a onclick='return alereliminarconfe(".$rowSql["id_confe"].");' class='btn btn-danger' style='left: 60px; position: relative; font-size: 19px;'  role='button'><i class='fa fa-trash' aria-hidden='true'></i></i></a></td>  
-                        <td style='text-align: center; font-size: 49px;'> <a onclick='return alerinves('".$rowSql["id_confe"]."'); class='btn btn-success' style='left: 78px; position: relative; font-size: 19px;'   role='button'><i class='fa fa-pencil' aria-hidden='true'></i></a></td>";
+                        <td style='text-align: center; font-size: 49px;'> <a href='actualizar_conferencia.php?id=" .$rowSql["id_confe"]. "' class='btn btn-success' style='left: 78px; position: relative; font-size: 19px;'   role='button'><i class='fa fa-pencil' aria-hidden='true'></i></a></td>";
                         ?>
                         
                         

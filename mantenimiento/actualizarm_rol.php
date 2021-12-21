@@ -1,6 +1,6 @@
 <?php
 
-include('php/mante_consultas.php');
+include('../php/mante_consultas.php');
 $query=extraerrol($_GET['id']);
 	
     $row=$query->fetch_assoc();
@@ -15,13 +15,13 @@ $codi= mb_detect_encoding($str,"ISO-8859-1,UTF-8");
 
 session_start();
 if ($_SESSION["s_admin"] === null) {
-    header("Location: ./admin_login.php");
+    header("Location: ../admin_login.php");
 } else{
     if($_SESSION["s_idRol3"]==2){
-        header("Location: ./index.php");
+        header("Location: ../index.php");
     }
     elseif($_SESSION["s_idRol3"]==3){
-        header("Location: ./vistas/pag_error.php");
+        header("Location: ../vistas/pag_error.php");
     }
 }
 
@@ -36,18 +36,18 @@ if ($_SESSION["s_admin"] === null) {
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Actualizar Rol</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/lightbox.css" rel="stylesheet">
-    <link href="css/animate.min.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
-    <link href="css/dark.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/lightbox.css" rel="stylesheet">
+    <link href="../css/animate.min.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+    <link href="../css/dark.css" rel="stylesheet">
 
     
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <link rel="stylesheet" href="css/boton.css">
+    <link rel="stylesheet" href="../css/boton.css">
     <!--Icon-Font-->
     
 
@@ -55,82 +55,14 @@ if ($_SESSION["s_admin"] === null) {
 	    <script src="js/html5shiv.js"></script>
 	    <script src="js/respond.min.js"></script>
     <![endif]-->
-    <link rel="shortcut icon" href="images/ico/ico.png">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/ico.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/ico.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/ico.png">
-    <link rel="apple-touch-icon-precomposed" href="images/ico/ico.png">
+    <link rel="shortcut icon" href="../images/ico/ico.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../images/ico/ico.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../images/ico/ico.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../images/ico/ico.png">
+    <link rel="apple-touch-icon-precomposed" href="../images/ico/ico.png">
 </head>
 <body class="dark">
-<header id="header">
-        <div>
-            <div class="navbar navbar-inverse" role="banner">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="index.php">
-                            <img src="images/admin-logo.png" alt="logo" width="70" height="70">
-                        </a>
-                    </div>
-                    <div class="collapse navbar-collapse">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="admin_bien.php">Inicio</a></li>
-                            <li class="active" class="dropdown"><a href="mante_medico.php">Lista de Medico<i class="fa fa-angle-down"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <li><a href="mante_medico.php">Lista de médico</a></li>
-                                    <li><a href="desativado_medico.php">lista desactivados médico</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown"><a href="mante_public.php">Lista de publicación<i class="fa fa-angle-down"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <li><a href="mante_public.php">Lista de publicación</a></li>
-                                    <li><a href="blog.html">Comentario publicación</a></li>
-                                    <li><a href="desativado_public.php">Lista destivado publicación</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown"><a href="mante_inve.php">Lista  investigaciones<i class="fa fa-angle-down"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                <li><a href="mante_inve.php">Lista investigaciones</a></li>
-                                <li><a href="#">Comentario investigacio</a></li>
-                                    <li><a href="desacti_inve.php">Lista desactivados investigaciones</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown"><a href="mante_rol.php">Roles<i class="fa fa-angle-down"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                <li><a href="mante_rol.php">Roles médico</a></li>
-                                <li><a href="mante_espec.php">Especialidades médicos</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <!-- <div >
-                            <img src="images/predeterminado.jpg" width="100%" height="60">
-                            </div>-->
-                                <a href="portfolio.html" class="btn btn-info"><?php echo $_SESSION["s_admin"]; ?>. .<i class="fa fa-user"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <li><a href="pefil_medico.php">Mi perfil</a></li>
-                                    <li><a  onclick="return alertaactivar();">Cerrar sesion</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="search">
-                    <div class="social-icons search">
-                        <div class="oscuro">
-                            <div class="modo" id="modo">
-                                <i class="fa fa-adjust" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+<?php include_once "../php/mante_menu.php"; ?>
     <!--/#header-->
     <!--id la imagen de triangulor que se usa para el inicio-->
     <section id="page-breadcrumb">
@@ -208,7 +140,7 @@ if ($_SESSION["s_admin"] === null) {
 
     <!--boton flotante donde esta los diferentes acciones -->
     <div class="con">
-    <?php include_once "./php/boton.php"; ?>
+    <?php include_once "../php/boton.php"; ?>
     </div>
                     <!--*******************************************************-->
     <footer>
@@ -226,13 +158,13 @@ if ($_SESSION["s_admin"] === null) {
     </footer>
     <!--/#footer-->
 
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/lightbox.min.js"></script>
-    <script type="text/javascript" src="js/wow.min.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/temad.js"></script>
-    <script type="text/javascript" src="js/mante_alertas.js"></script>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/lightbox.min.js"></script>
+    <script type="text/javascript" src="../js/wow.min.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/temad.js"></script>
+    <script type="text/javascript" src="../js/mante_alertas.js"></script>
 </body>
 
 </html>

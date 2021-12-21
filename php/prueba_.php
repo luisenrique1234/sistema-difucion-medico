@@ -8,7 +8,7 @@ $sql2=("SELECT conferencia.id_confe,conferencia.titulo_confe,conferencia.autores
 
 while ($rowSql = mysqli_fetch_assoc($sql)){ 
 
-
+    $cambio=true;
     date_default_timezone_set('America/Santo_Domingo');    
     $DatesantoTime = date('Y-m-d H:i:s', time());  
 
@@ -31,7 +31,7 @@ $minuini=substr($rowSql["fachainicio"],14,2);
 
 $minuhoy=substr($DatesantoTime,14,2);
 
-$salir=true;
+
 //fecha final
 $diafinal=substr($rowSql["fechafinal"], 8, 3);
 
@@ -43,23 +43,87 @@ $minufinal=substr($rowSql["fechafinal"],14,2);
 
 //substr($DatesantoTime, 1, 3);
 
-echo"<h4>-final minutos--k".$minufinal."k--hoy dia---k".$minuhoy."</h4>
+echo"<h4>-final minutos--k".$fechafinal."k--hoy dia---k".$DatesantoTime."</h4>
 
 ";
 
 //while($salir){
 
-if ($diaini == $diahoy AND $horaini <= $horahoy AND $minuini <= $minuhoy AND $horafinal >= $horahoy ) {
+if ($diaini == $diahoy AND $horaini <= $horahoy AND $minuini <= $minuhoy AND $horafinal >= $horahoy AND $minufinal >= $minuhoy ) {
     echo"<h3> Es hora de la reunion ".$DatesantoTime."</h3>";
-    $salir=false;
+    echo'
+<script type="text/javascript">
+     $(document).ready(function(){
+
+var swal_alert = localStorage.getItem("alert");
+
+if(swal_alert != 1){
+    Swal.fire({
+title: "<h3>La conferencia a comensado desea ir a verla</h3>",
+icon: "warning",
+showCancelButton: true,
+confirmButtonColor: "#45bcdb",
+confirmButtonText: "<h5>Sí</h5>",
+cancelButtonText: "<h5>Cancelar</h5>"
+})
+.then((result) => {
+if (result.value) {
+window.location.href = "php/pcientifico.php?accion=DLT&id="
+}
+});
+}
+
+localStorage.setItem("alert", "1");
+
+});
+
+    </script>
+
+
+';
+
+    
+}
+
+if( $horafinal == $horahoy AND $minufinal == $minuhoy ){
+    $cambio=false;
+    echo"<h3> Ya terminno la reuncion ".$cambio."</h3>";
+
 }
 
 //}
-
+echo"<h3> salida ".$cambio."</h3>";
 
 }
+
+//$page = $_SERVER['PHP_SELF'];
+//$sec = "10";
+//header("Refresh: $sec; url=$page");
+
 
 
 
 
 ?>
+
+
+
+               <script type="text/javascript">
+/*
+    Swal.fire({
+title: "<h3>La conferencia a comensado desea ir a verla</h3>",
+icon: "warning",
+showCancelButton: true,
+confirmButtonColor: "#45bcdb",
+confirmButtonText: "<h5>Sí</h5>",
+cancelButtonText: "<h5>Cancelar</h5>"
+})
+.then((result) => {
+if (result.value) {
+window.location.href = "php/pcientifico.php?accion=DLT&id="
+}
+});*/
+
+    </script>
+
+

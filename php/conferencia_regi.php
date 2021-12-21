@@ -96,7 +96,7 @@ if ($i == "INSCON") {
     $linkco = $_POST['link'];
     $fechini = $_POST['fechini'];
     $fechfinal = $_POST['fechfinal'];
-    $etapacon = $_POST['etapa'];
+    //$etapacon = $_POST['etapa'];
     $categoriacon = $_POST['categoria'];
 
     
@@ -117,7 +117,7 @@ if ($i == "INSCON") {
         '$categoriacon',
         '$fechini',
         '$fechfinal',
-        '$etapacon',
+        'Programada',
         'A')";
         //echo ("<h4>$new_imgen</h4>");
         //exit;
@@ -156,35 +156,35 @@ $(document).ready(function(){
 
 
 
-if($i=="UDT"){
+if($i=="UDTCON"){
     $msj='';
 
+    $codigocon=$_POST['codiconfe'];
+    $titulo=$_POST['titulo'];
+    $partici=$_POST['parti'];
 
-    $nombre2=$_POST['nombre'];
-    $apellido2=$_POST['apellido'];
+    $linkco2=$_POST['link'];
 
-    $codigom2=$_POST['codigom'];
-
-    $especi=$_POST['especiali'];
+    $fechaini=$_POST['fechini'];
+    $fechafinal=$_POST['fechfinal'];
+    $etapacofe=$_POST['etapa'];
     
-    session_start();
-    $codigo2=$_SESSION["s_idme"];
-    echo ("<h4>$codigo2</h4>");
 
     
     $sql="
-    UPDATE `publicacion` SET
-        `titulo_public` ='$titulo2',
-        `autor_pu` ='$autor2',
-        `text_public` ='$public2',
-        `referencia_pu`='$refer',
-        `categoria_public`='$categoria2'
+    UPDATE `conferencia` SET
+        `titulo_confe` ='$titulo',
+        `autores_confe` ='$partici',
+        `link_confe` ='$linkco2',
+        `fachainicio`='$fechaini',
+        `fechafinal`='$fechafinal',
+        `etapa_confe`='$etapacofe'
         
     WHERE
-        id_public='$codigo2'";
+        id_confe='$codigocon'";
 
     if($mysqli->query($sql)){
-        $status='successudt';
+        $status='success';
     }
     else{
         $status='errorudt';
@@ -192,8 +192,7 @@ if($i=="UDT"){
     }
     // echo("erro descripcion:" .mysqli_error($mysqli));
     //header("Location: ../propietarip_mant.php?s=".$msj);
-
-    header("Refresh: 2; URL= ../lista_publicm.php?s=".$msj);
+    header("Refresh: 2; URL= ../mis_conferencia.php?s=".$status);
     echo '
 <script type="text/javascript">
 
@@ -233,7 +232,6 @@ if($i=="DLTCON"){
     }
     // echo("erro descripcion:" .mysqli_error($mysqli));
     //header("Location: ../propietarip_mant.php?s=".$msj);
-
     header("Refresh: 2; URL= ../mis_conferencia.php?s=".$status);
     echo '
 <script type="text/javascript">
@@ -253,6 +251,7 @@ $(document).ready(function(){
 
 ';
 }
+
 
 
 ?>
