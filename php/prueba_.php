@@ -60,13 +60,6 @@ if ($diaini == $diahoy AND $horaini <= $horahoy AND $minuini <= $minuhoy AND $ho
 }
 
 
-/*
-date_default_timezone_set('America/Santo_Domingo');    
-$DateAndTime = date('m-d-Y h:i:s a', time());  
-echo "La fecha y hora actuales en Ámsterdam son $DateAndTime.\n";
-date_default_timezone_set('America/Toronto');    
-$DateAndTime2 = date('m-d-Y h:i:s a', time());  
-echo "La fecha y hora actuales en Toronto son $DateAndTime2.";
-*/
+
 
 ?>
