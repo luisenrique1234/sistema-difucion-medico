@@ -292,7 +292,7 @@ window.location.href = "php/pcientifico.php?accion=DLT&id="
                                         
                             } 
                         }elseif( $rowSql["etapa_confe"]=='Programada'){
-                                echo "<td style='text-align: center; font-size: 49px;'> <a class='btn btn-info' style='left: 78px; position: relative; font-size: 19px;' href='php/rec_suma_link.php?accion=INSREC&id=".$rowSql["id_confe"]."&acciones=SUMA&rec=".++$rowSql["recordatorio"]."'  role='button'><i class='fa fa-calendar-plus-o' aria-hidden='true'></i></a></td>";
+                                echo "<td style='text-align: center; font-size: 49px;'> <a class='btn btn-info' style='left: 78px; position: relative; font-size: 19px;' onclick='return recordatorio();' href='php/rec_suma_link.php?accion=INSREC&id=".$rowSql["id_confe"]."&acciones=SUMA&rec=".++$rowSql["recordatorio"]."'  role='button'><i class='fa fa-calendar-plus-o' aria-hidden='true'></i></a></td>";
                                 
                                 if ($diaini == $diahoy AND $horaini <= $horahoy AND $minuini <= $minuhoy AND $horafinal >= $horahoy AND $minufinal >= $minuhoy ) {
                                         echo"<h3> Es hora de la reunion ".$DatesantoTime."</h3>";
@@ -351,6 +351,28 @@ $(document).ready(function() {
 
 </script>
 
+<script>
+
+	function recordatorio(){
+
+		var respuesta = confirm ("Estas seguro de activar Recordatorio para esta conferencia");
+		
+		if (respuesta == true)
+		{
+			return true;
+		}
+		else
+		{
+			
+			return false;
+
+		}
+
+	
+}
+
+
+</script>
 
 </script>
     <script type="text/javascript" src="js/jquery.js"></script>
