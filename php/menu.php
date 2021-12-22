@@ -33,28 +33,28 @@
                             $sql2=("SELECT conferencia.titulo_confe,conferencia.etapa_confe,conferencia.link_confe FROM conferencia,medico,recordatorio WHERE conferencia.id_confe=recordatorio.id_confererec 
                             AND medico.id_medico=recordatorio.id_medicorec AND recordatorio.id_medicorec='$id_me' AND conferencia.etapa_confe='Programada' ");
                                     $sql= $mysqli->query($sql2);
-                                    do{ 
-                                        $titulo2=$rowSql["titulo_confe"];
-                                        $etapa2=$rowSql["etapa_confe"];
-                                        $link_confe=$rowSql["link_confe"];
                                         $numeroSql = mysqli_num_rows($sql);
                             
                             
                             ?>
-                            <?php if ($etapa2=='Programada') {?>
-                            <li class="dropdown"><a href="cirugia_general.php"><i class="fa fa-bell campana" aria-hidden="true"><small style="border-radius: 30px; color: white; background-color: #ef0000 ">+<?php echo"<small>$numeroSql</small>"; ?>&nbsp</small></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <li><?php echo"<a href='$link_confe'>$titulo2</a>";?></li>
-                                </ul>
-                            </li>
-                            <?php }elseif($numeroSql==0){?>
-                                <li class="dropdown"><a href="cirugia_general.php"><i class="fa fa-bell campana" aria-hidden="true"><small style="border-radius: 30px; color: white; background-color: #ef0000 ">+<?php echo"<small>$numeroSql</small>"; ?>&nbsp</small></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <li><?php echo"<a href='$link_confe'>$titulo2</a>";?></li>
-                                </ul>
-                            </li><?php }?>
                             
-                                <?php }while ($rowSql = mysqli_fetch_assoc($sql)); ?>
+                            <li class="dropdown"><a href="cirugia_general.php"><i class="fa fa-bell campana" aria-hidden="true"><small style="border-radius: 30px; color: white; background-color: #ef0000 ">+<?php echo"<small>$numeroSql</small>"; ?>&nbsp</small></i></a>
+                                        
+                                        
+                                <ul role="menu" class="sub-menu">
+                                <?php 
+                                        while ($rowSql = mysqli_fetch_assoc($sql)){ 
+                                        $titulo2=$rowSql["titulo_confe"];
+                                        $etapa2=$rowSql["etapa_confe"];
+                                        $link_confe=$rowSql["link_confe"];
+                                        
+                                    echo"<li> <a href='$link_confe'>$titulo2</a></li>";
+                                     } ?>
+                                </ul>
+                                
+                            </li>
+                            
+                                
                         <li>
                            <!-- <div >
                             <img src="images/predeterminado.jpg" width="100%" height="60">
