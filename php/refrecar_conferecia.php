@@ -45,29 +45,6 @@ $minufinal=substr($rowSql["fechafinal"],14,2);
 //substr($DatesantoTime, 1, 3);
 
 
-if ($diaini == $diahoy AND $horaini <= $horahoy AND $minuini <= $minuhoy AND $horafinal >= $horahoy AND $minufinal >= $minuhoy AND $rowSql["etapa_confe"]=='Programada') {
-    //echo"<h3> Es hora de la reunion ".$DatesantoTime."</h3>";
-    echo'
-<script type="text/javascript">
-    Swal.fire({
-title: "<h3>La conferencia de '.$titulo.' ha comenzado desea ir</h3>",
-icon: "warning",
-showCancelButton: true,
-confirmButtonColor: "#45bcdb",
-confirmButtonText: "<h5>Sí</h5>",
-cancelButtonText: "<h5>Cancelar</h5>"
-})
-.then((result) => {
-if (result.value) {
-window.location.href = "'.$link.'"
-}
-});
-
-    </script>';
-    
-}
-
-
 
 
 }
@@ -136,6 +113,23 @@ if ($diaini == $diahoy AND $horaini <= $horahoy AND $minuini <= $minuhoy AND $ho
     if($mysqli->query($sql)){
         $status='successdlt';
     }
+    echo'
+<script type="text/javascript">
+    Swal.fire({
+title: "<h3>La conferencia de '.$titulo.' ha comenzado desea ir</h3>",
+icon: "warning",
+showCancelButton: true,
+confirmButtonColor: "#45bcdb",
+confirmButtonText: "<h5>Sí</h5>",
+cancelButtonText: "<h5>Cancelar</h5>"
+})
+.then((result) => {
+if (result.value) {
+window.location.href = "'.$link.'"
+}
+});
+
+    </script>';
     
     echo "<script type='text/javascript'>
 

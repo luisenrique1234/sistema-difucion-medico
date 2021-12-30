@@ -312,7 +312,7 @@ window.location.href = "php/pcientifico.php?accion=DLT&id="
                                         }
                                                                         
                         }elseif( $rowSql["etapa_confe"]=='Terminada'){
-                                echo "<td style='text-align: center; font-size: 49px;'> <a class='btn btn-info' style='left: 78px; position: relative; font-size: 19px;' href='memoriac.php?id=".$rowSql["id_confe"]."'  role='button'><i class='fa fa-times' aria-hidden='true'></i></a></td>";
+                                echo "<td style='text-align: center; font-size: 49px;'> <a class='btn btn-info' style='left: 78px; position: relative; font-size: 19px;' href='vistas/error_confe.php'  role='button'><i class='fa fa-times' aria-hidden='true'></i></a></td>";
 
                         }
                         ?>
@@ -346,7 +346,7 @@ window.location.href = "php/pcientifico.php?accion=DLT&id="
 $(document).ready(function() {
       var refreshId =  setInterval( function(){
     $('#pruebarecarga').load('php/refrecar_conferecia.php');
-   }, 5000 );
+   }, 8000 );
 });
 
 </script>
