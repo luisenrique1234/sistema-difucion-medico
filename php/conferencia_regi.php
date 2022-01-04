@@ -158,9 +158,57 @@ $(document).ready(function(){
 
 if($i=="UDTCON"){
     $msj='';
-
     $codigocon=$_POST['codiconfe'];
-    $titulo=$_POST['titulo'];
+
+    $file_name = $_FILES['archivo']['name'];
+    $new_name_file = null;
+
+    if ($file_name != '' || $file_name != null) {
+        $file_type = $_FILES['archivo']['name'];
+        list($type, $extension) = explode('.', $file_type);
+        if ($extension == 'pdf') {
+            $dir = 'documento-confe-pdf/';
+            if (!file_exists($dir)) {
+                mkdir($dir, 0777, true);
+            }
+            $file_tmp_name = $_FILES['archivo']['tmp_name'];
+            //$new_name_file = 'files/' . date('Ymdhis') . '.' . $extension;
+            $new_name_file = $dir . file_name($file_name) . '.' . $extension;
+            if (copy($file_tmp_name, $new_name_file)) {
+                $new_archivo=$new_name_file;
+            }
+        }elseif ($extension == 'docx') {
+            $dir = 'documento-confe-word/';
+            if (!file_exists($dir)) {
+                mkdir($dir, 0777, true);
+            }
+            $file_tmp_name = $_FILES['archivo']['tmp_name'];
+            $new_name_file = $dir . file_name($file_name) . '.' . $extension;
+            if (copy($file_tmp_name, $new_name_file)) {
+                $new_archivo=$new_name_file;
+                //echo ("<h4>$new_name_file</h4>");
+
+            }
+        }else{
+            header("Refresh: 4; URL= ../actualizar_conferencia.php?id=".$codigocon);
+        echo '
+            <script type="text/javascript">
+
+
+            $(document).ready(function(){
+
+	        swal({
+	        title: "Tipo de archivo no admitido, Solo se permiten pdf,docx",
+		    icon: "warning",
+	        })
+            });
+
+
+            </script>'
+            ; exit;
+        }
+    }else{
+        $titulo=$_POST['titulo'];
     $partici=$_POST['parti'];
 
     $linkco2=$_POST['link'];
@@ -176,6 +224,62 @@ if($i=="UDTCON"){
         `titulo_confe` ='$titulo',
         `autores_confe` ='$partici',
         `link_confe` ='$linkco2',
+        `fachainicio`='$fechaini',
+        `fechafinal`='$fechafinal',
+        `etapa_confe`='$etapacofe'
+        
+    WHERE
+        id_confe='$codigocon'";
+
+    if($mysqli->query($sql)){
+        $status='success';
+    }
+    else{
+        $status='errorudt';
+        echo "error" .mysqli_error($mysqli);
+    }
+    // echo("erro descripcion:" .mysqli_error($mysqli));
+    //header("Location: ../propietarip_mant.php?s=".$msj);
+    header("Refresh: 2; URL= ../mis_conferencia.php?s=".$status);
+    echo '
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+
+	swal({
+		title: "Actualizado",
+		icon: "success",
+		
+	  })
+});
+
+
+</script>
+
+';
+exit;
+
+    }
+
+    
+    $titulo=$_POST['titulo'];
+    $partici=$_POST['parti'];
+    
+    $linkco2=$_POST['link'];
+
+    $fechaini=$_POST['fechini'];
+    $fechafinal=$_POST['fechfinal'];
+    $etapacofe=$_POST['etapa'];
+    
+
+    
+    $sql="
+    UPDATE `conferencia` SET
+        `titulo_confe` ='$titulo',
+        `autores_confe` ='$partici',
+        `link_confe` ='$linkco2',
+        `material_confe` ='$new_archivo',
         `fachainicio`='$fechaini',
         `fechafinal`='$fechafinal',
         `etapa_confe`='$etapacofe'

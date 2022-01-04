@@ -160,17 +160,17 @@ if ($_SESSION["s_medico"] === null){
                                                                 <input style="background-color: #45bcdb; color:#000000;" type="hidden"  name="categoria" require="" placeholder="categoria" class="form-control" readonly="" value="<?php echo $_SESSION["s_espeme"];?>">
                                                     </div>
                                                 </div>
-                                                <div  class="col-lg-3 col-lg-offset-0 col-xs-12 col-xs-offset-0">
+                                                <div  class="col-md-8 col-md-offset-3 col-sm-8 col-sm-offset-3 col-lg-8 col-lg-offset-3 col-xs-12 col-xs-offset-0">
                                                     <br>
                                                     <label class="control-label">Material de apoyo</label>
-                                                    <input type="text" name="archivo" value="<?php echo $row['material_confe']?>" >
+                                                    <input type="file" name="archivo" >
                                                 </div>
                                                 <!-- parte que ocupada la pantalla completa -->
                                                 <div
                                                     class="col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4 col-lg-8 col-lg-offset-2 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
                                                         <br>
-                                                        <input type="submit" value="Publicar" class="btn btn-submit">
+                                                        <input type="submit" value="Actualizar" class="btn btn-submit">
                                     </form>
                                     <br>
                                     <br>
