@@ -97,8 +97,6 @@ $minufinal=substr($rowSql["fechafinal"],14,2);
 
 //substr($DatesantoTime, 1, 3);
 //$titulo=$rowSql["titulo_confe"];
-//echo"<h3>parte dos:".$titulo."</h3>";
-
 
 if ($diaini == $diahoy AND $horaini <= $horahoy AND $minuini <= $minuhoy AND $horafinal >= $horahoy AND $minufinal >= $minuhoy AND $rowSql["etapa_confe"]=='Programada') {
 
