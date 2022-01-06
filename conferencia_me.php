@@ -324,7 +324,7 @@ window.location.href = "php/pcientifico.php?accion=DLT&id="
         </table>
 </div>
 </div>
-<div id="pruebarecarga"></div>
+<!--<div id="pruebarecarga"></div>-->
 
 
 </div>
@@ -343,11 +343,11 @@ window.location.href = "php/pcientifico.php?accion=DLT&id="
     </div>
 </div>
 <script>
-$(document).ready(function() {
+/*$(document).ready(function() {
       var refreshId =  setInterval( function(){
     $('#pruebarecarga').load('php/refrecar_conferecia.php');
    }, 8000 );
-});
+});*/
 
 </script>
 

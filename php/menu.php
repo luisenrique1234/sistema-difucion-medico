@@ -89,4 +89,14 @@
             </div>
         </div>
         </div>
+        <div id="pruebarecarga"></div>
+
     </header>
+    <script>
+$(document).ready(function() {
+      var refreshId =  setInterval( function(){
+    $('#pruebarecarga').load('php/refrecar_conferecia.php');
+   }, 1000 );
+});
+
+</script>
