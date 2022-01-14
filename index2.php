@@ -26,7 +26,11 @@ if ($_SESSION["s_medico"] === null){
         header("Location: ./vistas/pag_error.php");
     }
 }
-
+$busca='';
+$buscafechadesde='';
+$buscafechadesde='';
+$buscacategoria='Todos';
+$tipo='Todos';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -36,7 +40,7 @@ if ($_SESSION["s_medico"] === null){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Buscador</title>
+    <title>inicio 2</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/lightbox.css" rel="stylesheet">
@@ -87,7 +91,7 @@ if ($_SESSION["s_medico"] === null){
         
 
 
-<form id="form2" name="form2" method="POST" action="buscador_m.php">
+<form id="form2" name="form2" method="POST" action="index2.php">
         
         <div>
 
@@ -99,7 +103,7 @@ if ($_SESSION["s_medico"] === null){
             <h3 class="card-title">Buscador</h3>
                     <label  class="form-label">Titulo a buscar</label>
                      
-                    <input type="text" class="form-control" id="buscar" name="buscar" value="<?php echo $_POST["buscar"]?>"  >
+                    <input type="text" class="form-control" id="buscar" name="buscar" value="<?php echo $busca=$_POST["buscar"];?>"  >
                     
             </div>
 
@@ -112,7 +116,7 @@ if ($_SESSION["s_medico"] === null){
                                                 <label  class="control-label">Categoria </label>
                                                         <select id="assigned-tutor-filter" id="buscacategoria" name="buscacategoria" class="form-control mt-2">
                                                                 <?php if ($_POST["buscacategoria"] != ''){ ?>
-                                                                <option value="<?php echo $_POST["buscacategoria"]; ?>"><?php echo $_POST["buscacategoria"]; ?></option>
+                                                                <option value="<?php echo $_POST["buscacategoria"]; ?>"><?php echo $buscacategoria=$_POST["buscacategoria"]; ?></option>
                                                                 <?php } ?>
                                                                 <option value="Todos">Todos</option>
                                                                 <option value="radiología">radiología </option>
@@ -155,42 +159,42 @@ if ($_SESSION["s_medico"] === null){
         <?php 
         /*FILTRO de busqueda////////////////////////////////////////////*/
 
-        if ($_POST["buscar"] == '' AND $_POST["buscacategoria"] =='Todos' AND $_POST["buscafechadesde"] =='' AND $_POST["tipo"] =='Todos' ){ $filtro = "";}else{
-        if ($_POST["buscar"] != '' AND $_POST["buscacategoria"] =='Todos' AND $_POST["buscafechadesde"] =='' AND $_POST["tipo"] =='Todos'  ){ $filtro = "WHERE titulo_public LIKE '%".$_POST["buscar"]."%'";}
+        if ($busca == '' AND $buscacategoria =='Todos' AND $_POST["buscafechadesde"] =='' AND $_POST["tipo"] =='Todos' ){ $filtro = "";}else{
+        if ($busca != '' AND $buscacategoria =='Todos' AND $_POST["buscafechadesde"] =='' AND $_POST["tipo"] =='Todos'  ){ $filtro = "WHERE titulo_public LIKE '%".$busca."%'";}
         
         
-        if ($_POST["buscar"] == '' AND $_POST["buscacategoria"] !='Todos' AND $_POST["buscafechadesde"] =='' AND $_POST["tipo"] =='Todos'  ){ $filtro = "WHERE categoria_public = '".$_POST["buscacategoria"]."'";}
+        if ($busca == '' AND $buscacategoria !='Todos' AND $_POST["buscafechadesde"] =='' AND $_POST["tipo"] =='Todos'  ){ $filtro = "WHERE categoria_public = '".$buscacategoria."'";}
         
         //echo("<h4>$filtro</h4>");
-        if ($_POST["buscar"] != '' AND $_POST["buscacategoria"] !='Todos' AND $_POST["buscafechadesde"] =='' AND $_POST["tipo"] =='Todos'  ){ $filtro = "WHERE titulo_public LIKE '%".$_POST["buscar"]."%' AND categoria_public = '".$_POST["buscacategoria"]."'";}
+        if ($busca != '' AND $buscacategoria !='Todos' AND $_POST["buscafechadesde"] =='' AND $_POST["tipo"] =='Todos'  ){ $filtro = "WHERE titulo_public LIKE '%".$busca."%' AND categoria_public = '".$buscacategoria."'";}
 
-        if ($_POST["buscar"] == '' AND $_POST["buscacategoria"] !='Todos' AND $_POST["buscafechadesde"] !='' AND $_POST["tipo"] =='Todos'  ){ $filtro = "WHERE categoria_public= '".$_POST["buscacategoria"]."' AND fecha_public BETWEEN '".$_POST["buscafechadesde"]."' AND '".$_POST["buscafechahasta"]."' ";}
+        if ($busca == '' AND $buscacategoria !='Todos' AND $_POST["buscafechadesde"] !='' AND $_POST["tipo"] =='Todos'  ){ $filtro = "WHERE categoria_public= '".$buscacategoria."' AND fecha_public BETWEEN '".$_POST["buscafechadesde"]."' AND '".$_POST["buscafechahasta"]."' ";}
         
-        if ($_POST["buscar"] != '' AND $_POST["buscacategoria"] !='Todos' AND $_POST["buscafechadesde"] !='' AND $_POST["tipo"] =='Todos'  ){ $filtro = "WHERE titulo_public LIKE '%".$_POST["buscar"]."%' AND categoria_public = '".$_POST["buscacategoria"]."' AND fecha_public BETWEEN '".$_POST["buscafechadesde"]."' AND '".$_POST["buscafechahasta"]."' ";}
+        if ($busca != '' AND $buscacategoria !='Todos' AND $_POST["buscafechadesde"] !='' AND $_POST["tipo"] =='Todos'  ){ $filtro = "WHERE titulo_public LIKE '%".$busca."%' AND categoria_public = '".$_POST["buscacategoria"]."' AND fecha_public BETWEEN '".$_POST["buscafechadesde"]."' AND '".$_POST["buscafechahasta"]."' ";}
         
-        if ($_POST["buscar"] == '' AND $_POST["buscacategoria"] !='Todos' AND $_POST["buscafechadesde"] !='' AND $_POST["tipo"] !='Todos'  ){ $filtro = "WHERE categoria_public= '".$_POST["buscacategoria"]."' AND fecha_public BETWEEN '".$_POST["buscafechadesde"]."' AND '".$_POST["buscafechahasta"]."' AND tipo_archivo = '".$_POST["tipo"]."' ";}
+        if ($busca == '' AND $buscacategoria !='Todos' AND $_POST["buscafechadesde"] !='' AND $_POST["tipo"] !='Todos'  ){ $filtro = "WHERE categoria_public= '".$buscacategoria."' AND fecha_public BETWEEN '".$_POST["buscafechadesde"]."' AND '".$_POST["buscafechahasta"]."' AND tipo_archivo = '".$_POST["tipo"]."' ";}
         
-        if ($_POST["buscar"] != '' AND $_POST["buscacategoria"] !='Todos' AND $_POST["buscafechadesde"] !='' AND $_POST["tipo"] !='Todos'  ){ $filtro = "WHERE titulo_public LIKE '%".$_POST["buscar"]."%' AND categoria_public = '".$_POST["buscacategoria"]."' AND fecha_public  BETWEEN '".$_POST["buscafechadesde"]."' AND '".$_POST["buscafechahasta"]."' AND tipo_archivo = '".$_POST["tipo"]."' ";}
+        if ($busca != '' AND $buscacategoria !='Todos' AND $_POST["buscafechadesde"] !='' AND $_POST["tipo"] !='Todos'  ){ $filtro = "WHERE titulo_public LIKE '%".$busca."%' AND categoria_public = '".$buscacategoria."' AND fecha_public  BETWEEN '".$_POST["buscafechadesde"]."' AND '".$_POST["buscafechahasta"]."' AND tipo_archivo = '".$_POST["tipo"]."' ";}
         
-        if ($_POST["buscar"] == '' AND $_POST["buscacategoria"] =='Todos' AND $_POST["buscafechadesde"] !='' AND $_POST["tipo"] =='Todos'  ){ $filtro = "WHERE fecha_public BETWEEN '".$_POST["buscafechadesde"]."' AND '".$_POST["buscafechahasta"]."'  ";}
+        if ($busca == '' AND $buscacategoria =='Todos' AND $_POST["buscafechadesde"] !='' AND $_POST["tipo"] =='Todos'  ){ $filtro = "WHERE fecha_public BETWEEN '".$_POST["buscafechadesde"]."' AND '".$_POST["buscafechahasta"]."'  ";}
         
-        if ($_POST["buscar"] != '' AND $_POST["buscacategoria"] =='Todos' AND $_POST["buscafechadesde"] !='' AND $_POST["tipo"] =='Todos'  ){ $filtro = "WHERE titulo_public LIKE '%".$_POST["buscar"]."%' AND fecha_public BETWEEN '".$_POST["buscafechadesde"]."' AND '".$_POST["buscafechahasta"]."'  ";}
+        if ($busca != '' AND $buscacategoria =='Todos' AND $_POST["buscafechadesde"] !='' AND $_POST["tipo"] =='Todos'  ){ $filtro = "WHERE titulo_public LIKE '%".$busca."%' AND fecha_public BETWEEN '".$_POST["buscafechadesde"]."' AND '".$_POST["buscafechahasta"]."'  ";}
         
-        if ($_POST["buscar"] == '' AND $_POST["buscacategoria"] =='Todos' AND $_POST["buscafechadesde"] !='' AND $_POST["tipo"] !='Todos'  ){ $filtro = "WHERE fecha_public BETWEEN '".$_POST["buscafechadesde"]."' AND '".$_POST["buscafechahasta"]."' AND tipo_archivo = '".$_POST["tipo"]."' ";}
+        if ($busca == '' AND $buscacategoria =='Todos' AND $_POST["buscafechadesde"] !='' AND $_POST["tipo"] !='Todos'  ){ $filtro = "WHERE fecha_public BETWEEN '".$_POST["buscafechadesde"]."' AND '".$_POST["buscafechahasta"]."' AND tipo_archivo = '".$_POST["tipo"]."' ";}
         
-        if ($_POST["buscar"] != '' AND $_POST["buscacategoria"] =='Todos' AND $_POST["buscafechadesde"] !='' AND $_POST["tipo"] !='Todos'  ){ $filtro = "WHERE titulo_public LIKE '%".$_POST["buscar"]."%' AND fecha_public BETWEEN '".$_POST["buscafechadesde"]."' AND '".$_POST["buscafechahasta"]."' AND tipo_archivo = '".$_POST["tipo"]."' ";}
+        if ($busca != '' AND $buscacategoria =='Todos' AND $_POST["buscafechadesde"] !='' AND $_POST["tipo"] !='Todos'  ){ $filtro = "WHERE titulo_public LIKE '%".$busca."%' AND fecha_public BETWEEN '".$_POST["buscafechadesde"]."' AND '".$_POST["buscafechahasta"]."' AND tipo_archivo = '".$_POST["tipo"]."' ";}
         
-        if ($_POST["buscar"] == '' AND $_POST["buscacategoria"] !='Todos' AND $_POST["buscafechadesde"] =='' AND $_POST["tipo"] !='Todos'  ){ $filtro = "WHERE categoria_public = '".$_POST["buscacategoria"]."' AND tipo_archivo = '".$_POST["tipo"]."' ";}
+        if ($busca == '' AND $buscacategoria !='Todos' AND $_POST["buscafechadesde"] =='' AND $_POST["tipo"] !='Todos'  ){ $filtro = "WHERE categoria_public = '".$buscacategoria."' AND tipo_archivo = '".$_POST["tipo"]."' ";}
         
-        if ($_POST["buscar"] != '' AND $_POST["buscacategoria"] !='Todos' AND $_POST["buscafechadesde"] =='' AND $_POST["tipo"] !='Todos'  ){ $filtro = "WHERE titulo_public LIKE '%".$_POST["buscar"]."%' AND categoria_public = '".$_POST["buscacategoria"]."' AND tipo_archivo = '".$_POST["tipo"]."' ";}
+        if ($busca != '' AND $buscacategoria !='Todos' AND $_POST["buscafechadesde"] =='' AND $_POST["tipo"] !='Todos'  ){ $filtro = "WHERE titulo_public LIKE '%".$busca."%' AND categoria_public = '".$buscacategoria."' AND tipo_archivo = '".$_POST["tipo"]."' ";}
         
-        if ($_POST["buscar"] == '' AND $_POST["buscafechadesde"] !='' AND $_POST["buscacategoria"] =='Todos' AND $_POST["tipo"] =='Todos' ){ $filtro = "WHERE fecha_public BETWEEN '".$_POST["buscafechadesde"]."' AND '".$_POST["buscafechahasta"]."'";}
+        if ($busca == '' AND $_POST["buscafechadesde"] !='' AND $buscacategoria =='Todos' AND $_POST["tipo"] =='Todos' ){ $filtro = "WHERE fecha_public BETWEEN '".$_POST["buscafechadesde"]."' AND '".$_POST["buscafechahasta"]."'";}
         
-        if ($_POST["buscar"] != '' AND $_POST["buscafechadesde"] !='' AND $_POST["buscacategoria"] =='Todos' AND $_POST["tipo"] =='Todos' ){ $filtro = "WHERE titulo_public LIKE '%".$_POST["buscar"]."%' AND fecha_public BETWEEN '".$_POST["buscafechadesde"]."' AND '".$_POST["buscafechahasta"]."'";}
+        if ($busca != '' AND $_POST["buscafechadesde"] !='' AND $buscacategoria =='Todos' AND $_POST["tipo"] =='Todos' ){ $filtro = "WHERE titulo_public LIKE '%".$busca."%' AND fecha_public BETWEEN '".$_POST["buscafechadesde"]."' AND '".$_POST["buscafechahasta"]."'";}
         
-        if ($_POST["buscar"] == '' AND $_POST["tipo"] !='Todos' AND $_POST["buscafechadesde"] =='' AND $_POST["buscacategoria"] =='Todos' ){ $filtro = "WHERE tipo_archivo = '".$_POST["tipo"]."'";}
+        if ($busca == '' AND $_POST["tipo"] !='Todos' AND $_POST["buscafechadesde"] =='' AND $buscacategoria =='Todos' ){ $filtro = "WHERE tipo_archivo = '".$_POST["tipo"]."'";}
         
-        if ($_POST["buscar"] != '' AND $_POST["tipo"] !='Todos' AND $_POST["buscafechadesde"] =='' AND $_POST["buscacategoria"] =='Todos' ){ $filtro = "WHERE titulo_public LIKE '%".$_POST["buscar"]."%' AND tipo_archivo = '".$_POST["tipo"]."'";}
+        if ($busca != '' AND $_POST["tipo"] !='Todos' AND $_POST["buscafechadesde"] =='' AND $buscacategoria =='Todos' ){ $filtro = "WHERE titulo_public LIKE '%".$busca."%' AND tipo_archivo = '".$_POST["tipo"]."'";}
         
         }
 
