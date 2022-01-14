@@ -48,7 +48,7 @@ $minufinal=substr($rowSql["fechafinal"],14,2);
 
 
 
-if ($diaini == $diahoy AND $horaini <= $horahoy AND $minuini <= $minuhoy AND $horafinal >= $horahoy AND $minufinal >= $minuhoy AND $rowSql["etapa_confe"]=='Programada') {
+if ($diaini == $diahoy AND $horaini <= $horahoy AND $minuini <= $minuhoy  AND $rowSql["etapa_confe"]=='Programada') {
   echo'
 <script type="text/javascript">
     Swal.fire({
@@ -120,7 +120,7 @@ $minufinal=substr($rowSql["fechafinal"],14,2);
 //$titulo=$rowSql["titulo_confe"];
 //echo"<h2>hola como</h2>";
 
-if ($diaini == $diahoy AND $horaini <= $horahoy AND $minuini <= $minuhoy AND $horafinal >= $horahoy AND $minufinal >= $minuhoy AND $rowSql["etapa_confe"]=='Programada') {
+if ($diaini == $diahoy AND $horaini <= $horahoy AND $minuini <= $minuhoy AND $rowSql["etapa_confe"]=='Programada') {
 
 
     $codigo=$rowSql["id_confe"];
@@ -133,24 +133,6 @@ if ($diaini == $diahoy AND $horaini <= $horahoy AND $minuini <= $minuhoy AND $ho
     if($mysqli->query($sql)){
         $status='successdlt';
     }
-    
-    echo "<script type='text/javascript'>
-
-    (function()
-    {
-      if( window.localStorage )
-      {
-        if( !localStorage.getItem('firstLoads') )
-        {
-          localStorage['firstLoads'] = true;
-          window.location.reload();
-        }  
-        else
-          localStorage.removeItem('firstLoads');
-      }
-    })();
-    
-    </script>";
     
 }
 
@@ -167,24 +149,6 @@ if( $horafinal == $horahoy AND $minufinal == $minuhoy AND $rowSql["etapa_confe"]
                                         if($mysqli->query($sql)){
                                             $status='successdlt';
                                         }
-
-        echo "<script type='text/javascript'>
-
-    (function()
-    {
-      if( window.localStorage )
-      {
-        if( !localStorage.getItem('firstLoads') )
-        {
-          localStorage['firstLoads'] = true;
-          window.location.reload();
-        }  
-        else
-          localStorage.removeItem('firstLoads');
-      }
-    })();
-    
-    </script>";
 
 }
 

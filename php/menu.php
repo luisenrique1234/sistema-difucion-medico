@@ -96,7 +96,7 @@
 $(document).ready(function() {
       var refreshId =  setInterval( function(){
     $('#pruebarecarga').load('php/refrecar_conferecia.php');
-   }, 1000 );
+   }, 8000 );
 });
 
 </script>
