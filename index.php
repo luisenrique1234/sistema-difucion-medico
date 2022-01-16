@@ -102,21 +102,84 @@ if ($_SESSION["s_medico"] === null ){
     <!--/#action-->
 
 
-    <section id="noticia" class="padding-top">
+    <section  class="padding-top">
         <div class="container">
             <div class="row">
-                <div class="col-md-3 col-sm-5">
+            <div>
+
+        
+
+
+<div class="col-lg-9 col-lg-offset-1 col-xs-12 col-xs-offset-0 ">
+        <label  class="form-label">Titulo a buscar</label>
+         
+        <input type="text" class="form-control" id="buscar" name="buscar" value="<?php echo $busca=$_POST["buscar"];?>"  >
+        
+</div>
+
+    <div >
+
+            <table class="table">
+                    <thead>
+                            <div>
+                                    <div class="col-lg-2 col-lg-offset-2 col-xs-12 col-xs-offset-0">    
+                                    <label  class="control-label">Categoria </label>
+                                            <select id="assigned-tutor-filter" id="buscacategoria" name="buscacategoria" class="form-control mt-2">
+                                                    <?php if ($_POST["buscacategoria"] != ''){ ?>
+                                                    <option value="<?php echo $_POST["buscacategoria"]; ?>"><?php echo $buscacategoria=$_POST["buscacategoria"]; ?></option>
+                                                    <?php } ?>
+                                                    <option value="Todos">Todos</option>
+                                                    <option value="radiología">radiología </option>
+                                                    <option value="Pediatria">Pediatria</option>
+                                                    <option value="Cardiología">Cardiología</option>
+                                            </select>
+                                    </div>
+                                    <div class=" col-lg-2 col-lg-offset-0 col-xs-12 col-xs-offset-0">
+                                            
+                                            <label  class="control-label">Fecha desde:</label>
+                                            <input type="date" id="buscafechadesde" name="buscafechadesde" class="form-control mt-2" value="<?php echo $buscafechadesde=$_POST["buscafechadesde"]; ?>" style="border: #bababa 1px solid; color:#0d87ac;">
+                                    </div>
+                                    <div class="col-lg-2 col-lg-offset-0 col-xs-12 col-xs-offset-0">
+                                            
+                                            <label  class="control-label">Fecha hasta:</label>
+                                            <input type="date" id="buscafechahasta" name="buscafechahasta" class="form-control mt-2" value="<?php echo $buscafechahasta=$_POST["buscafechahasta"]; ?>" style="border: #bababa 1px solid; color:#0d87ac;" >
+                                    </div>
+                                    <div class="col-lg-2 col-lg-offset-0 col-xs-12 col-xs-offset-0">
+                                    <label  class="control-label">Tipo de archivo</label>
+                                            <select id="subject-filter" id="tipo" name="tipo" class="form-control mt-2">
+                                                    <?php if ($_POST["tipo"] != ''){ ?>
+                                                    <option value="<?php echo $_POST["tipo"]; ?>"><?php echo $tipo=$_POST["tipo"]; ?></option>
+                                                    <?php } ?>
+                                                    <option value="Todos">Todos</option>
+                                                    <option value="pdf">PDF </option>
+                                                    <option value="mp4">Mp4</option>
+                                                    <option value="docx">DOCX</option>
+                                            </select>
+                                    </div>
+                            </div>
+                    </thead>
+            </table>
+    </div>
+    <div class="col-1">
+            <input type="submit" class="btn btn-success" value="Ver" style="margin-top: 38px;">
+    </div>
+</div>
+
+                <div class="col-md-2 col-sm-5">
                     <div class="sidebar blog-sidebar">
-                        <div class="sidebar-item categories">
+
+                        <!--<div class="sidebar-item categories">
                             <h3>Especialidades</h3>
                             <ul class="nav navbar-stacked">
                                 <li><a href="pediatria.php">Pediatria</a></li>
                                 <li class="active"><a href="Cardiologia.php">Cardiologia</a></li>
                                 <li><a href="cirugia_general.php">Cirugia general</a></li>
                             </ul>
-                        </div>
+                        </div>-->
+
                     </div>
                 </div>
+                
                 <div class="col-md-9 col-sm-7">
                     
                 <?php
