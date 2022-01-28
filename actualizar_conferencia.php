@@ -104,7 +104,7 @@ if ($_SESSION["s_medico"] === null){
 				                            </div>
                                                 <div class="col-lg-6 col-lg-offset-3 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-                                                        <label class="control-label">Titulo de la conferencia<span
+                                                        <label class="control-label"><i class="fa fa-align-left" aria-hidden="true"></i> Titulo de la conferencia<span
                                                                 style="color: turquoise">*</span></label>
                                                         <input type="text" name="titulo" required="required"
                                                             placeholder="Titulo" class="form-control" value="<?php echo $row['titulo_confe']?>">
@@ -112,7 +112,7 @@ if ($_SESSION["s_medico"] === null){
                                                 </div>
                                                 <div class="col-lg-5 col-lg-offset-3 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-                                                        <label class="control-label">Participantes</label>
+                                                        <label class="control-label"><i class="fa fa-users" aria-hidden="true"></i>  Participantes</label>
                                                         <textarea name="parti" id="parti" required="required"
                                                             class="form-control" rows="4"
                                                             placeholder="Participantes"><?php echo $row['autores_confe']?></textarea>
@@ -120,7 +120,7 @@ if ($_SESSION["s_medico"] === null){
                                                 </div>
                                                 <div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-lg-6 col-lg-offset-3 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-                                                    <label class="control-label">Link de la conferencia<span
+                                                    <label class="control-label"><i class="fa fa-link" aria-hidden="true"></i> Link de la conferencia<span
                                                             style="color: turquoise">*</span></label>
                                                     <div class="form-group">
                                                     <input type="text" name="link" required="required"
@@ -130,13 +130,13 @@ if ($_SESSION["s_medico"] === null){
                                                 </div>
                                                 <div class="col-lg-4 col-lg-offset-3 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-                                                        <label class="control-label">Fecha de inicio<span
+                                                        <label class="control-label"><i class="fa fa-calendar" aria-hidden="true"></i> Fecha de inicio<span
                                                                 style="color: turquoise">*</span></label>
                                                                 <input type="datetime-local" name="fechini" required="required"
                                                             placeholder="Fecha inicio" class="form-control" value="<?php echo $row['fachainicio']?>">
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="control-label">Fecha de Cierre<span
+                                                        <label class="control-label"><i class="fa fa-calendar" aria-hidden="true"></i> Fecha de Cierre<span
                                                                 style="color: turquoise">*</span></label>
                                                                 <input type="datetime-local" name="fechfinal" required="required"
                                                             placeholder="Fecha Cierre" class="form-control" value="<?php echo $row['fechafinal']?>">
@@ -144,7 +144,7 @@ if ($_SESSION["s_medico"] === null){
                                                 </div>
                                                 <div class="col-lg-4 col-lg-offset-3 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-                                                        <label class="control-label">Estado de la conferencia<span
+                                                        <label class="control-label"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Estado de la conferencia<span
                                                                 style="color: turquoise">*</span></label>
                                                                 <select name="etapa" class="form-control" required="required">
                                                                     <option value="Programada" <?php if($row['etapa_confe']=='Programada'){echo "selected";} ?>>Programada</option>
@@ -162,7 +162,7 @@ if ($_SESSION["s_medico"] === null){
                                                 </div>
                                                 <div  class="col-md-8 col-md-offset-3 col-sm-8 col-sm-offset-3 col-lg-8 col-lg-offset-3 col-xs-12 col-xs-offset-0">
                                                     <br>
-                                                    <label class="control-label">Material de apoyo</label>
+                                                    <label class="control-label"><i class="fa fa-file-text" aria-hidden="true"></i> Material de apoyo</label>
                                                     <input type="file" name="archivo" >
                                                 </div>
                                                 <!-- parte que ocupada la pantalla completa -->

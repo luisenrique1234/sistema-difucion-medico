@@ -187,16 +187,6 @@ $buscar='';
 <div  class="table-responsive">
 <p  class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0"  style="   color:rgb(94, 200, 214);"><i class="fa fa-area-chart" aria-hidden="true"></i> <?php echo $numeroSql; ?> Resultados encontrados</p>
         <table class="table">
-                <!--<thead>
-                        <tr style="background-color: #0d87ac; color:#FFFFFF;">
-                                <th style=" text-align: center;"> Tilulo </th>
-                                <th style=" text-align: center;"> publicacion</th>
-                                <th style=" text-align: center;"> Categoria </th>
-                                <th style=" text-align: center;"> Fecha </th>
-                                <th style=" text-align: center;"> tipo </th>
-                                <th style="text-align: center;">Ver</th>
-                        </tr>
-                </thead>-->
                 <tbody >
                 <?php while ($rowSql = mysqli_fetch_assoc($sql)){ 
                         
@@ -209,18 +199,24 @@ $buscar='';
                         ?>
                     
                         <tr class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0" >
-                        <td>
+                                
+                        <td class="col-lg-7">
                         <i class="fa fa-bell" aria-hidden="true"><?php echo $rowSql["recordatorio"];?></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-eye" aria-hidden="true"><?php echo $rowSql["visttas_confe"];?>  </i>
+
                         <br>
-                        <h5 style="display: inline;">Titulo:</h5><?php echo $rowSql["titulo_confe"]; ?>   &nbsp;&nbsp; <h5 style="display: inline;">Desde:</h5><?php echo $inicial; ?>
-                        <br><h5 style="display: inline;">Por:</h5> <?php echo $rowSql["autores_confe"]; ?>&nbsp;&nbsp;  <h5 style="display: inline;">Hasta:</h5><?php echo $final; ?>
+                        <h5 style="display: inline;">Titulo:</h5><?php echo $rowSql["titulo_confe"]; ?>   
+                        <br><h5 style="display: inline;">Por:</h5> <?php echo $rowSql["autores_confe"]; ?> 
                         <br>
-                        <h5 style="display: inline;">Especialidad:</h5> <?php echo $rowSql["espec_descripsion"]; ?> &nbsp;&nbsp; <?php  if ($archivo != '') {
-                                                echo ('<h5 style="display: inline;"><a href="php/' . $archivo . '"download="sistema-difucion-medica-conferencia"><i class="fa fa-download"></i>Descargar material de apoyo</a></h5>'); }?>    </td>
+                        <h5 style="display: inline;">Especialidad:</h5> <?php echo $rowSql["espec_descripsion"]; ?> &nbsp;&nbsp; <?php  if ($archivo != '') { echo ('<h5 style="display: inline;"><a href="php/' . $archivo . '"download="sistema-difucion-medica-conferencia"><i class="fa fa-download"></i>Descargar material de apoyo</a></h5>'); }?></td>
+                        <td>
+                        <h5 style="display: inline;">Desde:</h5><?php echo $inicial; ?>
+                        <h5 style="display: inline;">Hasta:</h5><?php echo $final; ?>
+                        </td>
+                        
                         
                         <?php 
-                         echo "<td style='text-align: center; font-size: 49px;'> <a onclick='return alereliminarconfe(".$rowSql["id_confe"].");' class='btn btn-danger' style='left: 60px; position: relative; font-size: 19px;'  role='button'><i class='fa fa-trash' aria-hidden='true'></i></i></a></td>  
-                        <td style='text-align: center; font-size: 49px;'> <a href='actualizar_conferencia.php?id=" .$rowSql["id_confe"]. "' class='btn btn-success' style='left: 78px; position: relative; font-size: 19px;'   role='button'><i class='fa fa-pencil' aria-hidden='true'></i></a></td>";
+                         echo "<td style=' font-size: 49px;'> <a onclick='return alereliminarconfe(".$rowSql["id_confe"].");' class='btn btn-danger' style='left: 60px; position: relative; font-size: 19px;'  role='button'><i class='fa fa-trash' aria-hidden='true'></i></i></a></td>  
+                        <td style=' font-size: 49px;'> <a href='actualizar_conferencia.php?id=" .$rowSql["id_confe"]. "' class='btn btn-success' style='left: 78px; position: relative; font-size: 19px;'   role='button'><i class='fa fa-pencil' aria-hidden='true'></i></a></td>";
                         ?>
                         
                         

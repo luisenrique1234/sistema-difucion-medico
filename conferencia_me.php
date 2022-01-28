@@ -119,17 +119,6 @@ $buscarespec='Todos';
                                                                 <option value="Programada">Progrmadas</option>
                                                         </select>
                                                 </div>
-                                                
-                                                <!--<div class=" col-lg-2 col-lg-offset-0 col-xs-12 col-xs-offset-0">
-                                                        
-                                                        <label  class="control-label">Fecha desde:</label>
-                                                        <input style="border-radius: 25px;" type="date" id="buscafechadesde" name="buscafechadesde" class="form-control mt-2" value="<?php //echo $_POST["buscafechadesde"]; ?>" style="border: #bababa 1px solid; color:#0d87ac;">
-                                                </div>
-                                                <div class="col-lg-2 col-lg-offset-0 col-xs-12 col-xs-offset-0">
-                                                        
-                                                        <label  class="control-label">Fecha hasta:</label>
-                                                        <input style="border-radius: 25px;" type="date" id="buscafechahasta" name="buscafechahasta" class="form-control mt-2" value="<?php //echo $_POST["buscafechahasta"]; ?>" style="border: #bababa 1px solid; color:#0d87ac;" >
-                                                </div>-->
                                                 <div class="col-lg-2 col-lg-offset-0 col-xs-12 col-xs-offset-0">
                                                 <label  class="control-label">Filtrar por Especialidades</label>
                                                         <select  id="subject-filter" id="buscarespec" name="buscarespec" class="form-control mt-2">
@@ -202,17 +191,7 @@ $buscarespec='Todos';
 <div  class="table-responsive">
 <p  class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0"  style="   color:rgb(94, 200, 214);"><i class="fa fa-area-chart" aria-hidden="true"></i> <?php echo $numeroSql; ?> Resultados encontrados</p>
         <table class="table">
-                <!--<thead>
-                        <tr style="background-color: #0d87ac; color:#FFFFFF;">
-                                <th style=" text-align: center;"> Tilulo </th>
-                                <th style=" text-align: center;"> publicacion</th>
-                                <th style=" text-align: center;"> Categoria </th>
-                                <th style=" text-align: center;"> Fecha </th>
-                                <th style=" text-align: center;"> tipo </th>
-                                <th style="text-align: center;">Ver</th>
-                        </tr>
-                </thead>-->
-                <tbody>
+                <tbody >
                 
                 <?php while ($rowSql = mysqli_fetch_assoc($sql)){ 
                         $archivo= $rowSql["material_confe"];
@@ -255,13 +234,17 @@ $horafinal=substr($rowSql["fechafinal"],10,3);
 $minufinal=substr($rowSql["fechafinal"],14,2);
 
                         ?>
-                    
-                        <tr class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0" >
-                        <td ><h4 style="display: inline;">Titulo:</h4><?php echo  $rowSql["titulo_confe"]; ?>   &nbsp;&nbsp; <h5 style="display: inline;">Desde:</h5><?php echo $inicial; ?>
-                        <br><h5 style="display: inline;">Por:</h5> <?php echo $rowSql["autores_confe"]; ?>&nbsp;&nbsp;  <h5 style="display: inline;">Hasta:</h5><?php echo $final; ?>
+                        <tr class="col-lg-8 col-lg-offset-1 col-xs-12 col-xs-offset-0" >
+                        <td class="col-lg-8" ><h4 style="display: inline;">Titulo:</h4><?php echo  $rowSql["titulo_confe"]; ?>    
+                        <br><h5 style="display: inline;">Por:</h5> <?php echo $rowSql["autores_confe"]; ?> 
                         <br>
-                        <h5 style="display: inline;">Especialidad:</h5> <?php echo $rowSql["espec_descripsion"]; ?> &nbsp;&nbsp; <?php  if ($archivo != '') {
-                                                echo ('<h5 style="display: inline;"><a href="php/' . $archivo . '"download="sistema-difucion-medica-conferencia"><i class="fa fa-download"></i>Descargar material de apoyo</a></h5>'); }?> </td>
+                        <h5 style="display: inline;">Especialidad:</h5> <?php echo $rowSql["espec_descripsion"]; ?>
+                        &nbsp;&nbsp; <?php  if ($archivo != '') { echo ('<h5 style="display: inline;"><a href="php/' . $archivo . '"download="sistema-difucion-medica-conferencia"><i class="fa fa-download"></i>Descargar material de apoyo</a></h5>'); }?> </td>
+                        <td>
+                        <h5 style="display: inline;">Desde:</h5><?php echo $inicial; ?>
+                        <h5 style="display: inline;">Hasta:</h5><?php echo $final; ?>     
+                        </td>
+                         
                         
 
                         <?php 
