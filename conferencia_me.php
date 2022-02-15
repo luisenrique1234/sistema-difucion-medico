@@ -4,7 +4,7 @@
 
 
 // Desactivar toda notificación de error si quieres ver los errores tienes que quitar esta linea
-error_reporting(0);
+//error_reporting(0);
 
 
 
@@ -69,7 +69,7 @@ $buscarespec='Todos';
 <!--/head-->
 <body class="dark">
 
-<?php include_once "./php/menu.php"; ?>
+<?php include_once "./php/menu_confe.php"; ?>
 
 <br>
 <br>
@@ -117,6 +117,7 @@ $buscarespec='Todos';
                                                                 <option value="Todos">Todos</option>
                                                                 <option value="En vivo">En vivo</option>
                                                                 <option value="Programada">Progrmadas</option>
+                                                                <option value="Terminada">Terminada</option>
                                                         </select>
                                                 </div>
                                                 <div class="col-lg-2 col-lg-offset-0 col-xs-12 col-xs-offset-0">
@@ -154,8 +155,9 @@ $buscarespec='Todos';
         <?php 
         /*FILTRO de busqueda////////////////////////////////////////////*/
         
-        if ($buscar == '' AND $buscaetapa =='Todos' AND $buscarespec =='Todos' ){ $filtro = "";}else{
+        if ($buscar == '' AND $buscaetapa =='Todos' AND $buscarespec =='Todos' ){ $filtro = "AND conferencia.etapa_confe   != 'Terminada'";}else{
         if ($buscar != '' AND $buscaetapa =='Todos'  AND $buscarespec =='Todos'  ){ $filtro = "AND conferencia.titulo_confe LIKE '%".$buscar."%'";}
+
         
         if ($buscar == '' AND $buscaetapa !='Todos'  AND $buscarespec =='Todos'  ){ $filtro = "AND conferencia.etapa_confe = '".$buscaetapa."'";}
         
@@ -167,7 +169,7 @@ $buscarespec='Todos';
         if ($buscar != '' AND $buscaetapa !='Todos'  AND $buscarespec !='Todos'  ){ $filtro = "AND conferencia.titulo_confe  LIKE '%".$buscar."%' AND conferencia.etapa_confe = '".$buscaetapa."' AND especialidad.espec_descripsion= '".$buscarespec."' ";}
         
         
-        if ($buscar == '' AND $buscarespec !='Todos'  AND $buscaetapa =='Todos' ){ $filtro = "AND especialidad.espec_descripsion = '".$buscarespec."'";}
+        if ($buscar == '' AND $buscarespec !='Todos'  AND $buscaetapa =='Todos' ){ $filtro = "AND especialidad.espec_descripsion = '".$buscarespec."' AND conferencia.etapa_confe   != 'Terminada'";}
         
         if ($buscar != '' AND $buscarespec !='Todos' AND $buscaetapa =='Todos' ){ $filtro = "AND conferencia.titulo_confe  LIKE '%".$buscar."%' AND especialidad.espec_descripsion = '".$buscarespec."'";}
         
@@ -249,7 +251,7 @@ $minufinal=substr($rowSql["fechafinal"],14,2);
 
                         <?php 
                         if ($rowSql["etapa_confe"]=='En vivo' ) {
-                         echo "<td style='text-align: center; font-size: 49px;'> <a class='btn btn-info' style='left: 60px; position: relative; font-size: 19px;' href='php/rec_suma_link.php?accion=VISITA&id=".$rowSql["id_confe"]."&vist=".++$rowSql["visttas_confe"]."&linkd=".$rowSql["link_confe"]."&acciones=no'target='_blank'  role='button'><i class='fa fa-youtube-play' aria-hidden='true'></i></a></td>";
+                         echo "<td style='text-align: center; font-size: 49px;'> <a class='btn btn-info' style='left: 78px; position: relative; font-size: 19px;' href='php/rec_suma_link.php?accion=VISITA&id=".$rowSql["id_confe"]."&vist=".++$rowSql["visttas_confe"]."&linkd=".$rowSql["link_confe"]."&acciones=no'target='_blank'  role='button'><i class='fa fa-youtube-play' aria-hidden='true'></i></a></td>";
                            
                          if( $horafinal == $horahoy AND $minufinal == $minuhoy ){
                                 echo"<h3> Ya terminno la reuncion ".$minufinal."</h3>";
@@ -295,7 +297,7 @@ window.location.href = "php/pcientifico.php?accion=DLT&id="
                                         }
                                                                         
                         }elseif( $rowSql["etapa_confe"]=='Terminada'){
-                                echo "<td style='text-align: center; font-size: 49px;'> <a class='btn btn-info' style='left: 78px; position: relative; font-size: 19px;' href='vistas/error_confe.php'  role='button'><i class='fa fa-times' aria-hidden='true'></i></a></td>";
+                                echo "<td style='text-align: center; font-size: 49px;'> <a class='btn btn-info' style='left: 78px; position: relative; font-size: 19px;' href='vistas/error_confe.php'  role='button'><i class='fa fa-calendar-times-o' aria-hidden='true'></i></a></td>";
 
                         }
                         ?>

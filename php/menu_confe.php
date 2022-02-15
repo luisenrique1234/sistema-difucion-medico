@@ -13,9 +13,9 @@
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li class="active"><a href="index.php">Inicio</a></li>
-                            <li class="dropdown"><a style="border-radius: 10px;" class="btn btn-info" href="articulo_cien.php">Articulos</a>
+                            <li class="dropdown"><a href="articulo_cien.php">Articulos</a>
                             </li>
-                            <li class="dropdown"><a   href="conferencia_me.php">Conferencia</a>
+                            <li class="dropdown"><a style="border-radius: 10px;" class="btn btn-info" href="conferencia_me.php">Conferencia</a>
                             </li>
                             <?php 
                             include ('conexion.php');
