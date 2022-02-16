@@ -6,7 +6,7 @@
                 <div class="container">
                     <div class="navbar-header">
                         <a class="navbar-brand" href="index.php">
-                            <img src="images/logo.png" alt="logo" width="70" height="70">
+                            <img src="images/logo.png" alt="logo" width="45" height="45">
                         </a>
 
                     </div>

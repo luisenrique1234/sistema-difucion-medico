@@ -191,7 +191,7 @@ $buscarespec='Todos';
 
 
 <div  class="table-responsive">
-<p  class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0"  style="   color:rgb(94, 200, 214);"><i class="fa fa-area-chart" aria-hidden="true"></i> <?php echo $numeroSql; ?> Resultados encontrados</p>
+<p  class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0"  style="   color:#20558A;"><i class="fa fa-area-chart" aria-hidden="true"></i> <?php echo $numeroSql; ?> Resultados encontrados</p>
         <table class="table">
                 <tbody >
                 

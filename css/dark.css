@@ -25,7 +25,7 @@
     color: rgb(209, 208, 208);
 }
 .dark #modo{
-    color: rgb(74, 141, 180);
+    color: #20558A;
 }
 
 /*Color de barra ce navacion****************
@@ -38,8 +38,8 @@
 }
 .dark .navbar-nav.navbar-right >li a {
     color: white;
-    font-size: 12px;
-    padding: 30px;
+    font-size: 13px;
+    padding: 20px;
     text-transform: uppercase;
     font-weight: 500;
 }  
@@ -49,7 +49,7 @@
 .navbar-inverse .navbar-nav > .open > a {
   background-color: inherit;
   border: 0;
-  color: #00aeef;
+  color: #00b7ff;
 }
 /* *****Color de las espacialidades"categorias"******
 ******************************************************/
@@ -70,12 +70,12 @@
 .dark .categories .navbar-stacked li a:hover{
     background: none;
     margin-left: 20px;
-    color: rgb(74, 201, 218);
+    color: #20558A;
     opacity: 1;
 }
 
 .dark .categories .navbar-stacked li.active a{
-    color: rgb(94, 200, 214);
+    color: #20558A;
     padding-left: 20px;
 }
 
@@ -84,7 +84,7 @@
     margin-top: 1px;
     max-width: 285px;
     max-height: 300px;
-    box-shadow: 1px 1px 1px 1px #0d87ac;
+    box-shadow: 1px 1px 1px 1px #20558A;
     background-color: rgb(0, 0, 0);
     border-radius: 7px;    
   }
@@ -97,7 +97,7 @@
     margin-top: 0px;
     max-width: 1085px;
     max-height: 3000px;
-    box-shadow: 0px 0px 2px 2px #0d87ac;
+    box-shadow: 0px 0px 2px 2px #20558A;
     background-color: #000000;
     border-radius: 10px;    
 }
@@ -106,7 +106,7 @@
     margin-top: 0px;
     max-width: 795px;
     max-height: 850px;
-    box-shadow: 0px 0px 2px 2px #0d87ac;
+    box-shadow: 0px 0px 2px 2px #20558A;
     background-color: #000000;
     border-radius: 10px;    
 }
