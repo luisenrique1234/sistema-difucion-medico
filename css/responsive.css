@@ -9,13 +9,13 @@
     position: absolute;
     top: 60px;
     left: 0;
-    background: #e0f7ff;
+    background: #ffffff;
     padding: 10px 0;
     width: 160px;
     box-shadow: none;
     display: none;
     z-index: 999;
-    border: 1px solid #00aeef;
+    border: 1px solid #20558A;
   }
 
   #header .navbar-nav li ul.sub-menu li a {
@@ -215,18 +215,18 @@
 
   #header .navbar-inverse .navbar-toggle,
   #header .navbar-inverse .navbar-toggle:focus {
-    border-color: #00aeef;
+    border-color: #ffffff;
     margin-top: 15px;
     margin-right: 5px;
     outline: none;
   }
 
   .navbar-header .navbar-toggle .icon-bar {
-    background-color: #00aeef;
+    background-color: #ffffff;
   }
 
   #header .navbar-inverse .navbar-toggle:hover {
-    background: #00aeef;
+    background: #f8f8f8;
   }
 
   #header .navbar-inverse .navbar-toggle:hover .icon-bar {

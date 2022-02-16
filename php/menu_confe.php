@@ -12,10 +12,10 @@
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="active"><a href="index.php">Inicio</a></li>
-                            <li class="dropdown"><a href="articulo_cien.php">Articulos</a>
+                            <li class="active"><a class="text-muted" href="index.php">Inicio</a></li>
+                            <li class="dropdown"><a class="text-muted" href="articulo_cien.php">Articulos</a>
                             </li>
-                            <li class="dropdown"><a style="border-radius: 10px;" class="btn btn-info" href="conferencia_me.php">Conferencia</a>
+                            <li class="dropdown"><a style="border-radius: 10px;" class="btn btn-default" href="conferencia_me.php">Conferencia</a>
                             </li>
                             <?php 
                             include ('conexion.php');
@@ -28,7 +28,7 @@
                             
                             ?>
                             
-                            <li class="dropdown"><a href="cirugia_general.php"><i class="fa fa-calendar-plus-o campana" aria-hidden="true"><small style="border-radius: 30px; color: white; background-color: #ef0000 ">+<?php echo"<small>$numeroSql</small>"; ?>&nbsp</small></i></a>
+                            <li class="dropdown"><a class="text-muted" href="cirugia_general.php"><i class="fa fa-calendar-plus-o campana" aria-hidden="true"><small style="border-radius: 30px; color: white; background-color: #ef0000 ">+<?php echo"<small>$numeroSql</small>"; ?>&nbsp</small></i></a>
                                         
                                         
                                 <ul role="menu" class="sub-menu">
@@ -49,7 +49,7 @@
                            <!-- <div >
                             <img src="images/predeterminado.jpg" width="100%" height="60">
                             </div>-->
-                                <a href="pefil_medico.php"> <i class="fa fa-user-circle icouser" aria-hidden="true"></i>&nbsp; &nbsp;<?php  echo $_SESSION["s_medico"];?>&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                                <a class="text-muted" href="pefil_medico.php"> <i class="fa fa-user-circle icouser" aria-hidden="true"></i>&nbsp; &nbsp;<?php  echo $_SESSION["s_medico"];?>&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></a>
                                 <ul role="menu" class="sub-menu">
                                 <li><a href="pefil_medico.php">Editar mi perfil</a></li>
                                     <li><a href="lista_publicm.php">Mis investigaciones</a></li>
