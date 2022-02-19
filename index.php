@@ -365,14 +365,14 @@ if ($_SESSION["s_medico"] === null ){
         </div>
     </section>
     <!--/#blog-->
-    <footer>
+    <footer id="footer">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-12 text-center bottom-separator">
+            <div class="row footer">
+                <div class="col-sm-12 ">
                     <div class="col-sm-12">
                         <div class=" copyright-text text-center ">
-                            <p> Red medica 2021. Todos los derechos reservados.</p>
-                            <p>Diseñado por<a target="_blank" href="http://luis-enrique.com">Sr.LEGG</a></p>
+                            <p>Sistema de difusión de información medica 2022. Todos los derechos reservados.</p>
+                            <p>Diseñado por: <a  target="_blank" href="http://luis-enrique.com">Sr.LEGG</a></p>
                         </div>
                     </div>
                 </div>

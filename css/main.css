@@ -194,6 +194,13 @@
   left: 51px;
   margin-top: 27px;
 }
+/*bonton de buscardor de los articulos cientifico*/
+.articulo_bus{
+  position: relative;
+  font-size: 19px;
+  right: 31px;
+  margin-top: 20px;
+}
 
 .mesconf{
   top: 31px;
@@ -380,7 +387,7 @@ ul.sub-menu {
   max-width: 285px;
   max-height: 300px;
   box-shadow: 1px 1px 1px 1px #20558A;
-  background-color: #33ff00;
+  background-color: #5ec9f3;
   border-radius: 7px;    
 }
 
@@ -393,18 +400,28 @@ en la parte final de la pagina****/
 
 #footer {
   padding-bottom: 10px;
-  background-image: url(../images/home/footer.png);
+  /*background-image: url(../images/home/footer.png);*/
+  background-color: #20558A;
+  color: white;
   background-repeat: repeat-x;
   background-position: bottom;
   background-size: contain;
 }
-/*****************************************************/
 
-#footer h1{
-  margin-bottom: 65px;
-  margin-top: 36px;
+
+#footer p{
+  margin-bottom: 10px;
+  color: white;
+  margin-top: 10px;
 }
 
+#footer a{
+  margin-bottom: 10px;
+  color: #b1eff7;
+  margin-top: 10px;
+}
+
+/*****************************************************/
 #footer .bottom-separator {
   margin-bottom: 60px;
 }

@@ -73,18 +73,35 @@ if ($_SESSION["s_medico"] === null ){
             <div class="row">
             <div>
                 
-<div class="col-lg-9 col-lg-offset-1 col-xs-12 col-xs-offset-0 ">
-        <label  class="form-label">Titulo a buscar</label>
-         
-        <input type="text" class="form-control" id="buscar" name="buscar" value="<?php echo $busca=$_POST["buscar"];?>"  >
-        
-</div>
+
 
     <div >
 
             <table class="table">
                     <thead>
                             <div>
+                                    <div class="col-lg-2 col-lg-offset-1 col-xs-12 col-xs-offset-0">    
+                                    <label  class="control-label">Buscar</label>
+                                            <select id="assigned-tutor-filter" id="buscacategoria" name="buscacategoria" class="form-control mt-2">
+                                                    <?php if ($_POST["buscacategoria"] != ''){ ?>
+                                                    <option value="<?php echo $_POST["buscacategoria"]; ?>"><?php echo $buscacategoria=$_POST["buscacategoria"]; ?></option>
+                                                    <?php } ?>
+                                                    <option value="Todos">Todos</option>
+                                                    <option value="radiología">radiología </option>
+                                                    <option value="Pediatria">Pediatria</option>
+                                                    <option value="Cardiología">Cardiología</option>
+                                            </select>
+                                    </div>
+                                    <div class="col-lg-5 col-lg-offset-1 col-xs-12 col-xs-offset-0 ">
+                                    <label  class="form-label"></label>
+         
+                                    <input type="text" class="form-control" id="buscar" name="buscar" value="<?php echo $busca=$_POST["buscar"];?>"  >
+                                                        
+                                    </div>
+                                    <div class="col-lg-1 col-lg-offset-0 col-xs-12 col-xs-offset-0">
+                                                <!--<input type="submit" class="btn btn-info" value="Ver"  style="margin-top: 30px;">-->
+                                                <button class="btn btn-info articulo_bus" type="sumit" ><i class="fa fa-search" aria-hidden="true"></i></button>
+                                                </div>
                                     <div class="col-lg-2 col-lg-offset-2 col-xs-12 col-xs-offset-0">    
                                     <label  class="control-label">Categoria </label>
                                             <select id="assigned-tutor-filter" id="buscacategoria" name="buscacategoria" class="form-control mt-2">
@@ -123,9 +140,9 @@ if ($_SESSION["s_medico"] === null ){
                     </thead>
             </table>
     </div>
-    <div class="col-1">
+    <!--<div class="col-1">
             <input type="submit" class="btn btn-success" value="Ver" style="margin-top: 38px;">
-    </div>
+    </div>-->
 </div>
 
                 <div class="col-md-2 col-sm-5">
@@ -140,7 +157,7 @@ if ($_SESSION["s_medico"] === null ){
                     include 'php/conexion.php';
                     $espesicialidad =$_SESSION["s_espeme"];
                     $public = "SELECT publicacion.id_public,publicacion.titulo_public,publicacion.text_public,publicacion.link_imagen,publicacion.link_video,
-                    publicacion.link_audio,publicacion.link_archivo,DATE_FORMAT(publicacion.fecha_public,'%d/%m/%y') AS fecha,publicacion.categoria_public,publicacion.me_gusta_pu,
+                    publicacion.link_audio,publicacion.link_archivo,DATE_FORMAT(publicacion.fecha_public,'%d/%m/%y') AS fecha,publicacion.categoria_public,publicacion.me_gusta_pu,publicacion.referencia_pu,
                     medico.nombre_medico,medico.apellido_medico,especialidad.espec_descripsion FROM publicacion,medico,especialidad WHERE publicacion.id_medico_pu=medico.id_medico AND publicacion.categoria_public='$espesicialidad' AND publicacion.estado='A' AND publicacion.categoria_public=especialidad.id_espec	  ORDER BY publicacion.me_gusta_pu DESC";
                     $public2 = $mysqli->query($public);
                     while ($res = mysqli_fetch_array($public2)) {
@@ -184,9 +201,11 @@ if ($_SESSION["s_medico"] === null ){
 
                                     <div class="post-content overflow">
                                         <h2><?php mostrar($res['titulo_public']); ?></h2>
-                                        <?php echo '<h3 class="post-author"><a href="#">Autor:' . $nombre . " " . $apellido . '</a></h3>' ?>
                                         <h3>Resumen</h3>
                                         <p><?php mostrar($res['text_public']); ?></p>
+                                        <?php echo '<h3 class="post-author"><a href="#">Autor:' . $nombre . " " . $apellido . '</a></h3>' ?>
+                                        <h4>Bibliografia</h4>
+                                        <p><?php mostrar(substr($res['referencia_pu'],0,500)); ?></p>
                                         <?php echo ("<h5>Publicado el: $fecha </h5>"); ?>
                                         <?php echo("<a href='memoriac.php?id=".$res["id_public"]."' class='read-more'>ver publica completa</a>");?>
                                         <br>
@@ -202,16 +221,16 @@ if ($_SESSION["s_medico"] === null ){
                                         <div class="post-bottom overflow">
                                             <ul class="nav navbar-nav post-nav">
                                                 <li>
-                                                    <h4><a href="#"><i
-                                                                class="fa fa-tag"></i><?php mostrar($res['espec_descripsion']); ?></a>
-                                                    </h4>
-                                                </li>
-                                                <li>
                                                     <h4><a href="#"><i class="fa fa-heart" aria-hidden="true"></i>Me gustas
                                                             <?php mostrar($res['me_gusta_pu']); ?></a></h4>
                                                 </li>
                                                 <li>
                                                     <h4><a href="#"><i class="fa fa-comments"></i>3 comentarios</a></h4>
+                                                </li>
+                                                <li>
+                                                <h4><a href="#"><i
+                                                                class="fa fa-tag"></i><?php mostrar($res['espec_descripsion']); ?></a>
+                                                    </h4>
                                                 </li>
                                             </ul>
                                         </div>
@@ -249,14 +268,14 @@ if ($_SESSION["s_medico"] === null ){
         </div>
     </section>
     <!--/#blog-->
-    <footer>
+    <footer id="footer">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-12 text-center bottom-separator">
+            <div class="row footer">
+                <div class="col-sm-12 ">
                     <div class="col-sm-12">
                         <div class=" copyright-text text-center ">
-                            <p> Red medica 2021. Todos los derechos reservados.</p>
-                            <p>Diseñado por<a target="_blank" href="http://luis-enrique.com">Sr.LEGG</a></p>
+                            <p>Sistema de difusión de información medica 2022. Todos los derechos reservados.</p>
+                            <p>Diseñado por: <a  target="_blank" href="http://luis-enrique.com">Sr.LEGG</a></p>
                         </div>
                     </div>
                 </div>
