@@ -91,7 +91,7 @@ $buscar='';
 
 <form id="form2" name="form2" method="POST" action="mis_conferencia.php">
         
-        <div>
+        <div class="fom_buscar">
 
         
          
@@ -158,7 +158,7 @@ $buscar='';
                                 </thead>
                         </table>
                 </div>
-                
+                <br>
         </div>
 
         
@@ -185,7 +185,7 @@ $buscar='';
             overflow : auto; ">
 
 <div  class="table-responsive">
-<p  class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0"  style="   color:rgb(94, 200, 214);"><i class="fa fa-area-chart" aria-hidden="true"></i> <?php echo $numeroSql; ?> Resultados encontrados</p>
+<p  class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0"  style="   color:#20558A"><i class="fa fa-area-chart" aria-hidden="true"></i> <?php echo $numeroSql; ?> Resultados encontrados</p>
         <table class="table">
                 <tbody >
                 <?php while ($rowSql = mysqli_fetch_assoc($sql)){ 

@@ -32,7 +32,7 @@ if ($_SESSION["s_medico"] === null ){
     <meta name="author" content="">
     <title>Articulos cientificos</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
-   <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/lightbox.css" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
@@ -45,7 +45,8 @@ if ($_SESSION["s_medico"] === null ){
     <!--<script src="./contador.js"></script>-->
     <!--Icon-Font-->
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
     <!--[if lt IE 9]>
 	    <script src="js/html5shiv.js"></script>
@@ -60,98 +61,98 @@ if ($_SESSION["s_medico"] === null ){
 <!--/head-->
 
 <body class="dark">
-   
 
-<!-- menu de la parte superior-->
-<?php include_once "./php/menu.php"; ?>
+
+    <!-- menu de la parte superior-->
+    <?php include_once "./php/menu.php"; ?>
     <!--/#header-->
     <!--/#action-->
 
 
-    <section  class="padding-top">
+    <section class="padding-top">
         <div class="container">
+            
             <div class="row">
-            <div>
-                
+                <div class="fom_buscar" >
+                <br>
 
 
-    <div >
+                    <div >
 
-            <table class="table">
-                    <thead>
-                            <div>
-                                    <div class="col-lg-2 col-lg-offset-1 col-xs-12 col-xs-offset-0">    
-                                    <label  class="control-label">Buscar</label>
-                                            <select id="assigned-tutor-filter" id="buscacategoria" name="buscacategoria" class="form-control mt-2">
-                                                    <?php if ($_POST["buscacategoria"] != ''){ ?>
-                                                    <option value="<?php echo $_POST["buscacategoria"]; ?>"><?php echo $buscacategoria=$_POST["buscacategoria"]; ?></option>
-                                                    <?php } ?>
-                                                    <option value="Todos">Todos</option>
-                                                    <option value="radiología">radiología </option>
-                                                    <option value="Pediatria">Pediatria</option>
-                                                    <option value="Cardiología">Cardiología</option>
-                                            </select>
+                        <table class="table">
+                            <thead>
+                                <div>
+                                    <div class="col-lg-2 col-lg-offset-2 col-xs-12 col-xs-offset-0">
+                                        <select id="assigned-tutor-filter" id="buscacategoria" name="buscacategoria"
+                                            class="form-control mt-2">
+                                            <?php if ($_POST["buscacategoria"] != ''){ ?>
+                                            <option value="<?php echo $_POST["buscacategoria"]; ?>">
+                                                <?php echo $buscacategoria=$_POST["buscacategoria"]; ?></option>
+                                            <?php } ?>
+                                            <option value="Todos">Todos</option>
+                                            <option value="radiología">radiología </option>
+                                            <option value="Pediatria">Pediatria</option>
+                                            <option value="Cardiología">Cardiología</option>
+                                        </select>
                                     </div>
-                                    <div class="col-lg-5 col-lg-offset-1 col-xs-12 col-xs-offset-0 ">
-                                    <label  class="form-label"></label>
-         
-                                    <input type="text" class="form-control" id="buscar" name="buscar" value="<?php echo $busca=$_POST["buscar"];?>"  >
-                                                        
+                                    <div class="col-lg-5 col-lg-offset-0 col-xs-12 col-xs-offset-0 ">
+
+                                        <input type="text" class="form-control" id="buscar" name="buscar"
+                                            value="<?php echo $busca=$_POST["buscar"];?>">
+
                                     </div>
                                     <div class="col-lg-1 col-lg-offset-0 col-xs-12 col-xs-offset-0">
-                                                <!--<input type="submit" class="btn btn-info" value="Ver"  style="margin-top: 30px;">-->
-                                                <button class="btn btn-info articulo_bus" type="sumit" ><i class="fa fa-search" aria-hidden="true"></i></button>
-                                                </div>
-                                    <div class="col-lg-2 col-lg-offset-2 col-xs-12 col-xs-offset-0">    
-                                    <label  class="control-label">Categoria </label>
-                                            <select id="assigned-tutor-filter" id="buscacategoria" name="buscacategoria" class="form-control mt-2">
-                                                    <?php if ($_POST["buscacategoria"] != ''){ ?>
-                                                    <option value="<?php echo $_POST["buscacategoria"]; ?>"><?php echo $buscacategoria=$_POST["buscacategoria"]; ?></option>
-                                                    <?php } ?>
-                                                    <option value="Todos">Todos</option>
-                                                    <option value="radiología">radiología </option>
-                                                    <option value="Pediatria">Pediatria</option>
-                                                    <option value="Cardiología">Cardiología</option>
-                                            </select>
+                                        <!--<input type="submit" class="btn btn-info" value="Ver"  style="margin-top: 30px;">-->
+                                        <button class="btn btn-info articulo_bus" type="sumit">Buscar</button>
                                     </div>
+                                    
+                                    <div class="col-lg-2 col-lg-offset-2 col-xs-12 col-xs-offset-0">
+                                    <label class="label_bus">Categoria </label>
+                                        <select id="assigned-tutor-filter" id="buscacategoria" name="buscacategoria"
+                                            class="form-control mt-2">
+                                            <?php if ($_POST["buscacategoria"] != ''){ ?>
+                                            <option value="<?php echo $_POST["buscacategoria"]; ?>">
+                                                <?php echo $buscacategoria=$_POST["buscacategoria"]; ?></option>
+                                            <?php } ?>
+                                            <option value="Todos">Todos</option>
+                                            <option value="radiología">radiología </option>
+                                            <option value="Pediatria">Pediatria</option>
+                                            <option value="Cardiología">Cardiología</option>
+                                        </select>
+                                    </div>
+                                    
                                     <div class=" col-lg-2 col-lg-offset-0 col-xs-12 col-xs-offset-0">
-                                            
-                                            <label  class="control-label">Fecha desde:</label>
-                                            <input type="date" id="buscafechadesde" name="buscafechadesde" class="form-control mt-2" value="<?php echo $buscafechadesde=$_POST["buscafechadesde"]; ?>" style="border: #bababa 1px solid; color:#0d87ac;">
+
+                                        <label class="control-label">Fecha desde:</label>
+                                        <input type="date" id="buscafechadesde" name="buscafechadesde"
+                                            class="form-control mt-2"
+                                            value="<?php echo $buscafechadesde=$_POST["buscafechadesde"]; ?>"
+                                            style="border: #bababa 1px solid; color:#0d87ac;">
                                     </div>
                                     <div class="col-lg-2 col-lg-offset-0 col-xs-12 col-xs-offset-0">
-                                            
-                                            <label  class="control-label">Fecha hasta:</label>
-                                            <input type="date" id="buscafechahasta" name="buscafechahasta" class="form-control mt-2" value="<?php echo $buscafechahasta=$_POST["buscafechahasta"]; ?>" style="border: #bababa 1px solid; color:#0d87ac;" >
+
+                                        <label class="control-label">Fecha hasta:</label>
+                                        <input type="date" id="buscafechahasta" name="buscafechahasta"
+                                            class="form-control mt-2"
+                                            value="<?php echo $buscafechahasta=$_POST["buscafechahasta"]; ?>"
+                                            style="border: #bababa 1px solid; color:#0d87ac;">
                                     </div>
-                                    <div class="col-lg-2 col-lg-offset-0 col-xs-12 col-xs-offset-0">
-                                    <label  class="control-label">Tipo de archivo</label>
-                                            <select id="subject-filter" id="tipo" name="tipo" class="form-control mt-2">
-                                                    <?php if ($_POST["tipo"] != ''){ ?>
-                                                    <option value="<?php echo $_POST["tipo"]; ?>"><?php echo $tipo=$_POST["tipo"]; ?></option>
-                                                    <?php } ?>
-                                                    <option value="Todos">Todos</option>
-                                                    <option value="pdf">PDF </option>
-                                                    <option value="mp4">Mp4</option>
-                                                    <option value="docx">DOCX</option>
-                                            </select>
-                                    </div>
-                            </div>
-                    </thead>
-            </table>
-    </div>
-    <!--<div class="col-1">
+                                </div>
+                            </thead>
+                        </table>
+                    </div>
+                    <!--<div class="col-1">
             <input type="submit" class="btn btn-success" value="Ver" style="margin-top: 38px;">
-    </div>-->
-</div>
+    </div>--> <br>
+                </div>
 
                 <div class="col-md-2 col-sm-5">
                     <div class="sidebar blog-sidebar">
                     </div>
                 </div>
-                
+
                 <div class="col-md-9 col-sm-7">
-                   
+
 
                     <?php
                     include 'php/conexion.php';
@@ -189,7 +190,7 @@ if ($_SESSION["s_medico"] === null ){
                                             } */?>
 
 
-                                        
+
 
                                     </div>
                                     <?php
@@ -207,6 +208,7 @@ if ($_SESSION["s_medico"] === null ){
                                         <h4>Bibliografia</h4>
                                         <p><?php mostrar(substr($res['referencia_pu'],0,500)); ?></p>
                                         <?php echo ("<h5>Publicado el: $fecha </h5>"); ?>
+                                        <h5>Tema: <a href="#"><?php mostrar($res['espec_descripsion']); ?> <i class="fa fa-tag"></i></a></h5>
                                         <?php echo("<a href='memoriac.php?id=".$res["id_public"]."' class='read-more'>ver publica completa</a>");?>
                                         <br>
                                         <br>
@@ -221,16 +223,12 @@ if ($_SESSION["s_medico"] === null ){
                                         <div class="post-bottom overflow">
                                             <ul class="nav navbar-nav post-nav">
                                                 <li>
-                                                    <h4><a href="#"><i class="fa fa-heart" aria-hidden="true"></i>Me gustas
-                                                            <?php mostrar($res['me_gusta_pu']); ?></a></h4>
-                                                </li>
-                                                <li>
                                                     <h4><a href="#"><i class="fa fa-comments"></i>3 comentarios</a></h4>
                                                 </li>
                                                 <li>
-                                                <h4><a href="#"><i
-                                                                class="fa fa-tag"></i><?php mostrar($res['espec_descripsion']); ?></a>
-                                                    </h4>
+                                                <h4><a href="#"><i class="fa fa-heart" aria-hidden="true"></i>Me
+                                                            gustas
+                                                            <?php mostrar($res['me_gusta_pu']); ?></a></h4>
                                                 </li>
                                             </ul>
                                         </div>
@@ -242,10 +240,10 @@ if ($_SESSION["s_medico"] === null ){
                     <?php
                     }
                     ?>
-                    
+
                     <!--boton flotante donde esta los diferentes acciones -->
                     <div class="con">
-                    <?php include_once "./php/boton_medico.php"; ?>
+                        <?php include_once "./php/boton_medico.php"; ?>
                     </div>
                     <!--*******************************************************-->
                     <div class="blog-pagination">
@@ -275,7 +273,7 @@ if ($_SESSION["s_medico"] === null ){
                     <div class="col-sm-12">
                         <div class=" copyright-text text-center ">
                             <p>Sistema de difusión de información medica 2022. Todos los derechos reservados.</p>
-                            <p>Diseñado por: <a  target="_blank" href="http://luis-enrique.com">Sr.LEGG</a></p>
+                            <p>Diseñado por: <a target="_blank" href="http://luis-enrique.com">Sr.LEGG</a></p>
                         </div>
                     </div>
                 </div>
@@ -283,7 +281,7 @@ if ($_SESSION["s_medico"] === null ){
     </footer>
     <!--/#footer-->
 
-    
+
 
 
 

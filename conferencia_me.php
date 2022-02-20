@@ -87,10 +87,11 @@ $buscarespec='Todos';
 
 
     <div>
-<div >
+<div>
 <div class="card">
 <div class="card-body">
 
+<div class="fom_buscar">
         
 <h3 class="col-lg-5 col-lg-offset-5 col-xs-12 col-xs-offset-0">Conferencia</h3>
 
@@ -150,7 +151,8 @@ $buscarespec='Todos';
                 </div>
                 
         </div>
-
+        <br>
+                                                                </div>
         
         <?php 
         /*FILTRO de busqueda////////////////////////////////////////////*/
@@ -190,7 +192,7 @@ $buscarespec='Todos';
             overflow : auto; ">
 
 
-<div  class="table-responsive">
+<div  class="table-responsive"></div>
 <p  class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0"  style="   color:#20558A;"><i class="fa fa-area-chart" aria-hidden="true"></i> <?php echo $numeroSql; ?> Resultados encontrados</p>
         <table class="table">
                 <tbody >

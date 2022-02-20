@@ -199,7 +199,15 @@
   position: relative;
   font-size: 19px;
   right: 31px;
-  margin-top: 20px;
+  margin-top: 0px;
+}
+.label_bus{
+  position: relative;
+  right: 75px;
+  margin-top: 10px;
+}
+.fom_buscar{
+  background-color: #F1F1F1;
 }
 
 .mesconf{
