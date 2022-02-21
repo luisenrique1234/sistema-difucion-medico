@@ -105,11 +105,13 @@ if ($_SESSION["s_medico"] === null ){
                                         <!--<input type="submit" class="btn btn-info" value="Ver"  style="margin-top: 30px;">-->
                                         <button class="btn btn-info articulo_bus" type="sumit">Buscar</button>
                                     </div>
+                                
                                     
                                     <div class="col-lg-2 col-lg-offset-2 col-xs-12 col-xs-offset-0">
-                                    <label class="label_bus">Categoria </label>
-                                        <select id="assigned-tutor-filter" id="buscacategoria" name="buscacategoria"
-                                            class="form-control mt-2">
+                                    <div class="label_bus"><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Temas: </label></div>
+                                        <select  id="assigned-tutor-filter" id="buscacategoria" name="buscacategoria"
+                                            class="form-control mt-2 select_bus">
                                             <?php if ($_POST["buscacategoria"] != ''){ ?>
                                             <option value="<?php echo $_POST["buscacategoria"]; ?>">
                                                 <?php echo $buscacategoria=$_POST["buscacategoria"]; ?></option>
@@ -121,21 +123,21 @@ if ($_SESSION["s_medico"] === null ){
                                         </select>
                                     </div>
                                     
-                                    <div class=" col-lg-2 col-lg-offset-0 col-xs-12 col-xs-offset-0">
+                                    <div class=" col-lg-2 col-lg-offset-1 col-xs-12 col-xs-offset-0">
 
-                                        <label class="control-label">Fecha desde:</label>
+                                        <div class="label_bus" ><label class="control-label">Fecha desde: </label></div>
                                         <input type="date" id="buscafechadesde" name="buscafechadesde"
-                                            class="form-control mt-2"
+                                            class="form-control mt-2 select_bus"
                                             value="<?php echo $buscafechadesde=$_POST["buscafechadesde"]; ?>"
-                                            style="border: #bababa 1px solid; color:#0d87ac;">
+                                            style="border: #bababa 1px solid; color:#20558A;">
                                     </div>
-                                    <div class="col-lg-2 col-lg-offset-0 col-xs-12 col-xs-offset-0">
+                                    <div class="col-lg-2 col-lg-offset-1 col-xs-12 col-xs-offset-0">
 
-                                        <label class="control-label">Fecha hasta:</label>
+                                        <div class="label_bus"><label class="control-label">Fecha hasta:</label></div>
                                         <input type="date" id="buscafechahasta" name="buscafechahasta"
-                                            class="form-control mt-2"
+                                            class="form-control mt-2 select_bus"
                                             value="<?php echo $buscafechahasta=$_POST["buscafechahasta"]; ?>"
-                                            style="border: #bababa 1px solid; color:#0d87ac;">
+                                            style="border: #bababa 1px solid; color:#20558A;">
                                     </div>
                                 </div>
                             </thead>
@@ -145,7 +147,8 @@ if ($_SESSION["s_medico"] === null ){
             <input type="submit" class="btn btn-success" value="Ver" style="margin-top: 38px;">
     </div>--> <br>
                 </div>
-
+            </div>
+            
                 <div class="col-md-2 col-sm-5">
                     <div class="sidebar blog-sidebar">
                     </div>
