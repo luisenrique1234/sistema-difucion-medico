@@ -90,9 +90,8 @@ if ($_SESSION["s_medico"] === null ){
                                                 <?php echo $buscacategoria=$_POST["buscacategoria"]; ?></option>
                                             <?php } ?>
                                             <option value="Todos">Todos</option>
-                                            <option value="radiología">radiología </option>
-                                            <option value="Pediatria">Pediatria</option>
-                                            <option value="Cardiología">Cardiología</option>
+                                            <option value="titulo">Titulo</option>
+                                            <option value="autor">Autor</option>
                                         </select>
                                     </div>
                                     <div class="col-lg-5 col-lg-offset-0 col-xs-12 col-xs-offset-0 ">
