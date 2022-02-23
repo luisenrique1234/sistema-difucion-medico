@@ -21,6 +21,10 @@ if ($_SESSION["s_medico"] === null ){
     
 }
 
+$buscar='';
+$titulobus='Todos';
+$buscaetapa='Todos';
+$buscarespec='Todos';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -76,18 +80,17 @@ if ($_SESSION["s_medico"] === null ){
                 <div class="fom_buscar" >
                 <br>
 
-
-                    <div >
-
+                <form id="form2" name="form2" method="POST" action="articulo_cien.php">
+                    <div>
                         <table class="table">
                             <thead>
                                 <div>
                                     <div class="col-lg-2 col-lg-offset-2 col-xs-12 col-xs-offset-0">
-                                        <select id="assigned-tutor-filter" id="buscacategoria" name="buscacategoria"
+                                        <select id="assigned-tutor-filter" id="titulobus" name="titulobus"
                                             class="form-control mt-2">
-                                            <?php if ($_POST["buscacategoria"] != ''){ ?>
-                                            <option value="<?php echo $_POST["buscacategoria"]; ?>">
-                                                <?php echo $buscacategoria=$_POST["buscacategoria"]; ?></option>
+                                            <?php if ($_POST["titulobus"] != ''){ ?>
+                                            <option value="<?php echo $_POST["titulobus"]; ?>">
+                                                <?php echo $titulobus=$_POST["titulobus"]; ?></option>
                                             <?php } ?>
                                             <option value="Todos">Todos</option>
                                             <option value="titulo">Titulo</option>
@@ -96,8 +99,7 @@ if ($_SESSION["s_medico"] === null ){
                                     </div>
                                     <div class="col-lg-5 col-lg-offset-0 col-xs-12 col-xs-offset-0 ">
 
-                                        <input type="text" class="form-control" id="buscar" name="buscar"
-                                            value="<?php echo $busca=$_POST["buscar"];?>">
+                                        <input type="text" class="form-control" id="buscar" name="buscar" value="<?php echo $buscar=$_POST["buscar"];?>">
 
                                     </div>
                                     <div class="col-lg-1 col-lg-offset-0 col-xs-12 col-xs-offset-0">
@@ -109,11 +111,11 @@ if ($_SESSION["s_medico"] === null ){
                                     <div class="col-lg-2 col-lg-offset-2 col-xs-12 col-xs-offset-0">
                                     <div class="label_bus"><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Temas: </label></div>
-                                        <select  id="assigned-tutor-filter" id="buscacategoria" name="buscacategoria"
+                                        <select  id="assigned-tutor-filter" id="buscarespec" name="buscarespec"
                                             class="form-control mt-2 select_bus">
-                                            <?php if ($_POST["buscacategoria"] != ''){ ?>
-                                            <option value="<?php echo $_POST["buscacategoria"]; ?>">
-                                                <?php echo $buscacategoria=$_POST["buscacategoria"]; ?></option>
+                                            <?php if ($_POST["buscarespec"] != ''){ ?>
+                                            <option value="<?php echo $_POST["buscarespec"]; ?>">
+                                                <?php echo $buscarespec=$_POST["buscarespec"]; ?></option>
                                             <?php } ?>
                                             <option value="Todos">Todos</option>
                                             <option value="radiología">radiología </option>
@@ -158,10 +160,31 @@ if ($_SESSION["s_medico"] === null ){
 
                     <?php
                     include 'php/conexion.php';
+
+                    if ($buscar == '' AND $buscaetapa =='Todos' AND $buscarespec =='Todos' ){ $filtro = "";}else{
+                        if ($buscar != '' AND $buscaetapa =='Todos'  AND $buscarespec =='Todos'  ){ $filtro = "AND publicacion.titulo_public LIKE '%".$buscar."%'";}
+                
+                        
+                        if ($buscar == '' AND $buscaetapa !='Todos'  AND $buscarespec =='Todos'  ){ $filtro = "AND publicacion.etapa_confe = '".$buscaetapa."'";}
+                        
+                        //echo("<h4>$filtro</h4>");
+                        if ($buscar != '' AND $buscaetapa !='Todos'  AND $buscarespec =='Todos'  ){ $filtro = "AND publicacion.titulo_confe LIKE '%".$buscar."%' AND conferencia.etapa_confe = '".$buscaetapa."'";}
+                        
+                        if ($buscar == '' AND $buscaetapa !='Todos'  AND $buscarespec !='Todos'  ){ $filtro = "AND publicacion.etapa_confe   = '".$buscaetapa."' AND especialidad.espec_descripsion = '".$buscarespec."' ";}
+                        
+                        if ($buscar != '' AND $buscaetapa !='Todos'  AND $buscarespec !='Todos'  ){ $filtro = "AND publicacion.titulo_confe  LIKE '%".$buscar."%' AND conferencia.etapa_confe = '".$buscaetapa."' AND especialidad.espec_descripsion= '".$buscarespec."' ";}
+                        
+                        
+                        if ($buscar == '' AND $buscarespec !='Todos'  AND $buscaetapa =='Todos' ){ $filtro = "AND especialidad.espec_descripsion = '".$buscarespec."'";}
+                        
+                        if ($buscar != '' AND $buscarespec !='Todos' AND $buscaetapa =='Todos' ){ $filtro = "AND publicacion.titulo_confe  LIKE '%".$buscar."%' AND especialidad.espec_descripsion = '".$buscarespec."'";}
+                        echo("<h4>$filtro</h4>");
+                        }
+
                     $espesicialidad =$_SESSION["s_espeme"];
                     $public = "SELECT publicacion.id_public,publicacion.titulo_public,publicacion.text_public,publicacion.link_imagen,publicacion.link_video,
                     publicacion.link_audio,publicacion.link_archivo,DATE_FORMAT(publicacion.fecha_public,'%d/%m/%y') AS fecha,publicacion.categoria_public,publicacion.me_gusta_pu,publicacion.referencia_pu,
-                    medico.nombre_medico,medico.apellido_medico,especialidad.espec_descripsion FROM publicacion,medico,especialidad WHERE publicacion.id_medico_pu=medico.id_medico AND publicacion.categoria_public='$espesicialidad' AND publicacion.estado='A' AND publicacion.categoria_public=especialidad.id_espec	  ORDER BY publicacion.me_gusta_pu DESC";
+                    medico.nombre_medico,medico.apellido_medico,especialidad.espec_descripsion FROM publicacion,medico,especialidad WHERE publicacion.id_medico_pu=medico.id_medico AND publicacion.categoria_public='$espesicialidad' AND publicacion.estado='A' AND publicacion.categoria_public=especialidad.id_espec $filtro";
                     $public2 = $mysqli->query($public);
                     while ($res = mysqli_fetch_array($public2)) {
                         $link_imagen = $res['link_imagen'];
@@ -173,6 +196,7 @@ if ($_SESSION["s_medico"] === null ){
                         $apellido = $res['apellido_medico'];
 
                     ?>
+                    </form>
                     <!--animacion js wow fadeInDowm de las publicaciones-->
                     <div class="wow fadeInDown">
                         <div class="row">
