@@ -235,7 +235,7 @@ $buscarespec='Todos';
                                         <p><?php mostrar(substr($res['referencia_pu'],0,500)); ?></p>
                                         <?php echo ("<h5>Publicado el: $fecha </h5>"); ?>
                                         <h5>Tema: <a href="#"><?php mostrar($res['espec_descripsion']); ?> <i class="fa fa-tag"></i></a></h5>
-                                        <?php echo("<a href='memoriac.php?id=".$res["id_public"]."' class='read-more'>ver publica completa</a>");?>
+                                        <?php echo("<a href='memoriac.php?id=".$res["id_public"]."' class='read-more'>ver artículo completa</a>");?>
                                         <br>
                                         <br>
                                         <?php
@@ -249,7 +249,7 @@ $buscarespec='Todos';
                                         <div class="post-bottom overflow">
                                             <ul class="nav navbar-nav post-nav">
                                                 <li>
-                                                    <h4><a href="#"><i class="fa fa-comments"></i>3 comentarios</a></h4>
+                                                    <h4><a href="#"><i class="fa fa-comments"></i>3 Comentarios</a></h4>
                                                 </li>
                                                 <li>
                                                 <h4><a href="#"><i class="fa fa-heart" aria-hidden="true"></i>Me

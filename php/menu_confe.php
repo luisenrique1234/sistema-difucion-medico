@@ -13,7 +13,7 @@
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li class="active"><a class="text-muted" href="index.php">Inicio</a></li>
-                            <li class="dropdown"><a class="text-muted" href="articulo_cien.php">Articulos</a>
+                            <li class="dropdown"><a class="text-muted" href="articulo_cien.php">Artículos</a>
                             </li>
                             <li class="dropdown"><a style="border-radius: 10px;" class="btn btn-default" href="conferencia_me.php">Conferencia</a>
                             </li>
