@@ -68,15 +68,13 @@ $buscar='';
 
 <br>
 <br>
-<br>
-<br>
 
     <!--<div class="col-lg-1 col-lg-offset-0 col-xs-12 col-xs-offset-0">
         <a class="navbar-brand" href="index.php">
                 <img src="images/buscar.png" alt="logo" width="100" height="100"></a>
         </div>-->
 
-<div class="container mt-5">
+
     <div >
  
 
@@ -85,14 +83,16 @@ $buscar='';
 <div >
 <div class="card">
 <div class="card-body">
-
+   <div class="fom_buscar">     
+<br>
+<br>
         
 <h3 class="col-lg-5 col-lg-offset-5 col-xs-12 col-xs-offset-0">Mis Conferencia</h3>
 
 <form id="form2" name="form2" method="POST" action="mis_conferencia.php">
         
-        <div class="fom_buscar">
-
+        
+        
         
          
 
@@ -140,7 +140,7 @@ $buscar='';
                                                 </div>-->
                                                 <div class="col-lg-3 col-lg-offset-0 col-xs-12 col-xs-offset-0">
                                                 <!--<input type="submit" class="btn btn-info" value="Ver"  style="margin-top: 30px;">-->
-                                                <button class="btn btn-info conferencia" type="sumit" ><i class="fa fa-search" aria-hidden="true"></i></button>
+                                                <button class="btn btn-info mis_conferencia" type="sumit" ><i class="fa fa-search" aria-hidden="true"></i></button>
                                                 </div>
                                                 <div class="col-lg-6 col-lg-offset-0 col-xs-12 col-xs-offset-0 misconferencia">
                                                 <label  class="form-label">Titulo de la Conferencia</label>
@@ -160,7 +160,7 @@ $buscar='';
                 </div>
                 <br>
         </div>
-
+        <div class="container mt-5">
         
         <?php 
         /*FILTRO de busqueda////////////////////////////////////////////*/

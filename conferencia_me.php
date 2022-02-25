@@ -72,27 +72,26 @@ $buscarespec='Todos';
 <?php include_once "./php/menu_confe.php"; ?>
 
 <br>
-<br>
-<br>
-<br>
+
 
     <!--<div class="col-lg-1 col-lg-offset-0 col-xs-12 col-xs-offset-0">
         <a class="navbar-brand" href="index.php">
                 <img src="images/buscar.png" alt="logo" width="100" height="100"></a>
         </div>-->
 
-<div class="container mt-5">
-    <div >
+
+    <div>
  
 
 
     <div>
-<div>
 <div class="card">
 <div class="card-body">
 
 <div class="fom_buscar">
-        
+        <br>
+        <br>
+        <br>
 <h3 class="col-lg-5 col-lg-offset-5 col-xs-12 col-xs-offset-0">Conferencia</h3>
 
 <form id="form2" name="form2" method="POST" action="conferencia_me.php">
@@ -152,8 +151,8 @@ $buscarespec='Todos';
                 
         </div>
         <br>
-                                                                </div>
-        
+                </div>
+                <div class="container mt-5">
         <?php 
         /*FILTRO de busqueda////////////////////////////////////////////*/
         

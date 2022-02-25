@@ -73,19 +73,19 @@ $buscarespec='Todos';
     <!--/#action-->
 
 
-    <section class="padding-top">
-        <div class="container">
+            <br>
+            <br>
             
-            <div class="row">
-                <div class="fom_buscar" >
+                <div class="fom_buscar">
+                    <br>
+                    <br>
                 <br>
-
                 <form id="form2" name="form2" method="POST" action="articulo_cien.php">
                     <div>
                         <table class="table">
                             <thead>
                                 <div>
-                                    <div class="col-lg-2 col-lg-offset-2 col-xs-12 col-xs-offset-0">
+                                    <div class="col-lg-1 col-lg-offset-2 col-xs-12 col-xs-offset-0">
                                         <select id="assigned-tutor-filter" id="titulobus" name="titulobus"
                                             class="form-control mt-2">
                                             <?php if ($_POST["titulobus"] != ''){ ?>
@@ -97,7 +97,7 @@ $buscarespec='Todos';
                                             <option value="autor">Autor</option>
                                         </select>
                                     </div>
-                                    <div class="col-lg-5 col-lg-offset-0 col-xs-12 col-xs-offset-0 ">
+                                    <div class="col-lg-7 col-lg-offset-0 col-xs-12 col-xs-offset-0 ">
 
                                         <input type="text" class="form-control" id="buscar" name="buscar" value="<?php echo $buscar=$_POST["buscar"];?>">
 
@@ -108,7 +108,7 @@ $buscarespec='Todos';
                                     </div>
                                 
                                     
-                                    <div class="col-lg-2 col-lg-offset-2 col-xs-12 col-xs-offset-0">
+                                    <div class="col-lg-2 col-lg-offset-3 col-xs-12 col-xs-offset-0">
                                     <div class="label_bus"><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Temas: </label></div>
                                         <select  id="assigned-tutor-filter" id="buscarespec" name="buscarespec"
@@ -148,7 +148,10 @@ $buscarespec='Todos';
             <input type="submit" class="btn btn-success" value="Ver" style="margin-top: 38px;">
     </div>--> <br>
                 </div>
-            </div>
+            
+            
+    <section class="padding-top">
+        <div class="container">
             
                 <div class="col-md-2 col-sm-5">
                     <div class="sidebar blog-sidebar">
@@ -235,7 +238,7 @@ $buscarespec='Todos';
                                         <p><?php mostrar(substr($res['referencia_pu'],0,500)); ?></p>
                                         <?php echo ("<h5>Publicado el: $fecha </h5>"); ?>
                                         <h5>Tema: <a href="#"><?php mostrar($res['espec_descripsion']); ?> <i class="fa fa-tag"></i></a></h5>
-                                        <?php echo("<a href='memoriac.php?id=".$res["id_public"]."' class='read-more'>ver artículo completa</a>");?>
+                                        <?php echo("<a href='memoriac.php?id=".$res["id_public"]."' class='read-more'>ver artículo completo</a>");?>
                                         <br>
                                         <br>
                                         <?php

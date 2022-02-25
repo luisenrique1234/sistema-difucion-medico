@@ -191,7 +191,13 @@
 .conferencia{
   position: relative;
   font-size: 19px;
-  left: 51px;
+  left: 63px;
+  margin-top: 27px;
+}
+.mis_conferencia{
+  position: relative;
+  font-size: 19px;
+  left: 86px;
   margin-top: 27px;
 }
 /*********************************************************************************/
