@@ -76,13 +76,13 @@ if ($_SESSION["s_admin"] === null) {
                 <h1> Listado de Investigaciones</h1>
                 <div class="panel-body">
                     
-                        <a href="nuevoma_medico.php" class="btn btn-info pull-letf" style="background-color: #0d87ac;">NUEVO</a>
+                        <a href="nuevoma_medico.php" class="btn btn-info pull-letf">NUEVO</a>
                     
                     <br>
                     <hr>
                     <table class="table tabla1" style="text-align: center;">
                         <thead>
-                            <tr style="background-color: #0d87ac; color:#FFFFFF;">
+                            <tr style="background-color: #20558A; color:#FFFFFF;">
                                 <!-- fila-->
                                 <th data-hidden="true">Código investigacion</th>
                                 <th data-hidden="true">Nombre médico</th>
@@ -115,7 +115,7 @@ if ($_SESSION["s_admin"] === null) {
             <td>" . substr($row["fecha_inv"],0,300) . "</td>
 			
             <td>
-            <a href='actualizama_invest.php?id=" . $row["id_inv"] . "' class='btn btn-info' style='background-color: #0d87ac;'>Editar</a>
+            <a href='actualizama_invest.php?id=" . $row["id_inv"] . "' class='btn btn-info'>Editar</a>
             <br>
             <br>
             <a onclick='return alerinves(".$row["id_inv"].");' class='btn btn-danger confirm'>Eliminar</a>
@@ -133,21 +133,21 @@ if ($_SESSION["s_admin"] === null) {
 
         
         <!--boton flotante donde esta los diferentes acciones -->
-        <footer>
+        <footer id="footer">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-12 text-center bottom-separator">
+            <div class="row footer">
+                <div class="col-sm-12 ">
                     <div class="col-sm-12">
                         <div class=" copyright-text text-center ">
-                            <p> Sistema de difusión medica 2021. Todos los derechos reservados.</p>
-                            <p>Diseñado por<a target="_blank" href="http://luis-enrique.com">Sr.LEGG</a></p>
+                            <p>Sistema de difusión de información medica 2022. Todos los derechos reservados.</p>
+                            <p>Diseñado por: <a target="_blank" href="http://luis-enrique.com">Sr.LEGG</a></p>
                         </div>
                     </div>
                 </div>
             </div>
     </footer>
         <div class="con">
-        <?php include_once "../php/boton.php"; ?>
+        <?php include_once "../php/boton_medico.php"; ?>
                     </div>
                     <!--*******************************************************-->
         <script type="text/javascript" src="../js/jquery.js"></script>

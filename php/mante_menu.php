@@ -1,42 +1,36 @@
 <header id="header">
         <div>
-            <div class="navbar navbar-inverse" role="banner">
+            <div class="navbar" role="banner">
                 <div class="container">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
                         <a class="navbar-brand" href=".//index.php">
-                            <img src="../images/admin-logo.png" alt="logo" width="70" height="70">
+                            <img src="../images/admin-logo.png" alt="logo" width="45" height="45">
                         </a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="admin_bien.php">Inicio</a></li>
-                            <li class="dropdown"><a href="mante_medico.php">Lista de Medico<i class="fa fa-angle-down"></i></a>
+                            <li><a class="text-muted" href="admin_bien.php">Inicio</a></li>
+                            <li class="dropdown"><a class="text-muted" href="mante_medico.php">Lista de Medico<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="mante_medico.php">Lista de médico</a></li>
                                     <li><a href="desativado_medico.php">lista desactivado médico</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="mante_public.php">Lista de publicación<i class="fa fa-angle-down"></i></a>
+                            <li class="dropdown"><a class="text-muted" href="mante_public.php">Lista de publicación<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="mante_public.php">Lista de publicación</a></li>
                                     <li><a href="#">Comentario publicación</a></li>
                                     <li><a href="desativado_public.php">Lista destivado publicación</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="mante_inve.php">Lista  investigaciones<i class="fa fa-angle-down"></i></a>
+                            <li class="dropdown"><a class="text-muted" href="mante_inve.php">Lista  investigaciones<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                 <li><a href="mante_inve.php">Lista investigaciones</a></li>
                                 <li><a href="#">Comentario investigacio</a></li>
                                     <li><a href="desacti_inve.php">Lista desactivado investigaciones</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="mante_rol.php">Roles<i class="fa fa-angle-down"></i></a>
+                            <li class="dropdown"><a class="text-muted" href="mante_rol.php">Roles<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                 <li><a href="mante_rol.php">Roles médico</a></li>
                                 <li><a href="mante_espec.php">Especialidades médicos</a></li>
