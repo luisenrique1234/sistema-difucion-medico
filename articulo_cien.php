@@ -23,7 +23,6 @@ if ($_SESSION["s_medico"] === null ){
 
 $buscar='';
 $titulobus='Todos';
-$buscaetapa='Todos';
 $buscarespec='Todos';
 ?>
 <!DOCTYPE html>
@@ -94,7 +93,7 @@ $buscarespec='Todos';
                                             <?php } ?>
                                             <option value="Todos">Todos</option>
                                             <option value="titulo">Titulo</option>
-                                            <option value="autor">Autor</option>
+                                            <option value="Autor">Autor</option>
                                         </select>
                                     </div>
                                     <div class="col-lg-7 col-lg-offset-0 col-xs-12 col-xs-offset-0 ">
@@ -164,30 +163,44 @@ $buscarespec='Todos';
                     <?php
                     include 'php/conexion.php';
 
-                    if ($buscar == '' AND $buscaetapa =='Todos' AND $buscarespec =='Todos' ){ $filtro = "";}else{
-                        if ($buscar != '' AND $buscaetapa =='Todos'  AND $buscarespec =='Todos'  ){ $filtro = "AND publicacion.titulo_public LIKE '%".$buscar."%'";}
-                
+                    if ($buscar == '' AND $titulobus =='Todos' AND $buscafechadesde =='' AND $buscarespec =='Todos' ){ $filtro = "";}else{
+                        if ($buscar != '' AND $titulobus =='Todos' AND $buscafechadesde =='' AND $buscarespec =='Todos'  ){ $filtro = "AND publicacion.titulo_public LIKE '%".$buscar."%'";}
+
+
                         
-                        if ($buscar == '' AND $buscaetapa !='Todos'  AND $buscarespec =='Todos'  ){ $filtro = "AND publicacion.etapa_confe = '".$buscaetapa."'";}
+                        //filtro tema
+                        if ($buscar == '' AND $buscarespec !='Todos'  AND $titulobus =='Todos' ){ $filtro = "AND especialidad.espec_descripsion = '".$buscarespec."'";}
+                        
+
+                        if ($buscar == '' AND $buscarespec !='Todos'  AND $titulobus =='Todos' AND $buscafechadesde !='' ){ $filtro = "AND especialidad.espec_descripsion = '".$buscarespec."' AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$buscafechahasta."'";}
+
+                        if ($buscar == '' AND $titulobus !='Todos'  AND $buscarespec =='Todos'  ){ $filtro = "AND publicacion.autor_pu = ' '";}
                         
                         //echo("<h4>$filtro</h4>");
-                        if ($buscar != '' AND $buscaetapa !='Todos'  AND $buscarespec =='Todos'  ){ $filtro = "AND publicacion.titulo_confe LIKE '%".$buscar."%' AND conferencia.etapa_confe = '".$buscaetapa."'";}
+                        //filtro autor
+                        if ($buscar != '' AND $titulobus !='Todos'  AND $buscarespec =='Todos'  ){ $filtro = "AND publicacion.autor_pu LIKE '%".$buscar."%'";}
                         
-                        if ($buscar == '' AND $buscaetapa !='Todos'  AND $buscarespec !='Todos'  ){ $filtro = "AND publicacion.etapa_confe   = '".$buscaetapa."' AND especialidad.espec_descripsion = '".$buscarespec."' ";}
+                        if ($buscar == '' AND $titulobus !='Todos'  AND $buscarespec !='Todos'  ){ $filtro = "AND publicacion.autor_pu   LIKE '%".$buscar."%' AND especialidad.espec_descripsion = '".$buscarespec."' ";}
                         
-                        if ($buscar != '' AND $buscaetapa !='Todos'  AND $buscarespec !='Todos'  ){ $filtro = "AND publicacion.titulo_confe  LIKE '%".$buscar."%' AND conferencia.etapa_confe = '".$buscaetapa."' AND especialidad.espec_descripsion= '".$buscarespec."' ";}
+                        if ($buscar != '' AND $titulobus !='Todos'  AND $buscarespec !='Todos'  ){ $filtro = "AND publicacion.autor_pu   LIKE '%".$buscar."%' AND especialidad.espec_descripsion = '".$buscarespec."' ";}
+                        //if ($buscar != '' AND $titulobus !='Todos'  AND $buscarespec !='Todos'  ){ $filtro = "AND publicacion.titulo_confe  LIKE '%".$buscar."%' AND conferencia.etapa_confe = '".$titulobus."' AND especialidad.espec_descripsion= '".$buscarespec."' ";}
+
+                        //fecha
+                        if ($buscar == '' AND $buscarespec !='Todos' AND $buscafechadesde !='' AND $titulobus =='Todos'  ){ $filtro = "AND especialidad.espec_descripsion = '".$buscarespec."' AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$buscafechahasta."' ";}
+                        
+                        if ($buscar != '' AND $titulobus =='Todos'  AND $buscarespec =='Todos' AND $buscafechadesde !='' ){ $filtro = "AND publicacion.titulo_public LIKE '%".$buscar."%' AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$buscafechahasta."'";}
+                        
+                        if ($buscar == '' AND $buscarespec =='Todos' AND $buscafechadesde !='' AND $titulobus =='Todos'  ){ $filtro = " AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$buscafechahasta."' ";}
                         
                         
-                        if ($buscar == '' AND $buscarespec !='Todos'  AND $buscaetapa =='Todos' ){ $filtro = "AND especialidad.espec_descripsion = '".$buscarespec."'";}
-                        
-                        if ($buscar != '' AND $buscarespec !='Todos' AND $buscaetapa =='Todos' ){ $filtro = "AND publicacion.titulo_confe  LIKE '%".$buscar."%' AND especialidad.espec_descripsion = '".$buscarespec."'";}
+                        if ($buscar != '' AND $buscarespec !='Todos' AND $titulobus =='Todos' ){ $filtro = "AND publicacion.titulo_public  LIKE '%".$buscar."%' AND especialidad.espec_descripsion = '".$buscarespec."'";}
                         echo("<h4>$filtro</h4>");
                         }
 
                     $espesicialidad =$_SESSION["s_espeme"];
                     $public = "SELECT publicacion.id_public,publicacion.titulo_public,publicacion.text_public,publicacion.link_imagen,publicacion.link_video,
                     publicacion.link_audio,publicacion.link_archivo,DATE_FORMAT(publicacion.fecha_public,'%d/%m/%y') AS fecha,publicacion.categoria_public,publicacion.me_gusta_pu,publicacion.referencia_pu,
-                    medico.nombre_medico,medico.apellido_medico,especialidad.espec_descripsion FROM publicacion,medico,especialidad WHERE publicacion.id_medico_pu=medico.id_medico AND publicacion.categoria_public='$espesicialidad' AND publicacion.estado='A' AND publicacion.categoria_public=especialidad.id_espec $filtro";
+                    medico.nombre_medico,medico.apellido_medico,especialidad.espec_descripsion FROM publicacion,medico,especialidad WHERE publicacion.id_medico_pu=medico.id_medico  AND publicacion.estado='A' AND publicacion.categoria_public=especialidad.id_espec $filtro";
                     $public2 = $mysqli->query($public);
                     while ($res = mysqli_fetch_array($public2)) {
                         $link_imagen = $res['link_imagen'];
