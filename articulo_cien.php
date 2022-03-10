@@ -164,25 +164,26 @@ $buscarespec='Todos';
                     include 'php/conexion.php';
 
                     if ($buscar == '' AND $titulobus =='Todos' AND $buscafechadesde =='' AND $buscarespec =='Todos' ){ $filtro = "";}else{
-                        if ($buscar != '' AND $titulobus =='Todos' AND $buscafechadesde =='' AND $buscarespec =='Todos'  ){ $filtro = "AND publicacion.titulo_public LIKE '%".$buscar."%'";}
+                       if ($buscar != '' AND $titulobus =='Todos' AND $buscafechadesde =='' AND $buscarespec =='Todos'  ){ $filtro = "AND publicacion.titulo_public LIKE '%".$buscar."%'";}
 
 
                         
                         //filtro tema
-                        if ($buscar == '' AND $buscarespec !='Todos'  AND $titulobus =='Todos' ){ $filtro = "AND especialidad.espec_descripsion = '".$buscarespec."'";}
+                        if ($buscar == '' AND $buscarespec !='Todos'  AND $titulobus =='Todos' AND $buscafechadesde =='' ){ $filtro = "AND especialidad.espec_descripsion = '".$buscarespec."'";}
                         
 
                         if ($buscar == '' AND $buscarespec !='Todos'  AND $titulobus =='Todos' AND $buscafechadesde !='' ){ $filtro = "AND especialidad.espec_descripsion = '".$buscarespec."' AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$buscafechahasta."'";}
 
-                        if ($buscar == '' AND $titulobus !='Todos'  AND $buscarespec =='Todos'  ){ $filtro = "AND publicacion.autor_pu = ' '";}
+                        if ($buscar == '' AND $titulobus !='Todos'  AND $buscarespec =='Todos' AND $buscafechadesde =='' ){ $filtro = "AND publicacion.autor_pu = ' '";}
                         
                         //echo("<h4>$filtro</h4>");
                         //filtro autor
-                        if ($buscar != '' AND $titulobus !='Todos'  AND $buscarespec =='Todos'  ){ $filtro = "AND publicacion.autor_pu LIKE '%".$buscar."%'";}
+                        if ($buscar != '' AND $titulobus !='Todos'  AND $buscarespec =='Todos' AND $buscafechadesde ==''  ){ $filtro = "AND publicacion.autor_pu LIKE '%".$buscar."%'";}
                         
-                        if ($buscar == '' AND $titulobus !='Todos'  AND $buscarespec !='Todos'  ){ $filtro = "AND publicacion.autor_pu   LIKE '%".$buscar."%' AND especialidad.espec_descripsion = '".$buscarespec."' ";}
+                        if ($buscar == '' AND $titulobus !='Todos'  AND $buscarespec !='Todos' AND $buscafechadesde =='' ){ $filtro = "AND publicacion.autor_pu   LIKE '%".$buscar."%' AND especialidad.espec_descripsion = '".$buscarespec."' ";}
                         
-                        if ($buscar != '' AND $titulobus !='Todos'  AND $buscarespec !='Todos'  ){ $filtro = "AND publicacion.autor_pu   LIKE '%".$buscar."%' AND especialidad.espec_descripsion = '".$buscarespec."' ";}
+                        if ($buscar != '' AND $titulobus !='Todos'  AND $buscarespec !='Todos' AND $buscafechadesde ==''  ){ $filtro = "AND publicacion.autor_pu   LIKE '%".$buscar."%' AND especialidad.espec_descripsion = '".$buscarespec."' ";}
+
                         //if ($buscar != '' AND $titulobus !='Todos'  AND $buscarespec !='Todos'  ){ $filtro = "AND publicacion.titulo_confe  LIKE '%".$buscar."%' AND conferencia.etapa_confe = '".$titulobus."' AND especialidad.espec_descripsion= '".$buscarespec."' ";}
 
                         //fecha
@@ -192,8 +193,12 @@ $buscarespec='Todos';
                         
                         if ($buscar == '' AND $buscarespec =='Todos' AND $buscafechadesde !='' AND $titulobus =='Todos'  ){ $filtro = " AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$buscafechahasta."' ";}
                         
+
+                        if ($buscar != '' AND $titulobus !='Todos'  AND $buscarespec !='Todos' AND $buscafechadesde !=''  ){ $filtro = "AND publicacion.autor_pu   LIKE '%".$buscar."%' AND especialidad.espec_descripsion = '".$buscarespec."' AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$buscafechahasta."' ";}
+
+                        if ($buscar != '' AND $titulobus =='Todos'  AND $buscarespec !='Todos' AND $buscafechadesde !='' ){ $filtro = "AND publicacion.titulo_public LIKE '%".$buscar."%' AND especialidad.espec_descripsion = '".$buscarespec."' AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$buscafechahasta."'";}
                         
-                        if ($buscar != '' AND $buscarespec !='Todos' AND $titulobus =='Todos' ){ $filtro = "AND publicacion.titulo_public  LIKE '%".$buscar."%' AND especialidad.espec_descripsion = '".$buscarespec."'";}
+                        if ($buscar != '' AND $buscarespec !='Todos' AND $titulobus =='Todos' AND $buscafechadesde =='' ){ $filtro = "AND publicacion.titulo_public  LIKE '%".$buscar."%' AND especialidad.espec_descripsion = '".$buscarespec."'";}
                         echo("<h4>$filtro</h4>");
                         }
 
