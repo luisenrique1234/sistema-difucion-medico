@@ -231,6 +231,11 @@
   position: relative;
   right: 190px;
 }
+/* columnas de inicio*/
+
+main {
+  column-count:2;
+}
 
 
 .field-toggle{

@@ -101,67 +101,6 @@ if ($_SESSION["s_medico"] === null ){
 
     <!--/#action-->
 
-    <div style="background: #F1F1F1">
-        <br>
-        <br>
-        <br>
-        <br>
-        <div class="container">
-        <?php 
-        /*FILTRO de busqueda////////////////////////////////////////////*/
-        $sql2=("SELECT  conferencia.id_confe,conferencia.titulo_confe,conferencia.autores_confe,conferencia.material_confe,conferencia.fachainicio,conferencia.fechafinal,conferencia.categoria_confe,
-        conferencia.etapa_confe,conferencia.visttas_confe,conferencia.recordatorio,especialidad.espec_descripsion FROM conferencia,especialidad WHERE conferencia.categoria_confe=especialidad.id_espec  AND conferencia.estado='A'  ORDER BY conferencia.fachainicio DESC LIMIT 0,4  ");
-        $sql= $mysqli->query($sql2);
-        $numeroSql = mysqli_num_rows($sql);
-
-        ?>
-        
-
-
-
-
-
-
-    <h3><i class="fa fa-paragraph"></i> Ultimas Conferencia</h3>
-        
-               <main>
-                <?php while ($rowSql = mysqli_fetch_assoc($sql)){ 
-                        
-                        $archivo= $rowSql["material_confe"];
-                        
-                        $fecha2=$rowSql["fachainicio"];
-                        $inicial = date_create($fecha2)->format('d/m/y  g:iA');
-                        $fecha3=$rowSql["fechafinal"];
-                        $final = date_create($fecha3)->format('d/m/y  g:iA');
-                        ?>
-                    
-                        
-                                
-                        <div class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0">
-                        
-                        <br>
-                        <h5 style="display: inline;"> <a href="#"><?php echo $rowSql["titulo_confe"]; ?></a></h5>
-                        <br><h5 style="display: inline;">Por:</h5> <?php echo $rowSql["autores_confe"]; ?> <a href="#"> <i class="fa fa-external-link"></i></a>
-                        <br>
-                        <h5 style="display: inline;">Especialidad:</h5> <?php echo $rowSql["espec_descripsion"]; ?> &nbsp;&nbsp; <?php  if ($archivo != '') { echo ('<h5 style="display: inline;"><a href="php/' . $archivo . '"download="sistema-difucion-medica-conferencia"><i class="fa fa-download"></i></a></h5>'); }?>
-                        
-                    </div>
-                        
-                        
-                        
-                        
-                
-               
-               <?php } ?>
-
-                
-                
-        
-
-        </div>
-        <br>
-</div>
-                </main>
 
     <section  class="padding-top">
         <div class="container">
@@ -226,8 +165,6 @@ if ($_SESSION["s_medico"] === null ){
     </div>
 
 </div>-->
-
-
 
                 <div class="col-md-2 col-sm-5">
                     <div class="sidebar blog-sidebar">
