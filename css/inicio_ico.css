@@ -1,0 +1,11 @@
+.inicio_ico a{
+    margin-left: 3em;
+    background: #20558A;
+    color: #fff;
+    width: 96px;
+    height: 96px;
+    line-height: 96px;
+    font-size: 43px;
+    text-align: center;
+    border-radius: 50%;
+}

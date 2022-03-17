@@ -42,6 +42,7 @@ if ($_SESSION["s_medico"] === null ){
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <link rel="stylesheet" href="css/boton.css">
+    <link rel="stylesheet" href="css/inicio_ico.css">
     <!--<script src="./contador.js"></script>-->
     <!--Icon-Font-->
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
@@ -110,7 +111,7 @@ if ($_SESSION["s_medico"] === null ){
         <?php 
         /*FILTRO de busqueda////////////////////////////////////////////*/
         $sql2=("SELECT  conferencia.id_confe,conferencia.titulo_confe,conferencia.autores_confe,conferencia.material_confe,conferencia.fachainicio,conferencia.fechafinal,conferencia.categoria_confe,
-        conferencia.etapa_confe,conferencia.visttas_confe,conferencia.recordatorio,especialidad.espec_descripsion FROM conferencia,especialidad WHERE conferencia.categoria_confe=especialidad.id_espec  AND conferencia.estado='A'  ORDER BY conferencia.fachainicio DESC LIMIT 0,4  ");
+        conferencia.etapa_confe,conferencia.visttas_confe,conferencia.link_confe,especialidad.espec_descripsion FROM conferencia,especialidad WHERE conferencia.categoria_confe=especialidad.id_espec  AND conferencia.estado='A'  ORDER BY conferencia.fachainicio DESC LIMIT 0,4  ");
         $sql= $mysqli->query($sql2);
         $numeroSql = mysqli_num_rows($sql);
 
@@ -128,7 +129,8 @@ if ($_SESSION["s_medico"] === null ){
                 <?php while ($rowSql = mysqli_fetch_assoc($sql)){ 
                         
                         $archivo= $rowSql["material_confe"];
-                        
+                        $link_reunion=$rowSql["link_confe"];
+                        $titulo_con=$rowSql["titulo_confe"];
                         $fecha2=$rowSql["fachainicio"];
                         $inicial = date_create($fecha2)->format('d/m/y  g:iA');
                         $fecha3=$rowSql["fechafinal"];
@@ -140,10 +142,78 @@ if ($_SESSION["s_medico"] === null ){
                         <div class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0">
                         
                         <br>
-                        <h5 style="display: inline;"> <a href="#"><?php echo $rowSql["titulo_confe"]; ?></a></h5>
-                        <br><h5 style="display: inline;">Por:</h5> <?php echo $rowSql["autores_confe"]; ?> <a href="#"> <i class="fa fa-external-link"></i></a>
+                        <h5 style="display: inline;"><?php echo (' <a href="'.$link_reunion.'" target="_blank"> '.$titulo_con. '</a>');?></h5>
+                        <br><h5 style="display: inline;">Por:</h5> <?php echo substr($rowSql["autores_confe"],0,40); ?><?php echo(' <a href="'.$link_reunion.'" target="_blank"> <i class="fa fa-external-link"></i></a>');?>
                         <br>
-                        <h5 style="display: inline;">Especialidad:</h5> <?php echo $rowSql["espec_descripsion"]; ?> &nbsp;&nbsp; <?php  if ($archivo != '') { echo ('<h5 style="display: inline;"><a href="php/' . $archivo . '"download="sistema-difucion-medica-conferencia"><i class="fa fa-download"></i></a></h5>'); }?>
+                        <h5 style="display: inline;">Especialidad:</h5> <?php echo $rowSql["espec_descripsion"]; ?> &nbsp;&nbsp; <?php  if ($archivo != '') { echo ('<h5 style="display: inline;"><a href="php/' . $archivo . '"download="sistema-difucion-medica-conferencia"><i class="fa fa-download"></i></a></h5>'); }?> </h5><?php echo $inicial; ?>
+                        
+                    </div>
+                        
+                        
+                        
+                        
+                
+               
+               <?php } ?>
+
+                
+                
+        
+
+        </div>
+        <br>
+</div>
+<br>
+<br>
+<br>
+                </main>
+
+                <div style="background: #FFF1F1">
+        
+        <br>
+        <br>
+        <div class="container">
+        <?php 
+        /*FILTRO de busqueda////////////////////////////////////////////*/
+        $sql2=("SELECT publicacion.id_public,publicacion.titulo_public,publicacion.text_public,publicacion.link_imagen,publicacion.link_video,
+        publicacion.link_audio,publicacion.link_archivo,DATE_FORMAT(publicacion.fecha_public,'%d/%m/%y') AS fecha,publicacion.categoria_public,publicacion.me_gusta_pu,publicacion.referencia_pu,
+        medico.nombre_medico,medico.apellido_medico,especialidad.espec_descripsion FROM publicacion,medico,especialidad WHERE publicacion.id_medico_pu=medico.id_medico  AND publicacion.estado='A' AND publicacion.categoria_public=especialidad.id_espec ORDER BY publicacion.fecha_public DESC LIMIT 0,6  ");
+        $sql= $mysqli->query($sql2);
+        //$numeroSql = mysqli_num_rows($sql);
+
+        ?>
+        
+
+
+
+
+
+
+    <h3><i class="fa fa-paragraph"></i> Últimos Artículas</h3>
+        
+               <main class="columno3">
+                <?php while ($rowSql = mysqli_fetch_assoc($sql)){ 
+                        
+                        //$link_imagen = $res['link_imagen'];
+                        $titulo_art = $rowSql['titulo_public'];
+                        $audio = $rowSql['link_audio'];
+                        $fecha = $rowSql['fecha'];
+                        $archivo2 = $rowSql['link_archivo'];
+                        $nombre = $rowSql['nombre_medico'];
+                        $apellido = $rowSql['apellido_medico'];
+
+                        ?>
+                    
+                        
+                                
+                        <div class="col-lg-12 col-lg-offset-1 col-xs-12 col-xs-offset-0">
+                        
+                        <br>
+                        
+                        <h5 style="display: inline;"><?php echo (' <a href="memoriac.php?id='.$rowSql["id_public"].'" target="_blank"> '.$titulo_art. '</a>');?></h5>
+                        <br><h5 style="display: inline;">Autor: </h5> <?php echo '' . $nombre . " " . $apellido . '' ?><?php echo(' <a href="memoriac.php?id='.$rowSql["id_public"].'" target="_blank"> <i class="fa fa-external-link"></i></a>');?>
+                        <br>
+                        <h5 style="display: inline;">Tema:</h5> <?php echo $rowSql['espec_descripsion']; ?> &nbsp;&nbsp; <?php  if ($archivo2 != '') { echo ('<h5 style="display: inline;"><a href="php/' . $archivo2 . '"download="sistema-difucion-medica-conferencia"><i class="fa fa-download"></i></a></h5>'); }?> </h5><?php echo $fecha; ?>
                         
                     </div>
                         
@@ -163,271 +233,182 @@ if ($_SESSION["s_medico"] === null ){
 </div>
                 </main>
 
-    <section  class="padding-top">
+                <!-- Articulos con mas me gusta -->
+                <br>
+                <br>
+                <br>    
+                <div style="background: #F1F1F1">
+        
+        <br>
+        <br>
         <div class="container">
-            <div class="row">
-            <!-- buscador inconpleto <div>
+        <?php 
+        /*FILTRO de busqueda////////////////////////////////////////////*/
+        $sql2=("SELECT publicacion.id_public,publicacion.titulo_public,publicacion.text_public,publicacion.link_imagen,publicacion.link_video,
+        publicacion.link_audio,publicacion.link_archivo,DATE_FORMAT(publicacion.fecha_public,'%d/%m/%y') AS fecha,publicacion.categoria_public,publicacion.me_gusta_pu,publicacion.referencia_pu,
+        medico.nombre_medico,medico.apellido_medico,especialidad.espec_descripsion FROM publicacion,medico,especialidad WHERE publicacion.id_medico_pu=medico.id_medico  AND publicacion.estado='A' AND publicacion.categoria_public=especialidad.id_espec ORDER BY publicacion.me_gusta_pu DESC LIMIT 0,10  ");
+        $sql= $mysqli->query($sql2);
+        //$numeroSql = mysqli_num_rows($sql);
 
+        ?>
         
 
 
-<div class="col-lg-9 col-lg-offset-1 col-xs-12 col-xs-offset-0 ">
-        <label  class="form-label">Titulo a buscar</label>
-         
-        <input type="text" class="form-control" id="buscar" name="buscar" value="<?php echo $busca=$_POST["buscar"];?>"  >
+
+
+
+
+    <h3><i class="fa fa-paragraph"></i> Artículo más apollados</h3>
         
-</div>
+               <main class="columno3">
+                <?php while ($rowSql = mysqli_fetch_assoc($sql)){ 
+                        
+                        //$link_imagen = $res['link_imagen'];
+                        $titulo_art = $rowSql['titulo_public'];
+                        $audio = $rowSql['link_audio'];
+                        $fecha = $rowSql['fecha'];
+                        $archivo2 = $rowSql['link_archivo'];
+                        $nombre = $rowSql['nombre_medico'];
+                        $apellido = $rowSql['apellido_medico'];
 
-    <div >
-
-            <table class="table">
-                    <thead>
-                            <div>
-                                    <div class="col-lg-2 col-lg-offset-2 col-xs-12 col-xs-offset-0">    
-                                    <label  class="control-label">Categoria </label>
-                                            <select id="assigned-tutor-filter" id="buscacategoria" name="buscacategoria" class="form-control mt-2">
-                                                    <?php if ($_POST["buscacategoria"] != ''){ ?>
-                                                    <option value="<?php echo $_POST["buscacategoria"]; ?>"><?php echo $buscacategoria=$_POST["buscacategoria"]; ?></option>
-                                                    <?php } ?>
-                                                    <option value="Todos">Todos</option>
-                                                    <option value="radiología">radiología </option>
-                                                    <option value="Pediatria">Pediatria</option>
-                                                    <option value="Cardiología">Cardiología</option>
-                                            </select>
-                                    </div>
-                                    <div class=" col-lg-2 col-lg-offset-0 col-xs-12 col-xs-offset-0">
-                                            
-                                            <label  class="control-label">Fecha desde:</label>
-                                            <input type="date" id="buscafechadesde" name="buscafechadesde" class="form-control mt-2" value="<?php echo $buscafechadesde=$_POST["buscafechadesde"]; ?>" style="border: #bababa 1px solid; color:#0d87ac;">
-                                    </div>
-                                    <div class="col-lg-2 col-lg-offset-0 col-xs-12 col-xs-offset-0">
-                                            
-                                            <label  class="control-label">Fecha hasta:</label>
-                                            <input type="date" id="buscafechahasta" name="buscafechahasta" class="form-control mt-2" value="<?php echo $buscafechahasta=$_POST["buscafechahasta"]; ?>" style="border: #bababa 1px solid; color:#0d87ac;" >
-                                    </div>
-                                    <div class="col-lg-2 col-lg-offset-0 col-xs-12 col-xs-offset-0">
-                                    <label  class="control-label">Tipo de archivo</label>
-                                            <select id="subject-filter" id="tipo" name="tipo" class="form-control mt-2">
-                                                    <?php if ($_POST["tipo"] != ''){ ?>
-                                                    <option value="<?php echo $_POST["tipo"]; ?>"><?php echo $tipo=$_POST["tipo"]; ?></option>
-                                                    <?php } ?>
-                                                    <option value="Todos">Todos</option>
-                                                    <option value="pdf">PDF </option>
-                                                    <option value="mp4">Mp4</option>
-                                                    <option value="docx">DOCX</option>
-                                            </select>
-                                    </div>
-                            </div>
-                    </thead>
-            </table>
-    </div>
-    <div class="col-1">
-            <input type="submit" class="btn btn-success" value="Ver" style="margin-top: 38px;">
-    </div>
-
-</div>-->
-
-
-
-                <div class="col-md-2 col-sm-5">
-                    <div class="sidebar blog-sidebar">
-
-                        <!--<div class="sidebar-item categories">
-                            <h3>Especialidades</h3>
-                            <ul class="nav navbar-stacked">
-                                <li><a href="pediatria.php">Pediatria</a></li>
-                                <li class="active"><a href="Cardiologia.php">Cardiologia</a></li>
-                                <li><a href="cirugia_general.php">Cirugia general</a></li>
-                            </ul>
-                        </div>-->
-
+                        ?>
+                    
+                        
+                                
+                        <div class="col-lg-12 col-lg-offset-1 col-xs-12 col-xs-offset-0">
+                        
+                        <br>
+                        
+                        <h5 style="display: inline;"><?php echo (' <a href="memoriac.php?id='.$rowSql["id_public"].'" target="_blank"> '.$titulo_art. '</a>');?></h5>
+                        <br><h5 style="display: inline;">Autor: </h5> <?php echo '' . $nombre . " " . $apellido . '' ?><?php echo(' <a href="memoriac.php?id='.$rowSql["id_public"].'" target="_blank"> <i class="fa fa-external-link"></i></a>');?>
+                        <br>
+                        <h5 style="display: inline;">Tema:</h5> <?php echo $rowSql['espec_descripsion']; ?> &nbsp;&nbsp; <?php  if ($archivo2 != '') { echo ('<h5 style="display: inline;"><a href="php/' . $archivo2 . '"download="sistema-difucion-medica-conferencia"><i class="fa fa-download"></i></a></h5>'); }?> </h5><?php echo $fecha; ?>
+                        
                     </div>
-                </div>
+                        
+                        
+                        
+                        
                 
-                <div class="col-md-9 col-sm-7">
-                    
-                <?php
-                    include 'php/conexion.php';
-                    /*$espesicialidad =$_SESSION["s_espeme"];*/
-                    
-                    $inve = "SELECT inv_cientifica.id_inv,inv_cientifica.titulo_inv,inv_cientifica.autor_inv,inv_cientifica.resume_inv,inv_cientifica.introducion_inv,inv_cientifica.me_gusta_inv,
-                    inv_cientifica.pclave_inv,inv_cientifica.Antecedente_inv,DATE_FORMAT(inv_cientifica.fecha_inv,'%d/%m/%y') AS fecha,inv_cientifica.objetivoge_inv,inv_cientifica.objetivoes_inv,
-                    inv_cientifica.cotegoria_inv,medico.nombre_medico,medico.apellido_medico,especialidad.espec_descripsion FROM inv_cientifica,medico,especialidad WHERE inv_cientifica.id_medico_inv=medico.id_medico  AND inv_cientifica.estado='A' AND inv_cientifica.cotegoria_inv=especialidad.id_espec ORDER BY me_gusta_inv DESC";
-                    $inve2 = $mysqli->query($inve);
-                    while ($res = mysqli_fetch_array($inve2)) {
-                       /* $link_imagen = $res['link_imagen'];
-                        $video = $res['link_video'];
-                        $audio = $res['link_audio'];*/
-                        $fecha = $res['fecha'];
-                        $autor = $res['autor_inv'];
-                        $nombre = $res['nombre_medico'];
-                        $apellido = $res['apellido_medico'];
+               
+               <?php } ?>
 
-                    ?>
-                    <!--animacion js wow fadeInDowm de las inv_cientificaes-->
-                    <div class="wow fadeInDown">
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12">
-                                <div class="single-blog two-column">
-                                    <div class="post-thumb">
-                                        
+                
+                
+        
 
-
-                                        
-
-                                    </div>
-                                   
-
-                                    <div class="post-content overflow">
-                                        <h2><?php mostrar($res['titulo_inv']); ?></h2>
-                                        <?php echo '<h3 class="post-author"><a href="#">Publicador:' . $nombre . " " . $apellido . '</a></h3>' ?>
-                                        <h3>Resumen</h3>
-                                        <p><?php mostrar($res['resume_inv']); ?></p>
-                                        <?php echo("<p>Escrito por:$autor</p>");?>
-                                        <?php echo ("<h5>Publicado el: $fecha </h5>"); ?>
-                                        
-                                        <?php echo("<a href='con_cientifico.php?id=".$res["id_inv"]."' class='read-more'>ver Investigacion completa</a>");?>
-                                        
-                                        <div class="post-bottom overflow">
-                                            <ul class="nav navbar-nav post-nav">
-                                                <li>
-                                                    <h4><a href="#"><i
-                                                                class="fa fa-tag"></i><?php mostrar($res['espec_descripsion']); ?></a>
-                                                    </h4>
-                                                </li>
-                                                <li>
-                                                    <h4><a href="#"><i class="fa fa-tag"></i>Investigacion
-                                                            </a></h4>
-                                                </li>
-                                                <li>
-                                                    <h4><a href="#"><i class="fa fa-heart" aria-hidden="true"></i>Me gustas
-                                                            <?php mostrar($res['me_gusta_inv']); ?></a></h4>
-                                                </li>
-                                                <li>
-                                                    <h4><a href="#"><i class="fa fa-comments"></i>3 comentarios</a></h4>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <?php
-                    }
-                    ?>
-
-                    <?php
-                    include 'php/conexion.php';
-                    $public = "SELECT publicacion.id_public,publicacion.titulo_public,publicacion.text_public,publicacion.link_imagen,publicacion.link_video,
-                    publicacion.link_audio,publicacion.link_archivo,DATE_FORMAT(publicacion.fecha_public,'%d/%m/%y') AS fecha,publicacion.categoria_public,publicacion.me_gusta_pu,
-                    medico.nombre_medico,medico.apellido_medico,especialidad.espec_descripsion FROM publicacion,medico,especialidad WHERE publicacion.id_medico_pu=medico.id_medico  AND publicacion.estado='A' AND publicacion.categoria_public=especialidad.id_espec	  ORDER BY publicacion.me_gusta_pu DESC";
-                    $public2 = $mysqli->query($public);
-                    while ($res = mysqli_fetch_array($public2)) {
-                        $link_imagen = $res['link_imagen'];
-                        $video = $res['link_video'];
-                        $audio = $res['link_audio'];
-                        $fecha = $res['fecha'];
-                        $archivo = $res['link_archivo'];
-                        $nombre = $res['nombre_medico'];
-                        $apellido = $res['apellido_medico'];
-
-                    ?>
-                    <!--animacion js wow fadeInDowm de las publicaciones-->
-                    <div class="wow fadeInDown">
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12">
-                                <div class="single-blog two-column">
-                                    <div class="post-thumb">
-                                        <?php
-                                            if ($link_imagen != '') {
-                                                $elcha='\\';
-
-                                                echo ('<a href="blogdetails.html"><img src="php'.$elcha.'imagenes'.$elcha.''. $link_imagen . '" class="img-responsive" alt="">');
-                                                //echo ("<h4>$link_imagen </h4>");
-                                            } ?></a>
-                                        <?php
-                                            /*if ($video != '') {
-                                                echo ('<video width="820" height="420"  controls src="' . $video . '" frameborder="0"></video>');
-                                            } */?>
-
-
-                                        
-
-                                    </div>
-                                    <?php
-                                        /*
-                                        if ($audio != '') {
-                                            echo ('<audio src="' . $audio . '" preload="none" controls></audio>');
-                                            echo ("<h4> $fecha </h4>");
-                                        } */?>
-
-                                    <div class="post-content overflow">
-                                        <h2><?php mostrar($res['titulo_public']); ?></h2>
-                                        <?php echo '<h3 class="post-author"><a href="#">Autor:' . $nombre . " " . $apellido . '</a></h3>' ?>
-                                        <h3>Resumen</h3>
-                                        <p><?php mostrar($res['text_public']); ?></p>
-                                        <?php echo ("<h5>Publicado el: $fecha </h5>"); ?>
-                                        <?php echo("<a href='memoriac.php?id=".$res["id_public"]."' class='read-more'>ver publica completa</a>");?>
-                                        <br>
-                                        <br>
-                                        <?php
-                                            if ($archivo != '') {
-                                                echo ('<h4 class="post-author"><a href="php/' . $archivo . '"download="sistema-difucion-medica"><i class="fa fa-download"></i> Descargar Archivo</a></h4>');
-                                            }elseif ($video !=''){
-                                                echo ('<h4 class="post-author"><a href="php/' . $video . '"download="sistema-difucion-medica"><i class="fa fa-download"></i> Descargar Archivo</a></h4>');
-                                            }elseif ($audio !=''){
-                                                echo ('<h4 class="post-author"><a href="php/' . $audio . '"download="sistema-difucion-medica"><i class="fa fa-download"></i> Descargar Archivo</a></h4>');
-                                            } ?>
-                                        <div class="post-bottom overflow">
-                                            <ul class="nav navbar-nav post-nav">
-                                                <li>
-                                                    <h4><a href="#"><i
-                                                                class="fa fa-tag"></i><?php mostrar($res['espec_descripsion']); ?></a>
-                                                    </h4>
-                                                </li>
-                                                <li>
-                                                    <h4><a href="#"><i class="fa fa-heart" aria-hidden="true"></i>Me gustas
-                                                            <?php mostrar($res['me_gusta_pu']); ?></a></h4>
-                                                </li>
-                                                <li>
-                                                    <h4><a href="#"><i class="fa fa-comments"></i>3 comentarios</a></h4>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <?php
-                    }
-                    ?>
-                    
-                    <!--boton flotante donde esta los diferentes acciones -->
-                    <div class="con">
-                    <?php include_once "./php/boton_medico.php"; ?>
-                    </div>
-                    <!--*******************************************************-->
-                    <div class="blog-pagination">
-                        <ul class="pagination">
-                            <li><a href="#">left</a></li>
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">6</a></li>
-                            <li><a href="#">7</a></li>
-                            <li><a href="#">8</a></li>
-                            <li><a href="#">9</a></li>
-                            <li><a href="#">right</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
         </div>
-    </section>
+        <br>
+</div>
+                </main>
+
+
+
+                <!-- Articulos mas comentado -->
+                <br>
+                <br>
+                <br>    
+                <div style="background: #F1F1FF">
+        
+        <br>
+        <br>
+        <div class="container">
+        <?php 
+        /*FILTRO de busqueda////////////////////////////////////////////*/
+        $sql2=("SELECT publicacion.id_public,publicacion.titulo_public,publicacion.text_public,publicacion.link_imagen,publicacion.link_video,
+        publicacion.link_audio,publicacion.link_archivo,DATE_FORMAT(publicacion.fecha_public,'%d/%m/%y') AS fecha,publicacion.categoria_public,publicacion.me_gusta_pu,publicacion.referencia_pu,
+        medico.nombre_medico,medico.apellido_medico,especialidad.espec_descripsion FROM publicacion,medico,especialidad WHERE publicacion.id_medico_pu=medico.id_medico  AND publicacion.estado='A' AND publicacion.categoria_public=especialidad.id_espec ORDER BY publicacion.me_gusta_pu DESC LIMIT 0,10  ");
+        $sql= $mysqli->query($sql2);
+        //$numeroSql = mysqli_num_rows($sql);
+
+        ?>
+        
+
+
+
+
+
+
+    <h3><i class="fa fa-paragraph"></i> Artículo más comentado</h3>
+        
+               <main class="columno3">
+                <?php while ($rowSql = mysqli_fetch_assoc($sql)){ 
+                        
+                        //$link_imagen = $res['link_imagen'];
+                        $titulo_art = $rowSql['titulo_public'];
+                        $audio = $rowSql['link_audio'];
+                        $fecha = $rowSql['fecha'];
+                        $archivo2 = $rowSql['link_archivo'];
+                        $nombre = $rowSql['nombre_medico'];
+                        $apellido = $rowSql['apellido_medico'];
+
+                        ?>
+                    
+                        
+                                
+                        <div class="col-lg-12 col-lg-offset-1 col-xs-12 col-xs-offset-0">
+                        
+                        <br>
+                        
+                        <h5 style="display: inline;"><?php echo (' <a href="memoriac.php?id='.$rowSql["id_public"].'" target="_blank"> '.$titulo_art. '</a>');?></h5>
+                        <br><h5 style="display: inline;">Autor: </h5> <?php echo '' . $nombre . " " . $apellido . '' ?><?php echo(' <a href="memoriac.php?id='.$rowSql["id_public"].'" target="_blank"> <i class="fa fa-external-link"></i></a>');?>
+                        <br>
+                        <h5 style="display: inline;">Tema:</h5> <?php echo $rowSql['espec_descripsion']; ?> &nbsp;&nbsp; <?php  if ($archivo2 != '') { echo ('<h5 style="display: inline;"><a href="php/' . $archivo2 . '"download="sistema-difucion-medica-conferencia"><i class="fa fa-download"></i></a></h5>'); }?> </h5><?php echo $fecha; ?>
+                        
+                    </div>
+                        
+                        
+                        
+                        
+                
+               
+               <?php } ?>
+
+                
+                
+        
+
+        </div>
+        <br>
+</div>
+                </main>
+
+
+                
+                <!-- Articulos mas comentado -->
+                <br>
+                <br>
+                <br>    
+                <div style="background: #F1F1FF">
+        
+        <br>
+        <br>
+        <div class="container">
+                                
+                        <div class="col-lg-12 col-lg-offset-0 col-xs-12 col-xs-offset-0">
+                        
+                        <div class="inicio_ico">
+                                            <a href="dash_mante.php" class="fa fa-bar-chart" aria-hidden="true"></a>
+                                            <a href="#" class="fa fa-user-circle"></a>
+                                            <a href="#" class="fa fa-h-square" aria-hidden="true"></a>
+                                            
+                                            <a href="./contador/dashboard.php" class="fa fa-eye" aria-hidden="true"></a>
+                                        </div>
+                        
+                        
+                    </div>
+
+        </div>
+        <br>
+</div>
+                
+
+                    <div class="con">
+                        <?php include_once "./php/boton_medico.php"; ?>
+                    </div>
+    
+
+
     <!--/#blog-->
     <footer id="footer">
         <div class="container">

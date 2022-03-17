@@ -236,6 +236,9 @@
 main {
   column-count:2;
 }
+.columno3 {
+  column-count: 3;
+}
 
 
 .field-toggle{

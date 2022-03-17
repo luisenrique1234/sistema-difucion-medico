@@ -202,7 +202,7 @@ $buscarespec='Todos';
                         echo("<h4>$filtro</h4>");
                         }
 
-                    $espesicialidad =$_SESSION["s_espeme"];
+                    //$espesicialidad =$_SESSION["s_espeme"];
                     $public = "SELECT publicacion.id_public,publicacion.titulo_public,publicacion.text_public,publicacion.link_imagen,publicacion.link_video,
                     publicacion.link_audio,publicacion.link_archivo,DATE_FORMAT(publicacion.fecha_public,'%d/%m/%y') AS fecha,publicacion.categoria_public,publicacion.me_gusta_pu,publicacion.referencia_pu,
                     medico.nombre_medico,medico.apellido_medico,especialidad.espec_descripsion FROM publicacion,medico,especialidad WHERE publicacion.id_medico_pu=medico.id_medico  AND publicacion.estado='A' AND publicacion.categoria_public=especialidad.id_espec $filtro";
