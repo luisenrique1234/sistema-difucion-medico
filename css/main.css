@@ -239,7 +239,28 @@ main {
 .columno3 {
   column-count: 3;
 }
+.columna-perso{
+  column-count:2;
+  column-gap: 10px;
+}
 
+/*ultimos Ariulos*/
+.imag-ultim{
+  background-color: #F1F1F1;
+  box-shadow: 0 0 5px 5px #F1F1F1;
+}
+
+/* mas apollados*/
+.img-ap{
+  /*background: url(../images/errormedico.jpg);
+  position: relative;*/
+  background-image: url(../images/corazon-azul.png);
+  background-color: #F1F1F1;
+  background-repeat:no-repeat;
+  background-position-x:right;
+  background-position-y:center;
+  background-size: 30%;
+}
 
 .field-toggle{
   position: relative;
