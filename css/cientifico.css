@@ -2,16 +2,14 @@
     margin-top: 0px;
     max-width: 1085px;
     max-height: 3000px;
-    box-shadow: 0px 0px 2px 2px #0d87ac;
-    background-color: #e0f7ff;
+    box-shadow: 0px 0px 2px 2px #000000;
+    background-color: #f1f1f1;
     border-radius: 10px;    
 }
 
 #cienfico{
-    margin-top: 0px;
-    max-width: 795px;
-    max-height: 850px;
-    box-shadow: 0px 0px 2px 2px #0d87ac;
-    background-color: #e0f7ff;
-    border-radius: 10px;    
+    max-width: 2995px;
+    max-height: 19950px;
+    box-shadow: 0px 0px 2px 2px #000000;
+    background-color: #f1f1f1; 
 }

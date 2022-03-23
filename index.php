@@ -102,8 +102,8 @@ if ($_SESSION["s_medico"] === null ){
 
     <!--/#action-->
 
-    <div style="background: #F1F1F1">
-        <br>
+    <div style="background: #5783bc">
+    <br>
         <br>
         <br>
         <br>
@@ -113,11 +113,13 @@ if ($_SESSION["s_medico"] === null ){
         $sql2=("SELECT  conferencia.id_confe,conferencia.titulo_confe,conferencia.autores_confe,conferencia.material_confe,conferencia.fachainicio,conferencia.fechafinal,conferencia.categoria_confe,
         conferencia.etapa_confe,conferencia.visttas_confe,conferencia.link_confe,especialidad.espec_descripsion FROM conferencia,especialidad WHERE conferencia.categoria_confe=especialidad.id_espec  AND conferencia.estado='A'  ORDER BY conferencia.fachainicio DESC LIMIT 0,4  ");
         $sql= $mysqli->query($sql2);
-        $numeroSql = mysqli_num_rows($sql);
+        //$numeroSql = mysqli_num_rows($sql);
+
         ?>
-    <h3><i class="fa fa-stethoscope"></i> Últimas Conferencia</h3>
-        
-               <main>
+
+    <h3 class="text-muted"><i class="fa fa-stethoscope"></i> Últimas Conferencia</h3>
+    <br>
+               <main class="columno3">
                 <?php while ($rowSql = mysqli_fetch_assoc($sql)){ 
                         
                         $archivo= $rowSql["material_confe"];
@@ -128,15 +130,17 @@ if ($_SESSION["s_medico"] === null ){
                         $fecha3=$rowSql["fechafinal"];
                         $final = date_create($fecha3)->format('d/m/y  g:iA');
                         ?>
-                        <div class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0">
-                        
+                                
+                        <div class="col-lg-7 col-lg-offset-1 col-xs-12 col-xs-offset-0">
+                            <div class="imag-ultim text-center">
+                        <img src="images/uni-medico2.jpg"  width="175" height="90">
                         <br>
-                        
-                        <h5 style="display: inline;"><?php echo (' <a href="'.$link_reunion.'" target="_blank"> '.$titulo_con. '</a>');?></h5>
-                        <br><h5 style="display: inline;">Por:</h5> <?php echo substr($rowSql["autores_confe"],0,40); ?><?php echo(' <a href="'.$link_reunion.'" target="_blank"> <i class="fa fa-external-link"></i></a>');?>
+                        <h4 style="display: inline;"><?php echo (' <a href="'.$rowSql["link_confe"].'" target="_blank"> '.$titulo_con. '</a>');?></h4>
+                        <br><h5 style="display: inline;">Autor: </h5> <?php echo substr($rowSql["autores_confe"],0,40); ?><?php echo(' <a href="'.$rowSql["link_confe"].'" target="_blank"> <i class="fa fa-external-link"></i></a>');?>
                         <br>
-                        <h5 style="display: inline;">Especialidad:</h5> <?php echo $rowSql["espec_descripsion"]; ?> &nbsp;&nbsp; <?php  if ($archivo != '') { echo ('<h5 style="display: inline;"><a href="php/' . $archivo . '"download="sistema-difucion-medica-conferencia"><i class="fa fa-download"></i></a></h5>'); }?> </h5><?php echo $inicial; ?>
-                        
+                        <h5 style="display: inline;">Tema:</h5> <?php echo $rowSql['espec_descripsion']; ?> &nbsp;&nbsp; <?php  if ($archivo != '') { echo ('<h5 style="display: inline;"><a href="php/' . $archivo . '"download="sistema-difucion-medica-conferencia"><i class="fa fa-download"></i></a></h5>'); }?> </h5><?php echo $inicial; ?>
+                        </div>
+                        <br>
                     </div>
                <?php } ?>
         </div>
@@ -144,7 +148,7 @@ if ($_SESSION["s_medico"] === null ){
 </div>
                 </main>
 
-                <div style="background: #20558A">
+                <div class="">
         
         <br>
         <br>
@@ -156,12 +160,10 @@ if ($_SESSION["s_medico"] === null ){
         medico.nombre_medico,medico.apellido_medico,especialidad.espec_descripsion FROM publicacion,medico,especialidad WHERE publicacion.id_medico_pu=medico.id_medico  AND publicacion.estado='A' AND publicacion.categoria_public=especialidad.id_espec ORDER BY publicacion.fecha_public DESC LIMIT 0,6  ");
         $sql= $mysqli->query($sql2);
         //$numeroSql = mysqli_num_rows($sql);
-
         ?>
-
-    <h3 class="text-muted"><i class="fa fa-stethoscope"></i> Últimos Artículas</h3>
-    <br>
-               <main class="columno3">
+    <h3><i class="fa fa-stethoscope"></i> Últimos Artículos</h3>
+        
+               <main class="columna-perso">
                 <?php while ($rowSql = mysqli_fetch_assoc($sql)){ 
                         
                         //$link_imagen = $res['link_imagen'];
@@ -173,22 +175,24 @@ if ($_SESSION["s_medico"] === null ){
                         $apellido = $rowSql['apellido_medico'];
                         ?>
                                 
-                        <div class="col-lg-7 col-lg-offset-1 col-xs-12 col-xs-offset-0">
-                            <div class="imag-ultim text-center">
-                        <img src="images/uni-medico2.jpg"  width="175" height="90">
+                        <div class="col-lg-6 col-lg-offset-1 col-xs-12 col-xs-offset-0">
+                        
                         <br>
-                        <h5 style="display: inline;"><?php echo (' <a href="memoriac.php?id='.$rowSql["id_public"].'" target="_blank"> '.$titulo_art. '</a>');?></h5>
+                        
+                        <h4 style="display: inline;"><?php echo (' <a href="memoriac.php?id='.$rowSql["id_public"].'" target="_blank"> '.$titulo_art. '</a>');?></h4>
                         <br><h5 style="display: inline;">Autor: </h5> <?php echo '' . $nombre . " " . $apellido . '' ?><?php echo(' <a href="memoriac.php?id='.$rowSql["id_public"].'" target="_blank"> <i class="fa fa-external-link"></i></a>');?>
                         <br>
                         <h5 style="display: inline;">Tema:</h5> <?php echo $rowSql['espec_descripsion']; ?> &nbsp;&nbsp; <?php  if ($archivo2 != '') { echo ('<h5 style="display: inline;"><a href="php/' . $archivo2 . '"download="sistema-difucion-medica-conferencia"><i class="fa fa-download"></i></a></h5>'); }?> </h5><?php echo $fecha; ?>
-                        </div>
-                        <br>
+                        
                     </div>
+               
                <?php } ?>
         </div>
         <br>
-</div>
+                    </div>
                 </main>
+
+                
 
                 <!-- Articulos con mas me gusta -->   
                 <div class="img-ap">
@@ -235,16 +239,15 @@ if ($_SESSION["s_medico"] === null ){
                     </div>
                 </main>
                 <!-- Articulos mas comentado -->    
-                <div style="background: #F1F1FF">
+                <div class="img-comen">
         
-        <br>
         <br>
         <div class="container">
         <?php 
         /*FILTRO de busqueda////////////////////////////////////////////*/
         $sql2=("SELECT publicacion.id_public,publicacion.titulo_public,publicacion.text_public,publicacion.link_imagen,publicacion.link_video,
         publicacion.link_audio,publicacion.link_archivo,DATE_FORMAT(publicacion.fecha_public,'%d/%m/%y') AS fecha,publicacion.categoria_public,publicacion.me_gusta_pu,publicacion.referencia_pu,
-        medico.nombre_medico,medico.apellido_medico,especialidad.espec_descripsion FROM publicacion,medico,especialidad WHERE publicacion.id_medico_pu=medico.id_medico  AND publicacion.estado='A' AND publicacion.categoria_public=especialidad.id_espec ORDER BY publicacion.me_gusta_pu DESC LIMIT 0,10  ");
+        medico.nombre_medico,medico.apellido_medico,especialidad.espec_descripsion FROM publicacion,medico,especialidad WHERE publicacion.id_medico_pu=medico.id_medico  AND publicacion.estado='A' AND publicacion.categoria_public=especialidad.id_espec ORDER BY publicacion.me_gusta_pu DESC LIMIT 0,6  ");
         $sql= $mysqli->query($sql2);
         //$numeroSql = mysqli_num_rows($sql);
 
@@ -252,7 +255,7 @@ if ($_SESSION["s_medico"] === null ){
 
     <h3><i class="fa fa-stethoscope"></i> Artículo más comentado</h3>
         
-               <main class="columno3">
+               <main class="columna-perso">
                 <?php while ($rowSql = mysqli_fetch_assoc($sql)){ 
                         
                         //$link_imagen = $res['link_imagen'];
@@ -264,7 +267,7 @@ if ($_SESSION["s_medico"] === null ){
                         $apellido = $rowSql['apellido_medico'];
                         ?>
                                 
-                        <div class="col-lg-12 col-lg-offset-1 col-xs-12 col-xs-offset-0">
+                        <div class="col-lg-6 col-lg-offset-4 col-xs-12 col-xs-offset-0">
                         
                         <br>
                         
@@ -280,8 +283,8 @@ if ($_SESSION["s_medico"] === null ){
 </div>
                 </main>
                 
-                <!-- Articulos mas comentado -->   
-                <div style="background: #FFF1FF">
+                <!-- iconos inferiores -->   
+                <div style="background: #F1F1F1">
         
         <br>
         <br>

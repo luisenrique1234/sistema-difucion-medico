@@ -208,6 +208,14 @@
   right: 31px;
   margin-top: 0px;
 }
+
+/*pruva cacelar*/
+.cancelar{
+  position: relative;
+  left: 70;
+  margin-top: -55px;
+}
+
 .label_bus{
   position: relative;
   right: 83px;
@@ -260,6 +268,18 @@ main {
   background-position-x:right;
   background-position-y:center;
   background-size: 30%;
+}
+
+/*articulos mas comentado*/
+.img-comen{
+  /*background: url(../images/errormedico.jpg);
+  position: relative;*/
+  background-image: url(../images/comentario3.png);
+  background-color: white;
+  background-repeat:no-repeat;
+  background-position-x:left;
+  background-position-y:center;
+  background-size: 20%;
 }
 
 .field-toggle{
