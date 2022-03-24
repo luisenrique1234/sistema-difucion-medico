@@ -242,13 +242,13 @@
 /* columnas de inicio*/
 
 main {
-  column-count:2;
+  column-count:3;
 }
 .columno3 {
-  column-count: 3;
+  column-count: 4;
 }
 .columna-perso{
-  column-count:2;
+  column-count:4;
   column-gap: 10px;
 }
 
@@ -258,29 +258,25 @@ main {
   box-shadow: 0 0 5px 5px #F1F1F1;
 }
 
-/* mas apollados*/
+/* mas apollados
 .img-ap{
-  /*background: url(../images/errormedico.jpg);
-  position: relative;*/
   background-image: url(../images/corazon-azul.png);
   background-color: #F1F1F1;
   background-repeat:no-repeat;
   background-position-x:right;
   background-position-y:center;
   background-size: 30%;
-}
+}*/
 
-/*articulos mas comentado*/
+/*articulos mas comentado
 .img-comen{
-  /*background: url(../images/errormedico.jpg);
-  position: relative;*/
   background-image: url(../images/comentario3.png);
   background-color: white;
   background-repeat:no-repeat;
   background-position-x:left;
   background-position-y:center;
   background-size: 20%;
-}
+}*/
 
 .field-toggle{
   position: relative;

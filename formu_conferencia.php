@@ -75,20 +75,6 @@ if ($_SESSION["s_medico"] === null){
     <section  class="padding-top">
         <div class="container">
             <div>
-
-                <!--<div id="noticia"  class="col-md-3 col-sm-5">
-                    <div class="sidebar blog-sidebar">
-                        <div class="sidebar-item categories">
-                            <h3>Especialidades</h3>
-                            <ul class="nav navbar-stacked">
-                                <li><a href="#">Pediatria</a></li>
-                                <li class="active"><a href="#">Cardiologia</a></li>
-                                <li><a href="#">Cirugia general</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>-->
-
                 <div>
                 <div id="cienfico" class="col-md-12 col-sm-7">
                     <div class="col-md-12 col-sm-7">
@@ -146,7 +132,7 @@ if ($_SESSION["s_medico"] === null){
                                                     <div class="form-group">
                                                         <label class="control-label"><i class="fa fa-users"></i> Participantes</label>
                                                         <textarea name="parti" id="parti" required="required"
-                                                            class="form-control" rows="4"
+                                                            class="form-control" rows="3"
                                                             placeholder="Participantes"></textarea>
                                                     </div>
                                                 </div>
@@ -175,7 +161,7 @@ if ($_SESSION["s_medico"] === null){
                                                 </div>
                                                 <!-- parte que ocupada la pantalla completa -->
                                                 <div
-                                                    class="col-sm-6 col-sm-offset-6 col-lg-4 col-lg-offset-3 col-xs-12 col-xs-offset-0">
+                                                    class="col-sm-6 col-sm-offset-6 col-lg-4 col-lg-offset-4 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
                                                         <br>
                                                         <input type="submit" value="Programar" class="btn btn-submit">
@@ -185,7 +171,7 @@ if ($_SESSION["s_medico"] === null){
                                                 
                                     </form>
                                 
-                            <div class="cancelar col-sm-6 col-sm-offset-6 col-lg-7 col-lg-offset-7 col-xs-12 col-xs-offset-12">
+                            <div class="cancelar col-sm-6 col-sm-offset-6 col-lg-7 col-lg-offset-8 col-xs-12 col-xs-offset-12">
                                     <a href="mis_conferencia.php" class="btn btn-danger">Cancelar</a>
                                 </div>
                                 </div>

@@ -38,15 +38,14 @@ if ($_SESSION["s_medico"] === null ){
     <link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <link href="css/dark.css" rel="stylesheet">
-
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <link rel="stylesheet" href="css/boton.css">
     <link rel="stylesheet" href="css/inicio_ico.css">
+
     <!--<script src="./contador.js"></script>-->
-    <!--Icon-Font-->
+    <!--Icon-Font
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>-->
 
     <!--[if lt IE 9]>
 	    <script src="js/html5shiv.js"></script>
@@ -111,44 +110,49 @@ if ($_SESSION["s_medico"] === null ){
         <?php 
         /*FILTRO de busqueda////////////////////////////////////////////*/
         $sql2=("SELECT  conferencia.id_confe,conferencia.titulo_confe,conferencia.autores_confe,conferencia.material_confe,conferencia.fachainicio,conferencia.fechafinal,conferencia.categoria_confe,
-        conferencia.etapa_confe,conferencia.visttas_confe,conferencia.link_confe,especialidad.espec_descripsion FROM conferencia,especialidad WHERE conferencia.categoria_confe=especialidad.id_espec  AND conferencia.estado='A'  ORDER BY conferencia.fachainicio DESC LIMIT 0,4  ");
+        conferencia.etapa_confe,conferencia.visttas_confe,conferencia.link_confe,especialidad.espec_descripsion FROM conferencia,especialidad WHERE conferencia.categoria_confe=especialidad.id_espec  AND conferencia.estado='A'  ORDER BY conferencia.fachainicio DESC LIMIT 0,12  ");
         $sql= $mysqli->query($sql2);
         //$numeroSql = mysqli_num_rows($sql);
 
         ?>
 
-    <h3 class="text-muted"><i class="fa fa-stethoscope"></i> Últimas Conferencia</h3>
+    <h3 class="text-muted"><i class="fa fa-youtube-play"></i> Últimas Conferencia</h3>
     <br>
-               <main class="columno3">
+               <main>
                 <?php while ($rowSql = mysqli_fetch_assoc($sql)){ 
                         
                         $archivo= $rowSql["material_confe"];
-                        $link_reunion=$rowSql["link_confe"];
-                        $titulo_con=$rowSql["titulo_confe"];
+                        $link_reunion= $rowSql["link_confe"];
+                        $titulo_con=substr($rowSql["titulo_confe"],0,30);
                         $fecha2=$rowSql["fachainicio"];
                         $inicial = date_create($fecha2)->format('d/m/y  g:iA');
                         $fecha3=$rowSql["fechafinal"];
                         $final = date_create($fecha3)->format('d/m/y  g:iA');
                         ?>
-                                
+                               <table>
+
                         <div class="col-lg-7 col-lg-offset-1 col-xs-12 col-xs-offset-0">
+                            <tr>
+                                <th>
                             <div class="imag-ultim text-center">
-                        <img src="images/uni-medico2.jpg"  width="175" height="90">
+                        <img src="images/play4.png"  width="75" height="75">
                         <br>
                         <h4 style="display: inline;"><?php echo (' <a href="'.$rowSql["link_confe"].'" target="_blank"> '.$titulo_con. '</a>');?></h4>
-                        <br><h5 style="display: inline;">Autor: </h5> <?php echo substr($rowSql["autores_confe"],0,40); ?><?php echo(' <a href="'.$rowSql["link_confe"].'" target="_blank"> <i class="fa fa-external-link"></i></a>');?>
+                        <br><h5 style="display: inline;">Autor: </h5> <?php echo substr($rowSql["autores_confe"],0,25); ?><?php echo(' <a href="'.$rowSql["link_confe"].'" target="_blank"> <i class="fa fa-external-link"></i></a>');?>
                         <br>
                         <h5 style="display: inline;">Tema:</h5> <?php echo $rowSql['espec_descripsion']; ?> &nbsp;&nbsp; <?php  if ($archivo != '') { echo ('<h5 style="display: inline;"><a href="php/' . $archivo . '"download="sistema-difucion-medica-conferencia"><i class="fa fa-download"></i></a></h5>'); }?> </h5><?php echo $inicial; ?>
                         </div>
+                        </th>
+                        </tr>
                         <br>
                     </div>
+                </table>
+                
                <?php } ?>
         </div>
         <br>
 </div>
                 </main>
-
-                <div class="">
         
         <br>
         <br>
@@ -157,46 +161,48 @@ if ($_SESSION["s_medico"] === null ){
         /*FILTRO de busqueda////////////////////////////////////////////*/
         $sql2=("SELECT publicacion.id_public,publicacion.titulo_public,publicacion.text_public,publicacion.link_imagen,publicacion.link_video,
         publicacion.link_audio,publicacion.link_archivo,DATE_FORMAT(publicacion.fecha_public,'%d/%m/%y') AS fecha,publicacion.categoria_public,publicacion.me_gusta_pu,publicacion.referencia_pu,
-        medico.nombre_medico,medico.apellido_medico,especialidad.espec_descripsion FROM publicacion,medico,especialidad WHERE publicacion.id_medico_pu=medico.id_medico  AND publicacion.estado='A' AND publicacion.categoria_public=especialidad.id_espec ORDER BY publicacion.fecha_public DESC LIMIT 0,6  ");
+        medico.nombre_medico,medico.apellido_medico,especialidad.espec_descripsion FROM publicacion,medico,especialidad WHERE publicacion.id_medico_pu=medico.id_medico  AND publicacion.estado='A' AND publicacion.categoria_public=especialidad.id_espec ORDER BY publicacion.fecha_public DESC LIMIT 0,8  ");
         $sql= $mysqli->query($sql2);
         //$numeroSql = mysqli_num_rows($sql);
         ?>
-    <h3><i class="fa fa-stethoscope"></i> Últimos Artículos</h3>
+    <h3><i class="fa fa-hourglass-end"></i> Últimos Artículos</h3>
         
-               <main class="columna-perso">
+               <div class="columno3">
                 <?php while ($rowSql = mysqli_fetch_assoc($sql)){ 
                         
                         //$link_imagen = $res['link_imagen'];
-                        $titulo_art = $rowSql['titulo_public'];
+                        $titulo_art = substr($rowSql['titulo_public'],0,30);
                         $audio = $rowSql['link_audio'];
                         $fecha = $rowSql['fecha'];
                         $archivo2 = $rowSql['link_archivo'];
                         $nombre = $rowSql['nombre_medico'];
                         $apellido = $rowSql['apellido_medico'];
                         ?>
+                        <table>
                                 
-                        <div class="col-lg-6 col-lg-offset-1 col-xs-12 col-xs-offset-0">
+                        <div class="col-lg-12 col-lg-offset-1 col-xs-12 col-xs-offset-0">
                         
-                        <br>
                         
-                        <h4 style="display: inline;"><?php echo (' <a href="memoriac.php?id='.$rowSql["id_public"].'" target="_blank"> '.$titulo_art. '</a>');?></h4>
-                        <br><h5 style="display: inline;">Autor: </h5> <?php echo '' . $nombre . " " . $apellido . '' ?><?php echo(' <a href="memoriac.php?id='.$rowSql["id_public"].'" target="_blank"> <i class="fa fa-external-link"></i></a>');?>
+                        <tr>
+                        <th>
+                        <h4><?php echo (' <a href="memoriac.php?id='.$rowSql["id_public"].'" target="_blank"> '.$titulo_art. '</a>');?></h4>
+                        <h5 style="display: inline;">Autor: </h5> <?php echo '' . $nombre . " " . $apellido . '' ?><?php echo(' <a href="memoriac.php?id='.$rowSql["id_public"].'" target="_blank"> <i class="fa fa-external-link"></i></a>');?>
                         <br>
                         <h5 style="display: inline;">Tema:</h5> <?php echo $rowSql['espec_descripsion']; ?> &nbsp;&nbsp; <?php  if ($archivo2 != '') { echo ('<h5 style="display: inline;"><a href="php/' . $archivo2 . '"download="sistema-difucion-medica-conferencia"><i class="fa fa-download"></i></a></h5>'); }?> </h5><?php echo $fecha; ?>
-                        
+                        </th>
+                        </tr>
                     </div>
-               
+                        </table>
                <?php } ?>
         </div>
         <br>
-                    </div>
-                </main>
+                    
+        </div>
 
                 
 
                 <!-- Articulos con mas me gusta -->   
-                <div class="img-ap">
-        
+                <div style="background: #F1F1F1">
         <br>
         <br>
         <div class="container">
@@ -204,17 +210,17 @@ if ($_SESSION["s_medico"] === null ){
         /*FILTRO de busqueda////////////////////////////////////////////*/
         $sql2=("SELECT publicacion.id_public,publicacion.titulo_public,publicacion.text_public,publicacion.link_imagen,publicacion.link_video,
         publicacion.link_audio,publicacion.link_archivo,DATE_FORMAT(publicacion.fecha_public,'%d/%m/%y') AS fecha,publicacion.categoria_public,publicacion.me_gusta_pu,publicacion.referencia_pu,
-        medico.nombre_medico,medico.apellido_medico,especialidad.espec_descripsion FROM publicacion,medico,especialidad WHERE publicacion.id_medico_pu=medico.id_medico  AND publicacion.estado='A' AND publicacion.categoria_public=especialidad.id_espec ORDER BY publicacion.me_gusta_pu DESC LIMIT 0,6  ");
+        medico.nombre_medico,medico.apellido_medico,especialidad.espec_descripsion FROM publicacion,medico,especialidad WHERE publicacion.id_medico_pu=medico.id_medico  AND publicacion.estado='A' AND publicacion.categoria_public=especialidad.id_espec ORDER BY publicacion.me_gusta_pu DESC LIMIT 0,8  ");
         $sql= $mysqli->query($sql2);
         //$numeroSql = mysqli_num_rows($sql);
         ?>
-    <h3><i class="fa fa-stethoscope"></i> Artículo más apollados</h3>
+    <h3><i class="fa fa-heartbeat"></i> Artículo más apollados</h3>
         
                <main class="columna-perso">
                 <?php while ($rowSql = mysqli_fetch_assoc($sql)){ 
                         
                         //$link_imagen = $res['link_imagen'];
-                        $titulo_art = $rowSql['titulo_public'];
+                        $titulo_art = substr($rowSql['titulo_public'],0,30);
                         $audio = $rowSql['link_audio'];
                         $fecha = $rowSql['fecha'];
                         $archivo2 = $rowSql['link_archivo'];
@@ -222,24 +228,28 @@ if ($_SESSION["s_medico"] === null ){
                         $apellido = $rowSql['apellido_medico'];
                         ?>
                                 
-                        <div class="col-lg-6 col-lg-offset-1 col-xs-12 col-xs-offset-0">
-                        
-                        <br>
-                        
-                        <h5 style="display: inline;"><?php echo (' <a href="memoriac.php?id='.$rowSql["id_public"].'" target="_blank"> '.$titulo_art. '</a>');?></h5>
-                        <br><h5 style="display: inline;">Autor: </h5> <?php echo '' . $nombre . " " . $apellido . '' ?><?php echo(' <a href="memoriac.php?id='.$rowSql["id_public"].'" target="_blank"> <i class="fa fa-external-link"></i></a>');?>
-                        <br>
-                        <h5 style="display: inline;">Tema:</h5> <?php echo $rowSql['espec_descripsion']; ?> &nbsp;&nbsp; <?php  if ($archivo2 != '') { echo ('<h5 style="display: inline;"><a href="php/' . $archivo2 . '"download="sistema-difucion-medica-conferencia"><i class="fa fa-download"></i></a></h5>'); }?> </h5><?php echo $fecha; ?>
-                        
-                    </div>
+                                <table>
+                                
+                                <div class="col-lg-12 col-lg-offset-1 col-xs-12 col-xs-offset-0">
+                                
+                                
+                                <tr>
+                                <th>
+                                <h4><?php echo (' <a href="memoriac.php?id='.$rowSql["id_public"].'" target="_blank"> '.$titulo_art. '</a>');?></h4>
+                                <h5 style="display: inline;">Autor: </h5> <?php echo '' . $nombre . " " . $apellido . '' ?><?php echo(' <a href="memoriac.php?id='.$rowSql["id_public"].'" target="_blank"> <i class="fa fa-external-link"></i></a>');?>
+                                <br>
+                                <h5 style="display: inline;">Tema:</h5> <?php echo $rowSql['espec_descripsion']; ?> &nbsp;&nbsp; <?php  if ($archivo2 != '') { echo ('<h5 style="display: inline;"><a href="php/' . $archivo2 . '"download="sistema-difucion-medica-conferencia"><i class="fa fa-download"></i></a></h5>'); }?> </h5><?php echo $fecha; ?>
+                                </th>
+                                </tr>
+                            </div>
+                                </table>
                
                <?php } ?>
         </div>
         <br>
-                    </div>
+                </div>
                 </main>
-                <!-- Articulos mas comentado -->    
-                <div class="img-comen">
+                <!-- Articulos mas comentado -->
         
         <br>
         <div class="container">
@@ -247,19 +257,19 @@ if ($_SESSION["s_medico"] === null ){
         /*FILTRO de busqueda////////////////////////////////////////////*/
         $sql2=("SELECT publicacion.id_public,publicacion.titulo_public,publicacion.text_public,publicacion.link_imagen,publicacion.link_video,
         publicacion.link_audio,publicacion.link_archivo,DATE_FORMAT(publicacion.fecha_public,'%d/%m/%y') AS fecha,publicacion.categoria_public,publicacion.me_gusta_pu,publicacion.referencia_pu,
-        medico.nombre_medico,medico.apellido_medico,especialidad.espec_descripsion FROM publicacion,medico,especialidad WHERE publicacion.id_medico_pu=medico.id_medico  AND publicacion.estado='A' AND publicacion.categoria_public=especialidad.id_espec ORDER BY publicacion.me_gusta_pu DESC LIMIT 0,6  ");
+        medico.nombre_medico,medico.apellido_medico,especialidad.espec_descripsion FROM publicacion,medico,especialidad WHERE publicacion.id_medico_pu=medico.id_medico  AND publicacion.estado='A' AND publicacion.categoria_public=especialidad.id_espec ORDER BY publicacion.me_gusta_pu DESC LIMIT 0,8  ");
         $sql= $mysqli->query($sql2);
         //$numeroSql = mysqli_num_rows($sql);
 
         ?>
 
-    <h3><i class="fa fa-stethoscope"></i> Artículo más comentado</h3>
+    <h3><i class="fa fa-comments"></i> Artículo más comentado</h3>
         
                <main class="columna-perso">
                 <?php while ($rowSql = mysqli_fetch_assoc($sql)){ 
                         
                         //$link_imagen = $res['link_imagen'];
-                        $titulo_art = $rowSql['titulo_public'];
+                        $titulo_art = substr($rowSql['titulo_public'],0,30);
                         $audio = $rowSql['link_audio'];
                         $fecha = $rowSql['fecha'];
                         $archivo2 = $rowSql['link_archivo'];
@@ -267,20 +277,24 @@ if ($_SESSION["s_medico"] === null ){
                         $apellido = $rowSql['apellido_medico'];
                         ?>
                                 
-                        <div class="col-lg-6 col-lg-offset-4 col-xs-12 col-xs-offset-0">
-                        
-                        <br>
-                        
-                        <h5 style="display: inline;"><?php echo (' <a href="memoriac.php?id='.$rowSql["id_public"].'" target="_blank"> '.$titulo_art. '</a>');?></h5>
-                        <br><h5 style="display: inline;">Autor: </h5> <?php echo '' . $nombre . " " . $apellido . '' ?><?php echo(' <a href="memoriac.php?id='.$rowSql["id_public"].'" target="_blank"> <i class="fa fa-external-link"></i></a>');?>
-                        <br>
-                        <h5 style="display: inline;">Tema:</h5> <?php echo $rowSql['espec_descripsion']; ?> &nbsp;&nbsp; <?php  if ($archivo2 != '') { echo ('<h5 style="display: inline;"><a href="php/' . $archivo2 . '"download="sistema-difucion-medica-conferencia"><i class="fa fa-download"></i></a></h5>'); }?> </h5><?php echo $fecha; ?>
-                        
-                    </div>
+                                <table>
+                                
+                                <div class="col-lg-12 col-lg-offset-1 col-xs-12 col-xs-offset-0">
+                                
+                                
+                                <tr>
+                                <th>
+                                <h4><?php echo (' <a href="memoriac.php?id='.$rowSql["id_public"].'" target="_blank"> '.$titulo_art. '</a>');?></h4>
+                                <h5 style="display: inline;">Autor: </h5> <?php echo '' . $nombre . " " . $apellido . '' ?><?php echo(' <a href="memoriac.php?id='.$rowSql["id_public"].'" target="_blank"> <i class="fa fa-external-link"></i></a>');?>
+                                <br>
+                                <h5 style="display: inline;">Tema:</h5> <?php echo $rowSql['espec_descripsion']; ?> &nbsp;&nbsp; <?php  if ($archivo2 != '') { echo ('<h5 style="display: inline;"><a href="php/' . $archivo2 . '"download="sistema-difucion-medica-conferencia"><i class="fa fa-download"></i></a></h5>'); }?> </h5><?php echo $fecha; ?>
+                                </th>
+                                </tr>
+                            </div>
+                                </table>
                <?php } ?>
         </div>
         <br>
-</div>
                 </main>
                 
                 <!-- iconos inferiores -->   
@@ -293,7 +307,7 @@ if ($_SESSION["s_medico"] === null ){
                         <div class="col-lg-12 col-lg-offset-0 col-xs-12 col-xs-offset-0">
                         
                         <div class="inicio_ico">
-                                            <a href="dash_mante.php" class="fa fa-bar-chart" aria-hidden="true"></a>
+                                            <a href="graficosme.php" class="fa fa-bar-chart" aria-hidden="true"></a>
                                             <a href="#" class="fa fa-user-circle"></a>
                                             <a href="#" class="fa fa-h-square" aria-hidden="true"></a>
                                             
@@ -329,6 +343,10 @@ if ($_SESSION["s_medico"] === null ){
     <script type="text/javascript" src="js/medico_alerta.js"></script>
     <!--LUgar donde esta el ativador del modo oscuro -->
     <script type="text/javascript" src="js/temad.js"></script>
+    <!-- archivos descargado de CDN sweetalert2 icon fontawesome y jquery 3 6 0 -->
+    <script type="text/javascript" src="js/sweetalert2@11.js"></script>
+    <script type="text/javascript" src="js/fontawesome.js"></script>
+    <script type="text/javascript" src="js/code-jquery-3-6-0.js"></script>
 </body>
 
 </html>

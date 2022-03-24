@@ -42,14 +42,15 @@ $buscarespec='Todos';
     <link href="css/responsive.css" rel="stylesheet">
     <link href="css/dark.css" rel="stylesheet">
 
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
 
     <link rel="stylesheet" href="css/boton.css">
-    <!--<script src="./contador.js"></script>-->
-    <!--Icon-Font-->
+    <!--<script src="./contador.js"></script>
+    Icon-Font
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>-->
 
     <!--[if lt IE 9]>
 	    <script src="js/html5shiv.js"></script>
@@ -78,7 +79,7 @@ $buscarespec='Todos';
                 <div class="fom_buscar">
                     <br>
                     <br>
-                <br>
+<h3 class="col-lg-5 col-lg-offset-5 col-xs-12 col-xs-offset-0">Artículos</h3>
                 <form id="form2" name="form2" method="POST" action="articulo_cien.php">
                     <div>
                         <table class="table">
@@ -340,6 +341,10 @@ $buscarespec='Todos';
     <script type="text/javascript" src="js/medico_alerta.js"></script>
     <!--LUgar donde esta el ativador del modo oscuro -->
     <script type="text/javascript" src="js/temad.js"></script>
+    <!-- archivos descargado de CDN sweetalert2 icon fontawesome y jquery 3 6 0 -->
+    <script type="text/javascript" src="js/sweetalert2@11.js"></script>
+    <script type="text/javascript" src="js/fontawesome.js"></script>
+    <script type="text/javascript" src="js/code-jquery-3-6-0.js"></script>
 </body>
 
 </html>
