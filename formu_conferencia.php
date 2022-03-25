@@ -47,12 +47,8 @@ if ($_SESSION["s_medico"] === null){
 	    <script src="js/respond.min.js"></script>
     <![endif]-->
     <link rel="shortcut icon" href="images/ico/ico.png">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/ico.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/ico.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/ico.png">
-    <link rel="apple-touch-icon-precomposed" href="images/ico/ico.png">
 </head>
-<body class="dark wow fadeInDown">
+<body class="dark wow fadeInDown" style="background: #F1F1F1">
 
 <?php include_once "./php/menu.php"; ?>
     <!--/#header-->
@@ -72,47 +68,45 @@ if ($_SESSION["s_medico"] === null){
         </div>
     </section>-->
     <!--/#action-->
-    <section  class="padding-top">
-        <div class="container">
-            <div>
+    <section   class="padding-top">
+        <div style="display: flex; justify-content: center; width: 100%;">
+        <div style="width: 50%;">
                 <div>
-                <div id="cienfico" class="col-md-12 col-sm-7">
-                    <div class="col-md-12 col-sm-7">
-                        <div class="post-thumb">
+                    <div>
+                        <div id="cienfico" class="post-thumb">
                             <div class="panel-dafault" style="margin-top: 12px">
                                 <!--panel de crear -->
-                                <div  class="panel-heading">
+                                <div >
                                     <form action="php/conferencia_regi.php?accion=INSCON" method="POST" enctype="multipart/form-data">
-                                        <div class="row">
+                                        
                                             <div >
-                                                <div class="text-center col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0">
-                                               <h1 class="title">Formulario de Conferencia</h1>
-                                                <br>
+                                                <div style="margin-bottom: 2rem;" class=" text-center  col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0">
+                                               <h1 class="title">Crear Conferencia</h1>
                                                 </div>
                                                 
-                                                <div class="col-md-3 col-md-offset-3 col-sm-4 col-sm-offset-2">
+                                                <div class="col-md-5 col-md-offset-1 col-sm-4 col-sm-offset-2">
                                                     <div class="form-group">
                                                         <label class="control-label"><i class="fa fa-header"></i> Titulo de la conferencia<span
                                                                 style="color: #20558A">*</span></label>
                                                         <input type="text" name="titulo" required="required"
-                                                            placeholder="Titulo" class="form-control">
+                                                            placeholder="Mí conferencia" class="form-control">
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-3 col-md-offset-0 col-sm-4 col-sm-offset-2">
+                                                <div class="col-md-5 col-md-offset-0 col-sm-4 col-sm-offset-2">
                                                     <div class="form-group">
                                                     <label class="control-label"><i class="fa fa-link"></i> Link de la conferencia<span
                                                             style="color: #20558A"> *</span></label>
                                                     <div class="form-group">
                                                     <input type="text" name="link" required="required"
-                                                            placeholder="LInk conferencia" class="form-control">
+                                                            placeholder="https://www.youtube.com/mi-conferecia" class="form-control">
                                                     </div>
                                                     </div>
                                                 </div>
 
                                                
                                                 
-                                                <div class="col-lg-3 col-lg-offset-3 col-xs-12 col-xs-offset-0">
+                                                <div class="col-lg-5 col-lg-offset-1 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
                                                         <label class="control-label"><i class="fa fa-calendar"></i> Fecha de inicio<span
                                                                 style="color: turquoise">*</span></label>
@@ -121,68 +115,53 @@ if ($_SESSION["s_medico"] === null){
                                                     </div>
                                                 </div>
 
-                                                    <div class="col-lg-3 col-lg-offset-0 col-xs-12 col-xs-offset-0">
+                                                    <div class="col-lg-5 col-lg-offset-0 col-xs-12 col-xs-offset-0">
                                                         <label class="control-label"><i class="fa fa-calendar"></i> Fecha de Cierre<span
                                                                 style="color: turquoise">*</span></label>
                                                                 <input type="datetime-local" name="fechfinal" required="required"
                                                             placeholder="Fecha Cierre" class="form-control">
                                                 </div>
 
-                                                <div class="col-lg-6 col-lg-offset-3 col-xs-12 col-xs-offset-0">
+                                                <div class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
                                                         <label class="control-label"><i class="fa fa-users"></i> Participantes</label>
                                                         <textarea name="parti" id="parti" required="required"
                                                             class="form-control" rows="3"
-                                                            placeholder="Participantes"></textarea>
+                                                            placeholder="Agregar participante"></textarea>
                                                     </div>
                                                 </div>
-                                                </div>
-                                                <!--<div class="col-lg-4 col-lg-offset-3 col-xs-12 col-xs-offset-0">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Estado de la conferencia<span
-                                                                style="color: turquoise">*</span></label>
-                                                                <select name="etapa" class="form-control" required="required">
-                                                                    <option value="Programada" selected>Programada</option>
-                                                                    <option value="En vivo">En vivo</option>
-                                                                    </select>
-                                                    </div>-->
-                                                </div>
+
                                                 <div class="col-md-3 col-md-offset-2 col-sm-3 col-sm-offset-2 col-lg-3 col-lg-offset-3 col-xs-12 col-xs-offset-0">
-                                                    <div class="form-group">
-                                                        <!--<label  class="control-label">Categoria<span
-                                                                style="color:turquoise">*</span> </label>-->
+                                                    
                                                                 <input style="background-color: #20558A; color:#000000;" type="hidden"  name="categoria" require="" placeholder="categoria" class="form-control" readonly="" value="<?php echo $_SESSION["s_espeme"];?>">
-                                                    </div>
+                                                    
                                                 </div>
-                                                <div  class="col-md-8 col-md-offset-3 col-sm-8 col-sm-offset-3 col-lg-8 col-lg-offset-3 col-xs-12 col-xs-offset-0">
-                                                    <br>
-                                                    <label class="control-label"><i class="fa fa-file-pdf-o"></i> Material de apoyo</label>
+                                                <div  class="col-md-8 col-md-offset-3 col-sm-8 col-sm-offset-3 col-lg-8 col-lg-offset-1 col-xs-12 col-xs-offset-0">
+                                                    <label class="control-label"><i class="fa fa-file-pdf-o"></i> Subir material de apoyo</label>
                                                     <input type="file" name="archivo" >
                                                 </div>
+                                                <br>
                                                 <!-- parte que ocupada la pantalla completa -->
-                                                <div
-                                                    class="col-sm-6 col-sm-offset-6 col-lg-4 col-lg-offset-4 col-xs-12 col-xs-offset-0">
-                                                    <div class="form-group">
-                                                        <br>
-                                                        <input type="submit" value="Programar" class="btn btn-submit">
-                                                        
+                                                <div style="display: flex; flex-direction:row; width: 100%; justify-content: center; padding-top: 2rem; padding-bottom: 2rem;">
+                                                <div style="margin-right: 30px;">
+                                                    <a href="mis_conferencia.php" class="btn btn-danger btn-lg ">Cancelar</a>
                                                     </div>
+                                                    <div>
+                                                        <input type="submit" value="Guardar" class="btn btn-primary btn-lg">
+                                                       </div> 
+                                                    
+
                                                 </div>
                                                 
                                     </form>
-                                
-                            <div class="cancelar col-sm-6 col-sm-offset-6 col-lg-7 col-lg-offset-8 col-xs-12 col-xs-offset-12">
-                                    <a href="mis_conferencia.php" class="btn btn-danger">Cancelar</a>
-                                </div>
-                                </div>
+                                        </div>
+                                    </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        
                     </div>
-                </div>
             </div>
-            </div>
-        </div>
     </section>
 
     <!--boton flotante donde esta los diferentes acciones -->

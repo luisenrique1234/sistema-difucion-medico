@@ -1,14 +1,12 @@
 #formc{
-    max-width: 2085px;
-    max-height: 13000px;
     box-shadow: 0px 0px 2px 2px #000000;
     background-color: #f1f1f1;
     border-radius: 10px;    
 }
 
 #cienfico{
-    max-width: 2995px;
-    max-height: 19950px;
     box-shadow: 0px 0px 1px 1px #000000;
-    background-color: #f1f1f1; 
+    background-color: #ffffff; 
+    
+    
 }

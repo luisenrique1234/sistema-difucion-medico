@@ -101,7 +101,7 @@ if ($_SESSION["s_medico"] === null ){
 
     <!--/#action-->
 
-    <div style="background: #5783bc">
+    <div style="background-image: url(images/eventos.jpg); background-size: 100%;">
     <br>
         <br>
         <br>
@@ -116,7 +116,7 @@ if ($_SESSION["s_medico"] === null ){
 
         ?>
 
-    <h3 class="text-muted"><i class="fa fa-youtube-play"></i> Últimas Conferencia</h3>
+    <h3 class="text-muted" style="color: #20558A;"><i class="fa fa-youtube-play"></i> Últimas Conferencia</h3>
     <br>
                <main>
                 <?php while ($rowSql = mysqli_fetch_assoc($sql)){ 

@@ -204,16 +204,14 @@
 /*bonton de buscardor de los articulos cientifico*/
 .articulo_bus{
   position: relative;
-  font-size: 19px;
   right: 31px;
-  margin-top: 0px;
+  margin-top: opx;
 }
 
 /*pruva cacelar*/
 .cancelar{
-  position: relative;
-  left: 70;
-  margin-top: -55px;
+  
+  margin-left: 20px;
 }
 
 .label_bus{
@@ -255,18 +253,19 @@ main {
 /*ultimos Ariulos*/
 .imag-ultim{
   background-color: #F1F1F1;
-  box-shadow: 0 0 5px 5px #F1F1F1;
+  box-shadow: 0 0 1px 1px #000000;
+  padding: 15px;
 }
 
-/* mas apollados
+
 .img-ap{
-  background-image: url(../images/corazon-azul.png);
+  background-image: url(../images/son-humanos.jpg);
   background-color: #F1F1F1;
   background-repeat:no-repeat;
   background-position-x:right;
   background-position-y:center;
   background-size: 30%;
-}*/
+}
 
 /*articulos mas comentado
 .img-comen{
