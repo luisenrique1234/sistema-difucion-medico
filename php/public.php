@@ -133,10 +133,10 @@ if ($i == "INS") {
     session_start();
     $id_me=$_SESSION["s_idme"];
     $titulo = $_POST['titulo'];
-    $public = $_POST['public'];
-    $categoria = $_POST['categoria'];
+    $public = $_POST['resumen'];
+    $categoria = $_POST['tema'];
     $autor1 = $_POST['autor'];
-    $refe = $_POST['referencia'];
+    $refe = $_POST['biblio'];
 
     
     $date = (new DateTime())->format('y-m-d');
@@ -177,7 +177,7 @@ if ($i == "INS") {
     // echo("erro descripcion:" .mysqli_error($mysqli));
     //header("Location: ../propietarip_mant.php?s=".$status);
      
-    header("Refresh: 2; URL= ../index.php?s=" . $status);
+    header("Refresh: 2; URL= ../articulo_cien.php?s=" . $status);
     echo '
 <script type="text/javascript">
 
@@ -204,10 +204,11 @@ if($i=="UDT"){
     $titulo2=$_POST['titulo'];
     $autor2=$_POST['autor'];
 
-    $public2=$_POST['public'];
-    $refer=$_POST['referencia'];
-    $categoria2=$_POST['categoria'];
-    $codigo2=$_POST['codigop'];
+    $public2=$_POST['resumen'];
+    $refer=$_POST['biblio'];
+    $categoria2=$_POST['tema'];
+
+    $codigo2=$_POST['codioarti'];
     
     $sql="
     UPDATE `publicacion` SET
@@ -230,7 +231,7 @@ if($i=="UDT"){
     // echo("erro descripcion:" .mysqli_error($mysqli));
     //header("Location: ../propietarip_mant.php?s=".$msj);
 
-    header("Refresh: 2; URL= ../lista_publicm.php?s=".$msj);
+    header("Refresh: 2; URL= ../articulo_cien.php?s=".$status);
     echo '
 <script type="text/javascript">
 
@@ -238,7 +239,7 @@ if($i=="UDT"){
 $(document).ready(function(){
 
 	swal({
-		title: "Actualizado",
+		title: "Artículo Editado",
 		icon: "success",
 		
 	  })

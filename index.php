@@ -110,13 +110,13 @@ if ($_SESSION["s_medico"] === null ){
         <?php 
         /*FILTRO de busqueda////////////////////////////////////////////*/
         $sql2=("SELECT  conferencia.id_confe,conferencia.titulo_confe,conferencia.autores_confe,conferencia.material_confe,conferencia.fachainicio,conferencia.fechafinal,conferencia.categoria_confe,
-        conferencia.etapa_confe,conferencia.visttas_confe,conferencia.link_confe,especialidad.espec_descripsion FROM conferencia,especialidad WHERE conferencia.categoria_confe=especialidad.id_espec  AND conferencia.estado='A'  ORDER BY conferencia.fachainicio DESC LIMIT 0,12  ");
+        conferencia.etapa_confe,conferencia.visttas_confe,conferencia.link_confe,especialidad.espec_descripsion FROM conferencia,especialidad WHERE conferencia.categoria_confe=especialidad.id_espec  AND conferencia.estado='A'  ORDER BY conferencia.fachainicio DESC LIMIT 0,9  ");
         $sql= $mysqli->query($sql2);
         //$numeroSql = mysqli_num_rows($sql);
 
         ?>
 
-    <h3 class="text-muted" style="color: #20558A;"><i class="fa fa-youtube-play"></i> Últimas Conferencia</h3>
+    <h3 class="text-muted" style="color: #20558A;"><i class="fa fa-youtube-play"></i> Últimas Conferencias</h3>
     <br>
                <main>
                 <?php while ($rowSql = mysqli_fetch_assoc($sql)){ 
@@ -214,7 +214,7 @@ if ($_SESSION["s_medico"] === null ){
         $sql= $mysqli->query($sql2);
         //$numeroSql = mysqli_num_rows($sql);
         ?>
-    <h3><i class="fa fa-heartbeat"></i> Artículo más apollados</h3>
+    <h3><i class="fa fa-heartbeat"></i> Artículos más apollados</h3>
         
                <main class="columna-perso">
                 <?php while ($rowSql = mysqli_fetch_assoc($sql)){ 
@@ -263,7 +263,7 @@ if ($_SESSION["s_medico"] === null ){
 
         ?>
 
-    <h3><i class="fa fa-comments"></i> Artículo más comentado</h3>
+    <h3><i class="fa fa-comments"></i> Artículos más comentados</h3>
         
                <main class="columna-perso">
                 <?php while ($rowSql = mysqli_fetch_assoc($sql)){ 

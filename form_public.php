@@ -75,18 +75,6 @@ if ($_SESSION["s_medico"] === null){
     <section  class="padding-top">
         <div class="container">
             <div class="row">
-                <div id="noticia"  class="col-md-3 col-sm-5">
-                    <div class="sidebar blog-sidebar">
-                        <div class="sidebar-item categories">
-                            <h3>Especialidades</h3>
-                            <ul class="nav navbar-stacked">
-                                <li><a href="#">Pediatria</a></li>
-                                <li class="active"><a href="#">Cardiologia</a></li>
-                                <li><a href="#">Cirugia general</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
                 <div class="wow fadeInDown">
                 <div id="cienfico" class="col-md-9 col-sm-7">
                     <div class="col-md-12 col-sm-12">

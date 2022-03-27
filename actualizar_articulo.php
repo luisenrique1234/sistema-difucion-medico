@@ -1,14 +1,8 @@
 <?php
 
-
-/*esta fucion sirve para converti toddos los carateres como acentos en formato
-uti-8 indenpedientemente de cual fuera su formato de  origen todo se convertira en 
-utf-8 para que asi todos tengan el mismo formato*/
-function mostrar ($str){
-$codi= mb_detect_encoding($str,"ISO-8859-1,UTF-8");
-            $str=iconv($codi,'utf-8',$str);
-            echo $str;
-}
+include('./php/consultas.php');
+$query=extraerpublic($_GET['id']);
+    $row=$query->fetch_assoc();
 
 session_start();
 if ($_SESSION["s_medico"] === null){
@@ -28,7 +22,7 @@ if ($_SESSION["s_medico"] === null){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Formulario de conferencia</title>
+    <title>Formulario de Artículo</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/lightbox.css" rel="stylesheet">
@@ -51,24 +45,7 @@ if ($_SESSION["s_medico"] === null){
 <body class="dark" style="background: #F1F1F1">
 
 <?php include_once "./php/menu_nada.php"; ?>
-    <!--/#header-->
-    <!--id la imagen de triangulor que se usa para el inicio
-    <section id="page-breadcrumb">
-        <div class="vertical-center sun">
-            <div class="container">
-                <div class="col-lg-6 col-lg-offset-3 col-xs-12 col-xs-offset-0">
-                    <div>
-                        <div class="col-sm-12">
-                            <h1 class="title">Formulario de publicacion</h1>
-                            <p></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>-->
-    <!--/#action-->
-    <section   class="wow bounceInDown  padding-top">
+    <section   class="wow bounceInDown padding-top">
         <div style="display: flex; justify-content: center; width: 100%;">
         <div style="width: 50%;">
                 <div>
@@ -77,29 +54,34 @@ if ($_SESSION["s_medico"] === null){
                             <div class="panel-dafault" style="margin-top: 12px">
                                 <!--panel de crear -->
                                 <div >
-                                    <form action="php/conferencia_regi.php?accion=INSCON" method="POST" enctype="multipart/form-data">
+                                    <form action="php/public.php?accion=UDT" method="POST" enctype="multipart/form-data">
                                         
                                             <div >
                                                 <div style="margin-bottom: 2rem;" class=" text-center  col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0">
-                                               <h1 class="title">Crear Conferencia</h1>
+                                               <h1 class="title">Editar Aríticulo</h1>
                                                 </div>
                                                 
-                                                <div class="col-md-5 col-md-offset-1 col-sm-4 col-sm-offset-2">
+                                                
+                                            <input type="hidden" name="codioarti" class="form-control" readonly="" value="<?php echo $row['id_public']?>">
+                                            
+
+                                                <div class="col-md-6 col-md-offset-3 col-sm-4 col-sm-offset-2">
                                                     <div class="form-group">
-                                                        <label class="control-label"><i class="fa fa-header"></i> Titulo de la conferencia<span
+                                                        <label class="control-label"><i class="fa fa-header"></i> Titulo del Artículo<span
                                                                 style="color: #20558A">*</span></label>
                                                         <input type="text" name="titulo" required="required"
-                                                            placeholder="Mí conferencia" class="form-control">
+                                                        class="form-control" value="<?php echo $row['titulo_public']?>">
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-5 col-md-offset-0 col-sm-4 col-sm-offset-2">
+                                                <div class="col-md-10 col-md-offset-1 col-sm-4 col-sm-offset-2">
+                                                <div class="form-group">
+                                                    <label class="control-label"><i class="fa fa-pencil-square-o"></i> Resumen<span
+                                                            style="color: turquoise">*</span></label>
                                                     <div class="form-group">
-                                                    <label class="control-label"><i class="fa fa-link"></i> Link de la conferencia<span
-                                                            style="color: #20558A"> *</span></label>
-                                                    <div class="form-group">
-                                                    <input type="text" name="link" required="required"
-                                                            placeholder="https://www.youtube.com/mi-conferecia" class="form-control">
+                                                        <textarea name="resumen"  required="required"
+                                                            class="form-control" rows="4"
+                                                            ><?php echo $row['text_public']?></textarea>
                                                     </div>
                                                     </div>
                                                 </div>
@@ -108,37 +90,44 @@ if ($_SESSION["s_medico"] === null){
                                                 
                                                 <div class="col-lg-5 col-lg-offset-1 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-                                                        <label class="control-label"><i class="fa fa-calendar"></i> Fecha de inicio<span
-                                                                style="color: turquoise">*</span></label>
-                                                                <input type="datetime-local" name="fechini" required="required"
-                                                            placeholder="Fecha inicio" class="form-control">
+                                                        <label class="control-label"><i class="fa fa-users"></i> Autores</label>
+                                                        <textarea name="autor"  required="required"
+                                                            class="form-control" rows="3"><?php echo $row['autor_pu']?></textarea>
                                                     </div>
                                                 </div>
 
                                                     <div class="col-lg-5 col-lg-offset-0 col-xs-12 col-xs-offset-0">
-                                                        <label class="control-label"><i class="fa fa-calendar"></i> Fecha de Cierre<span
-                                                                style="color: turquoise">*</span></label>
-                                                                <input type="datetime-local" name="fechfinal" required="required"
-                                                            placeholder="Fecha Cierre" class="form-control">
-                                                </div>
-
-                                                <div class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-                                                        <label class="control-label"><i class="fa fa-users"></i> Participantes</label>
-                                                        <textarea name="parti" id="parti" required="required"
-                                                            class="form-control" rows="3"
-                                                            placeholder="Agregar participante"></textarea>
+                                                        <label class="control-label"><i class="fa fa-book"></i> Bibliografía<span
+                                                                style="color: turquoise">*</span></label>
+                                                        <textarea name="biblio"  required="required"
+                                                            class="form-control" rows="3"><?php echo $row['referencia_pu']?></textarea>
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-3 col-md-offset-2 col-sm-3 col-sm-offset-2 col-lg-3 col-lg-offset-3 col-xs-12 col-xs-offset-0">
+                                                <div class="col-lg-5 col-lg-offset-1 col-xs-12 col-xs-offset-0">
+                                                <div class="form-group">
+                                                        <label  class="control-label">Tema<span
+                                                                style="color:turquoise">*</span> </label>
                                                     
-                                                                <input style="background-color: #20558A; color:#000000;" type="hidden"  name="categoria" require="" placeholder="categoria" class="form-control" readonly="" value="<?php echo $_SESSION["s_espeme"];?>">
-                                                    
+
+                                                        <select name="tema" class="form-control" required="required">
+                                                            <?php
+					                                        include '../php/conexion.php';
+					                                        $getAlumno1 = "SELECT * FROM  especialidad";
+					                                        $gerAlumno2 = $mysqli->query ($getAlumno1);
+					                                        while ($row2 = mysqli_fetch_array($gerAlumno2))
+					                                        {
+					                                            $id = $row2 ['id_espec'];
+					                                        	$espe = $row2['espec_descripsion'];?>
+                                                            <option value="<?php echo $id?>" <?php if($row['categoria_public']==$id){echo "selected";} ?>><?php echo $espe;?></option>
+                                                            <?php } ?>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                                <div  class="col-md-8 col-md-offset-3 col-sm-8 col-sm-offset-3 col-lg-8 col-lg-offset-1 col-xs-12 col-xs-offset-0">
-                                                    <label class="control-label"><i class="fa fa-file-pdf-o"></i> Subir material de apoyo</label>
-                                                    <input type="file" name="archivo" >
+                                                <div  class=" col-sm-offset-1 col-lg-3 col-lg-offset-0 col-xs-12 col-xs-offset-0">
+                                                    <label class="control-label"><i class="fa fa-file-pdf-o"></i> Subir Artículo</label>
+                                                    <input type="file" name="archivo">
                                                 </div>
                                                 <br>
                                                 <!-- parte que ocupada la pantalla completa -->
@@ -148,9 +137,7 @@ if ($_SESSION["s_medico"] === null){
                                                     </div>
                                                     <div>
                                                         <input type="submit" value="Guardar" class="btn btn-primary btn-lg">
-                                                       </div> 
-                                                    
-
+                                                       </div>
                                                 </div>
                                                 
                                     </form>

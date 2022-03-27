@@ -304,7 +304,7 @@ exit;
 $(document).ready(function(){
 
 	swal({
-		title: "Actualizado",
+		title: "Conferencia Editada",
 		icon: "success",
 		
 	  })

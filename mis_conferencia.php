@@ -64,7 +64,7 @@ $buscar='';
 <!--/head-->
 <body class="dark">
 
-<?php include_once "./php/menu.php"; ?>
+<?php include_once "./php/menu_nada.php"; ?>
 
 <br>
 <br>

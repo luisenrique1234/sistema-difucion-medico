@@ -47,61 +47,41 @@ if ($_SESSION["s_medico"] === null){
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/ico.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/ico.png">
 </head>
-<body class="dark wow fadeInDown">
+<body class="dark" style="background: #F1F1F1">
 
-<?php include_once "./php/menu.php"; ?>
-    <!--/#header-->
-    <!--id la imagen de triangulor que se usa para el inicio
-    <section id="page-breadcrumb">
-        <div class="vertical-center sun">
-            <div class="container">
-                <div class="col-lg-6 col-lg-offset-3 col-xs-12 col-xs-offset-0">
-                    <div>
-                        <div class="col-sm-12">
-                            <h1 class="title">Formulario de publicacion</h1>
-                            <p></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>-->
-    <!--/#action-->
-    <section  class="padding-top">
-        <div class="container">
-                <div>
-                <div id="formc" class="col-md-12 col-sm-7">
-                    <div class="col-md-12 col-sm-7">
-                        <div class="post-thumb">
+<?php include_once "./php/menu_nada.php"; ?>
+    <section  class="wow bounceInDown padding-top">
+        <div style="display: flex; justify-content: center; width: 100%;">
+        <div style="width: 50%;">
+                    <div id="formc" class="post-thumb">
                             <div class="panel-dafault" style="margin-top: 12px">
                                 <!--panel de crear -->
-                                <div  class="panel-heading">
+                                <div>
                                     <form action="php/conferencia_regi.php?accion=UDTCON" method="POST" enctype="multipart/form-data">
-                                        <div class="row">
-                                            <div >
-                                                <div class="col-lg-10 col-lg-offset-2 col-xs-12 col-xs-offset-0">
-                                               <h1 class="title">Actualizar Conferencia</h1>
-                                                <br>
+                                        <div>
+                                            <div>
+                                                <div style="margin-bottom: 2rem;" class="text-center col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0">
+                                               <h1 class="title">Editar Conferencia</h1>
                                                 </div>
-                                                <div class="col-md-1 col-md-offset-1 col-sm-1 col-sm-offset-2 col-lg-2 col-lg-offset-5 col-xs-12 col-xs-offset-0">
+                                                <div class="col-md-1 col-md-offset-1 col-sm-8 col-sm-offset-2 col-lg-2 col-lg-offset-5 col-xs-12 col-xs-offset-0">
                                             <div class="form-group">
                                             <input  type="hidden" 
                                             name="codiconfe" require=""  class="form-control" readonly="" value="<?php echo $row['id_confe']?>">
                                             </div>
 				                            </div>
-                                                <div class="col-lg-3 col-lg-offset-3 col-xs-12 col-xs-offset-0">
+                                                <div class="col-md-5 col-md-offset-1 col-sm-4 col-sm-offset-2">
                                                     <div class="form-group">
-                                                        <label class="control-label"><i class="fa fa-align-left" aria-hidden="true"></i> Titulo de la conferencia<span
-                                                                style="color: turquoise">*</span></label>
+                                                        <label class="control-label"><i class="fa fa-header"></i>  Titulo de la conferencia<span
+                                                                style="color: #20558A">*</span></label>
                                                         <input type="text" name="titulo" required="required"
                                                             placeholder="Titulo" class="form-control" value="<?php echo $row['titulo_confe']?>">
                                                     </div>
                                                 </div>
 
-                                                <div class="col-lg-3 col-lg-offset-0 col-xs-12 col-xs-offset-0">
+                                                <div class="col-md-5 col-md-offset-0 col-sm-4 col-sm-offset-2">
                                                     <div class="form-group">
                                                     <label class="control-label"><i class="fa fa-link" aria-hidden="true"></i> Link de la conferencia<span
-                                                            style="color: turquoise">*</span></label>
+                                                            style="color: #20558A">*</span></label>
                                                     <div class="form-group">
                                                     <input type="text" name="link" required="required"
                                                             placeholder="LInk conferencia" class="form-control" value="<?php echo $row['link_confe']?>">
@@ -111,37 +91,38 @@ if ($_SESSION["s_medico"] === null){
                                                 
                                                 
                                                 
-                                                <div class="col-lg-3 col-lg-offset-3 col-xs-12 col-xs-offset-0">
+                                                <div class="col-lg-5 col-lg-offset-1 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
                                                         <label class="control-label"><i class="fa fa-calendar" aria-hidden="true"></i> Fecha de inicio<span
-                                                                style="color: turquoise">*</span></label>
+                                                                style="color: #20558A">*</span></label>
                                                                 <input type="datetime-local" name="fechini" required="required"
                                                             placeholder="Fecha inicio" class="form-control" value="<?php echo $row['fachainicio']?>">
                                                     </div>
                                                     </div>
 
-                                                    <div class="col-lg-3 col-lg-offset-0 col-xs-12 col-xs-offset-0">
+                                                    <div class="col-lg-5 col-lg-offset-0 col-xs-12 col-xs-offset-0">
                                                     
                                                         <label class="control-label"><i class="fa fa-calendar" aria-hidden="true"></i> Fecha de Cierre<span
-                                                                style="color: turquoise">*</span></label>
+                                                                style="color: #20558A">*</span></label>
                                                                 <input type="datetime-local" name="fechfinal" required="required"
                                                             placeholder="Fecha Cierre" class="form-control" value="<?php echo $row['fechafinal']?>">
                                                     
                                                 </div>
 
-                                                <div class="col-lg-6 col-lg-offset-3 col-xs-12 col-xs-offset-0">
+                                                <div class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-                                                        <label class="control-label"><i class="fa fa-users" aria-hidden="true"></i>  Participantes</label>
+                                                        <label class="control-label"><i class="fa fa-users" aria-hidden="true"></i>  Participantes <span
+                                                                style="color: #20558A">*</span></label>
                                                         <textarea name="parti" id="parti" required="required"
                                                             class="form-control" rows="3"
                                                             placeholder="Participantes"><?php echo $row['autores_confe']?></textarea>
                                                     </div>
                                                 </div>
 
-                                                <div class="col-lg-3 col-lg-offset-3 col-xs-12 col-xs-offset-0">
+                                                <div class="col-lg-4 col-lg-offset-1 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
                                                         <label class="control-label"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Estado de la conferencia<span
-                                                                style="color: turquoise">*</span></label>
+                                                                style="color: #20558A">*</span></label>
                                                                 <select name="etapa" class="form-control" required="required">
                                                                     <option value="Programada" <?php if($row['etapa_confe']=='Programada'){echo "selected";} ?>>Programada</option>
                                                                     <option value="En vivo" <?php if($row['etapa_confe']=='En vivo'){echo "selected";} ?>>En vivo</option>
@@ -149,6 +130,13 @@ if ($_SESSION["s_medico"] === null){
                                                                     </select>
                                                     </div>
                                                 </div>
+                                                
+                                                <div  class=" col-lg-4 col-lg-offset-1 col-xs-12 col-xs-offset-0" style="margin-top: -3%;">
+                                                    <br>
+                                                    <label class="control-label"><i class="fa fa-file-pdf-o"></i> Material de apoyo</label>
+                                                    <input type="file" name="archivo" >
+                                                </div>
+
                                                 <div class="col-md-3 col-md-offset-2 col-sm-3 col-sm-offset-2 col-lg-3 col-lg-offset-3 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
                                                         <!--<label  class="control-label">Categoria<span
@@ -156,49 +144,38 @@ if ($_SESSION["s_medico"] === null){
                                                                 <input style="background-color: #45bcdb; color:#000000;" type="hidden"  name="categoria" require="" placeholder="categoria" class="form-control" readonly="" value="<?php echo $_SESSION["s_espeme"];?>">
                                                     </div>
                                                 </div>
-                                                <div  class="col-md-8 col-md-offset-3 col-sm-8 col-sm-offset-3 col-lg-8 col-lg-offset-3 col-xs-12 col-xs-offset-0">
-                                                    <br>
-                                                    <label class="control-label"><i class="fa fa-file-text" aria-hidden="true"></i> Material de apoyo</label>
-                                                    <input type="file" name="archivo" >
-                                                </div>
+                                                
                                                 <!-- parte que ocupada la pantalla completa -->
-                                                <div
-                                                    class=" col-sm-offset-6 col-lg-4 col-lg-offset-4 col-xs-12 col-xs-offset-0">
-                                                    <div class="form-group">
-                                                        <br>
-                                                        <input type="submit" value="Actualizar" class="btn btn-submit">
+                                                <div style="display: flex; flex-direction:row; width: 100%; justify-content: center; padding-top: 2rem; padding-bottom: 2rem;">
+                                                <div style="margin-right: 30px;">
+                                                    <a href="mis_conferencia.php" class="btn btn-danger btn-lg ">Cancelar</a>
+                                                    </div>
+                                                    <div>
+                                                        <input type="submit" value="Guardar" class="btn btn-primary btn-lg">
+                                                       </div> 
+                                                    
+
+                                                </div>
                                     </form>
-                                    <div class="cancelar col-sm-6 col-sm-offset-6 col-lg-7 col-lg-offset-8 col-xs-12 col-xs-offset-12">
-                                    <a href="mis_conferencia.php" class="btn btn-danger">Cancelar</a>
-                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
         </div>
         </div>
     </section>
-
-    <!--boton flotante donde esta los diferentes acciones -->
-    <div class="con">
-    <?php include_once "./php/boton_medico.php"; ?>
-                    </div>
-                    <!--*******************************************************-->
-    <footer>
+                    <br>
+    <footer id="footer">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-12 text-center bottom-separator">
+            <div class="row footer">
+                <div class="col-sm-12 ">
                     <div class="col-sm-12">
                         <div class=" copyright-text text-center ">
-                            <p>Sistema de difusión medica 2021. Todos los derechos reservados.</p>
-                            <p>Diseñado por <a target="_blank" href="http://luis-enrique.com">Sr.LEGG</a></p>
+                            <p>Sistema de difusión de información medica 2022. Todos los derechos reservados.</p>
+                            <p>Diseñado por: <a  target="_blank" href="http://luis-enrique.com">Sr.LEGG</a></p>
                         </div>
                     </div>
                 </div>
-            </div>
-    </footer>
+        </footer>
     <!--/#footer-->
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
