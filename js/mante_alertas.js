@@ -4,7 +4,7 @@ function alereliminar(codigo) {
 title: '<h3>¿Estas Segura de eliminar el ID:'+codigo+'?</h3>',
 icon: 'warning',
 showCancelButton: true,
-confirmButtonColor: '#45bcdb',
+confirmButtonColor: '#20558A',
 confirmButtonText: '<h5>Sí <i class="fa fa-user-times" aria-hidden="true"></i></h5>',
 cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></h5>'
 })
@@ -23,7 +23,7 @@ function alerpublicele(codigo3) {
 title: '<h3>¿Estas Segura de eliminar el ID:'+codigo3+'?</h3>',
 icon: 'warning',
 showCancelButton: true,
-confirmButtonColor: '#45bcdb',
+confirmButtonColor: '#20558A',
 confirmButtonText: '<h5>Sí <i class="fa fa-user-times" aria-hidden="true"></i></h5>',
 cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></h5>'
 })
@@ -42,7 +42,7 @@ function alerinves(codigo3) {
 title: '<h3>¿Estas Segura de eliminar el ID:'+codigo3+'?</h3>',
 icon: 'warning',
 showCancelButton: true,
-confirmButtonColor: '#45bcdb',
+confirmButtonColor: '#20558A',
 confirmButtonText: '<h5>Sí <i class="fa fa-user-times" aria-hidden="true"></i></h5>',
 cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></h5>'
 })
@@ -61,7 +61,7 @@ function aleractivar2(codigo2) {
 title: '<h3>¿Estas seguro de Activar  el ID:'+codigo2+'?</h3>',
 icon: 'warning',
 showCancelButton: true,
-confirmButtonColor: '#45bcdb',
+confirmButtonColor: '#20558A',
 confirmButtonText: '<h5>Sí <i class="fa fa-user-plus" aria-hidden="true"></i></h5>',
 cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></h5>'
 })
@@ -80,7 +80,7 @@ function aleractivarpu(codigo2) {
 title: '<h3>¿Estas seguro de Activar  el ID:'+codigo2+'?</h3>',
 icon: 'warning',
 showCancelButton: true,
-confirmButtonColor: '#45bcdb',
+confirmButtonColor: '#20558A',
 confirmButtonText: '<h5>Sí <i class="fa fa-user-plus" aria-hidden="true"></i></h5>',
 cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></h5>'
 })
@@ -99,7 +99,7 @@ function aleractivarinv(codigo2) {
 title: '<h3>¿Estas seguro de Activar  el ID:'+codigo2+'?</h3>',
 icon: 'warning',
 showCancelButton: true,
-confirmButtonColor: '#45bcdb',
+confirmButtonColor: '#20558A',
 confirmButtonText: '<h5>Sí <i class="fa fa-user-plus" aria-hidden="true"></i></h5>',
 cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></h5>'
 })
@@ -118,7 +118,7 @@ function alerarol(codigo2) {
 title: '<h3>¿Estas seguro de Activar  el ID:'+codigo2+'?</h3>',
 icon: 'warning',
 showCancelButton: true,
-confirmButtonColor: '#45bcdb',
+confirmButtonColor: '#20558A',
 confirmButtonText: '<h5>Sí <i class="fa fa-user-plus" aria-hidden="true"></i></h5>',
 cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></h5>'
 })
@@ -137,7 +137,7 @@ function aleraespci(codigo2) {
 title: '<h3>¿Estas seguro de Activar  el ID:'+codigo2+'?</h3>',
 icon: 'warning',
 showCancelButton: true,
-confirmButtonColor: '#45bcdb',
+confirmButtonColor: '#20558A',
 confirmButtonText: '<h5>Sí <i class="fa fa-user-plus" aria-hidden="true"></i></h5>',
 cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></h5>'
 })
@@ -156,7 +156,7 @@ function alertaactivar() {
 title: '<h3>¿Estas seguro de cerrar sesión?</h3>',
 icon: 'warning',
 showCancelButton: true,
-confirmButtonColor: '#45bcdb',
+confirmButtonColor: '#20558A',
 confirmButtonText: '<h5>Salir</h5>',
 cancelButtonText: '<h5>Cancelar</h5>'
 })
@@ -177,7 +177,7 @@ function alercerrarsision() {
 title: '<h3>¿Estas seguro de cerrar sesión?</h3>',
 icon: 'warning',
 showCancelButton: true,
-confirmButtonColor: '#45bcdb',
+confirmButtonColor: '#20558A',
 confirmButtonText: '<h5>Salir</h5>',
 cancelButtonText: '<h5>Cancelar</h5>'
 })

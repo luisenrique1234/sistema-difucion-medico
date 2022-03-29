@@ -131,7 +131,7 @@ if ($_SESSION["s_medico"] === null){
                                                 <!-- parte que ocupada la pantalla completa -->
                                                 <div style="display: flex; flex-direction:row; width: 100%; justify-content: center; padding-top: 2rem; padding-bottom: 2rem;">
                                                 <div style="margin-right: 30px;">
-                                                    <a href="mis_conferencia.php" class="btn btn-danger btn-lg ">Cancelar</a>
+                                                    <a href="mis_articulos.php" class="btn btn-danger btn-lg ">Cancelar</a>
                                                     </div>
                                                     <div>
                                                         <input type="submit" value="Guardar" class="btn btn-primary btn-lg">

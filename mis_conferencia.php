@@ -201,7 +201,7 @@ $buscar='';
                         <tr class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0" >
                                 
                         <td class="col-lg-7">
-                        <i class="fa fa-bell" aria-hidden="true"><?php echo $rowSql["recordatorio"];?></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-eye" aria-hidden="true"><?php echo $rowSql["visttas_confe"];?>  </i>
+                        <i class="fa fa-bell" aria-hidden="true"> <?php echo $rowSql["recordatorio"];?></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-eye" aria-hidden="true"> <?php echo $rowSql["visttas_confe"];?>  </i>
 
                         <br>
                         <h5 style="display: inline;">Titulo:</h5><?php echo $rowSql["titulo_confe"]; ?>   

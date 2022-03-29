@@ -177,7 +177,7 @@ if ($i == "INS") {
     // echo("erro descripcion:" .mysqli_error($mysqli));
     //header("Location: ../propietarip_mant.php?s=".$status);
      
-    header("Refresh: 2; URL= ../articulo_cien.php?s=" . $status);
+    header("Refresh: 2; URL= ../mis_articulos.php?s=" . $status);
     echo '
 <script type="text/javascript">
 
@@ -231,7 +231,7 @@ if($i=="UDT"){
     // echo("erro descripcion:" .mysqli_error($mysqli));
     //header("Location: ../propietarip_mant.php?s=".$msj);
 
-    header("Refresh: 2; URL= ../articulo_cien.php?s=".$status);
+    header("Refresh: 2; URL= ../mis_articulos.php?s=".$status);
     echo '
 <script type="text/javascript">
 
@@ -271,7 +271,7 @@ if($i=="DLT"){
     // echo("erro descripcion:" .mysqli_error($mysqli));
     //header("Location: ../propietarip_mant.php?s=".$msj);
 
-    header("Refresh: 2; URL= ../lista_publicm.php?s=".$msj);
+    header("Refresh: 2; URL= ../mis_articulos.php?s=".$status);
     echo '
 <script type="text/javascript">
 

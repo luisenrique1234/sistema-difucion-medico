@@ -234,10 +234,26 @@
   left: 60px;
 }
 
+
 .misconferencia{
   position: relative;
   right: 190px;
 }
+
+.misarticulo{
+  top: 27px;
+  position: relative;
+  right: 290px;
+}
+.tamñó{
+  font-size: 130%;
+}
+
+.mesarticulo{
+  position: relative;
+  left: 180px;
+}
+
 /* columnas de inicio*/
 
 main {
