@@ -4,7 +4,7 @@
 
 
 // Desactivar toda notificación de error si quieres ver los errores tienes que quitar esta linea
-//error_reporting(0);
+error_reporting(0);
 
 
 
@@ -164,24 +164,22 @@ $buscar='';
 
                         ?>
                     
-                        <tr class="col-lg-9 col-lg-offset-1 col-xs-12 col-xs-offset-0" >
+                        <tr class="col-lg-7 col-lg-offset-1 col-xs-12 col-xs-offset-0" >
                                 
-                        <td class="col-lg-8">
+                        <td class="col-lg-10">
                         <i class="fa fa-heart" aria-hidden="true"> <?php echo $rowSql["me_gusta_pu"];?></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-comments"> <?php echo $rowSql["me_gusta_pu"];?>  </i>
                         <br>
                         <h5 style="display: inline;">Titulo:</h5><?php mostrar($rowSql['titulo_public']); ?>  
-                        <br><h5 style="display: inline;">Resumen: </h5><?php mostrar(substr($rowSql['text_public'],0,500)); ?>   
+                        <br><h5 style="display: inline;">Resumen: </h5><?php mostrar(substr($rowSql['text_public'],0,70)); ?>   
                         <br><h5 style="display: inline;">Autores:</h5> <?php echo $autores; ?> 
                         <br>
-                        <h5 style="display: inline;">Especialidad:</h5> <?php echo $rowSql["espec_descripsion"]; ?> &nbsp;&nbsp; <?php  if ($archivo != '') { echo ('<h5 style="display: inline;"><a href="php/' . $archivo . '"download="sistema-difucion-medica-conferencia"><i class="fa fa-download"></i>Descargar material de apoyo</a></h5>'); }?></td>
-                        <td>
-                        <h5 style="display: inline;">Publicación:</h5><?php echo $fecha; ?>
-                        </td>
+                        <h5 style="display: inline;">Especialidad:</h5> <?php echo $rowSql["espec_descripsion"]; ?> &nbsp;&nbsp; <h5 style="display: inline;">Publicación: </h5><?php echo $fecha; ?></td>
                         
                         
                         <?php 
-                         echo "<td style=' font-size: 49px;'> <a onclick='return alereliminararticulo(".$rowSql["id_public"].");' class='btn btn-danger' style='left: 60px; position: relative; font-size: 19px;'  role='button'><i class='fa fa-trash' aria-hidden='true'></i></i></a></td>  
-                        <td style=' font-size: 49px;'> <a href='actualizar_articulo.php?id=" .$rowSql["id_public"]. "' class='btn btn-success' style='left: 78px; position: relative; font-size: 19px;'   role='button'><i class='fa fa-pencil' aria-hidden='true'></i></a></td>";
+                         echo "<td style=' font-size: 49px;'> <a title='Eliminar Articulo' onclick='return alereliminararticulo(".$rowSql["id_public"].");' class='btn btn-danger' style='left: 60px; position: relative; font-size: 19px;'  role='button'><i class='fa fa-trash' aria-hidden='true'></i></i></a></td>  
+                        <td style=' font-size: 49px;'> <a title='Editar Articulo' href='actualizar_articulo.php?id=" .$rowSql["id_public"]. "' class='btn btn-success' style='left: 78px; position: relative; font-size: 19px;'   role='button'><i class='fa fa-pencil' aria-hidden='true'></i></a></td>
+                        <td style=' font-size: 49px;'> <a title='Ver articulo completo' href='ver_articulo.php?id=" .$rowSql["id_public"]. "' class='btn btn-info' style='left: 90px; position: relative; font-size: 19px;'   role='button'><i class='fa fa-external-link'></i></i></a></td>";
                         ?>
                         
                         

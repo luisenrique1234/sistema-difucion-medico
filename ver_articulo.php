@@ -22,7 +22,7 @@ if ($_SESSION["s_medico"] === null){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Formulario de Artículo</title>
+    <title>Ver Artículo Completo</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/lightbox.css" rel="stylesheet">
@@ -53,12 +53,11 @@ if ($_SESSION["s_medico"] === null){
                         <div id="cienfico" class="post-thumb">
                             <div class="panel-dafault" style="margin-top: 12px">
                                 <!--panel de crear -->
-                                <div >
-                                    <form action="php/public.php?accion=UDT" method="POST" enctype="multipart/form-data">
+                                <div>
                                         
                                             <div >
                                                 <div style="margin-bottom: 2rem;" class=" text-center  col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0">
-                                               <h1 class="title">Editar Aríticulo</h1>
+                                               <h1 class="title">Aríticulo</h1>
                                                 </div>
                                                 
                                                 
@@ -70,17 +69,17 @@ if ($_SESSION["s_medico"] === null){
                                                         <label class="control-label"><i class="fa fa-header"></i> Titulo del Artículo<span
                                                                 style="color: #20558A">*</span></label>
                                                         <input type="text" name="titulo" required="required"
-                                                        class="form-control" value="<?php echo $row['titulo_public']?>">
+                                                        class="form-control" readonly="" value="<?php echo $row['titulo_public']?>">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-lg-5 col-lg-offset-0 col-xs-12 col-xs-offset-0">
                                                 <div class="form-group">
                                                         <label  class="control-label">Tema<span
-                                                                style="color:#20558A">*</span> </label>
+                                                                style="color:turquoise">*</span> </label>
                                                     
 
-                                                        <select name="tema" class="form-control" required="required">
+                                                        <select name="tema" class="form-control" readonly="" required="required">
                                                             <?php
 					                                        include '../php/conexion.php';
 					                                        $getAlumno1 = "SELECT * FROM  especialidad";
@@ -100,7 +99,7 @@ if ($_SESSION["s_medico"] === null){
                                                     <label class="control-label"><i class="fa fa-pencil-square-o"></i> Resumen<span
                                                             style="color: turquoise">*</span></label>
                                                     <div class="form-group">
-                                                        <textarea name="resumen"  required="required"
+                                                        <textarea name="resumen"  readonly="" required="required"
                                                             class="form-control" rows="4"
                                                             ><?php echo $row['text_public']?></textarea>
                                                     </div>
@@ -113,7 +112,7 @@ if ($_SESSION["s_medico"] === null){
                                                     <div class="form-group">
                                                         <label class="control-label"><i class="fa fa-users"></i> Autores</label>
                                                         <textarea name="autor"  required="required"
-                                                            class="form-control" rows="3"><?php echo $row['autor_pu']?></textarea>
+                                                            class="form-control" readonly="" rows="3"><?php echo $row['autor_pu']?></textarea>
                                                     </div>
                                                 </div>
 
@@ -122,27 +121,16 @@ if ($_SESSION["s_medico"] === null){
                                                         <label class="control-label"><i class="fa fa-book"></i> Bibliografía<span
                                                                 style="color: turquoise">*</span></label>
                                                         <textarea name="biblio"  required="required"
-                                                            class="form-control" rows="3"><?php echo $row['referencia_pu']?></textarea>
+                                                            class="form-control" readonly="" rows="3"><?php echo $row['referencia_pu']?></textarea>
                                                     </div>
-                                                </div>
-
-                                                
-                                                <div  class=" col-sm-offset-1 col-lg-3 col-lg-offset-1 col-xs-12 col-xs-offset-0">
-                                                    <label class="control-label"><i class="fa fa-file-pdf-o"></i> Subir Artículo</label>
-                                                    <input type="file" name="archivo">
                                                 </div>
                                                 <br>
                                                 <!-- parte que ocupada la pantalla completa -->
                                                 <div style="display: flex; flex-direction:row; width: 100%; justify-content: center; padding-top: 2rem; padding-bottom: 2rem;">
-                                                <div style="margin-right: 30px;">
+                                                <div >
                                                     <a href="mis_articulos.php" class="btn btn-danger btn-lg ">Cancelar</a>
                                                     </div>
-                                                    <div>
-                                                        <input type="submit" value="Guardar" class="btn btn-primary btn-lg">
-                                                       </div>
                                                 </div>
-                                                
-                                    </form>
                                         </div>
                                     </div>
                                     </div>

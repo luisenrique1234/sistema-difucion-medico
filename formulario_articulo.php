@@ -57,7 +57,7 @@ if ($_SESSION["s_medico"] === null){
                                                <h1 class="title">Crear Aríticulo</h1>
                                                 </div>
                                                 
-                                                <div class="col-md-6 col-md-offset-3 col-sm-4 col-sm-offset-2">
+                                                <div class="col-md-5 col-md-offset-1 col-sm-4 col-sm-offset-2">
                                                     <div class="form-group">
                                                         <label class="control-label"><i class="fa fa-header"></i> Titulo del Artículo<span
                                                                 style="color: #20558A">*</span></label>
@@ -65,44 +65,10 @@ if ($_SESSION["s_medico"] === null){
                                                             placeholder="Mí Artículo" class="form-control">
                                                     </div>
                                                 </div>
-
-                                                <div class="col-md-10 col-md-offset-1 col-sm-4 col-sm-offset-2">
-                                                <div class="form-group">
-                                                    <label class="control-label"><i class="fa fa-pencil-square-o"></i> Resumen<span
-                                                            style="color: turquoise">*</span></label>
-                                                    <div class="form-group">
-                                                        <textarea name="resumen"  required="required"
-                                                            class="form-control" rows="4"
-                                                            placeholder="Escribe su resumen"></textarea>
-                                                    </div>
-                                                    </div>
-                                                </div>
-
-                                               
-                                                
-                                                <div class="col-lg-5 col-lg-offset-1 col-xs-12 col-xs-offset-0">
-                                                    <div class="form-group">
-                                                        <label class="control-label"><i class="fa fa-users"></i> Autores</label>
-                                                        <textarea name="autor"  required="required"
-                                                            class="form-control" rows="3"
-                                                            placeholder="Autores"></textarea>
-                                                    </div>
-                                                </div>
-
-                                                    <div class="col-lg-5 col-lg-offset-0 col-xs-12 col-xs-offset-0">
-                                                    <div class="form-group">
-                                                        <label class="control-label"><i class="fa fa-book"></i> Bibliografía<span
-                                                                style="color: turquoise">*</span></label>
-                                                        <textarea name="biblio"  required="required"
-                                                            class="form-control" rows="3"
-                                                            placeholder="Bibliografía"></textarea>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-lg-5 col-lg-offset-1 col-xs-12 col-xs-offset-0">
+                                                <div class="col-lg-5 col-lg-offset-0 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
                                                     <label  class="control-label"><i class="fa fa-tag"></i> Tema<span
-                                                                style="color:turquoise">*</span> </label>
+                                                                style="color:#20558A">*</span> </label>
                                                     
 
                                                         <select name="tema" class="form-control" required="required">
@@ -123,7 +89,43 @@ if ($_SESSION["s_medico"] === null){
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div  class=" col-sm-offset-1 col-lg-3 col-lg-offset-0 col-xs-12 col-xs-offset-0">
+
+                                                <div class="col-md-10 col-md-offset-1 col-sm-4 col-sm-offset-2">
+                                                <div class="form-group">
+                                                    <label class="control-label"><i class="fa fa-pencil-square-o"></i> Resumen<span
+                                                            style="color: turquoise">*</span></label>
+                                                    <div class="form-group">
+                                                        <textarea name="resumen"  required="required"
+                                                            class="form-control" rows="4"
+                                                            placeholder="Escribe su resumen"></textarea>
+                                                    </div>
+                                                    </div>
+                                                </div>
+
+                                               
+                                                
+                                                <div class="col-lg-5 col-lg-offset-1 col-xs-12 col-xs-offset-0">
+                                                    <div class="form-group">
+                                                        <label class="control-label"><i class="fa fa-users"></i> Autores<span
+                                                                style="color: #20558A">*</span></label>
+                                                        <textarea name="autor"  required="required"
+                                                            class="form-control" rows="3"
+                                                            placeholder="Autores"></textarea>
+                                                    </div>
+                                                </div>
+
+                                                    <div class="col-lg-5 col-lg-offset-0 col-xs-12 col-xs-offset-0">
+                                                    <div class="form-group">
+                                                        <label class="control-label"><i class="fa fa-book"></i> Bibliografía<span
+                                                                style="color: #20558A">*</span></label>
+                                                        <textarea name="biblio"  required="required"
+                                                            class="form-control" rows="3"
+                                                            placeholder="Bibliografía"></textarea>
+                                                    </div>
+                                                </div>
+
+                                                
+                                                <div  class=" col-sm-offset-1 col-lg-3 col-lg-offset-1 col-xs-12 col-xs-offset-0">
                                                     <label class="control-label"><i class="fa fa-file-pdf-o"></i> Subir Artículo</label>
                                                     <input type="file" name="archivo" required="required">
                                                 </div>

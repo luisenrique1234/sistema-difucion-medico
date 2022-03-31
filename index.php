@@ -116,7 +116,7 @@ if ($_SESSION["s_medico"] === null ){
 
         ?>
 
-    <h3 class="text-muted" style="color: #20558A;"><i class="fa fa-youtube-play"></i> Últimas Conferencias</h3>
+    <h3 class="text-muted" style="color: #20558A;"><i class="fa fa-youtube-play"></i> Conferencias en Cursos</h3>
     <br>
                <main>
                 <?php while ($rowSql = mysqli_fetch_assoc($sql)){ 
@@ -308,10 +308,10 @@ if ($_SESSION["s_medico"] === null ){
                         
                         <div class="inicio_ico">
                                             <a href="graficosme.php" class="fa fa-bar-chart" aria-hidden="true"></a>
-                                            <a href="#" class="fa fa-user-circle"></a>
-                                            <a href="#" class="fa fa-h-square" aria-hidden="true"></a>
+                                            <a href="#" class="fa fa-newspaper-o"></a>
+                                            <a href="#" class="fa fa-youtube-play"></a>
                                             
-                                            <a href="./contador/dashboard.php" class="fa fa-eye" aria-hidden="true"></a>
+                                            <a href="./contador/dashboard.php" class="fa fa-stethoscope"></a>
                                         </div>
                     </div>
         </div>

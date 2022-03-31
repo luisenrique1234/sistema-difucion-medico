@@ -97,7 +97,7 @@ if ($i == "INSCON") {
     $fechini = $_POST['fechini'];
     $fechfinal = $_POST['fechfinal'];
     //$etapacon = $_POST['etapa'];
-    $categoriacon = $_POST['categoria'];
+    $categoriacon = $_POST['tema'];
 
     
     //$date = (new DateTime())->format('y-m-d');
@@ -216,7 +216,7 @@ if($i=="UDTCON"){
     $fechaini=$_POST['fechini'];
     $fechafinal=$_POST['fechfinal'];
     $etapacofe=$_POST['etapa'];
-    
+    $catego_tema=$_POST['tema'];
 
     
     $sql="
@@ -224,6 +224,7 @@ if($i=="UDTCON"){
         `titulo_confe` ='$titulo',
         `autores_confe` ='$partici',
         `link_confe` ='$linkco2',
+        `categoria_confe` ='$catego_tema',
         `fachainicio`='$fechaini',
         `fechafinal`='$fechafinal',
         `etapa_confe`='$etapacofe'

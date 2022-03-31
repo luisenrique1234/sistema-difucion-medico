@@ -130,13 +130,31 @@ if ($_SESSION["s_medico"] === null){
                                                             placeholder="Agregar participante"></textarea>
                                                     </div>
                                                 </div>
+                                                <div class="col-lg-5 col-lg-offset-1 col-xs-12 col-xs-offset-0">
+                                                    <div class="form-group">
+                                                    <label  class="control-label"><i class="fa fa-tag"></i> Tema<span
+                                                                style="color:#20558A">*</span> </label>
+                                                    
 
-                                                <div class="col-md-3 col-md-offset-2 col-sm-3 col-sm-offset-2 col-lg-3 col-lg-offset-3 col-xs-12 col-xs-offset-0">
-                                                    
-                                                                <input style="background-color: #20558A; color:#000000;" type="hidden"  name="categoria" require="" placeholder="categoria" class="form-control" readonly="" value="<?php echo $_SESSION["s_espeme"];?>">
-                                                    
+                                                        <select name="tema" class="form-control" required="required">
+                                                            <?php
+					                                        include '../php/conexion.php';
+                                                            
+					                                        $getAlumno1 = "SELECT * FROM  especialidad";
+					                                        $gerAlumno2 = $mysqli->query ($getAlumno1);
+                                                            
+					                                        while ($row2 = mysqli_fetch_array($gerAlumno2))
+					                                        {
+					                                            $id = $row2 ['id_espec'];
+					                                        	$espe = $row2['espec_descripsion'];
+					                                        	?>
+                                                            <option value="<?php echo $id?>"><?php echo $espe;?></option>
+                                                            
+                                                            <?php }?>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                                <div  class="col-md-8 col-md-offset-3 col-sm-8 col-sm-offset-3 col-lg-8 col-lg-offset-1 col-xs-12 col-xs-offset-0">
+                                                <div  class=" col-sm-offset-1 col-lg-5 col-lg-offset-0 col-xs-12 col-xs-offset-0">
                                                     <label class="control-label"><i class="fa fa-file-pdf-o"></i> Subir material de apoyo</label>
                                                     <input type="file" name="archivo" >
                                                 </div>

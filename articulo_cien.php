@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0);
 
 /*esta fucion sirve para converti toddos los carateres como acentos en formato
 uti-8 indenpedientemente de cual fuera su formato de  origen todo se convertira en 
@@ -85,7 +85,7 @@ $buscarespec='Todos';
                         <table class="table">
                             <thead>
                                 <div>
-                                    <div class="col-lg-1 col-lg-offset-2 col-xs-12 col-xs-offset-0">
+                                    <div class=" col-lg-1 col-lg-offset-2 col-xs-12 col-xs-offset-0">
                                         <select id="assigned-tutor-filter" id="titulobus" name="titulobus"
                                             class="form-control mt-2">
                                             <?php if ($_POST["titulobus"] != ''){ ?>
@@ -104,7 +104,7 @@ $buscarespec='Todos';
                                     </div>
                                     <div class="col-lg-1 col-lg-offset-0 col-xs-12 col-xs-offset-0">
                                         <!--<input type="submit" class="btn btn-info" value="Ver"  style="margin-top: 30px;">-->
-                                        <button class="btn btn-info articulo_bus" type="sumit">Buscar</button>
+                                        <button  class="btn btn-info articulo_bus" type="sumit">Buscar</button>
                                     </div>
                                 
                                     
@@ -200,7 +200,7 @@ $buscarespec='Todos';
                         if ($buscar != '' AND $titulobus =='Todos'  AND $buscarespec !='Todos' AND $buscafechadesde !='' ){ $filtro = "AND publicacion.titulo_public LIKE '%".$buscar."%' AND especialidad.espec_descripsion = '".$buscarespec."' AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$buscafechahasta."'";}
                         
                         if ($buscar != '' AND $buscarespec !='Todos' AND $titulobus =='Todos' AND $buscafechadesde =='' ){ $filtro = "AND publicacion.titulo_public  LIKE '%".$buscar."%' AND especialidad.espec_descripsion = '".$buscarespec."'";}
-                        echo("<h4>$filtro</h4>");
+                        //echo("<h4>$filtro</h4>");
                         }
 
                     //$espesicialidad =$_SESSION["s_espeme"];

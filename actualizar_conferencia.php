@@ -119,7 +119,7 @@ if ($_SESSION["s_medico"] === null){
                                                     </div>
                                                 </div>
 
-                                                <div class="col-lg-4 col-lg-offset-1 col-xs-12 col-xs-offset-0">
+                                                <div class="col-lg-5 col-lg-offset-1 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
                                                         <label class="control-label"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Estado de la conferencia<span
                                                                 style="color: #20558A">*</span></label>
@@ -128,6 +128,27 @@ if ($_SESSION["s_medico"] === null){
                                                                     <option value="En vivo" <?php if($row['etapa_confe']=='En vivo'){echo "selected";} ?>>En vivo</option>
                                                 
                                                                     </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-5 col-lg-offset-0 col-xs-12 col-xs-offset-0">
+                                                <div class="form-group">
+                                                        <label  class="control-label"><i class="fa fa-tag"></i> Tema<span
+                                                                style="color:#20558A">*</span> </label>
+                                                    
+
+                                                        <select name="tema" class="form-control" required="required">
+                                                            <?php
+					                                        include '../php/conexion.php';
+					                                        $getAlumno1 = "SELECT * FROM  especialidad";
+					                                        $gerAlumno2 = $mysqli->query ($getAlumno1);
+					                                        while ($row2 = mysqli_fetch_array($gerAlumno2))
+					                                        {
+					                                            $id = $row2 ['id_espec'];
+					                                        	$espe = $row2['espec_descripsion'];?>
+                                                            <option value="<?php echo $id?>" <?php if($row['categoria_confe']==$id){echo "selected";} ?>><?php echo $espe;?></option>
+                                                            <?php } ?>
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 

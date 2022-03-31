@@ -205,7 +205,8 @@
 .articulo_bus{
   position: relative;
   right: 31px;
-  margin-top: opx;
+  margin-top: 1px;
+  padding-bottom: 1rem;
 }
 
 /*pruva cacelar*/
