@@ -112,7 +112,7 @@ if ($_SESSION["s_admin"] === null) {
             <td>" . $row["provincia_me"] . "</td>
 			
             <td>
-            <a onclick='return aleractivar2(".$row['id_medico'].");' class='btn btn-info'>Activar</a>
+            <a title='Activar Médico' onclick='return aleractivar2(".$row['id_medico'].");' class='btn btn-success' style='  font-size: 19px;'><i class='fa fa-check'></i></a>
             </td>
             </tr>
             ";

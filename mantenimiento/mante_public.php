@@ -72,27 +72,27 @@ if ($_SESSION["s_admin"] === null) {
         <br>
         <br>
             <div class="panel-heading">
-                <h1> Listado de Publicación</h1>
+                <h1> Listado de Artículos</h1>
                 <div class="panel-body">
                     
-                        <a href="nuevoma_public.php" class="btn btn-info pull-letf">NUEVO</a>
-                        <a href="../reportes/reporte_public.php" class="btn btn-danger">Reporte <i class="fa fa-print" aria-hidden="true"></i></a>
-                    <br>
+                        <a title="Nuevo Médico" href="nuevoma_public.php" class="btn btn-info pull-letf" style='right: 24%;  font-size: 19px;'><i class="fa fa-user-plus"></i></a>
+                        <a title="Reporte" href="../reportes/reporte_public.php" class="btn btn-success" style='  font-size: 19px;'> <i class="fa fa-print" aria-hidden="true"></i></a>
+                    
                     <hr>
                     <table class="table tabla1" style="text-align: center;">
                         <thead>
                             <tr style="background-color: #20558A; color:#FFFFFF;">
                                 <!-- fila-->
-                                <th data-hidden="true">Código public</th>
+                                <th data-hidden="true">Código Artículo</th>
                                 <th data-hidden="true">Nombre médico</th>
                                 <th data-hidden="true">Tituo</th>
                                 <th data-hidden="true">_____Autor_____</th>
-                                <th data-hidden="true">_________________Publicacion______________________</th>
-                                <th data-hidden="true">Referencia</th>
+                                <th data-hidden="true">_________________Resumen______________________</th>
+                                <th data-hidden="true">Biblografia</th>
                                 <th data-hidden="true">Fecha publicacion</th>
-                                <th data-hidden="true">Categaria</th>
-                                <th data-hidden="true">votos</th>
-                                <th data-hidden="true"></th>
+                                <th data-hidden="true">Tema</th>
+                                <th data-hidden="true">Apoyo</th>
+                                <th data-hidden="true">____________________</th>
                                 <th data-hidden="true"></th>
                             </tr>
                         </thead>
@@ -116,10 +116,9 @@ if ($_SESSION["s_admin"] === null) {
             <td>" . $row["me_gusta_pu"] . "</td>
 			
             <td>
-            <a href='actualizama_public.php?id=" . $row["id_public"] . "' class='btn btn-info'>Editar</a>
-            <br>
-            <br>
-            <a onclick='return alerpublicele(".$row['id_public'].");' class='btn btn-danger confirm'>Eliminar</a>
+            <a title='Editar Artículo' href='actualizama_public.php?id=" . $row["id_public"] . "' class='btn btn-info' style='  font-size: 19px;'><i class='fa fa-pencil' aria-hidden='true'></i></a>
+            
+            <a title='Eliminar Artículo' onclick='return alerpublicele(".$row['id_public'].");' class='btn btn-danger confirm' style='  font-size: 19px;'><i class='fa fa-trash' aria-hidden='true'></i></a>
             </td>
             </tr>
             ";

@@ -67,7 +67,6 @@ $buscar='';
 <?php include_once "./php/menu_nada.php"; ?>
 
 <br>
-<br>
 
     <!--<div class="col-lg-1 col-lg-offset-0 col-xs-12 col-xs-offset-0">
         <a class="navbar-brand" href="index.php">
@@ -119,6 +118,24 @@ $buscar='';
                                                 <a class='btn btn-info' href="formulario_articulo.php" role="button"><i class="fa fa-newspaper-o tamñó">  <i class="fa fa-plus" aria-hidden="true"></i></i></a>
                                                 
                                                 </div>
+
+                                                <div class=" col-lg-2 col-lg-offset-2 col-xs-12 col-xs-offset-0 fecha_mis">
+
+                                        <div class="label_bus" ><label class="control-label">Fecha desde: </label></div>
+                                        <input type="date" id="buscafechadesde" name="buscafechadesde"
+                                            class="form-control mt-2 select_bus"
+                                            value="<?php echo $buscafechadesde=$_POST["buscafechadesde"]; ?>"
+                                            style="border: #bababa 1px solid; color:#20558A;">
+                                    </div>
+
+                                    <div class="col-lg-2 col-lg-offset-1 col-xs-12 col-xs-offset-0 fecha_mis">
+
+                                        <div class="label_bus"><label class="control-label">Fecha hasta:</label></div>
+                                        <input type="date" id="buscafechahasta" name="buscafechahasta"
+                                            class="form-control mt-2 select_bus"
+                                            value="<?php echo $buscafechahasta=$_POST["buscafechahasta"]; ?>"
+                                            style="border: #bababa 1px solid; color:#20558A;">
+                                    </div>
                                         </div>
                                 </thead>
                         </table>
@@ -177,7 +194,7 @@ $buscar='';
                         
                         
                         <?php 
-                         echo "<td style=' font-size: 49px;'> <a title='Eliminar Articulo' onclick='return alereliminararticulo(".$rowSql["id_public"].");' class='btn btn-danger' style='left: 60px; position: relative; font-size: 19px;'  role='button'><i class='fa fa-trash' aria-hidden='true'></i></i></a></td>  
+                         echo "<td style=' font-size: 49px;'> <a title='Eliminar Artículo' onclick='return alereliminararticulo(".$rowSql["id_public"].");' class='btn btn-danger' style='left: 60px; position: relative; font-size: 19px;'  role='button'><i class='fa fa-trash' aria-hidden='true'></i></i></a></td>  
                         <td style=' font-size: 49px;'> <a title='Editar Articulo' href='actualizar_articulo.php?id=" .$rowSql["id_public"]. "' class='btn btn-success' style='left: 78px; position: relative; font-size: 19px;'   role='button'><i class='fa fa-pencil' aria-hidden='true'></i></a></td>
                         <td style=' font-size: 49px;'> <a title='Ver articulo completo' href='ver_articulo.php?id=" .$rowSql["id_public"]. "' class='btn btn-info' style='left: 90px; position: relative; font-size: 19px;'   role='button'><i class='fa fa-external-link'></i></i></a></td>";
                         ?>

@@ -79,10 +79,10 @@ if ($_SESSION["s_admin"] === null) {
                 <h1> Listado de Médico</h1>
                 <div class="panel-body">
                     
-                        <a href="nuevoma_medico.php" class="btn btn-info pull-letf">NUEVO</a>
+                        <a title="Nuevo Médico" href="nuevoma_medico.php" class="btn btn-info pull-letf" style='font-size: 19px;'><i class="fa fa-user-plus"></i></a>
                         
                         
-                        <a href="../reportes/reporte_medicodom.php" class="btn btn-danger">Reporte <i class="fa fa-print" aria-hidden="true"></i></a>
+                        <a title="Reportes" href="../reportes/reporte_medicodom.php" class="btn btn-success" style='font-size: 19px;'><i class="fa fa-print" aria-hidden="true"></i></a>
                     
                     <br>
                     <hr>
@@ -121,10 +121,9 @@ if ($_SESSION["s_admin"] === null) {
             <td>" . $row["provincia_me"] . "</td>
 			
             <td>
-            <a href='actualizarm_medico.php?id=" . $row["id_medico"] . "' class='btn btn-info'>Editar</a>
-            <br>
-            <br>
-            <a  onclick='return alereliminar(".$row['id_medico'].");'  class='btn btn-danger confirm'>Eliminar</a>
+            <a title='Editar Médico' href='actualizarm_medico.php?id=" . $row["id_medico"] . "' class='btn btn-info' style='  font-size: 19px;'><i class='fa fa-pencil' aria-hidden='true'></i></a>
+            
+            <a title='Eliminar Médico' onclick='return alereliminar(".$row['id_medico'].");'  class='btn btn-danger confirm' style='  font-size: 19px;' ><i class='fa fa-trash' aria-hidden='true'></i></a>
             </td>
             </tr>
 

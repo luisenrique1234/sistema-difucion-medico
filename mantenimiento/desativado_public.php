@@ -74,7 +74,7 @@ if ($_SESSION["s_admin"] === null) {
             <div class="panel-heading">
                 <h1> Listado de Publicación Desactivados</h1>
                 <div class="panel-body">
-                        <a href="../reportes/reporte_desactivapu.php" class="btn btn-danger">Reporte <i class="fa fa-print" aria-hidden="true"></i></a>
+                        <a title="Reporte" href="../reportes/reporte_desactivapu.php" class="btn btn-success" style='font-size: 19px;'><i class="fa fa-print" aria-hidden="true"></i></a>
                     <br>
                     <hr>
                     <table class="table tabla1" style="text-align: center;">
@@ -115,7 +115,7 @@ if ($_SESSION["s_admin"] === null) {
             <td>" . $row["me_gusta_pu"] . "</td>
 			
             <td>
-            <a onclick='return aleractivarpu(".$row['id_public'].");' class='btn btn-info'>Activar</a>
+            <a onclick='return aleractivarpu(".$row['id_public'].");' class='btn btn-success' style='  font-size: 19px;'><i class='fa fa-check'></i></a>
             </td>
             </tr>
             ";

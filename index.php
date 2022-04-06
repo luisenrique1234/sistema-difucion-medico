@@ -214,7 +214,7 @@ if ($_SESSION["s_medico"] === null ){
         $sql= $mysqli->query($sql2);
         //$numeroSql = mysqli_num_rows($sql);
         ?>
-    <h3><i class="fa fa-heartbeat"></i> Artículos más apollados</h3>
+    <h3><i class="fa fa-heartbeat"></i> Artículos más apoyados</h3>
         
                <main class="columna-perso">
                 <?php while ($rowSql = mysqli_fetch_assoc($sql)){ 

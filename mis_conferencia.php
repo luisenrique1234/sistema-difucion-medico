@@ -85,7 +85,6 @@ $buscar='';
 <div class="card-body">
    <div class="fom_buscar">     
 <br>
-<br>
         
 <h3 class="col-lg-5 col-lg-offset-5 col-xs-12 col-xs-offset-0">Mis Conferencia</h3>
 
@@ -98,46 +97,12 @@ $buscar='';
 
             
 
-                <div >
+                <div>
 
                         <table class="table">
                                 <thead>
-                                        <div>
-                                                <!--<div class="col-lg-2 col-lg-offset-1 col-xs-12 col-xs-offset-0">    
-                                                <label  class="control-label">Filtrar por Actividad</label>
-                                                        <select  id="assigned-tutor-filter" id="buscaetapa" name="buscaetapa" class="form-control mt-2">
-                                                                <?php //if ($_POST["buscaetapa"] != ''){ ?>
-                                                                <option value="<?php //echo $_POST["buscaetapa"]; ?>"><?php //echo $_POST["buscaetapa"]; ?></option>
-                                                                <?php //} ?>
-                                                                <option value="Todos">Todos</option>
-                                                                <option value="En vivo">En vivo</option>
-                                                                <option value="Programada">Progrmadas</option>
-                                                        </select>
-                                                </div>
+                                        
                                                 
-                                                <div class=" col-lg-2 col-lg-offset-0 col-xs-12 col-xs-offset-0">
-                                                        
-                                                        <label  class="control-label">Fecha desde:</label>
-                                                        <input style="border-radius: 25px;" type="date" id="buscafechadesde" name="buscafechadesde" class="form-control mt-2" value="<?php //echo $_POST["buscafechadesde"]; ?>" style="border: #bababa 1px solid; color:#0d87ac;">
-                                                </div>
-                                                <div class="col-lg-2 col-lg-offset-0 col-xs-12 col-xs-offset-0">
-                                                        
-                                                        <label  class="control-label">Fecha hasta:</label>
-                                                        <input style="border-radius: 25px;" type="date" id="buscafechahasta" name="buscafechahasta" class="form-control mt-2" value="<?php //echo $_POST["buscafechahasta"]; ?>" style="border: #bababa 1px solid; color:#0d87ac;" >
-                                                </div>
-                                                <div class="col-lg-2 col-lg-offset-0 col-xs-12 col-xs-offset-0">
-                                                <label  class="control-label">Filtrar por Especialidades</label>
-                                                        <select  id="subject-filter" id="buscarespec" name="buscarespec" class="form-control mt-2">
-                                                                <?php //if ($_POST["buscarespec"] != ''){ ?>
-                                                                <option value="<?php //echo $_POST["buscarespec"]; ?>"><?php //echo $_POST["buscarespec"]; ?></option>
-                                                                <?php //} ?>
-                                                                <option value="Todos">Todos</option>
-                                                                <option value="General">General</option>
-                                                                <option value="Cirugia general">Cirugia general</option>
-                                                                <option value="Pediatria">Pediatria</option>
-                                                                <option value="Cardiologia">Cardiología</option>
-                                                        </select>
-                                                </div>-->
                                                 <div class="col-lg-3 col-lg-offset-0 col-xs-12 col-xs-offset-0">
                                                 <!--<input type="submit" class="btn btn-info" value="Ver"  style="margin-top: 30px;">-->
                                                 <button class="btn btn-info mis_conferencia" type="sumit" ><i class="fa fa-search" aria-hidden="true"></i></button>
@@ -154,7 +119,27 @@ $buscar='';
                                                 <a class='btn btn-info' href="formu_conferencia.php" role="button"><i class="fa fa-video-camera" aria-hidden="true">  <i class="fa fa-plus" aria-hidden="true"></i></i></a>
                                                 
                                                 </div>
-                                        </div>
+                                                
+
+                                                <div class=" col-lg-2 col-lg-offset-2 col-xs-12 col-xs-offset-0 fecha_mis">
+
+                                        <div class="label_bus" ><label class="control-label">Fecha desde: </label></div>
+                                        <input type="date" id="buscafechadesde" name="buscafechadesde"
+                                            class="form-control mt-2 select_bus"
+                                            value="<?php echo $buscafechadesde=$_POST["buscafechadesde"]; ?>"
+                                            style="border: #bababa 1px solid; color:#20558A;">
+                                    </div>
+
+                                    <div class="col-lg-2 col-lg-offset-1 col-xs-12 col-xs-offset-0 fecha_mis">
+
+                                        <div class="label_bus"><label class="control-label">Fecha hasta:</label></div>
+                                        <input type="date" id="buscafechahasta" name="buscafechahasta"
+                                            class="form-control mt-2 select_bus"
+                                            value="<?php echo $buscafechahasta=$_POST["buscafechahasta"]; ?>"
+                                            style="border: #bababa 1px solid; color:#20558A;">
+                                    </div>
+
+                                        
                                 </thead>
                         </table>
                 </div>
@@ -215,7 +200,7 @@ $buscar='';
                         
                         
                         <?php 
-                         echo "<td style=' font-size: 49px;'> <a onclick='return alereliminarconfe(".$rowSql["id_confe"].");' class='btn btn-danger' style='left: 60px; position: relative; font-size: 19px;'  role='button'><i class='fa fa-trash' aria-hidden='true'></i></i></a></td>  
+                         echo "<td style=' font-size: 49px;'> <a onclick='return alereliminarconfe(".$rowSql["id_confe"].");' class='btn btn-danger' style='left: 60px; position: relative; font-size: 19px;'  role='button'><i class='fa fa-trash' aria-hidden='true'></i></a></td>  
                         <td style=' font-size: 49px;'> <a href='actualizar_conferencia.php?id=" .$rowSql["id_confe"]. "' class='btn btn-success' style='left: 78px; position: relative; font-size: 19px;'   role='button'><i class='fa fa-pencil' aria-hidden='true'></i></a></td>";
                         ?>
                         
@@ -236,14 +221,8 @@ $buscar='';
 </div>
 
 
-<!--boton flotante donde esta los diferentes acciones -->
-        <div class="con">
-        <?php include_once "./php/boton_medico.php"; ?>
-        </div>
-        <!--*******************************************************-->
 
-
-    </div>
+</div>
 </div>
 
     <script type="text/javascript" src="js/jquery.js"></script>

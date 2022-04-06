@@ -16,11 +16,11 @@
                                     <li><a href="desativado_medico.php">lista desactivado médico</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a class="text-muted" href="mante_public.php">Lista de publicación<i class="fa fa-angle-down"></i></a>
+                            <li class="dropdown"><a class="text-muted" href="mante_public.php">Lista de Artículos<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                    <li><a href="mante_public.php">Lista de publicación</a></li>
-                                    <li><a href="#">Comentario publicación</a></li>
-                                    <li><a href="desativado_public.php">Lista destivado publicación</a></li>
+                                    <li><a href="mante_public.php">Lista de Artículos</a></li>
+                                    <li><a href="#">Comentario Artículo</a></li>
+                                    <li><a href="desativado_public.php">Lista destivado Articulos</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown"><a class="text-muted" href="mante_inve.php">Lista  investigaciones<i class="fa fa-angle-down"></i></a>
