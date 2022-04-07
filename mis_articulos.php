@@ -194,8 +194,8 @@ $buscar='';
                         
                         
                         <?php 
-                         echo "<td style=' font-size: 49px;'> <a title='Eliminar Artículo' onclick='return alereliminararticulo(".$rowSql["id_public"].");' class='btn btn-danger' style='left: 60px; position: relative; font-size: 19px;'  role='button'><i class='fa fa-trash' aria-hidden='true'></i></i></a></td>  
-                        <td style=' font-size: 49px;'> <a title='Editar Articulo' href='actualizar_articulo.php?id=" .$rowSql["id_public"]. "' class='btn btn-success' style='left: 78px; position: relative; font-size: 19px;'   role='button'><i class='fa fa-pencil' aria-hidden='true'></i></a></td>
+                         echo "<td style=' font-size: 49px;'> <a title='Editar Articulo' href='actualizar_articulo.php?id=" .$rowSql["id_public"]. "' class='btn btn-success' style='left: 60px; position: relative; font-size: 19px;'   role='button'><i class='fa fa-pencil' aria-hidden='true'></i></a></td>
+                         <td style=' font-size: 49px;'> <a title='Eliminar Artículo' onclick='return alereliminararticulo(".$rowSql["id_public"].");' class='btn btn-danger' style='left: 78px; position: relative; font-size: 19px;'  role='button'><i class='fa fa-trash' aria-hidden='true'></i></i></a></td>  
                         <td style=' font-size: 49px;'> <a title='Ver articulo completo' href='ver_articulo.php?id=" .$rowSql["id_public"]. "' class='btn btn-info' style='left: 90px; position: relative; font-size: 19px;'   role='button'><i class='fa fa-external-link'></i></i></a></td>";
                         ?>
                         

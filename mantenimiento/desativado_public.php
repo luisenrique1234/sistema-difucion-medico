@@ -1,6 +1,6 @@
 <?php
 
-include('../php/mante_consultas.php');
+include('../php/consultas_desa.php');
 /*esta fucion sirve para converti toddos los carateres como acentos en formato
 uti-8 indenpedientemente de cual fuera su formato de  origen todo se convertira en 
 utf-8 para que asi todos tengan el mismo formato*/
@@ -72,7 +72,7 @@ if ($_SESSION["s_admin"] === null) {
         <br>
         <br>
             <div class="panel-heading">
-                <h1> Listado de Publicación Desactivados</h1>
+                <h1> Listado de Articulo Desactivados</h1>
                 <div class="panel-body">
                         <a title="Reporte" href="../reportes/reporte_desactivapu.php" class="btn btn-success" style='font-size: 19px;'><i class="fa fa-print" aria-hidden="true"></i></a>
                     <br>

@@ -86,7 +86,7 @@ ob_start();
                     <hr>
                     <table id="tabla1" class="table" style="text-align: center;">
                         <thead>
-                            <tr style="background-color: #0d87ac; color:#FFFFFF;">
+                            <tr style="background-color: #20558A; color:#FFFFFF;">
                                 <!-- fila-->
                                 <th data-sortable="true">Código médico</th>
                                 <!--th colunma-->

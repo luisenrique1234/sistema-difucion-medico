@@ -74,7 +74,7 @@ if ($_SESSION["s_admin"] === null) {
                 <br>
                 <h1> Listado de Médico Desactivados</h1>
                 <div class="panel-body">
-                <a href="reportes/#" class="btn btn-danger">Reporte <i class="fa fa-print" aria-hidden="true"></i></a>
+                <a href="reportes/#" class="btn btn-success" style='font-size: 19px;'><i class="fa fa-print" aria-hidden="true"></i></a>
                     <br>
                     <hr>
                     <table class="table tabla1" style="text-align: center;">

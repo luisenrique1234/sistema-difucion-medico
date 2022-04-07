@@ -23,11 +23,11 @@
                                     <li><a href="desativado_public.php">Lista destivado Articulos</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a class="text-muted" href="mante_inve.php">Lista  investigaciones<i class="fa fa-angle-down"></i></a>
+                            <li class="dropdown"><a class="text-muted" href="mante_confe.php">Lista  Conferencia<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                <li><a href="mante_inve.php">Lista investigaciones</a></li>
+                                <li><a href="mante_confe.php">Lista Conferencia</a></li>
                                 <li><a href="#">Comentario investigacio</a></li>
-                                    <li><a href="desacti_inve.php">Lista desactivado investigaciones</a></li>
+                                    <li><a href="desacti_confe.php">Lista desactivado Conferencia</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown"><a class="text-muted" href="mante_rol.php">Roles<i class="fa fa-angle-down"></i></a>

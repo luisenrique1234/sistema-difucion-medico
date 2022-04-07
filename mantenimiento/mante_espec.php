@@ -75,7 +75,7 @@ if ($_SESSION["s_admin"] === null) {
                 <h1> Listado de Especialidades médicas</h1>
                 <div class="panel-body">
                     
-                        <a href="nuevoma_medico.php" class="btn btn-info pull-letf">NUEVO</a>
+                        <a href="nuevoma_medico.php" class="btn btn-info pull-letf" style='font-size: 19px;'><i class="fa fa-user-plus"></i></a>
                     
                     <br>
                     <hr>
@@ -104,9 +104,9 @@ if ($_SESSION["s_admin"] === null) {
             <td>" . $row["espec_descripsion"] . "</td>
 			
             <td>
-            <a href='actualizarm_espec.php?id=" . $row["id_espec"] . "' class='btn btn-info'>Editar</a>
+            <a href='actualizarm_espec.php?id=" . $row["id_espec"] . "' class='btn btn-info' style='  font-size: 19px;'><i class='fa fa-pencil' aria-hidden='true'></i></a>
             
-            <a onclick='return aleraespci(".$row['id_espec'].");' class='btn btn-danger confirm'>Eliminar</a>
+            <a onclick='return aleraespci(".$row['id_espec'].");' class='btn btn-danger confirm' style='  font-size: 19px;'><i class='fa fa-trash' aria-hidden='true'></i></a>
             </td>
             </tr>
 

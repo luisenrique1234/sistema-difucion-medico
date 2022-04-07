@@ -18,8 +18,8 @@ if ($i == "INSCON") {
 
     /*Esta es la parte encargada de subir los arichivo a una carperta de terminada 
     donde despues los tors medicos podran descargarla*/
-    $file_name = $_FILES['archivo']['name'];
-
+    $file_nameconple = $_FILES['archivo']['name'];
+    list( $file_name) = explode('.', $file_nameconple);
     $new_name_file = null;
 
     if ($file_name != '' || $file_name != null) {
@@ -160,7 +160,9 @@ if($i=="UDTCON"){
     $msj='';
     $codigocon=$_POST['codiconfe'];
 
-    $file_name = $_FILES['archivo']['name'];
+    $file_nameconple = $_FILES['archivo']['name'];
+    list( $file_name) = explode('.', $file_nameconple);
+
     $new_name_file = null;
 
     if ($file_name != '' || $file_name != null) {

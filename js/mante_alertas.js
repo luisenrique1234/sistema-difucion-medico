@@ -36,7 +36,7 @@ window.location.href = '../php/tablas_mantenimiento.php?accion=DLTPU&id='+codigo
 
 }
 
-function alerinves(codigo3) {
+function alerconfe(codigo3) {
 
     Swal.fire({
 title: '<h3>¿Estas Segura de eliminar el ID:'+codigo3+'?</h3>',
@@ -48,7 +48,7 @@ cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></
 })
 .then((result) => {
 if (result.value) {
-window.location.href = '../php/tablas_mantenimiento.php?accion=DLTINV&id='+codigo3
+window.location.href = '../php/tablas_mantenimiento.php?accion=DLTCON&id='+codigo3
 }
 }); 
 
@@ -93,7 +93,7 @@ window.location.href = '../php/tablas_mantenimiento.php?accion=ACTPU&id='+codigo
 
 }
 
-function aleractivarinv(codigo2) {
+function aleracticonfe(codigo2) {
 
   Swal.fire({
 title: '<h3>¿Estas seguro de Activar  el ID:'+codigo2+'?</h3>',
@@ -105,7 +105,7 @@ cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></
 })
 .then((result) => {
 if (result.value) {
-window.location.href = '../php/tablas_mantenimiento.php?accion=ACTINV&id='+codigo2
+window.location.href = '../php/tablas_mantenimiento.php?accion=ACTICONFE&id='+codigo2
 }
 }); 
 

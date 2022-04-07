@@ -5,7 +5,7 @@
 </head>
  
 <?php
-    include 'conexion.php';
+    include 'conexion2p.php';
     $i='';
     if (isset($_GET['accion'])){
         $i=$_GET['accion'];
@@ -79,7 +79,9 @@ if ($i == "INSPU") {
     include 'conexion2p.php';
     /*Esta es la parte encargada de subir los arichivo a una carperta de terminada 
     donde despues los tors medicos podran descargarla*/
-    $file_name = $_FILES['archivo']['name'];
+
+    $file_nameconple = $_FILES['archivo']['name'];
+    list( $file_name) = explode('.', $file_nameconple);
 
     $new_name_file = null;
     $new_imgen= null;
@@ -542,15 +544,178 @@ $(document).ready(function(){
 ';
 }
 
-if($i=="ACTINV"){
+
+if($i=="UDTCON"){
+    $msj='';
+    $codigocon=$_POST['codiconfe'];
+
+    $file_nameconple = $_FILES['archivo']['name'];
+    list( $file_name) = explode('.', $file_nameconple);
+    $new_name_file = null;
+    if ($file_name != '' || $file_name != null) {
+        $file_type = $_FILES['archivo']['name'];
+        list($type, $extension) = explode('.', $file_type);
+        if ($extension == 'pdf') {
+            $dir = 'documento-confe-pdf/';
+            if (!file_exists($dir)) {
+                mkdir($dir, 0777, true);
+            }
+            $file_tmp_name = $_FILES['archivo']['tmp_name'];
+            //$new_name_file = 'files/' . date('Ymdhis') . '.' . $extension;
+            $new_name_file = $dir . file_name($file_name) . '.' . $extension;
+            if (copy($file_tmp_name, $new_name_file)) {
+                $new_archivo=$new_name_file;
+            }
+        }elseif ($extension == 'docx') {
+            $dir = 'documento-confe-word/';
+            if (!file_exists($dir)) {
+                mkdir($dir, 0777, true);
+            }
+            $file_tmp_name = $_FILES['archivo']['tmp_name'];
+            $new_name_file = $dir . file_name($file_name) . '.' . $extension;
+            if (copy($file_tmp_name, $new_name_file)) {
+                $new_archivo=$new_name_file;
+                //echo ("<h4>$new_name_file</h4>");
+
+            }
+        }else{
+            header("Refresh: 4; URL= ../actualizarman_conferencia.php?id=".$codigocon);
+        echo '
+            <script type="text/javascript">
+
+
+            $(document).ready(function(){
+
+	        swal({
+	        title: "Tipo de archivo no admitido, Solo se permiten pdf,docx",
+		    icon: "warning",
+	        })
+            });
+
+
+            </script>'
+            ; exit;
+        }
+    }else{
+        $titulo=$_POST['titulo'];
+    $partici=$_POST['parti'];
+
+    $linkco2=$_POST['link'];
+
+    $fechaini=$_POST['fechini'];
+    $fechafinal=$_POST['fechfinal'];
+    $etapacofe=$_POST['etapa'];
+    $catego_tema=$_POST['tema'];
+
+    
+    $sql="
+    UPDATE `conferencia` SET
+        `titulo_confe` ='$titulo',
+        `autores_confe` ='$partici',
+        `link_confe` ='$linkco2',
+        `categoria_confe` ='$catego_tema',
+        `fachainicio`='$fechaini',
+        `fechafinal`='$fechafinal',
+        `etapa_confe`='$etapacofe'
+        
+    WHERE
+        id_confe='$codigocon'";
+
+    if($mysqli->query($sql)){
+        $status='success';
+    }
+    else{
+        $status='errorudt';
+        echo "error" .mysqli_error($mysqli);
+    }
+    // echo("erro descripcion:" .mysqli_error($mysqli));
+    //header("Location: ../propietarip_mant.php?s=".$msj);
+    header("Refresh: 2; URL= ../mantenimiento/mante_confe.php?s=".$status);
+    echo '
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+
+	swal({
+		title: "Actualizado",
+		icon: "success",
+		
+	  })
+});
+
+
+</script>
+
+';
+exit;
+
+    }
+
+    
+    $titulo=$_POST['titulo'];
+    $partici=$_POST['parti'];
+    
+    $linkco2=$_POST['link'];
+
+    $fechaini=$_POST['fechini'];
+    $fechafinal=$_POST['fechfinal'];
+    $etapacofe=$_POST['etapa'];
+    
+
+    
+    $sql="
+    UPDATE `conferencia` SET
+        `titulo_confe` ='$titulo',
+        `autores_confe` ='$partici',
+        `link_confe` ='$linkco2',
+        `material_confe` ='$new_archivo',
+        `fachainicio`='$fechaini',
+        `fechafinal`='$fechafinal',
+        `etapa_confe`='$etapacofe'
+        
+    WHERE
+        id_confe='$codigocon'";
+
+    if($mysqli->query($sql)){
+        $status='success';
+    }
+    else{
+        $status='errorudt';
+        echo "error" .mysqli_error($mysqli);
+    }
+    // echo("erro descripcion:" .mysqli_error($mysqli));
+    //header("Location: ../propietarip_mant.php?s=".$msj);
+    header("Refresh: 2; URL= ../mantenimiento/mante_confe.php?s=".$status);
+    echo '
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+
+	swal({
+		title: "Conferencia Editada",
+		icon: "success",
+		
+	  })
+});
+
+
+</script>
+
+';
+}
+
+
+if($i=="ACTICONFE"){
     $msj='';
     $codigo=$_GET['id'];
 
     $sql="
-    UPDATE `inv_cientifica` SET
+    UPDATE `conferencia` SET
         `estado`='A'
     WHERE
-    id_inv='$codigo'";
+    id_confe='$codigo'";
 
     if($mysqli->query($sql)){
         $status='successdlt';
@@ -562,7 +727,7 @@ if($i=="ACTINV"){
     // echo("erro descripcion:" .mysqli_error($mysqli));
     //header("Location: ../propietarip_mant.php?s=".$msj);
 
-    header("Refresh: 2; URL= ../mantenimiento/desacti_inve.php?s=".$status);
+    header("Refresh: 2; URL= ../mantenimiento/desacti_confe.php?s=".$status);
     echo '
 <script type="text/javascript">
 
@@ -745,15 +910,15 @@ $(document).ready(function(){
 ';
 }
 
-if($i=="DLTINV"){
+if($i=="DLTCON"){
     $msj='';
     $codigo=$_GET['id'];
 
     $sql="
-    UPDATE `inv_cientifica` SET
+    UPDATE `conferencia` SET
         `estado`='I'
     WHERE
-    id_inv='$codigo'";
+    id_confe='$codigo'";
 
     if($mysqli->query($sql)){
         $status='successdlt';
@@ -765,7 +930,7 @@ if($i=="DLTINV"){
     // echo("erro descripcion:" .mysqli_error($mysqli));
     //header("Location: ../propietarip_mant.php?s=".$msj);
 
-    header("Refresh: 2; URL= ../mantenimiento/mante_inve.php?s=".$status);
+    header("Refresh: 2; URL= ../mantenimiento/mante_confe.php?s=".$status);
     echo '
 <script type="text/javascript">
 

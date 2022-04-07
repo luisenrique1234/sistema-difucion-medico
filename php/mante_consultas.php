@@ -40,19 +40,6 @@ function extraerpubic($id){
 
 ?>
 
-<?php 
-function lista_pudestivado(){
-    include('conexion.php');
-    
-    
-    $sql="SELECT publicacion.id_public,publicacion.titulo_public,publicacion.autor_pu,publicacion.text_public,publicacion.referencia_pu,
-    publicacion.link_archivo,publicacion.fecha_public,publicacion.tipo_archivo,publicacion.me_gusta_pu,especialidad.espec_descripsion,medico.nombre_medico FROM publicacion,medico,especialidad
-     WHERE publicacion.id_medico_pu=medico.id_medico AND publicacion.categoria_public=especialidad.id_espec AND publicacion.estado='I' ORDER BY id_public ASC";
-    return $result = $mysqli->query($sql);
-}
-
-
-?>
 
 <?php
 
@@ -78,18 +65,28 @@ function extraerinvestigacion($id){
 
 <?php
 
+/* lista de conferencia de la base de datos y extrea los medicos*/
 
 
-function lista_invsdesactiva(){
+function lista_conferencia(){
     include('conexion.php');
     
     
-    $sql="SELECT inv_cientifica.id_inv,inv_cientifica.titulo_inv,inv_cientifica.autor_inv,inv_cientifica.resume_inv,inv_cientifica.introducion_inv,inv_cientifica.fecha_inv,
-    medico.nombre_medico,especialidad.espec_descripsion FROM inv_cientifica,medico,especialidad  WHERE inv_cientifica.id_medico_inv=medico.id_medico 
-    AND inv_cientifica.cotegoria_inv=especialidad.id_espec  AND inv_cientifica.estado='I' ORDER BY id_inv ASC";
+    $sql="SELECT conferencia.id_confe,conferencia.titulo_confe,conferencia.autores_confe,conferencia.link_confe,conferencia.material_confe,conferencia.categoria_confe,
+    conferencia.fachainicio,conferencia.fechafinal,conferencia.etapa_confe,conferencia.visttas_confe,
+    medico.nombre_medico,especialidad.espec_descripsion FROM conferencia,medico,especialidad  WHERE conferencia.id_userme=medico.id_medico 
+    AND conferencia.categoria_confe=especialidad.id_espec  AND conferencia.estado='A' ORDER BY id_confe ASC";
+    return $result = $mysqli->query($sql);
+}
+function extraerconferencia($id){
+    include('conexion.php');
+    $sql="SELECT * FROM conferencia where id_confe='$id'";
     return $result = $mysqli->query($sql);
 }
 ?>
+
+
+
 
 
 <?php

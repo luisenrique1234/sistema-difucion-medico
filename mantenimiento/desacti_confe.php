@@ -1,6 +1,6 @@
 <?php
 
-include('../php/mante_consultas.php');
+include('../php/consultas_desa.php');
 /*esta fucion sirve para converti toddos los carateres como acentos en formato
 uti-8 indenpedientemente de cual fuera su formato de  origen todo se convertira en 
 utf-8 para que asi todos tengan el mismo formato*/
@@ -73,10 +73,10 @@ if ($_SESSION["s_admin"] === null) {
             <br>
                 <br>
                 <br>
-                <h1> Listado de Investigaciones</h1>
+                <h1> Listado de Conferencia Desactivado</h1>
                 <div class="panel-body">
                     
-                        <a href="nuevoma_medico.php" class="btn btn-info pull-letf">NUEVO</a>
+                        <a href="nuevoma_medico.php" class="btn btn-info pull-letf" style="font-size: 19px;"><i class="fa fa-print" aria-hidden="true"></i></a>
                     
                     <br>
                     <hr>
@@ -84,41 +84,41 @@ if ($_SESSION["s_admin"] === null) {
                         <thead>
                             <tr style="background-color: #20558A; color:#FFFFFF;">
                                 <!-- fila-->
-                                <th data-hidden="true">Código investigacion</th>
+                                
+                                <th data-hidden="true">Código conferencia</th>
                                 <th data-hidden="true">Nombre médico</th>
-                                <th data-hidden="true">Titulo investigacion</th>
-                                <th data-hidden="true">_____Autor_____</th>
-                                <th data-hidden="true">___________________________Resumen_________________________________</th>
-                                <th data-hidden="true">Introduccion</th>
-                                <th data-hidden="true">___Categoria___</th>
-                                <th data-hidden="true">___Fecha___</th>
-                                <th></th>
+                                <th data-hidden="true">Titulo conferencia</th>
+                                <th data-hidden="true">Autores</th>
+                                <th data-hidden="true">Fecha inicio</th>
+                                <th data-hidden="true">Fecha final</th>
+                                <th data-hidden="true">Apoyo</th>
+                                <th data-hidden="true">Tema</th>
+                                <th data-hidden="tre">Etapa</th>
+                                <th>___________________</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <?php
                         
                         
-                        $query = lista_invstigacion();
+                        $query = lista_conferenciadasa();
                         while ($row = $query->fetch_assoc()) {
                             //$fecha2=$row["fecha_public"];
                         //$final = date_create($fecha2)->format('d/m/y');
                             echo "
             <tr>
-            <td>" . $row["id_inv"] . "</td>
+            <td>" . $row["id_confe"] . "</td>
             <td>" . $row["nombre_medico"] . "</td>
-			<td>" . $row["titulo_inv"]. "</td>
-            <td>" . substr($row["autor_inv"],0,100). "</td>
-			<td>" . substr($row["resume_inv"],0,300). "</td>
-            <td>" . substr($row["introducion_inv"],0,100) . "</td>
+			<td>" . $row["titulo_confe"]. "</td>
+            <td>" . substr($row["autores_confe"],0,100). "</td>
+            <td>" . substr($row["fachainicio"],0,100) . "</td>
+            <td>" . substr($row["fechafinal"],0,100) . "</td>
+            <td>" . substr($row["visttas_confe"],0,100) . "</td>
             <td>" . substr($row["espec_descripsion"],0,300) . "</td>
-            <td>" . substr($row["fecha_inv"],0,300) . "</td>
+            <td>" . substr($row["etapa_confe"],0,300) . "</td>
 			
             <td>
-            <a href='actualizama_invest.php?id=" . $row["id_inv"] . "' class='btn btn-info'>Editar</a>
-            <br>
-            <br>
-            <a onclick='return alerinves(".$row["id_inv"].");' class='btn btn-danger confirm'>Eliminar</a>
+            <a onclick='return aleracticonfe(".$row["id_confe"].");' class='btn btn-success' style='  font-size: 19px;'><i class='fa fa-check'></i></a>
             </td>
             </tr>
             ";

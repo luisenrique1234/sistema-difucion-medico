@@ -65,7 +65,7 @@ if ($_SESSION["s_admin"] === null) {
 </head>
 <!--/head-->
 
-<body class="dark">
+<body class="">
 <?php include_once "../php/mante_menu.php"; ?>
         <!-- fin de la segunda parte-->
         <div>
@@ -73,50 +73,53 @@ if ($_SESSION["s_admin"] === null) {
             <br>
                 <br>
                 <br>
-                <h1> Listado de Investigaciones Desactivado</h1>
+                <h1> Listado de Conferencia</h1>
                 <div class="panel-body">
                     
-                        <a href="nuevoma_medico.php" class="btn btn-info pull-letf" style="background-color: #0d87ac;">NUEVO</a>
+                        <a href="nuevoma_medico.php" class="btn btn-info pull-letf" style='right: 24%;  font-size: 19px;'><i class="fa fa-user-plus"></i></a>
                     
                     <br>
                     <hr>
-                    <table class="table tabla1" style="text-align: center;">
+                    <table class="table tabla1" >
                         <thead>
-                            <tr style="background-color: #20558A; color:#FFFFFF;">
+                            <tr  style="background-color: #20558A; color:#FFFFFF;">
                                 <!-- fila-->
-                                
-                                <th data-hidden="true">Código investigacion</th>
+                                <th data-hidden="true">Código conferencia</th>
                                 <th data-hidden="true">Nombre médico</th>
-                                <th data-hidden="true">Titulo investigacion</th>
-                                <th data-hidden="true">_____Autor_____</th>
-                                <th data-hidden="true">___________________________Resumen_________________________________</th>
-                                <th data-hidden="true">Introduccion</th>
-                                <th data-hidden="true">___Categoria___</th>
-                                <th data-hidden="true">___Fecha___</th>
-                                <th></th>
+                                <th data-hidden="true">Titulo conferencia</th>
+                                <th data-hidden="true">Autores</th>
+                                <th data-hidden="true">Fecha inicio</th>
+                                <th data-hidden="true">Fecha final</th>
+                                <th data-hidden="true">Apoyo</th>
+                                <th data-hidden="true">Tema</th>
+                                <th data-hidden="tre">Etapa</th>
+                                <th>___________________</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <?php
                         
                         
-                        $query = lista_invsdesactiva();
+                        $query = lista_conferencia();
                         while ($row = $query->fetch_assoc()) {
                             //$fecha2=$row["fecha_public"];
                         //$final = date_create($fecha2)->format('d/m/y');
                             echo "
             <tr>
-            <td>" . $row["id_inv"] . "</td>
+            <td>" . $row["id_confe"] . "</td>
             <td>" . $row["nombre_medico"] . "</td>
-			<td>" . $row["titulo_inv"]. "</td>
-            <td>" . substr($row["autor_inv"],0,100). "</td>
-			<td>" . substr($row["resume_inv"],0,300). "</td>
-            <td>" . substr($row["introducion_inv"],0,100) . "</td>
+			<td>" . $row["titulo_confe"]. "</td>
+            <td>" . substr($row["autores_confe"],0,100). "</td>
+            <td>" . substr($row["fachainicio"],0,100) . "</td>
+            <td>" . substr($row["fechafinal"],0,100) . "</td>
+            <td>" . substr($row["visttas_confe"],0,100) . "</td>
             <td>" . substr($row["espec_descripsion"],0,300) . "</td>
-            <td>" . substr($row["fecha_inv"],0,300) . "</td>
+            <td>" . substr($row["etapa_confe"],0,300) . "</td>
 			
             <td>
-            <a onclick='return aleractivarinv(".$row["id_inv"].");' class='btn btn-info'>Activar</a>
+            <a href='actualizarman_conferencia.php?id=" . $row["id_confe"] . "' class='btn btn-info' style='  font-size: 19px;'><i class='fa fa-pencil' aria-hidden='true'></i></a>
+            
+            <a onclick='return alerconfe(".$row["id_confe"].");' class='btn btn-danger confirm' style='  font-size: 19px;'><i class='fa fa-trash' aria-hidden='true'></i></a>
             </td>
             </tr>
             ";
