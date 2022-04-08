@@ -76,7 +76,7 @@ if ($_SESSION["s_admin"] === null) {
                 <h1> Listado de Conferencia</h1>
                 <div class="panel-body">
                     
-                        <a href="nuevoma_medico.php" class="btn btn-info pull-letf" style='right: 24%;  font-size: 19px;'><i class="fa fa-user-plus"></i></a>
+                        <a href="formumante_conferencia.php" class="btn btn-info pull-letf" style='right: 24%;  font-size: 19px;'><i class="fa fa-user-plus"></i></a>
                     
                     <br>
                     <hr>

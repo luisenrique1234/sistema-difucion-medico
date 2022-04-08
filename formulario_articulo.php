@@ -95,7 +95,7 @@ if ($_SESSION["s_medico"] === null){
                                                     <label class="control-label"><i class="fa fa-pencil-square-o"></i> Resumen<span
                                                             style="color: turquoise">*</span></label>
                                                     <div class="form-group">
-                                                        <textarea name="resumen"  required="required"
+                                                        <textarea id="editor" name="resumen"  required="required"
                                                             class="form-control" rows="4"
                                                             placeholder="Escribe su resumen"></textarea>
                                                     </div>
@@ -169,6 +169,12 @@ if ($_SESSION["s_medico"] === null){
             </div>
     </footer>
     <!--/#footer-->
+    <script src="js/ckeditor5/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+        .create(document.querySelector('#editor'))
+        .catch(error =>{ console.error(error)});
+    </script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/lightbox.min.js"></script>
@@ -176,6 +182,8 @@ if ($_SESSION["s_medico"] === null){
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/temad.js"></script>
     <script type="text/javascript" src="js/medico_alerta.js"></script>
+
+    
 </body>
 
 </html>
