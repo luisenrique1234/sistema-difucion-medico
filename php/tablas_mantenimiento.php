@@ -208,7 +208,7 @@ if ($i == "INSPU") {
     //exit;
 
 
-    $sql = " INSERT INTO `publicacion` ( `id_medico_pu`,`titulo_public`,`autor_pu`,`text_public`,`referencia_pu`, `link_imagen`,`link_video`,`link_audio`,`link_archivo`,`fecha_public`,`categoria_public`,`tipo_archivo`,`me_gusta_pu`, `estado`) 
+    $sql = " INSERT INTO `publicacion` ( `id_medico_pu`,`titulo_public`,`autor_pu`,`text_public`,`referencia_pu`, `link_imagen`,`link_video`,`link_audio`,`link_archivo`,`fecha_public`,`categoria_public`,`me_gusta_pu`, `estado`) 
     VALUES (
 
         '$id_me',
@@ -222,7 +222,6 @@ if ($i == "INSPU") {
         '$new_archivo',
         '$date',
         '$categoria',
-        '$extension',
         '10',
         'A')";
         //echo ("<h4>$new_imgen</h4>");

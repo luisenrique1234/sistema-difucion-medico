@@ -154,7 +154,7 @@ $buscar='';
         $id_med=$_SESSION["s_idme"];
         $sql2=("SELECT publicacion.id_public,publicacion.titulo_public,publicacion.text_public,publicacion.autor_pu,publicacion.link_video,
         publicacion.link_audio,publicacion.link_archivo,DATE_FORMAT(publicacion.fecha_public,'%d/%m/%y') AS fecha,publicacion.categoria_public,publicacion.me_gusta_pu,publicacion.referencia_pu,
-        especialidad.espec_descripsion FROM publicacion,especialidad WHERE publicacion.categoria_public=especialidad.id_espec   AND publicacion.estado='A' AND publicacion.id_medico_pu='$id_med' $filtro");
+        especialidad.espec_descripsion FROM publicacion,especialidad WHERE publicacion.categoria_public=especialidad.id_espec   AND publicacion.estado='A' AND publicacion.id_medico_pu='$id_med' $filtro ORDER BY publicacion.fecha_public DESC");
         $sql= $mysqli->query($sql2);
         $numeroSql = mysqli_num_rows($sql);
 

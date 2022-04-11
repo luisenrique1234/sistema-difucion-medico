@@ -22,9 +22,6 @@ if ($i == "INS") {
     list( $file_name) = explode('.', $file_nameconple);
 
     $new_name_file = null;
-    $new_imgen= null;
-    $new_video=null;
-    $new_audio=null;
     $new_archivo=null;
 
     if ($file_name != '' || $file_name != null) {
@@ -41,58 +38,8 @@ if ($i == "INS") {
             if (copy($file_tmp_name, $new_name_file)) {
                 $new_archivo=$new_name_file;
             }
-        }elseif ($extension == 'docx') {
-            $dir = 'documento-word/';
-            if (!file_exists($dir)) {
-                mkdir($dir, 0777, true);
-            }
-            $file_tmp_name = $_FILES['archivo']['tmp_name'];
-            $new_name_file = $dir . file_name($file_name) . '.' . $extension;
-            if (copy($file_tmp_name, $new_name_file)) {
-                $new_archivo=$new_name_file;
-                //echo ("<h4>$new_name_file</h4>");
-
-            }
-        }elseif ($extension == 'mp4') {
-            $dir = 'videos/';
-            if (!file_exists($dir)) {
-                mkdir($dir, 0777, true);
-            }
-            $file_tmp_name = $_FILES['archivo']['tmp_name'];
-            $new_name_file = $dir . file_name($file_name) . '.' . $extension;
-            if (copy($file_tmp_name, $new_name_file)) {
-                $new_video=$new_name_file;
-
-            }
-        }elseif ($extension == 'jpg' || $extension == 'png') {
-            $dir = 'imagenes/';
-            if (!file_exists($dir)) {
-                mkdir($dir, 0777, true);
-            }
-            $file_tmp_name = $_FILES['archivo']['tmp_name'];
-            $new_name_file = $dir . file_name($file_name) . '.' . $extension;
-            if (copy($file_tmp_name, $new_name_file)) {
-                $new_imgen =  str_replace('imagenes/', '',$new_name_file);
-                
-                
-                
-
-            }
-        }elseif ($extension == 'mp3') {
-            $dir = 'audio/';
-            if (!file_exists($dir)) {
-                mkdir($dir, 0777, true);
-            }
-            $file_tmp_name = $_FILES['archivo']['tmp_name'];
-            $new_name_file = $dir . file_name($file_name) . '.' . $extension;
-            if (copy($file_tmp_name, $new_name_file)) {
-                $new_audio=$new_name_file;
-                
-                
-
-            }
         }else{
-            header("Refresh: 4; URL= ../form_public.php");
+            header("Refresh: 4; URL= ../formulario_articulo.php");
         echo '
             <script type="text/javascript">
 
@@ -100,7 +47,7 @@ if ($i == "INS") {
             $(document).ready(function(){
 
 	        swal({
-	        title: "Tipo de archivo no admitido, Solo se permiten jpg,png,pdf,docx,mp4,mp3",
+	        title: "Tipo de archivo no admitido, Solo se permiten PDF",
 		    icon: "warning",
 	        })
             });
@@ -110,7 +57,7 @@ if ($i == "INS") {
             ; exit;
         }
     }else{
-        header("Refresh: 3; URL= ../form_public.php");
+        header("Refresh: 3; URL= ../formulario_articulo.php");
         echo '
             <script type="text/javascript">
 
@@ -135,7 +82,9 @@ if ($i == "INS") {
     $id_me=$_SESSION["s_idme"];
     $titulo = $_POST['titulo'];
     $public = $_POST['resumen'];
-    $categoria = $_POST['tema'];
+    $conten = $_POST['contenido'];
+    $categoria = $_POST['categoria'];
+    $etiqueta = $_POST['etiqueta'];
     $autor1 = $_POST['autor'];
     $refe = $_POST['biblio'];
 
@@ -146,21 +95,19 @@ if ($i == "INS") {
     //exit;
 
 
-    $sql = " INSERT INTO `publicacion` ( `id_medico_pu`,`titulo_public`,`autor_pu`,`text_public`,`referencia_pu`, `link_imagen`,`link_video`,`link_audio`,`link_archivo`,`fecha_public`,`categoria_public`,`tipo_archivo`,`me_gusta_pu`, `estado`) 
+    $sql = " INSERT INTO `publicacion` ( `id_medico_pu`,`titulo_public`,`autor_pu`,`text_public`,`contendio_pdf`,`referencia_pu`,`link_archivo`,`fecha_public`,`categoria_public`,`etiqueta`,`me_gusta_pu`, `estado`) 
     VALUES (
 
         '$id_me',
         '$titulo',
         '$autor1',
         '$public',
+        '$conten',
         '$refe',
-        '$new_imgen',
-        '$new_video',
-        '$new_audio',
         '$new_archivo',
         '$date',
         '$categoria',
-        '$extension',
+        '$etiqueta',
         '10',
         'A')";
         //echo ("<h4>$new_imgen</h4>");

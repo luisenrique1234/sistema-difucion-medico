@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+//error_reporting(0);
 
 /*esta fucion sirve para converti toddos los carateres como acentos en formato
 uti-8 indenpedientemente de cual fuera su formato de  origen todo se convertira en 
@@ -109,8 +109,8 @@ $buscarespec='Todos';
                                 
                                     
                                     <div class="col-lg-2 col-lg-offset-3 col-xs-12 col-xs-offset-0">
-                                    <div class="label_bus"><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Temas: </label></div>
+                                    <div class="label_bus"><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        Categoría: </label></div>
                                         <select  id="assigned-tutor-filter" id="buscarespec" name="buscarespec"
                                             class="form-control mt-2 select_bus">
                                             <?php if ($_POST["buscarespec"] != ''){ ?>
@@ -162,11 +162,13 @@ $buscarespec='Todos';
 
 
                     <?php
+                    $buscar2=$buscar;
                     include 'php/conexion.php';
 
                     if ($buscar == '' AND $titulobus =='Todos' AND $buscafechadesde =='' AND $buscarespec =='Todos' ){ $filtro = "";}else{
-                       if ($buscar != '' AND $titulobus =='Todos' AND $buscafechadesde =='' AND $buscarespec =='Todos'  ){ $filtro = "AND publicacion.titulo_public LIKE '%".$buscar."%'";}
-
+                       if ($buscar != '' AND $titulobus =='Todos' AND $buscafechadesde =='' AND $buscarespec =='Todos'  ){ $filtro = "AND (publicacion.titulo_public LIKE '%".$buscar."%' OR publicacion.text_public LIKE '%".$buscar."%' OR publicacion.contendio_pdf LIKE '%".$buscar."%' 
+                        OR publicacion.etiqueta LIKE '%".$buscar."%' OR publicacion.referencia_pu LIKE '%".$buscar."%')";}
+                        
 
                         
                         //filtro tema
@@ -199,14 +201,15 @@ $buscarespec='Todos';
 
                         if ($buscar != '' AND $titulobus =='Todos'  AND $buscarespec !='Todos' AND $buscafechadesde !='' ){ $filtro = "AND publicacion.titulo_public LIKE '%".$buscar."%' AND especialidad.espec_descripsion = '".$buscarespec."' AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$buscafechahasta."'";}
                         
-                        if ($buscar != '' AND $buscarespec !='Todos' AND $titulobus =='Todos' AND $buscafechadesde =='' ){ $filtro = "AND publicacion.titulo_public  LIKE '%".$buscar."%' AND especialidad.espec_descripsion = '".$buscarespec."'";}
+                        if ($buscar != '' AND $buscarespec !='Todos' AND $titulobus =='Todos' AND $buscafechadesde =='' ){ $filtro = "AND especialidad.espec_descripsion = '".$buscarespec."' AND (publicacion.titulo_public LIKE '%".$buscar."%' OR publicacion.text_public LIKE '%".$buscar."%' 
+                            OR publicacion.contendio_pdf LIKE '%".$buscar."%' OR publicacion.etiqueta LIKE '%".$buscar."%' OR publicacion.referencia_pu LIKE '%".$buscar."%')";}
                         //echo("<h4>$filtro</h4>");
                         }
 
                     //$espesicialidad =$_SESSION["s_espeme"];
                     $public = "SELECT publicacion.id_public,publicacion.titulo_public,publicacion.text_public,publicacion.link_imagen,publicacion.link_video,
                     publicacion.link_audio,publicacion.link_archivo,DATE_FORMAT(publicacion.fecha_public,'%d/%m/%y') AS fecha,publicacion.categoria_public,publicacion.me_gusta_pu,publicacion.referencia_pu,
-                    medico.nombre_medico,medico.apellido_medico,especialidad.espec_descripsion FROM publicacion,medico,especialidad WHERE publicacion.id_medico_pu=medico.id_medico  AND publicacion.estado='A' AND publicacion.categoria_public=especialidad.id_espec $filtro";
+                    CONCAT(medico.nombre_medico,' ',medico.apellido_medico) nombreme,especialidad.espec_descripsion FROM publicacion,medico,especialidad WHERE publicacion.id_medico_pu=medico.id_medico  AND publicacion.estado='A' AND publicacion.categoria_public=especialidad.id_espec $filtro";
                     $public2 = $mysqli->query($public);
                     while ($res = mysqli_fetch_array($public2)) {
                         $link_imagen = $res['link_imagen'];
@@ -214,8 +217,7 @@ $buscarespec='Todos';
                         $audio = $res['link_audio'];
                         $fecha = $res['fecha'];
                         $archivo = $res['link_archivo'];
-                        $nombre = $res['nombre_medico'];
-                        $apellido = $res['apellido_medico'];
+                        $nombre = $res['nombreme'];
 
                     ?>
                     </form>
@@ -252,11 +254,11 @@ $buscarespec='Todos';
                                         <h2><?php mostrar($res['titulo_public']); ?></h2>
                                         <h3>Resumen</h3>
                                         <p><?php mostrar($res['text_public']); ?></p>
-                                        <?php echo '<h3 class="post-author"><a href="#">Autor:' . $nombre . " " . $apellido . '</a></h3>' ?>
+                                        <?php echo '<h3 class="post-author"><a href="#">Autor: ' .$nombre. '</a></h3>' ?>
                                         <h4>Bibliografia</h4>
                                         <p><?php mostrar(substr($res['referencia_pu'],0,500)); ?></p>
                                         <?php echo ("<h5>Publicado el: $fecha </h5>"); ?>
-                                        <h5>Tema: <a href="#"><?php mostrar($res['espec_descripsion']); ?> <i class="fa fa-tag"></i></a></h5>
+                                        <h5>Categoría: <a href="#"><?php mostrar($res['espec_descripsion']); ?> <i class="fa fa-tag"></i></a></h5>
                                         <?php echo("<a href='memoriac.php?id=".$res["id_public"]."' class='read-more'>ver artículo completo</a>");?>
                                         <br>
                                         <br>

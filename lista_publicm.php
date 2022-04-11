@@ -102,7 +102,6 @@ if ($_SESSION["s_medico"] === null) {
             <td>" . substr($row["autor_pu"],0,300) . "</td>
 			<td>" . substr($row["text_public"],0,300). "</td>
 			<td>" . substr($row["referencia_pu"],0,300). "</td>
-            <td>" . $row["tipo_archivo"] . "</td>
             <td>" . $final . "</td>
 			
             <td>

@@ -27,7 +27,7 @@ function lista_public(){
     
     
     $sql="SELECT publicacion.id_public,publicacion.titulo_public,publicacion.autor_pu,publicacion.text_public,publicacion.referencia_pu,
-    publicacion.link_archivo,publicacion.fecha_public,publicacion.tipo_archivo,publicacion.me_gusta_pu,especialidad.espec_descripsion,medico.nombre_medico FROM publicacion,medico,especialidad
+    publicacion.link_archivo,publicacion.fecha_public,publicacion.me_gusta_pu,especialidad.espec_descripsion,medico.nombre_medico FROM publicacion,medico,especialidad
      WHERE publicacion.id_medico_pu=medico.id_medico AND publicacion.categoria_public=especialidad.id_espec AND publicacion.estado='A' ORDER BY id_public ASC";
     return $result = $mysqli->query($sql);
 }
