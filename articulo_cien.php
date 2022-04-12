@@ -22,7 +22,6 @@ if ($_SESSION["s_medico"] === null ){
 }
 
 $buscar='';
-$titulobus='Todos';
 $buscarespec='Todos';
 ?>
 <!DOCTYPE html>
@@ -85,19 +84,7 @@ $buscarespec='Todos';
                         <table class="table">
                             <thead>
                                 <div>
-                                    <div class=" col-lg-1 col-lg-offset-2 col-xs-12 col-xs-offset-0">
-                                        <select id="assigned-tutor-filter" id="titulobus" name="titulobus"
-                                            class="form-control mt-2">
-                                            <?php if ($_POST["titulobus"] != ''){ ?>
-                                            <option value="<?php echo $_POST["titulobus"]; ?>">
-                                                <?php echo $titulobus=$_POST["titulobus"]; ?></option>
-                                            <?php } ?>
-                                            <option value="Todos">Todos</option>
-                                            <option value="titulo">Titulo</option>
-                                            <option value="Autor">Autor</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-7 col-lg-offset-0 col-xs-12 col-xs-offset-0 ">
+                                    <div class="col-lg-8 col-lg-offset-2 col-xs-12 col-xs-offset-0 ">
 
                                         <input type="text" class="form-control" id="buscar" name="buscar" value="<?php echo $buscar=$_POST["buscar"];?>">
 
@@ -108,7 +95,7 @@ $buscarespec='Todos';
                                     </div>
                                 
                                     
-                                    <div class="col-lg-2 col-lg-offset-3 col-xs-12 col-xs-offset-0">
+                                    <div class="col-lg-2 col-lg-offset-2 col-xs-12 col-xs-offset-0">
                                     <div class="label_bus"><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         Categoría: </label></div>
                                         <select  id="assigned-tutor-filter" id="buscarespec" name="buscarespec"
@@ -165,45 +152,43 @@ $buscarespec='Todos';
                     $buscar2=$buscar;
                     include 'php/conexion.php';
 
-                    if ($buscar == '' AND $titulobus =='Todos' AND $buscafechadesde =='' AND $buscarespec =='Todos' ){ $filtro = "";}else{
-                       if ($buscar != '' AND $titulobus =='Todos' AND $buscafechadesde =='' AND $buscarespec =='Todos'  ){ $filtro = "AND (publicacion.titulo_public LIKE '%".$buscar."%' OR publicacion.text_public LIKE '%".$buscar."%' OR publicacion.contendio_pdf LIKE '%".$buscar."%' 
+                    if ($buscar == ''  AND $buscafechadesde =='' AND $buscarespec =='Todos' ){ $filtro = "";}else{
+                       if ($buscar != ''  AND $buscafechadesde =='' AND $buscarespec =='Todos'  ){ $filtro = "AND (publicacion.titulo_public LIKE '%".$buscar."%' OR publicacion.text_public LIKE '%".$buscar."%' OR publicacion.contendio_pdf LIKE '%".$buscar."%' 
                         OR publicacion.etiqueta LIKE '%".$buscar."%' OR publicacion.referencia_pu LIKE '%".$buscar."%')";}
                         
 
                         
                         //filtro tema
-                        if ($buscar == '' AND $buscarespec !='Todos'  AND $titulobus =='Todos' AND $buscafechadesde =='' ){ $filtro = "AND especialidad.espec_descripsion = '".$buscarespec."'";}
+                        if ($buscar == '' AND $buscarespec !='Todos'   AND $buscafechadesde =='' ){ $filtro = "AND especialidad.espec_descripsion = '".$buscarespec."'";}
                         
 
-                        if ($buscar == '' AND $buscarespec !='Todos'  AND $titulobus =='Todos' AND $buscafechadesde !='' ){ $filtro = "AND especialidad.espec_descripsion = '".$buscarespec."' AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$buscafechahasta."'";}
+                        if ($buscar == '' AND $buscarespec !='Todos'   AND $buscafechadesde !='' ){ $filtro = "AND especialidad.espec_descripsion = '".$buscarespec."' AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$buscafechahasta."'";}
 
-                        if ($buscar == '' AND $titulobus !='Todos'  AND $buscarespec =='Todos' AND $buscafechadesde =='' ){ $filtro = "AND publicacion.autor_pu = ' '";}
+                        
                         
                         //echo("<h4>$filtro</h4>");
                         //filtro autor
-                        if ($buscar != '' AND $titulobus !='Todos'  AND $buscarespec =='Todos' AND $buscafechadesde ==''  ){ $filtro = "AND publicacion.autor_pu LIKE '%".$buscar."%'";}
-                        
-                        if ($buscar == '' AND $titulobus !='Todos'  AND $buscarespec !='Todos' AND $buscafechadesde =='' ){ $filtro = "AND publicacion.autor_pu   LIKE '%".$buscar."%' AND especialidad.espec_descripsion = '".$buscarespec."' ";}
-                        
-                        if ($buscar != '' AND $titulobus !='Todos'  AND $buscarespec !='Todos' AND $buscafechadesde ==''  ){ $filtro = "AND publicacion.autor_pu   LIKE '%".$buscar."%' AND especialidad.espec_descripsion = '".$buscarespec."' ";}
 
                         //if ($buscar != '' AND $titulobus !='Todos'  AND $buscarespec !='Todos'  ){ $filtro = "AND publicacion.titulo_confe  LIKE '%".$buscar."%' AND conferencia.etapa_confe = '".$titulobus."' AND especialidad.espec_descripsion= '".$buscarespec."' ";}
 
                         //fecha
-                        if ($buscar == '' AND $buscarespec !='Todos' AND $buscafechadesde !='' AND $titulobus =='Todos'  ){ $filtro = "AND especialidad.espec_descripsion = '".$buscarespec."' AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$buscafechahasta."' ";}
+                        if ($buscar == '' AND $buscarespec !='Todos' AND $buscafechadesde !=''   ){ $filtro = "AND especialidad.espec_descripsion = '".$buscarespec."' AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$buscafechahasta."' ";}
                         
-                        if ($buscar != '' AND $titulobus =='Todos'  AND $buscarespec =='Todos' AND $buscafechadesde !='' ){ $filtro = "AND publicacion.titulo_public LIKE '%".$buscar."%' AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$buscafechahasta."'";}
+                        if ($buscar != ''  AND $buscarespec =='Todos' AND $buscafechadesde !='' ){ $filtro = " AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$buscafechahasta."' AND (publicacion.titulo_public LIKE '%".$buscar."%' OR publicacion.text_public LIKE '%".$buscar."%' OR publicacion.contendio_pdf LIKE '%".$buscar."%' 
+                            OR publicacion.etiqueta LIKE '%".$buscar."%' OR publicacion.referencia_pu LIKE '%".$buscar."%')";}
                         
-                        if ($buscar == '' AND $buscarespec =='Todos' AND $buscafechadesde !='' AND $titulobus =='Todos'  ){ $filtro = " AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$buscafechahasta."' ";}
+                        if ($buscar == '' AND $buscarespec =='Todos' AND $buscafechadesde !=''   ){ $filtro = " AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$buscafechahasta."' ";}
                         
 
-                        if ($buscar != '' AND $titulobus !='Todos'  AND $buscarespec !='Todos' AND $buscafechadesde !=''  ){ $filtro = "AND publicacion.autor_pu   LIKE '%".$buscar."%' AND especialidad.espec_descripsion = '".$buscarespec."' AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$buscafechahasta."' ";}
+                        if ($buscar != ''   AND $buscarespec !='Todos' AND $buscafechadesde !=''  ){ $filtro = " AND especialidad.espec_descripsion = '".$buscarespec."' AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$buscafechahasta."' AND (publicacion.titulo_public LIKE '%".$buscar."%' OR publicacion.text_public LIKE '%".$buscar."%' OR publicacion.contendio_pdf LIKE '%".$buscar."%' 
+                            OR publicacion.etiqueta LIKE '%".$buscar."%' OR publicacion.referencia_pu LIKE '%".$buscar."%')";}
 
-                        if ($buscar != '' AND $titulobus =='Todos'  AND $buscarespec !='Todos' AND $buscafechadesde !='' ){ $filtro = "AND publicacion.titulo_public LIKE '%".$buscar."%' AND especialidad.espec_descripsion = '".$buscarespec."' AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$buscafechahasta."'";}
+                        if ($buscar != ''  AND $buscarespec !='Todos' AND $buscafechadesde !='' ){ $filtro = " AND especialidad.espec_descripsion = '".$buscarespec."' AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$buscafechahasta."' AND (publicacion.titulo_public LIKE '%".$buscar."%' OR publicacion.text_public LIKE '%".$buscar."%' OR publicacion.contendio_pdf LIKE '%".$buscar."%' 
+                            OR publicacion.etiqueta LIKE '%".$buscar."%' OR publicacion.referencia_pu LIKE '%".$buscar."%') ";}
                         
-                        if ($buscar != '' AND $buscarespec !='Todos' AND $titulobus =='Todos' AND $buscafechadesde =='' ){ $filtro = "AND especialidad.espec_descripsion = '".$buscarespec."' AND (publicacion.titulo_public LIKE '%".$buscar."%' OR publicacion.text_public LIKE '%".$buscar."%' 
+                        if ($buscar != '' AND $buscarespec !='Todos'  AND $buscafechadesde =='' ){ $filtro = "AND especialidad.espec_descripsion = '".$buscarespec."' AND (publicacion.titulo_public LIKE '%".$buscar."%' OR publicacion.text_public LIKE '%".$buscar."%' 
                             OR publicacion.contendio_pdf LIKE '%".$buscar."%' OR publicacion.etiqueta LIKE '%".$buscar."%' OR publicacion.referencia_pu LIKE '%".$buscar."%')";}
-                        //echo("<h4>$filtro</h4>");
+                        echo("<h4>$filtro</h4>");
                         }
 
                     //$espesicialidad =$_SESSION["s_espeme"];
@@ -259,7 +244,7 @@ $buscarespec='Todos';
                                         <p><?php mostrar(substr($res['referencia_pu'],0,500)); ?></p>
                                         <?php echo ("<h5>Publicado el: $fecha </h5>"); ?>
                                         <h5>Categoría: <a href="#"><?php mostrar($res['espec_descripsion']); ?> <i class="fa fa-tag"></i></a></h5>
-                                        <?php echo("<a href='memoriac.php?id=".$res["id_public"]."' class='read-more'>ver artículo completo</a>");?>
+                                        <?php echo("<a href='mostra_articulo.php?id=".$res["id_public"]."' class='read-more'>ver artículo completo</a>");?>
                                         <br>
                                         <br>
                                         <?php
