@@ -8,7 +8,7 @@ function mostrar($str)
 {
     $codi = mb_detect_encoding($str, "ISO-8859-1,UTF-8");
     $str = iconv($codi, 'ISO-8859-1', $str);
-    echo $str;
+    echo substr($str,0,400);
 }
 
 session_start();
@@ -211,62 +211,20 @@ $buscarespec='Todos';
                         <div class="row">
                             <div class="col-md-12 col-sm-12">
                                 <div class="single-blog two-column">
-                                    <div class="post-thumb">
-                                        <?php
-                                            if ($link_imagen != '') {
-                                                $elcha='\\';
-
-                                                echo ('<a href="blogdetails.html"><img src="php'.$elcha.'imagenes'.$elcha.''. $link_imagen . '" class="img-responsive" alt="">');
-                                                //echo ("<h4>$link_imagen </h4>");
-                                            } ?></a>
-                                        <?php
-                                            /*if ($video != '') {
-                                                echo ('<video width="820" height="420"  controls src="' . $video . '" frameborder="0"></video>');
-                                            } */?>
-
-
-
-
-                                    </div>
-                                    <?php
-                                        /*
-                                        if ($audio != '') {
-                                            echo ('<audio src="' . $audio . '" preload="none" controls></audio>');
-                                            echo ("<h4> $fecha </h4>");
-                                        } */?>
 
                                     <div class="post-content overflow">
-                                        <h2><?php mostrar($res['titulo_public']); ?></h2>
-                                        <h3>Resumen</h3>
+                                        <h2> <?php  echo("<a href='mostra_articulo.php?id=".$res["id_public"]."'>".$res['titulo_public']. "</a>");?></h2>
                                         <p><?php mostrar($res['text_public']); ?></p>
                                         <?php echo '<h3 class="post-author"><a href="#">Autor: ' .$nombre. '</a></h3>' ?>
-                                        <h4>Bibliografia</h4>
-                                        <p><?php mostrar(substr($res['referencia_pu'],0,500)); ?></p>
                                         <?php echo ("<h5>Publicado el: $fecha </h5>"); ?>
                                         <h5>Categoría: <a href="#"><?php mostrar($res['espec_descripsion']); ?> <i class="fa fa-tag"></i></a></h5>
-                                        <?php echo("<a href='mostra_articulo.php?id=".$res["id_public"]."' class='read-more'>ver artículo completo</a>");?>
+                                        <?php echo("<a href='mostra_articulo.php?id=".$res["id_public"]."'>Ver articulo</a>");?>
                                         <br>
                                         <br>
                                         <?php
                                             if ($archivo != '') {
                                                 echo ('<h4 class="post-author"><a href="php/' . $archivo . '"download="sistema-difucion-medica"><i class="fa fa-download"></i> Descargar Archivo</a></h4>');
-                                            }elseif ($video !=''){
-                                                echo ('<h4 class="post-author"><a href="php/' . $video . '"download="sistema-difucion-medica"><i class="fa fa-download"></i> Descargar Archivo</a></h4>');
-                                            }elseif ($audio !=''){
-                                                echo ('<h4 class="post-author"><a href="php/' . $audio . '"download="sistema-difucion-medica"><i class="fa fa-download"></i> Descargar Archivo</a></h4>');
-                                            } ?>
-                                        <div class="post-bottom overflow">
-                                            <ul class="nav navbar-nav post-nav">
-                                                <li>
-                                                    <h4><a href="#"><i class="fa fa-comments"></i>3 Comentarios</a></h4>
-                                                </li>
-                                                <li>
-                                                <h4><a href="#"><i class="fa fa-heart" aria-hidden="true"></i>Me
-                                                            gustas
-                                                            <?php mostrar($res['me_gusta_pu']); ?></a></h4>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                            }?>
                                     </div>
                                 </div>
                             </div>

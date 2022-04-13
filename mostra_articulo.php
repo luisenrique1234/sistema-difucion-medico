@@ -107,7 +107,7 @@ if ($_SESSION["s_medico"] === null){
                                         <p><?php mostrar(substr($res['referencia_pu'],0,500)); ?></p>
                                         <?php echo ("<h5>Publicado el: $fecha </h5>"); ?>
                                         <h5>Categoría: <a href="#"><?php mostrar($res['espec_descripsion']); ?> <i class="fa fa-tag"></i></a></h5>
-                                        <?php echo("<a href='mostra_articulo.php?id=".$res["id_public"]."' class='read-more'>ver artículo completo</a>");?>
+                                        <?php echo("<a href='mostra_articulo.php?id=".$res["id_public"]."'>ver artículo completo</a>");?>
                                         <br>
                                         <br>
                                         <?php

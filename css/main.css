@@ -26,13 +26,12 @@
 
 
   a{
-    color:#0645AD;
+    color:#20558A;
   }
 
   a:hover {
-    outline: none;
     text-decoration:none;
-    color:#000000;
+    color:#048eff;
   }
 
   a:focus {
@@ -634,7 +633,7 @@ en la parte final de la pagina****/
 }
 
 .copyright-text a {
-  color: #20558A;
+  color: #5c1514;
 }
 
 .copyright-text p {
@@ -1769,15 +1768,7 @@ con la fecha en las publicaciones*/
   color: #20558A;
 }
 
-/*color del link de los articulos (ver publicacion)*/
-a.read-more{
-  color: #2693ff;
-  font-weight: 300;
-}
 
-a.read-more:hover{
-  color: #20558A;
-}
 
 .post-bottom{
   border-top: 1px solid #eeeeee;

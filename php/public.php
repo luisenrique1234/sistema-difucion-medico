@@ -154,7 +154,10 @@ if($i=="UDT"){
 
     $public2=$_POST['resumen'];
     $refer=$_POST['biblio'];
-    $categoria2=$_POST['tema'];
+    $categoria2=$_POST['categoria'];
+
+    $contenido=$_POST['contenido'];
+    $etiqueta=$_POST['etiqueta'];
 
     $codigo2=$_POST['codioarti'];
     
@@ -163,8 +166,10 @@ if($i=="UDT"){
         `titulo_public` ='$titulo2',
         `autor_pu` ='$autor2',
         `text_public` ='$public2',
+        `contendio_pdf` ='$contenido',
         `referencia_pu`='$refer',
-        `categoria_public`='$categoria2'
+        `categoria_public`='$categoria2',
+        `etiqueta` ='$etiqueta'
         
     WHERE
         id_public='$codigo2'";

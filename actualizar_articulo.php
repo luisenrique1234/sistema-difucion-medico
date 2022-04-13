@@ -40,6 +40,11 @@ if ($_SESSION["s_medico"] === null){
 	    <script src="js/html5shiv.js"></script>
 	    <script src="js/respond.min.js"></script>
     <![endif]-->
+    <style>
+        .ck-editor__editable_inline {
+    min-height: 120px; 
+  }
+   </style>
     <link rel="shortcut icon" href="images/ico/ico.png">
 </head>
 <body class="dark" style="background: #F1F1F1">
@@ -76,11 +81,11 @@ if ($_SESSION["s_medico"] === null){
 
                                                 <div class="col-lg-5 col-lg-offset-0 col-xs-12 col-xs-offset-0">
                                                 <div class="form-group">
-                                                        <label  class="control-label">Tema<span
+                                                        <label  class="control-label">Categoría<span
                                                                 style="color:#20558A">*</span> </label>
                                                     
 
-                                                        <select name="tema" class="form-control" required="required">
+                                                        <select name="categoria" class="form-control" required="required">
                                                             <?php
 					                                        include '../php/conexion.php';
 					                                        $getAlumno1 = "SELECT * FROM  especialidad";
@@ -100,29 +105,41 @@ if ($_SESSION["s_medico"] === null){
                                                     <label class="control-label"><i class="fa fa-pencil-square-o"></i> Resumen<span
                                                             style="color: turquoise">*</span></label>
                                                     <div class="form-group">
-                                                        <textarea name="resumen"  required="required"
-                                                            class="form-control" rows="4"
+                                                        <textarea name="resumen" id="editor"
+                                                            class="form-control" 
                                                             ><?php echo $row['text_public']?></textarea>
+                                                    </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-10 col-md-offset-1 col-sm-4 col-sm-offset-2">
+                                                <div class="form-group">
+                                                    <label class="control-label"><i class="fa fa-file-pdf-o"></i> Contenido PDF<span
+                                                            style="color: turquoise">*</span></label>
+                                                    <div class="form-group">
+                                                        <textarea id="editor2" name="contenido"  
+                                                            class="form-control" 
+                                                            placeholder="Escribe el contenido del PDF"><?php echo $row['contendio_pdf']?></textarea>
                                                     </div>
                                                     </div>
                                                 </div>
 
                                                
                                                 
-                                                <div class="col-lg-5 col-lg-offset-1 col-xs-12 col-xs-offset-0">
+                                                <div class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
                                                         <label class="control-label"><i class="fa fa-users"></i> Autores</label>
-                                                        <textarea name="autor"  required="required"
-                                                            class="form-control" rows="3"><?php echo $row['autor_pu']?></textarea>
+                                                        <textarea name="autor"  id="editor3"
+                                                            class="form-control" ><?php echo $row['autor_pu']?></textarea>
                                                     </div>
                                                 </div>
 
-                                                    <div class="col-lg-5 col-lg-offset-0 col-xs-12 col-xs-offset-0">
+                                                    <div class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
                                                         <label class="control-label"><i class="fa fa-book"></i> Bibliografía<span
                                                                 style="color: turquoise">*</span></label>
-                                                        <textarea name="biblio"  required="required"
-                                                            class="form-control" rows="3"><?php echo $row['referencia_pu']?></textarea>
+                                                        <textarea name="biblio" id="editor4"
+                                                            class="form-control"><?php echo $row['referencia_pu']?></textarea>
                                                     </div>
                                                 </div>
 
@@ -130,6 +147,12 @@ if ($_SESSION["s_medico"] === null){
                                                 <div  class=" col-sm-offset-1 col-lg-3 col-lg-offset-1 col-xs-12 col-xs-offset-0">
                                                     <label class="control-label"><i class="fa fa-file-pdf-o"></i> Subir Artículo</label>
                                                     <input type="file" name="archivo">
+                                                </div>
+                                                <div  class=" col-sm-offset-2 col-lg-4 col-lg-offset-3 col-xs-12 col-xs-offset-0">
+                                                <label class="control-label"><i class="fa fa-tag"></i> Etiquetas<span
+                                                                style="color: #20558A">*</span></label>
+                                                        <input type="text" name="etiqueta" required="required"
+                                                             class="form-control" value="<?php echo $row['etiqueta']?>">
                                                 </div>
                                                 <br>
                                                 <!-- parte que ocupada la pantalla completa -->
@@ -169,6 +192,28 @@ if ($_SESSION["s_medico"] === null){
             </div>
     </footer>
     <!--/#footer-->
+    <script src="js/ckeditor5/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+        .create(document.querySelector('#editor'))
+        .catch(error =>{ console.error(error)});
+    </script>
+    <script>
+        ClassicEditor
+        .create(document.querySelector('#editor2'))
+        .catch(error =>{ console.error(error)});
+    </script>
+    <script>
+        ClassicEditor
+        .create(document.querySelector('#editor3'))
+        .catch(error =>{ console.error(error)});
+    </script>
+    <script>
+        ClassicEditor
+        .create(document.querySelector('#editor4'))
+        .catch(error =>{ console.error(error)});
+    </script>
+
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/lightbox.min.js"></script>
