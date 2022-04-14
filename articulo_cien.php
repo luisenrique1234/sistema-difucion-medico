@@ -137,15 +137,15 @@ $buscarespec='Todos';
                 </div>
             
             
-    <section class="padding-top">
+    <section class="">
         <div class="container">
             
-                <div class="col-md-2 col-sm-5">
+                <div class="col-md-1 col-sm-1">
                     <div class="sidebar blog-sidebar">
                     </div>
                 </div>
 
-                <div class="col-md-9 col-sm-7">
+                <div class="col-md-10 col-sm-7">
 
 
                     <?php
@@ -208,27 +208,13 @@ $buscarespec='Todos';
                     </form>
                     <!--animacion js wow fadeInDowm de las publicaciones-->
                     <div class="wow fadeInDown">
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12">
                                 <div class="single-blog two-column">
-
-                                    <div class="post-content overflow">
                                         <h2> <?php  echo("<a href='mostra_articulo.php?id=".$res["id_public"]."'>".$res['titulo_public']. "</a>");?></h2>
                                         <p><?php mostrar($res['text_public']); ?></p>
-                                        <?php echo '<h3 class="post-author"><a href="#">Autor: ' .$nombre. '</a></h3>' ?>
-                                        <?php echo ("<h5>Publicado el: $fecha </h5>"); ?>
-                                        <h5>Categoría: <a href="#"><?php mostrar($res['espec_descripsion']); ?> <i class="fa fa-tag"></i></a></h5>
-                                        <?php echo("<a href='mostra_articulo.php?id=".$res["id_public"]."'>Ver articulo</a>");?>
-                                        <br>
-                                        <br>
-                                        <?php
-                                            if ($archivo != '') {
-                                                echo ('<h4 class="post-author"><a href="php/' . $archivo . '"download="sistema-difucion-medica"><i class="fa fa-download"></i> Descargar Archivo</a></h4>');
-                                            }?>
-                                    </div>
+                                        <?php echo '<h5 style="display: inline;"><a href="#">Subido por: ' .$nombre. '</a></h5>' ?> <?php echo ("<h5 style='display: inline;'>&nbsp;&nbsp;Publicado el: $fecha <i class='fa fa-clock-o'></i> </h5>"); ?> <h5 style="display: inline;">&nbsp;&nbsp;Categoría: <a href="#"><?php mostrar($res['espec_descripsion']); ?> <i class="fa fa-tag"></i></a></h5> 
+                                        
                                 </div>
-                            </div>
-                        </div>
+                        
                     </div>
                     <?php
                     }

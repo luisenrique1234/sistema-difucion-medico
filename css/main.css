@@ -24,20 +24,24 @@
     height: 100%;
   }
 
-
-  a{
-    color:#20558A;
+/* Color de los enlaces y de mas efectos*/
+  a {
+    outline: none;
+    text-decoration: none;
+    padding: 2px 1px 0;
   }
-
-  a:hover {
-    text-decoration:none;
-    color:#048eff;
-  }
-
+  
+  
   a:focus {
-    outline:none;
-    outline-offset: 0;
+    border-bottom: 1px solid;
+    background: #cfddff;
   }
+  
+  a:hover {
+    border-bottom: 1px solid;
+    background: #F1F1F1;
+  }
+  
 
   a {
     -webkit-transition: 300ms;
@@ -45,7 +49,7 @@
     -o-transition: 300ms;
     transition: 300ms;
   }
-
+/*-*****************************************/
 
   .overflow{
     overflow: hidden;

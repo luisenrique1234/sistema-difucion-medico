@@ -26,11 +26,9 @@ if ($_SESSION["s_medico"] === null){
     <link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <link href="css/dark.css" rel="stylesheet">
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="css/boton.css">
     <link rel="stylesheet" href="css/cientifico.css">
     <!--Icon-Font-->
-    <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
 
     <!--[if lt IE 9]>
 	    <script src="js/html5shiv.js"></script>
@@ -39,6 +37,7 @@ if ($_SESSION["s_medico"] === null){
     <style>
         .ck-editor__editable_inline {
     min-height: 120px; 
+    
   }
    </style>
     <link rel="shortcut icon" href="images/ico/ico.png">
@@ -62,18 +61,75 @@ if ($_SESSION["s_medico"] === null){
                                                <h1 class="title">Crear Aríticulo</h1>
                                                 </div>
                                                 
-                                                <div class="col-md-5 col-md-offset-1 col-sm-4 col-sm-offset-2">
+                                                <div class="col-md-10 col-md-offset-1 col-sm-4 col-sm-offset-2">
                                                     <div class="form-group">
                                                         <label class="control-label"><i class="fa fa-header"></i> Titulo del Artículo<span
-                                                                style="color: #20558A">*</span></label>
+                                                                style="color: red">*</span></label>
                                                         <input type="text" name="titulo" required="required"
                                                             placeholder="Mí Artículo" class="form-control">
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-5 col-lg-offset-0 col-xs-12 col-xs-offset-0">
+                                                
+
+                                                
+
+                                                <div class="col-md-10 col-md-offset-1 col-sm-4 col-sm-offset-2">
+                                                <div class="">
+                                                    <label class="control-label"><i class="fa fa-pencil-square-o"></i> Resumen<span
+                                                            style="color: red">*</span></label>
+                                                    <div class="form-group">
+                                                        <textarea id="editor" name="resumen"  
+                                                            class="form-control" 
+                                                            placeholder="Escribe su resumen"></textarea>
+                                                    </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-10 col-md-offset-1 col-sm-4 col-sm-offset-2">
+                                                <div class="form-group">
+                                                    <label class="control-label"><i class="fa fa-file-pdf-o"></i> Contenido PDF<span
+                                                            style="color: red">*</span></label>
+                                                    <div class="form-group">
+                                                        <textarea id="editor2" name="contenido"  
+                                                            class="form-control" 
+                                                            placeholder="Escribe el contenido del PDF"></textarea>
+                                                    </div>
+                                                    </div>
+                                                </div>
+
+                                               
+                                                
+                                                <div class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0">
+                                                    <div class="form-group">
+                                                        <label class="control-label"><i class="fa fa-users"></i> Autores<span
+                                                                style="color: red">*</span></label>
+                                                        <textarea name="autor" id="editor3"
+                                                            class="form-control" 
+                                                            placeholder="Autores"></textarea>
+                                                    </div>
+                                                </div>
+
+                                                    <div class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0">
+                                                    <div class="form-group">
+                                                        <label class="control-label"><i class="fa fa-book"></i> Bibliografía<span
+                                                                style="color: red">*</span></label>
+                                                        <textarea name="biblio"  id="editor4"
+                                                            class="form-control" 
+                                                            placeholder="Bibliografía"></textarea>
+                                                    </div>
+                                                </div>
+
+                                                <div  class=" col-lg-6 col-lg-offset-1 col-xs-12 col-xs-offset-0">
+                                                <label class="control-label"><i class="fa fa-tags"></i> Etiquetas<span
+                                                                style="color: red">*</span></label>
+                                                        <input type="text" name="etiqueta" required="required"
+                                                            placeholder="Corazon,Ectópico" class="form-control">
+                                                </div>
+
+                                                <div class="col-lg-4 col-lg-offset-0 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
                                                     <label  class="control-label"><i class="fa fa-tag"></i> Categoría<span
-                                                                style="color:#20558A">*</span> </label>
+                                                                style="color:red">*</span> </label>
                                                     
 
                                                         <select name="categoria" class="form-control" required="required">
@@ -95,64 +151,29 @@ if ($_SESSION["s_medico"] === null){
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-10 col-md-offset-1 col-sm-4 col-sm-offset-2">
-                                                <div class="">
-                                                    <label class="control-label"><i class="fa fa-pencil-square-o"></i> Resumen<span
-                                                            style="color: turquoise">*</span></label>
-                                                    <div class="form-group">
-                                                        <textarea id="editor" name="resumen"  
-                                                            class="form-control" 
-                                                            placeholder="Escribe su resumen"></textarea>
-                                                    </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-10 col-md-offset-1 col-sm-4 col-sm-offset-2">
-                                                <div class="form-group">
-                                                    <label class="control-label"><i class="fa fa-file-pdf-o"></i> Contenido PDF<span
-                                                            style="color: turquoise">*</span></label>
-                                                    <div class="form-group">
-                                                        <textarea id="editor2" name="contenido"  
-                                                            class="form-control" 
-                                                            placeholder="Escribe el contenido del PDF"></textarea>
-                                                    </div>
-                                                    </div>
-                                                </div>
-
-                                               
                                                 
-                                                <div class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0">
-                                                    <div class="form-group">
-                                                        <label class="control-label"><i class="fa fa-users"></i> Autores<span
-                                                                style="color: #20558A">*</span></label>
-                                                        <textarea name="autor" id="editor3"
-                                                            class="form-control" 
-                                                            placeholder="Autores"></textarea>
-                                                    </div>
-                                                </div>
-
-                                                    <div class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0">
-                                                    <div class="form-group">
-                                                        <label class="control-label"><i class="fa fa-book"></i> Bibliografía<span
-                                                                style="color: #20558A">*</span></label>
-                                                        <textarea name="biblio"  id="editor4"
-                                                            class="form-control" 
-                                                            placeholder="Bibliografía"></textarea>
-                                                    </div>
-                                                </div>
 
                                                 
                                                 <div  class=" col-sm-offset-1 col-lg-3 col-lg-offset-1 col-xs-12 col-xs-offset-0">
-                                                    <label class="control-label"><i class="fa fa-file-pdf-o"></i> Subir Artículo</label>
+                                                    <label class="control-label"><i class="fa fa-file-pdf-o"></i> Subir Artículo <span
+                                                                style="color:red">*</span></label>
                                                     <input type="file" name="archivo" required="required">
                                                 </div>
 
-                                                <div  class=" col-sm-offset-2 col-lg-4 col-lg-offset-3 col-xs-12 col-xs-offset-0">
-                                                <label class="control-label"><i class="fa fa-tag"></i> Etiquetas<span
-                                                                style="color: #20558A">*</span></label>
-                                                        <input type="text" name="etiqueta" required="required"
-                                                            placeholder="Corazon,Ectópico" class="form-control">
+                                                <div class="col-lg-4 col-lg-offset-3 col-xs-12 col-xs-offset-0">
+                                                    <div class="form-group">
+                                                    <label  class="control-label"><i class="fa fa-eye"></i> Visibilidad<span
+                                                                style="color:red">*</span> </label>
+                                                    
+
+                                                        <select name="estado" class="form-control" >
+                                                            <option value="Publico" class="icono" > Público </option>
+                                                            <option value="Privado"><i class="fa fa-eye-slash"></i> Privado</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
+
+                                                
                                                 <br>
                                                 <!-- parte que ocupada la pantalla completa -->
                                                 <div style="display: flex; flex-direction:row; width: 100%; justify-content: center; padding-top: 2rem; padding-bottom: 2rem;">
@@ -221,8 +242,10 @@ if ($_SESSION["s_medico"] === null){
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/temad.js"></script>
     <script type="text/javascript" src="js/medico_alerta.js"></script>
-
-    
+    <!-- cdn descargados los icono y de las dulse alertas-->
+    <script type="text/javascript" src="js/sweetalert2@11.js"></script>
+    <script type="text/javascript" src="js/fontawesome.js"></script>
+    <script type="text/javascript" src="js/code-jquery-3-6-0.js"></script>
 </body>
 
 </html>
