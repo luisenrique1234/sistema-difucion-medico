@@ -152,7 +152,7 @@ $buscar='';
         
         }
         $id_med=$_SESSION["s_idme"];
-        $sql2=("SELECT publicacion.id_public,publicacion.titulo_public,publicacion.text_public,publicacion.autor_pu,publicacion.link_video,
+        $sql2=("SELECT publicacion.id_public,publicacion.titulo_public,publicacion.text_public,publicacion.autor_pu,publicacion.link_video,publicacion.estado_articulo,
         publicacion.link_audio,publicacion.link_archivo,DATE_FORMAT(publicacion.fecha_public,'%d/%m/%y') AS fecha,publicacion.categoria_public,publicacion.me_gusta_pu,publicacion.referencia_pu,
         especialidad.espec_descripsion FROM publicacion,especialidad WHERE publicacion.categoria_public=especialidad.id_espec   AND publicacion.estado='A' AND publicacion.id_medico_pu='$id_med' $filtro ORDER BY publicacion.fecha_public DESC");
         $sql= $mysqli->query($sql2);
@@ -178,19 +178,20 @@ $buscar='';
                         $audio = $rowSql['link_audio'];
                         $fecha = $rowSql['fecha'];
                         $archivo = $rowSql['link_archivo'];
+                        $estado = $rowSql['estado_articulo'];
 
                         ?>
                     
-                        <tr class="col-lg-7 col-lg-offset-1 col-xs-12 col-xs-offset-0" >
+                        <tr class="col-lg-8 col-lg-offset-1 col-xs-12 col-xs-offset-0" >
                                 
                         <td class="col-lg-10">
                         <i class="fa fa-heart" aria-hidden="true"> <?php echo $rowSql["me_gusta_pu"];?></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-comments"> <?php echo $rowSql["me_gusta_pu"];?>  </i>
                         <br>
                         <h5 style="display: inline;">Titulo:</h5><?php mostrar($rowSql['titulo_public']); ?>  
-                        <br><h5 style="display: inline;">Resumen: </h5><?php mostrar(substr($rowSql['text_public'],0,70)); ?>   
-                        <br><h5 style="display: inline;">Autores:</h5> <?php echo $autores; ?> 
-                        <br>
-                        <h5 style="display: inline;">Especialidad:</h5> <?php echo $rowSql["espec_descripsion"]; ?> &nbsp;&nbsp; <h5 style="display: inline;">Publicación: </h5><?php echo $fecha; ?></td>
+                        <br><h5 style="display: inline;">Resumen: </h5><?php mostrar(substr($rowSql['text_public'],0,200)); ?>   
+                        <h5 class="altura" style="display: inline;">Autores:</h5> <?php echo"$autores";?> 
+                        <h5 style="display: inline;">Especialidad:</h5> <?php echo $rowSql["espec_descripsion"]; ?> &nbsp;&nbsp; <h5 style="display: inline;">Publicación: </h5><?php echo $fecha; ?> &nbsp;&nbsp;
+                        <?php if($estado=="Publico"){echo"<h5 style='display: inline;'><i class='fa fa-eye'></i> $estado</h5>"; }else{echo"<h5 style='display: inline;'><i class='fa fa-eye-slash'></i> $estado</h5>";}  ?></td>
                         
                         
                         <?php 

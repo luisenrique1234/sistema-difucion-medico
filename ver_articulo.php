@@ -22,7 +22,7 @@ if ($_SESSION["s_medico"] === null){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Ver Artículo Completo</title>
+    <title>Formulario de Artículo</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/lightbox.css" rel="stylesheet">
@@ -40,6 +40,11 @@ if ($_SESSION["s_medico"] === null){
 	    <script src="js/html5shiv.js"></script>
 	    <script src="js/respond.min.js"></script>
     <![endif]-->
+    <style>
+        .ck-editor__editable_inline {
+    min-height: 120px; 
+  }
+   </style>
     <link rel="shortcut icon" href="images/ico/ico.png">
 </head>
 <body class="dark" style="background: #F1F1F1">
@@ -53,7 +58,7 @@ if ($_SESSION["s_medico"] === null){
                         <div id="cienfico" class="post-thumb">
                             <div class="panel-dafault" style="margin-top: 12px">
                                 <!--panel de crear -->
-                                <div>
+                                <div >
                                         
                                             <div >
                                                 <div style="margin-bottom: 2rem;" class=" text-center  col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0">
@@ -64,22 +69,74 @@ if ($_SESSION["s_medico"] === null){
                                             <input type="hidden" name="codioarti" class="form-control" readonly="" value="<?php echo $row['id_public']?>">
                                             
 
-                                                <div class="col-md-5 col-md-offset-1 col-sm-4 col-sm-offset-2">
+                                                <div class="col-md-10 col-md-offset-1 col-sm-4 col-sm-offset-2">
                                                     <div class="form-group">
                                                         <label class="control-label"><i class="fa fa-header"></i> Titulo del Artículo<span
-                                                                style="color: #20558A">*</span></label>
+                                                                style="color: red">*</span></label>
                                                         <input type="text" name="titulo" required="required"
-                                                        class="form-control" readonly="" value="<?php echo $row['titulo_public']?>">
+                                                        class="form-control" readonly value="<?php echo $row['titulo_public']?>">
                                                     </div>
                                                 </div>
 
-                                                <div class="col-lg-5 col-lg-offset-0 col-xs-12 col-xs-offset-0">
+                                                
+
+                                                <div class="col-md-10 col-md-offset-1 col-sm-4 col-sm-offset-2">
                                                 <div class="form-group">
-                                                        <label  class="control-label">Tema<span
-                                                                style="color:turquoise">*</span> </label>
+                                                    <label class="control-label"><i class="fa fa-pencil-square-o"></i> Resumen<span
+                                                            style="color: red">*</span></label>
+                                                    <div class="form-group">
+                                                        <textarea name="resumen"  readonly
+                                                            class="form-control" rows="4"
+                                                            ><?php echo $row['text_public']?></textarea>
+                                                    </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-10 col-md-offset-1 col-sm-4 col-sm-offset-2">
+                                                <div class="form-group">
+                                                    <label class="control-label"><i class="fa fa-file-pdf-o"></i> Contenido PDF<span
+                                                            style="color: red">*</span></label>
+                                                    <div class="form-group">
+                                                        <textarea  name="contenido" readonly 
+                                                            class="form-control" rows="6"
+                                                            placeholder="Escribe el contenido del PDF"><?php echo $row['contendio_pdf']?></textarea>
+                                                    </div>
+                                                    </div>
+                                                </div>
+
+                                               
+                                                
+                                                <div class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0">
+                                                    <div class="form-group">
+                                                        <label class="control-label"><i class="fa fa-users"></i> Autores<span style="color: red;">*</span></label>
+                                                        <textarea name="autor" readonly rows="4"
+                                                            class="form-control" ><?php echo $row['autor_pu']?></textarea>
+                                                    </div>
+                                                </div>
+
+                                                    <div class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0">
+                                                    <div class="form-group">
+                                                        <label class="control-label"><i class="fa fa-book"></i> Bibliografía<span
+                                                                style="color: red">*</span></label>
+                                                        <textarea name="biblio" readonly rows="4"
+                                                            class="form-control"><?php echo $row['referencia_pu']?></textarea>
+                                                    </div>
+                                                </div>
+
+                                                <div  class=" col-lg-6 col-lg-offset-1 col-xs-12 col-xs-offset-0">
+                                                <label class="control-label"><i class="fa fa-tags"></i> Etiquetas<span
+                                                                style="color: red">*</span></label>
+                                                        <input type="text" name="etiqueta" required="required" readonly
+                                                             class="form-control" value="<?php echo $row['etiqueta']?>">
+                                                </div>
+
+                                                <div class="col-lg-4 col-lg-offset-0 col-xs-12 col-xs-offset-0">
+                                                <div class="form-group">
+                                                        <label  class="control-label"><i class="fa fa-tag"></i> Categoría<span
+                                                                style="color:red">*</span> </label>
                                                     
 
-                                                        <select name="tema" class="form-control" readonly="" required="required">
+                                                        <select name="categoria" class="form-control" required="required" readonly>
                                                             <?php
 					                                        include '../php/conexion.php';
 					                                        $getAlumno1 = "SELECT * FROM  especialidad";
@@ -93,42 +150,27 @@ if ($_SESSION["s_medico"] === null){
                                                         </select>
                                                     </div>
                                                 </div>
-
-                                                <div class="col-md-10 col-md-offset-1 col-sm-4 col-sm-offset-2">
-                                                <div class="form-group">
-                                                    <label class="control-label"><i class="fa fa-pencil-square-o"></i> Resumen<span
-                                                            style="color: turquoise">*</span></label>
-                                                    <div class="form-group">
-                                                        <textarea name="resumen"  readonly="" required="required"
-                                                            class="form-control" rows="4"
-                                                            ><?php echo $row['text_public']?></textarea>
-                                                    </div>
-                                                    </div>
-                                                </div>
-
-                                               
                                                 
-                                                <div class="col-lg-5 col-lg-offset-1 col-xs-12 col-xs-offset-0">
+
+                                                <div class="col-lg-4 col-lg-offset-1 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-                                                        <label class="control-label"><i class="fa fa-users"></i> Autores</label>
-                                                        <textarea name="autor"  required="required"
-                                                            class="form-control" readonly="" rows="3"><?php echo $row['autor_pu']?></textarea>
+                                                    <label  class="control-label"><i class="fa fa-eye"></i> Estado<span
+                                                                style="color:red">*</span> </label>
+                                                    
+
+                                                        <select name="estado" class="form-control" readonly>
+                                                            <option value="Publico" <?php if($row['estado_articulo']=='Publico'){echo "selected";} ?>>Público </option>
+                                                            <option value="Privado" <?php if($row['estado_articulo']=='Privado'){echo "selected";} ?>>Privado</option>
+                                                        </select>
                                                     </div>
                                                 </div>
 
-                                                    <div class="col-lg-5 col-lg-offset-0 col-xs-12 col-xs-offset-0">
-                                                    <div class="form-group">
-                                                        <label class="control-label"><i class="fa fa-book"></i> Bibliografía<span
-                                                                style="color: turquoise">*</span></label>
-                                                        <textarea name="biblio"  required="required"
-                                                            class="form-control" readonly="" rows="3"><?php echo $row['referencia_pu']?></textarea>
-                                                    </div>
-                                                </div>
+                                                
                                                 <br>
                                                 <!-- parte que ocupada la pantalla completa -->
-                                                <div style="display: flex; flex-direction:row; width: 100%; justify-content: center; padding-top: 2rem; padding-bottom: 2rem;">
-                                                <div >
-                                                    <a href="mis_articulos.php" class="btn btn-danger btn-lg ">Cancelar</a>
+                                                <div style="display: flex; flex-direction:row; width: 100%; justify-content: center; padding-top: 3rem; padding-bottom: 4rem;">
+                                                <div style="margin-right: 10px;">
+                                                    <a href="mis_articulos.php" class="btn btn-info btn-lg ">Vover</a>
                                                     </div>
                                                 </div>
                                         </div>
@@ -157,6 +199,28 @@ if ($_SESSION["s_medico"] === null){
             </div>
     </footer>
     <!--/#footer-->
+    <script src="js/ckeditor5/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+        .create(document.querySelector('#editor'))
+        .catch(error =>{ console.error(error)});
+    </script>
+    <script>
+        ClassicEditor
+        .create(document.querySelector('#editor2'))
+        .catch(error =>{ console.error(error)});
+    </script>
+    <script>
+        ClassicEditor
+        .create(document.querySelector('#editor3'))
+        .catch(error =>{ console.error(error)});
+    </script>
+    <script>
+        ClassicEditor
+        .create(document.querySelector('#editor4'))
+        .catch(error =>{ console.error(error)});
+    </script>
+
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/lightbox.min.js"></script>

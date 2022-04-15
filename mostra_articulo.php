@@ -62,10 +62,10 @@ if ($_SESSION["s_medico"] === null){
 
     <!--/#page-breadcrumb-->
 
-    <section id="blog-details" class="padding-top">
+    <section  class="padding-top">
         <div class="container">
             <div class="">
-                <div class="col-md-9 col-sm-7">
+                <div class="col-md-12 col-sm-12">
                     <div class="">
                         <div class="col-md-12 col-sm-12">
                             <div class="single-blog blog-details two-column">
@@ -73,7 +73,8 @@ if ($_SESSION["s_medico"] === null){
                                     <?php
                                 $public = "SELECT publicacion.id_public,publicacion.titulo_public,publicacion.text_public,publicacion.link_imagen,publicacion.link_video,
                     publicacion.link_audio,publicacion.link_archivo,DATE_FORMAT(publicacion.fecha_public,'%d/%m/%y') AS fecha,publicacion.categoria_public,publicacion.me_gusta_pu,publicacion.referencia_pu,
-                    CONCAT(medico.nombre_medico,' ',medico.apellido_medico) nombreme,especialidad.espec_descripsion FROM publicacion,medico,especialidad WHERE publicacion.id_public=$id AND publicacion.id_medico_pu=medico.id_medico  AND publicacion.estado='A' AND publicacion.categoria_public=especialidad.id_espec";
+                    CONCAT(medico.nombre_medico,' ',medico.apellido_medico) nombreme,especialidad.espec_descripsion FROM publicacion,medico,especialidad WHERE publicacion.id_public=$id AND publicacion.id_medico_pu=medico.id_medico  AND publicacion.estado='A' AND publicacion.estado_articulo='Publico'
+                    AND publicacion.categoria_public=especialidad.id_espec";
                     $public2 = $mysqli->query($public);
                     while ($res = mysqli_fetch_array($public2)) {
                         $link_imagen = $res['link_imagen'];
@@ -102,13 +103,11 @@ if ($_SESSION["s_medico"] === null){
                                         <h2><?php mostrar($res['titulo_public']); ?></h2>
                                         <h3>Resumen</h3>
                                         <p><?php mostrar($res['text_public']); ?></p>
-                                        <?php echo '<h3 class="post-author"><a href="#">Autor: ' .$nombre. '</a></h3>' ?>
+                                        <?php echo '<h3 class="post-author"><a href="#">Subido por: ' .$nombre. '</a></h3>' ?>
                                         <h4>Bibliografia</h4>
-                                        <p><?php mostrar(substr($res['referencia_pu'],0,500)); ?></p>
+                                        <p><?php mostrar($res['referencia_pu']); ?></p>
                                         <?php echo ("<h5>Publicado el: $fecha </h5>"); ?>
                                         <h5>Categoría: <a href="#"><?php mostrar($res['espec_descripsion']); ?> <i class="fa fa-tag"></i></a></h5>
-                                        <?php echo("<a href='mostra_articulo.php?id=".$res["id_public"]."'>ver artículo completo</a>");?>
-                                        <br>
                                         <br>
                                         <?php
                                             if ($archivo != '') {
@@ -123,6 +122,11 @@ if ($_SESSION["s_medico"] === null){
                                                 <h4><a href="#"><i class="fa fa-heart" aria-hidden="true"></i>Me
                                                             gustas
                                                             <?php mostrar($res['me_gusta_pu']); ?></a></h4>
+                                                </li>
+                                                <li>
+                                                    <h4>
+                                                   <a href="#">Categoría: <?php mostrar($res['espec_descripsion']); ?> <i class="fa fa-tag"></i></a>
+                                                    </h4>
                                                 </li>
                                             </ul>
                                         </div>

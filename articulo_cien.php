@@ -194,7 +194,7 @@ $buscarespec='Todos';
                     //$espesicialidad =$_SESSION["s_espeme"];
                     $public = "SELECT publicacion.id_public,publicacion.titulo_public,publicacion.text_public,publicacion.link_imagen,publicacion.link_video,
                     publicacion.link_audio,publicacion.link_archivo,DATE_FORMAT(publicacion.fecha_public,'%d/%m/%y') AS fecha,publicacion.categoria_public,publicacion.me_gusta_pu,publicacion.referencia_pu,
-                    CONCAT(medico.nombre_medico,' ',medico.apellido_medico) nombreme,especialidad.espec_descripsion FROM publicacion,medico,especialidad WHERE publicacion.id_medico_pu=medico.id_medico  AND publicacion.estado='A' AND publicacion.categoria_public=especialidad.id_espec $filtro";
+                    CONCAT(medico.nombre_medico,' ',medico.apellido_medico) nombreme,especialidad.espec_descripsion FROM publicacion,medico,especialidad WHERE publicacion.id_medico_pu=medico.id_medico  AND publicacion.estado='A' AND publicacion.estado_articulo='Publico' AND publicacion.categoria_public=especialidad.id_espec $filtro";
                     $public2 = $mysqli->query($public);
                     while ($res = mysqli_fetch_array($public2)) {
                         $link_imagen = $res['link_imagen'];
@@ -211,7 +211,10 @@ $buscarespec='Todos';
                                 <div class="single-blog two-column">
                                         <h2> <?php  echo("<a href='mostra_articulo.php?id=".$res["id_public"]."'>".$res['titulo_public']. "</a>");?></h2>
                                         <p><?php mostrar($res['text_public']); ?></p>
-                                        <?php echo '<h5 style="display: inline;"><a href="#">Subido por: ' .$nombre. '</a></h5>' ?> <?php echo ("<h5 style='display: inline;'>&nbsp;&nbsp;Publicado el: $fecha <i class='fa fa-clock-o'></i> </h5>"); ?> <h5 style="display: inline;">&nbsp;&nbsp;Categoría: <a href="#"><?php mostrar($res['espec_descripsion']); ?> <i class="fa fa-tag"></i></a></h5> 
+                                        <?php echo '<h5 style="display: inline;"><a href="#">Subido por: ' .$nombre. '</a></h5>' ?> <?php echo ("<h5 style='display: inline;'>&nbsp;&nbsp;Publicado el: $fecha <i class='fa fa-clock-o'></i> </h5>"); ?>
+                                        <h5 style="display: inline;">&nbsp;&nbsp; Comentarios: 3 <i class="fa fa-comments"></i></h5> 
+                                        <h5 style="display: inline;">&nbsp;&nbsp; Me gustas: <?php mostrar($res['me_gusta_pu']);?>  <i class="fa fa-heart" aria-hidden="true"></i></h5>
+                                        <h5 style="display: inline;">&nbsp;&nbsp;Categoría: <a href="#"><?php mostrar($res['espec_descripsion']); ?> <i class="fa fa-tag"></i></a></h5> 
                                         
                                 </div>
                         

@@ -87,6 +87,7 @@ if ($i == "INS") {
     $etiqueta = $_POST['etiqueta'];
     $autor1 = $_POST['autor'];
     $refe = $_POST['biblio'];
+    $estado=$_POST['estado'];
 
     
     $date = (new DateTime())->format('y-m-d');
@@ -95,7 +96,7 @@ if ($i == "INS") {
     //exit;
 
 
-    $sql = " INSERT INTO `publicacion` ( `id_medico_pu`,`titulo_public`,`autor_pu`,`text_public`,`contendio_pdf`,`referencia_pu`,`link_archivo`,`fecha_public`,`categoria_public`,`etiqueta`,`me_gusta_pu`, `estado`) 
+    $sql = " INSERT INTO `publicacion` ( `id_medico_pu`,`titulo_public`,`autor_pu`,`text_public`,`contendio_pdf`,`referencia_pu`,`link_archivo`,`fecha_public`,`categoria_public`,`etiqueta`,`me_gusta_pu`,`estado_articulo`, `estado`) 
     VALUES (
 
         '$id_me',
@@ -109,6 +110,7 @@ if ($i == "INS") {
         '$categoria',
         '$etiqueta',
         '10',
+        '$estado',
         'A')";
         //echo ("<h4>$new_imgen</h4>");
         //exit;
@@ -160,6 +162,7 @@ if($i=="UDT"){
     $etiqueta=$_POST['etiqueta'];
 
     $codigo2=$_POST['codioarti'];
+    $estado_art=$_POST['estado'];
     
     $sql="
     UPDATE `publicacion` SET
@@ -169,7 +172,8 @@ if($i=="UDT"){
         `contendio_pdf` ='$contenido',
         `referencia_pu`='$refer',
         `categoria_public`='$categoria2',
-        `etiqueta` ='$etiqueta'
+        `etiqueta` ='$etiqueta',
+        `estado_articulo` ='$estado_art'
         
     WHERE
         id_public='$codigo2'";

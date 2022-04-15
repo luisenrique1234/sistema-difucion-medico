@@ -162,7 +162,7 @@ if ($_SESSION["s_medico"] === null){
 
                                                 <div class="col-lg-4 col-lg-offset-3 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-                                                    <label  class="control-label"><i class="fa fa-eye"></i> Visibilidad<span
+                                                    <label  class="control-label"><i class="fa fa-eye"></i> Estado<span
                                                                 style="color:red">*</span> </label>
                                                     
 
