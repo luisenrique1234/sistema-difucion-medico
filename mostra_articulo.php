@@ -51,6 +51,20 @@ if ($_SESSION["s_medico"] === null){
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/ico.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/ico.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/ico.png">
+    <style>
+        .logocom{
+  position: relative;
+  font-size: 19px;
+  right: 50px;
+  top: 50px;
+}
+        .comentario{
+            right: 107px;
+        }
+        .cojacom{
+            right: 80px;
+        }
+    </style>
 </head>
 <!--/head-->
 
@@ -62,11 +76,9 @@ if ($_SESSION["s_medico"] === null){
 
     <!--/#page-breadcrumb-->
 
-    <section  class="padding-top">
+    <section  class="padding-top wow fadeInDown">
         <div class="container">
-            <div class="">
                 <div class="col-md-12 col-sm-12">
-                    <div class="">
                         <div class="col-md-12 col-sm-12">
                             <div class="single-blog blog-details two-column">
                                 <div class="post-thumb">
@@ -86,7 +98,6 @@ if ($_SESSION["s_medico"] === null){
 
                     ?>
                                 <!--animacion js wow fadeInDowm de las publicaciones-->
-                    <div class="wow fadeInDown">
                         <div class="row">
                             <div class="col-md-12 col-sm-12">
                                 <div class="single-blog two-column">
@@ -106,14 +117,14 @@ if ($_SESSION["s_medico"] === null){
                                         <?php echo '<h3 class="post-author"><a href="#">Subido por: ' .$nombre. '</a></h3>' ?>
                                         <h4>Bibliografia</h4>
                                         <p><?php mostrar($res['referencia_pu']); ?></p>
-                                        <?php echo ("<h5>Publicado el: $fecha </h5>"); ?>
-                                        <h5>Categoría: <a href="#"><?php mostrar($res['espec_descripsion']); ?> <i class="fa fa-tag"></i></a></h5>
-                                        <br>
+                                        
+                                        
                                         <?php
                                             if ($archivo != '') {
                                                 echo ('<h4 class="post-author"><a href="php/' . $archivo . '"download="sistema-difucion-medica"><i class="fa fa-download"></i> Descargar Archivo</a></h4>');
                                             }?>
-                                        <div class="post-bottom overflow">
+                                            <br>
+                                        <div class="">
                                             <ul class="nav navbar-nav post-nav">
                                                 <li>
                                                     <h4><a href="#"><i class="fa fa-comments"></i>3 Comentarios</a></h4>
@@ -128,19 +139,43 @@ if ($_SESSION["s_medico"] === null){
                                                    <a href="#">Categoría: <?php mostrar($res['espec_descripsion']); ?> <i class="fa fa-tag"></i></a>
                                                     </h4>
                                                 </li>
+                                                <li>
+                                                    <h4>
+                                                    <a href=""><?php echo ("Publicado el: $fecha "); ?> <i class="fa fa-clock-o"></i></a>
+                                                    </h4>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     <?php
                     }
                     ?>
 
-
+                                    
                                     <h2 class="bold">Comentarios</h2>
+
+                                    <div class="container">
+    <div class=" col-lg-7 col-lg-offset-1 cojacom">
+                    <div class="contact-form bottom">
+                        <form <?php echo "action='php/comentariop.php?id2=".$id."&accion=INS'  method='post'"; ?> >
+                        <a class="pull-left logocom" href="#">
+                            <img class="media-object" src="images/imagenes_guardadas/dibu1.png" alt="logo" width="45" height="45">
+                        </a>
+                            <div class="form-group">
+                                <textarea name="comentario"  required="required" class="form-control" rows="1" placeholder="Añadir un comentario..."></textarea>
+                            </div>
+                        </div>                        
+                            <div class="col-lg-4 col-lg-offset-8">
+                                <input type="submit" name="submit" class="btn btn-submit" value="Comentar">
+                            </div>
+                        </form>
+                    
+                </div>
+            </div>
+
                                     <?php 
                                     include 'php/conexion.php';
                                     $comen ="SELECT comentario.text_comen,DATE_FORMAT(comentario.fecha_comen,'%d/%m/%y') AS fecha2,medico.nombre_medico,medico.apellido_medico FROM medico,publicacion,comentario WHERE comentario.id_public_com=publicacion.id_public 
@@ -154,20 +189,21 @@ if ($_SESSION["s_medico"] === null){
 
                                     
                                     ?>
-                                    <div class="response-area">
+                                    <div class="col-lg-12 col-lg-offset-1 comentario">
 
                                         <ul class="media-list">
-                                            <li class="media">
-                                                <div class="post-comment">
+                                            <li class="">
+                                                <div class="">
                                                     <a class="pull-left" href="#">
-                                                        <img class="media-object" src="images/blogdetails/2.png" alt="">
+                                                        <img class="media-object" src="images/imagenes_guardadas/dibu1.png" alt="logo" width="45" height="45">
                                                     </a>
                                                     <div class="media-body">
-                                                        <?php echo '<h5 class="post-author"><a href="#">Comentario de: ' . $nombre2 . " " . $apellido2 . '</a></h5>' ?>
-                                                        <p><?php mostrar($resco['text_comen']);?></p>
+                                                        <?php echo '<h6 style="display: inline;" class="post-author"><a href="#">' . $nombre2 . " " . $apellido2 . '</a></h6>' ?>
+                                                        <h5><?php mostrar($resco['text_comen']);?></h5>
                                                         <ul class="nav navbar-nav post-nav">
-                                                            <li><a href="#"><i class="fa fa-clock-o"></i><?php echo("<spam>$fecha2</spam>");?></a></li>
-                                                            <li><a href="#"><i class="fa fa-reply"></i>Reply</a></li>
+                                                            <li><a href="#"><i class="fa fa-thumbs-up"></i> 25</a></li>
+                                                            <li><a href="#">RESPONDER</a></li>
+                                                            <li><a href="#">  <?php echo("<spam>$fecha2</spam>");?> <i class="fa fa-clock-o"></i></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -183,30 +219,13 @@ if ($_SESSION["s_medico"] === null){
                    
                     <!--*******************************************************-->
                                     <!--/Response-area-->
-                                    
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </div>
-            </div>
         </div>
     </section>
-    <div class="container">
-    <div class=" col-lg-4 col-lg-offset-6">
-                    <div class="contact-form bottom">
-                        <h2>Deja tu comentario</h2>
-                        <form <?php echo "action='php/comentariop.php?id2=".$id."&accion=INS'  method='post'"; ?> >
-                            <div class="form-group">
-                                <textarea name="comentario" id="message" required="required" class="form-control" rows="8" placeholder="Tu texto aqui"></textarea>
-                            </div>                        
-                            <div class="form-group">
-                                <input type="submit" name="submit" class="btn btn-submit" value="Comentar">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+    
     <!--/#blog-->
     <!--boton flotante donde esta los diferentes acciones -->
     <div class="con">
