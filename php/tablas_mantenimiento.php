@@ -330,22 +330,66 @@ $(document).ready(function(){
 if($i=="UDTPU"){
     $msj='';
 
+    
+    $codigo2=$_POST['codioarti'];
+
+    $file_nameconple = $_FILES['archivo']['name'];
+    list( $file_name) = explode('.', $file_nameconple);
+
+    $new_name_file = null;
+
+    if ($file_name != '' || $file_name != null) {
+        $file_type = $_FILES['archivo']['name'];
+        list($type, $extension) = explode('.', $file_type);
+        if ($extension == 'pdf') {
+            $dir = 'documento-confe-pdf/';
+            if (!file_exists($dir)) {
+                mkdir($dir, 0777, true);
+            }
+            $file_tmp_name = $_FILES['archivo']['tmp_name'];
+            //$new_name_file = 'files/' . date('Ymdhis') . '.' . $extension;
+            $new_name_file = $dir . file_name($file_name) . '.' . $extension;
+            if (copy($file_tmp_name, $new_name_file)) {
+                $new_archivo=$new_name_file;
+            }
+        }else{
+            header("Refresh: 4; URL= ../mantenimiento/mante_public.php?id=".$codigocon);
+        echo '
+            <script type="text/javascript">
+
+
+            $(document).ready(function(){
+
+	        swal({
+	        title: "Tipo de archivo no admitido, Solo se permiten .pdf",
+		    icon: "warning",
+	        })
+            });
+
+
+            </script>'
+            ; exit;
+        }
+    }else{
 
     $titulo2=$_POST['titulo'];
     $autor2=$_POST['autor'];
-
-    $public2=$_POST['public'];
-    $refer=$_POST['referencia'];
+    $public2=$_POST['resumen'];
+    $contenido=$_POST['contenido'];
+    $refer=$_POST['biblio'];
     $categoria2=$_POST['categoria'];
-    $codigo2=$_POST['codigop'];
-    
+    $etiqueta=$_POST['etiqueta'];
+    $estado=$_POST['estado'];
     $sql="
     UPDATE `publicacion` SET
         `titulo_public` ='$titulo2',
         `autor_pu` ='$autor2',
         `text_public` ='$public2',
+        `contendio_pdf` ='$contenido',
         `referencia_pu`='$refer',
-        `categoria_public`='$categoria2'
+        `categoria_public`='$categoria2',
+        `etiqueta`='$etiqueta',
+        `estado_articulo`='$estado'
         
     WHERE
         id_public='$codigo2'";
@@ -368,7 +412,7 @@ if($i=="UDTPU"){
 $(document).ready(function(){
 
 	swal({
-		title: "Actualizado",
+		title: "Artículo editado",
 		icon: "success",
 		
 	  })
@@ -378,6 +422,62 @@ $(document).ready(function(){
 </script>
 
 ';
+exit;
+}
+
+
+    $titulo2=$_POST['titulo'];
+    $autor2=$_POST['autor'];
+    $public2=$_POST['resumen'];
+    $contenido=$_POST['contenido'];
+    $refer=$_POST['biblio'];
+    $categoria2=$_POST['categoria'];
+    $etiqueta=$_POST['etiqueta'];
+    $estado=$_POST['estado'];
+    $sql="
+    UPDATE `publicacion` SET
+        `titulo_public` ='$titulo2',
+        `autor_pu` ='$autor2',
+        `text_public` ='$public2',
+        `contendio_pdf` ='$contenido',
+        `referencia_pu`='$refer',
+        `link_archivo`='$new_archivo',
+        `categoria_public`='$categoria2',
+        `etiqueta`='$etiqueta',
+        `estado_articulo`='$estado'
+        
+    WHERE
+        id_public='$codigo2'";
+
+    if($mysqli->query($sql)){
+        $status='successu';
+    }
+    else{
+        $status='errorudt';
+        echo "error" .mysqli_error($mysqli);
+    }
+    // echo("erro descripcion:" .mysqli_error($mysqli));
+    //header("Location: ../propietarip_mant.php?s=".$msj);
+
+    header("Refresh: 2; URL= ../mantenimiento/mante_public.php?s=".$status);
+    echo '
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+
+	swal({
+		title: "Artículo editado",
+		icon: "success",
+		
+	  })
+});
+
+
+</script>
+
+';
+
 }
 
 if($i=="UDTROL"){

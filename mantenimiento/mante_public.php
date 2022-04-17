@@ -33,7 +33,7 @@ if ($_SESSION["s_admin"] === null) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Mantenimiento de publicaciones</title>
+    <title>Mantenimiento de Artículo</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/lightbox.css" rel="stylesheet">
@@ -64,7 +64,7 @@ if ($_SESSION["s_admin"] === null) {
 </head>
 <!--/head-->
 
-<body class="dark">
+<body class="">
 <?php include_once "../php/mante_menu.php"; ?>
         <!-- fin de la segunda parte-->
         <div>
@@ -116,7 +116,7 @@ if ($_SESSION["s_admin"] === null) {
             <td>" . $row["me_gusta_pu"] . "</td>
 			
             <td>
-            <a title='Editar Artículo' href='actualizama_public.php?id=" . $row["id_public"] . "' class='btn btn-info' style='  font-size: 19px;'><i class='fa fa-pencil' aria-hidden='true'></i></a>
+            <a title='Editar Artículo' href='editarma_articulo.php?id=" . $row["id_public"] . "' class='btn btn-info' style='  font-size: 19px;'><i class='fa fa-pencil' aria-hidden='true'></i></a>
             
             <a title='Eliminar Artículo' onclick='return alerpublicele(".$row['id_public'].");' class='btn btn-danger confirm' style='  font-size: 19px;'><i class='fa fa-trash' aria-hidden='true'></i></a>
             </td>

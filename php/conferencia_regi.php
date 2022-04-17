@@ -179,18 +179,6 @@ if($i=="UDTCON"){
             if (copy($file_tmp_name, $new_name_file)) {
                 $new_archivo=$new_name_file;
             }
-        }elseif ($extension == 'docx') {
-            $dir = 'documento-confe-word/';
-            if (!file_exists($dir)) {
-                mkdir($dir, 0777, true);
-            }
-            $file_tmp_name = $_FILES['archivo']['tmp_name'];
-            $new_name_file = $dir . file_name($file_name) . '.' . $extension;
-            if (copy($file_tmp_name, $new_name_file)) {
-                $new_archivo=$new_name_file;
-                //echo ("<h4>$new_name_file</h4>");
-
-            }
         }else{
             header("Refresh: 4; URL= ../actualizar_conferencia.php?id=".$codigocon);
         echo '
@@ -200,7 +188,7 @@ if($i=="UDTCON"){
             $(document).ready(function(){
 
 	        swal({
-	        title: "Tipo de archivo no admitido, Solo se permiten pdf,docx",
+	        title: "Tipo de archivo no admitido, Solo se permiten .pdf",
 		    icon: "warning",
 	        })
             });
