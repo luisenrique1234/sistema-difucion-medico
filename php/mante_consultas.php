@@ -107,6 +107,22 @@ function extraerrol($id){
 
 <?php
 
+function lista_comentario(){
+    include('conexion.php');
+    
+    
+    $sql="SELECT * FROM comentario WHERE  estado='A' ORDER BY id_comen ASC";
+    return $result = $mysqli->query($sql);
+}
+function extraercomentario($id){
+    include('conexion.php');
+    $sql="SELECT * FROM comentario where id_comen='$id'";
+    return $result = $mysqli->query($sql);
+}
+?>
+
+<?php
+
 function lista_espc(){
     include('conexion.php');
     

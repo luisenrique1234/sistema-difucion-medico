@@ -19,14 +19,13 @@
                             <li class="dropdown"><a class="text-muted" href="mante_public.php">Lista de Artículos<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="mante_public.php">Lista de Artículos</a></li>
-                                    <li><a href="#">Comentario Artículo</a></li>
+                                    <li><a href="mante_comentario.php">Comentario Artículo</a></li>
                                     <li><a href="desativado_public.php">Lista destivado Articulos</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown"><a class="text-muted" href="mante_confe.php">Lista  Conferencia<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                 <li><a href="mante_confe.php">Lista Conferencia</a></li>
-                                <li><a href="#">Comentario investigacio</a></li>
                                     <li><a href="desacti_confe.php">Lista desactivado Conferencia</a></li>
                                 </ul>
                             </li>

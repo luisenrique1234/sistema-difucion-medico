@@ -33,7 +33,7 @@ if ($_SESSION["s_admin"] === null) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Mantenimiento de Artículo</title>
+    <title>Mantenimiento de comentario</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/lightbox.css" rel="stylesheet">
@@ -76,49 +76,42 @@ if ($_SESSION["s_admin"] === null) {
                 <div class="panel-body">
                     
                         <a title="Nuevo Médico" href="nuevoman_articulo.php" class="btn btn-info pull-letf" style='right: 24%;  font-size: 19px;'><i class="fa fa-user-plus"></i></a>
-                        <a title="Reporte" href="../reportes/reporte_public.php" class="btn btn-success" style='  font-size: 19px;'> <i class="fa fa-print" aria-hidden="true"></i></a>
+                        <a title="Reporte" href="#" class="btn btn-success" style='  font-size: 19px;'> <i class="fa fa-print" aria-hidden="true"></i></a>
                     
                     <hr>
                     <table class="table tabla1" style="text-align: center;">
                         <thead>
                             <tr style="background-color: #20558A; color:#FFFFFF;">
                                 <!-- fila-->
+                                <th data-hidden="true">Código comentario</th>
                                 <th data-hidden="true">Código Artículo</th>
-                                <th data-hidden="true">Nombre médico</th>
-                                <th data-hidden="true">Tituo</th>
-                                <th data-hidden="true">_____Autor_____</th>
-                                <th data-hidden="true">_________________Resumen______________________</th>
-                                <th data-hidden="true">Biblografia</th>
-                                <th data-hidden="true">Fecha publicacion</th>
-                                <th data-hidden="true">Tema</th>
-                                <th data-hidden="true">Apoyo</th>
-                                <th data-hidden="true">____________________</th>
+                                <th data-hidden="true">Código médico</th>
+                                <th data-hidden="true">_____Comentario_____</th>
+                                <th data-hidden="true">Fecha</th>
+                                <th data-hidden="true">Estado</th>
                                 <th data-hidden="true"></th>
                             </tr>
                         </thead>
                         <?php
                         
                         
-                        $query = lista_public();
+                        $query = lista_comentario();
                         while ($row = $query->fetch_assoc()) {
                             //$fecha2=$row["fecha_public"];
                         //$final = date_create($fecha2)->format('d/m/y');
                             echo "
             <tr>
-            <td>" . $row["id_public"] . "</td>
-            <td>" . $row["nombre_medico"] . "</td>
-			<td>" . $row["titulo_public"]. "</td>
-            <td>" . substr($row["autor_pu"],0,100). "</td>
-			<td>" . substr($row["text_public"],0,300). "</td>
-            <td>" . substr($row["referencia_pu"],0,100) . "</td>
-            <td>" . $row["fecha_public"] . "</td>
-            <td>" . $row["espec_descripsion"] . "</td>
-            <td>" . $row["me_gusta_pu"] . "</td>
+            <td>" . $row["id_comen"] . "</td>
+			<td>" . $row["id_public_com"]. "</td>
+            <td>" . $row["id_medico_com"]. "</td>
+			<td>" . substr($row["text_comen"],0,300). "</td>
+            <td>" . $row["fecha_comen"] . "</td>
+            <td>" . $row["estado"] . "</td>
 			
             <td>
-            <a title='Editar Artículo' href='editarma_articulo.php?id=" . $row["id_public"] . "' class='btn btn-info' style='  font-size: 19px;'><i class='fa fa-pencil' aria-hidden='true'></i></a>
+            <a title='Editar Artículo' href='editarma_articulo.php?id=" . $row["id_comen"] . "' class='btn btn-info' style='  font-size: 19px;'><i class='fa fa-pencil' aria-hidden='true'></i></a>
             
-            <a title='Eliminar Artículo' onclick='return alerpublicele(".$row['id_public'].");' class='btn btn-danger confirm' style='  font-size: 19px;'><i class='fa fa-trash' aria-hidden='true'></i></a>
+            <a title='Eliminar Artículo' onclick='return alerpublicele(".$row['id_comen'].");' class='btn btn-danger confirm' style='  font-size: 19px;'><i class='fa fa-trash' aria-hidden='true'></i></a>
             </td>
             </tr>
             ";

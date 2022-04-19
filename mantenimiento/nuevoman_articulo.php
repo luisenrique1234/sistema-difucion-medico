@@ -1,27 +1,11 @@
 <?php
 
-include('../php/consultas.php');
-$query=extraerpublic($_GET['id']);
-	
-    $row=$query->fetch_assoc();
-/*esta fucion sirve para converti toddos los carateres como acentos en formato
-uti-8 indenpedientemente de cual fuera su formato de  origen todo se convertira en 
-utf-8 para que asi todos tengan el mismo formato*/
-function mostrar ($str){
-$codi= mb_detect_encoding($str,"ISO-8859-1,UTF-8");
-            $str=iconv($codi,'utf-8',$str);
-            echo $str;
-}
-
 session_start();
-if ($_SESSION["s_admin"] === null) {
-    header("Location: ../admin_login.php");
-} else{
-    if($_SESSION["s_idRol3"]==2){
-        header("Location: ../index.php");
-    }
-    elseif($_SESSION["s_idRol3"]==3){
-        header("Location: ../vistas/pag_error.php");
+if ($_SESSION["s_medico"] === null){
+	header("Location: ./login.php");
+}else{
+    if($_SESSION["s_idRol2"]==3){
+        header("Location: ./vistas/pag_error.php");
     }
 }
 ?>
@@ -42,11 +26,9 @@ if ($_SESSION["s_admin"] === null) {
     <link href="../css/main.css" rel="stylesheet">
     <link href="../css/responsive.css" rel="stylesheet">
     <link href="../css/dark.css" rel="stylesheet">
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="../css/boton.css">
     <link rel="stylesheet" href="../css/cientifico.css">
     <!--Icon-Font-->
-    <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
 
     <!--[if lt IE 9]>
 	    <script src="js/html5shiv.js"></script>
@@ -55,14 +37,15 @@ if ($_SESSION["s_admin"] === null) {
     <style>
         .ck-editor__editable_inline {
     min-height: 120px; 
+    
   }
    </style>
-    <link rel="shortcut icon" href="images/ico/ico.png">
+    <link rel="shortcut icon" href="../images/ico/ico.png">
 </head>
 <body class="dark" style="background: #F1F1F1">
 
 <?php include_once "../php/mante_menu.php"; ?>
-    <section   class="wow bounceInDown padding-top">
+    <section   class="padding-top wow bounceInDown">
         <div style="display: flex; justify-content: center; width: 100%;">
         <div style="width: 50%;">
                 <div>
@@ -71,36 +54,33 @@ if ($_SESSION["s_admin"] === null) {
                             <div class="panel-dafault" style="margin-top: 12px">
                                 <!--panel de crear -->
                                 <div >
-                                    <form action="../php/regimatenimieto_articulo.php?accion=UDTART" method="POST" enctype="multipart/form-data">
+                                    <form action="../php/regimatenimieto_articulo.php?accion=INSART" method="POST" enctype="multipart/form-data">
                                         
                                             <div >
                                                 <div style="margin-bottom: 2rem;" class=" text-center  col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0">
-                                               <h1 class="title">Editar Aríticulo</h1>
+                                               <h1 class="title">Crear Aríticulo</h1>
                                                 </div>
                                                 
-                                                
-                                            <input type="hidden" name="codioarti" class="form-control" readonly="" value="<?php echo $row['id_public']?>">
-                                            
-
                                                 <div class="col-md-10 col-md-offset-1 col-sm-4 col-sm-offset-2">
                                                     <div class="form-group">
                                                         <label class="control-label"><i class="fa fa-header"></i> Titulo del Artículo<span
                                                                 style="color: red">*</span></label>
                                                         <input type="text" name="titulo" required="required"
-                                                        class="form-control" value="<?php echo $row['titulo_public']?>">
+                                                            placeholder="Mí Artículo" class="form-control">
                                                     </div>
                                                 </div>
+                                                
 
                                                 
 
                                                 <div class="col-md-10 col-md-offset-1 col-sm-4 col-sm-offset-2">
-                                                <div class="form-group">
+                                                <div class="">
                                                     <label class="control-label"><i class="fa fa-pencil-square-o"></i> Resumen<span
                                                             style="color: red">*</span></label>
                                                     <div class="form-group">
-                                                        <textarea name="resumen" id="editor"
+                                                        <textarea id="editor" name="resumen"  
                                                             class="form-control" 
-                                                            ><?php echo $row['text_public']?></textarea>
+                                                            placeholder="Escribe su resumen"></textarea>
                                                     </div>
                                                     </div>
                                                 </div>
@@ -112,7 +92,7 @@ if ($_SESSION["s_admin"] === null) {
                                                     <div class="form-group">
                                                         <textarea id="editor2" name="contenido"  
                                                             class="form-control" 
-                                                            placeholder="Escribe el contenido del PDF"><?php echo $row['contendio_pdf']?></textarea>
+                                                            placeholder="Escribe el contenido del PDF"></textarea>
                                                     </div>
                                                     </div>
                                                 </div>
@@ -121,9 +101,11 @@ if ($_SESSION["s_admin"] === null) {
                                                 
                                                 <div class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-                                                        <label class="control-label"><i class="fa fa-users"></i> Autores<span style="color: red;">*</span></label>
-                                                        <textarea name="autor"  id="editor3"
-                                                            class="form-control" ><?php echo $row['autor_pu']?></textarea>
+                                                        <label class="control-label"><i class="fa fa-users"></i> Autores<span
+                                                                style="color: red">*</span></label>
+                                                        <textarea name="autor" id="editor3"
+                                                            class="form-control" 
+                                                            placeholder="Autores"></textarea>
                                                     </div>
                                                 </div>
 
@@ -131,8 +113,9 @@ if ($_SESSION["s_admin"] === null) {
                                                     <div class="form-group">
                                                         <label class="control-label"><i class="fa fa-book"></i> Bibliografía<span
                                                                 style="color: red">*</span></label>
-                                                        <textarea name="biblio" id="editor4"
-                                                            class="form-control"><?php echo $row['referencia_pu']?></textarea>
+                                                        <textarea name="biblio"  id="editor4"
+                                                            class="form-control" 
+                                                            placeholder="Bibliografía"></textarea>
                                                     </div>
                                                 </div>
 
@@ -140,34 +123,41 @@ if ($_SESSION["s_admin"] === null) {
                                                 <label class="control-label"><i class="fa fa-tags"></i> Etiquetas<span
                                                                 style="color: red">*</span></label>
                                                         <input type="text" name="etiqueta" required="required"
-                                                             class="form-control" value="<?php echo $row['etiqueta']?>">
+                                                            placeholder="Corazon,Ectópico" class="form-control">
                                                 </div>
 
                                                 <div class="col-lg-4 col-lg-offset-0 col-xs-12 col-xs-offset-0">
-                                                <div class="form-group">
-                                                        <label  class="control-label"><i class="fa fa-tag"></i> Categoría<span
+                                                    <div class="form-group">
+                                                    <label  class="control-label"><i class="fa fa-tag"></i> Categoría<span
                                                                 style="color:red">*</span> </label>
                                                     
 
                                                         <select name="categoria" class="form-control" required="required">
                                                             <?php
 					                                        include '../php/conexion.php';
+                                                            
 					                                        $getAlumno1 = "SELECT * FROM  especialidad";
 					                                        $gerAlumno2 = $mysqli->query ($getAlumno1);
+                                                            
 					                                        while ($row2 = mysqli_fetch_array($gerAlumno2))
 					                                        {
 					                                            $id = $row2 ['id_espec'];
-					                                        	$espe = $row2['espec_descripsion'];?>
-                                                            <option value="<?php echo $id?>" <?php if($row['categoria_public']==$id){echo "selected";} ?>><?php echo $espe;?></option>
-                                                            <?php } ?>
+					                                        	$espe = $row2['espec_descripsion'];
+					                                        	?>
+                                                            <option value="<?php echo $id?>"><?php echo $espe;?></option>
+                                                            
+                                                            <?php }?>
                                                         </select>
                                                     </div>
                                                 </div>
+
                                                 
 
+                                                
                                                 <div  class=" col-sm-offset-1 col-lg-3 col-lg-offset-1 col-xs-12 col-xs-offset-0">
-                                                    <label class="control-label"><i class="fa fa-file-pdf-o"></i> Subir Artículo <span style="color: red;">*</span></label>
-                                                    <input type="file" name="archivo">
+                                                    <label class="control-label"><i class="fa fa-file-pdf-o"></i> Subir Artículo <span
+                                                                style="color:red">*</span></label>
+                                                    <input type="file" name="archivo" required="required">
                                                 </div>
 
                                                 <div class="col-lg-4 col-lg-offset-3 col-xs-12 col-xs-offset-0">
@@ -177,8 +167,8 @@ if ($_SESSION["s_admin"] === null) {
                                                     
 
                                                         <select name="estado" class="form-control" >
-                                                            <option value="Publico" <?php if($row['estado_articulo']=='Publico'){echo "selected";} ?>>Público </option>
-                                                            <option value="Privado" <?php if($row['estado_articulo']=='Privado'){echo "selected";} ?>>Privado</option>
+                                                            <option value="Publico" class="icono" > Público </option>
+                                                            <option value="Privado"><i class="fa fa-eye-slash"></i> Privado</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -192,7 +182,9 @@ if ($_SESSION["s_admin"] === null) {
                                                     </div>
                                                     <div>
                                                         <input type="submit" value="Guardar" class="btn btn-primary btn-lg">
-                                                       </div>
+                                                       </div> 
+                                                    
+
                                                 </div>
                                                 
                                     </form>
@@ -243,7 +235,6 @@ if ($_SESSION["s_admin"] === null) {
         .create(document.querySelector('#editor4'))
         .catch(error =>{ console.error(error)});
     </script>
-
     <script type="text/javascript" src="../js/jquery.js"></script>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../js/lightbox.min.js"></script>
@@ -251,6 +242,10 @@ if ($_SESSION["s_admin"] === null) {
     <script type="text/javascript" src="../js/main.js"></script>
     <script type="text/javascript" src="../js/temad.js"></script>
     <script type="text/javascript" src="../js/medico_alerta.js"></script>
+    <!-- cdn descargados los icono y de las dulse alertas-->
+    <script type="text/javascript" src="../js/sweetalert2@11.js"></script>
+    <script type="text/javascript" src="../js/fontawesome.js"></script>
+    <script type="text/javascript" src="../js/code-jquery-3-6-0.js"></script>
 </body>
 
 </html>
