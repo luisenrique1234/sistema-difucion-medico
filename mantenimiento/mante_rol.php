@@ -75,7 +75,7 @@ if ($_SESSION["s_admin"] === null) {
                 <h1> Listado de Roles</h1>
                 <div class="panel-body">
                     
-                        <a href="#" class="btn btn-info pull-letf" style='font-size: 19px;'><i class="fa fa-user-plus"></i></a>
+                        <a href="nuevo_rol.php" class="btn btn-info pull-letf" style='font-size: 19px;'><i class="fa fa-id-card-o"></i> <i class="fa fa-plus"></i></a>
                     
                     <br>
                     <hr>
@@ -104,7 +104,7 @@ if ($_SESSION["s_admin"] === null) {
             <td>" . $row["descripcion"] . "</td>
 			
             <td>
-            <a href='actualizarm_rol.php?id=" . $row["id_roles"] . "' class='btn btn-info' style='  font-size: 19px;'><i class='fa fa-pencil' aria-hidden='true'></i></a>
+            <a href='actualizarman_rol.php?id=" . $row["id_roles"] . "' class='btn btn-info' style='  font-size: 19px;'><i class='fa fa-pencil' aria-hidden='true'></i></a>
             
             <a onclick='return alerarol(".$row['id_roles'].");' class='btn btn-danger confirm' style='  font-size: 19px;'><i class='fa fa-trash' aria-hidden='true'></i></a>
             </td>

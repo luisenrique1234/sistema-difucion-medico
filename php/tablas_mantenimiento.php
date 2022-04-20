@@ -74,6 +74,95 @@ $(document).ready(function(){
 ';
 }
 
+if ($i=="INSROL"){
+        
+
+    $rolme=$_POST['rol'];
+    //$date = (new DateTime())->format('y-m-d');
+
+
+$sql = " INSERT INTO `rol` ( `descripcion`,`estado`) 
+VALUES (
+
+    '$rolme',
+    'A')";
+
+
+if ($mysqli->query($sql))
+{
+    $status='success';
+}
+else{
+    $status='error';
+    echo "error" .mysqli_error($mysqli);
+}
+// echo("erro descripcion:" .mysqli_error($mysqli));
+//header("Location: ../propietarip_mant.php?s=".$status);
+
+header("Refresh: 2; URL= ../mantenimiento/mante_rol.php?s=".$status);
+echo '
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+
+swal({
+    title: "Nuevo rol Creado",
+    icon: "success",
+  })
+});
+
+
+</script>
+
+';
+}
+
+
+if ($i=="INSESPC"){
+        
+
+    $especia=$_POST['especia'];
+    //$date = (new DateTime())->format('y-m-d');
+
+
+$sql = " INSERT INTO `especialidad` ( `espec_descripsion`,`estado`) 
+VALUES (
+
+    '$especia',
+    'A')";
+
+
+if ($mysqli->query($sql))
+{
+    $status='success';
+}
+else{
+    $status='error';
+    echo "error" .mysqli_error($mysqli);
+}
+// echo("erro descripcion:" .mysqli_error($mysqli));
+//header("Location: ../propietarip_mant.php?s=".$status);
+
+header("Refresh: 2; URL= ../mantenimiento/mante_espec.php?s=".$status);
+echo '
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+
+swal({
+    title: "Nueva Especialidad creada",
+    icon: "success",
+  })
+});
+
+
+</script>
+
+';
+}
+
 
 
 
@@ -194,8 +283,8 @@ if($i=="UDTROL"){
     $msj='';
 
 
-    $idrol=$_POST['idrol'];
-    $descrip=$_POST['descrip'];
+    $idrol=$_POST['codigorol'];
+    $descrip=$_POST['roles'];
     
     $sql="
     UPDATE `rol` SET
@@ -221,7 +310,7 @@ if($i=="UDTROL"){
 $(document).ready(function(){
 
 	swal({
-		title: "Actualizado",
+		title: "Editado",
 		icon: "success",
 		
 	  })
@@ -237,8 +326,8 @@ if($i=="UDTEPC"){
     $msj='';
 
 
-    $idespe=$_POST['espeid'];
-    $descriesp=$_POST['descriesp'];
+    $idespe=$_POST['codigoespc'];
+    $descriesp=$_POST['especialidad'];
     
     $sql="
     UPDATE `especialidad` SET
@@ -264,7 +353,7 @@ if($i=="UDTEPC"){
 $(document).ready(function(){
 
 	swal({
-		title: "Actualizado",
+		title: "Editado",
 		icon: "success",
 		
 	  })
