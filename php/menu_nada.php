@@ -6,16 +6,16 @@
                 <div class="container">
                     <div class="navbar-header">
                         <a class="navbar-brand" href="index.php">
-                            <img src="images/logo.png" alt="logo" width="45" height="45">
+                            <img src="/medico-red/images/logo.png" alt="logo" width="45" height="45">
                         </a>
 
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="active"><a class="text-muted" href="index.php">Inicio</a></li>
-                            <li class="dropdown"><a  class="text-muted" href="articulo_cien.php">Artículos</a>
+                            <li class="active"><a class="text-muted" href="/medico-red/index.php">Inicio</a></li>
+                            <li class="dropdown"><a  class="text-muted" href="/medico-red/articulo_cien.php">Artículos</a>
                             </li>
-                            <li class="dropdown"><a class="text-muted"   href="conferencia_me.php">Conferencia</a>
+                            <li class="dropdown"><a class="text-muted"   href="/medico-red/conferencia_me.php">Conferencia</a>
                             </li>
                             <?php 
                             include ('conexion.php');
@@ -51,9 +51,9 @@
                             </div>-->
                                 <a class="text-muted" href="pefil_medico.php"> <i class="fa fa-user-circle icouser" aria-hidden="true"></i>&nbsp; &nbsp;<?php  echo $_SESSION["s_medico"];?>&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                <li><a href="pefil_medico.php">Editar mi perfil</a></li>
-                                    <li><a href="mis_articulos.php">Mis Artículos</a></li>
-                                    <li><a href="mis_conferencia.php">Mis Conferencia</a></li>
+                                <li><a href="/medico-red/perfilmedico/pefil_medico.php">Editar mi perfil</a></li>
+                                    <li><a href="/medico-red/mis_articulos.php">Mis Artículos</a></li>
+                                    <li><a href="/medico-red/mis_conferencia.php">Mis Conferencia</a></li>
                                     <li><a  onclick="return alercerrarme();">Cerrar sesión</a></li>
                                 </ul>
                                  
