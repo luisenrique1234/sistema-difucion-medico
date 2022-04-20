@@ -24,7 +24,7 @@ title: '<h3>¿Estas Segura de eliminar el ID:'+codigo3+'?</h3>',
 icon: 'warning',
 showCancelButton: true,
 confirmButtonColor: '#20558A',
-confirmButtonText: '<h5>Sí <i class="fa fa-user-times" aria-hidden="true"></i></h5>',
+confirmButtonText: '<h5>Sí <i class="fa fa-newspaper-o"></i></h5>',
 cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></h5>'
 })
 .then((result) => {
@@ -36,14 +36,33 @@ window.location.href = '../php/tablas_mantenimiento.php?accion=DLTPU&id='+codigo
 
 }
 
-function alerconfe(codigo3) {
+function alercomentario(codigo4) {
 
-    Swal.fire({
-title: '<h3>¿Estas Segura de eliminar el ID:'+codigo3+'?</h3>',
+  Swal.fire({
+title: '<h3>¿Estas Segura de eliminar el ID:'+codigo4+'?</h3>',
 icon: 'warning',
 showCancelButton: true,
 confirmButtonColor: '#20558A',
 confirmButtonText: '<h5>Sí <i class="fa fa-user-times" aria-hidden="true"></i></h5>',
+cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></h5>'
+})
+.then((result) => {
+if (result.value) {
+window.location.href = '../php/tablas_mantenimiento.php?accion=COMDLT&id='+codigo4
+}
+}); 
+
+
+}
+
+function alerconfe(codigo3) {
+
+    Swal.fire({
+title: '<h3>¿Estas Segura de Desactivar el ID:'+codigo3+'?</h3>',
+icon: 'warning',
+showCancelButton: true,
+confirmButtonColor: '#20558A',
+confirmButtonText: '<h5>Sí </h5>',
 cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></h5>'
 })
 .then((result) => {
@@ -93,7 +112,7 @@ window.location.href = '../php/tablas_mantenimiento.php?accion=ACTPU&id='+codigo
 
 }
 
-function aleracticonfe(codigo2) {
+function aleractivacomen(codigo2) {
 
   Swal.fire({
 title: '<h3>¿Estas seguro de Activar  el ID:'+codigo2+'?</h3>',
@@ -101,6 +120,63 @@ icon: 'warning',
 showCancelButton: true,
 confirmButtonColor: '#20558A',
 confirmButtonText: '<h5>Sí <i class="fa fa-user-plus" aria-hidden="true"></i></h5>',
+cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></h5>'
+})
+.then((result) => {
+if (result.value) {
+window.location.href = '../php/tablas_mantenimiento.php?accion=ACTCOM&id='+codigo2
+}
+}); 
+
+
+}
+
+function aleractivarrol(codigo2) {
+
+  Swal.fire({
+title: '<h3>¿Estas seguro de Activar  el ID:'+codigo2+'?</h3>',
+icon: 'warning',
+showCancelButton: true,
+confirmButtonColor: '#20558A',
+confirmButtonText: '<h5>Sí <i class="fa fa-user-plus" aria-hidden="true"></i></h5>',
+cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></h5>'
+})
+.then((result) => {
+if (result.value) {
+window.location.href = '../php/tablas_mantenimiento.php?accion=ACTIROL&id='+codigo2
+}
+}); 
+
+
+}
+
+function aleractivarespes(codigo2) {
+
+  Swal.fire({
+title: '<h3>¿Estas seguro de Activar  el ID:'+codigo2+'?</h3>',
+icon: 'warning',
+showCancelButton: true,
+confirmButtonColor: '#20558A',
+confirmButtonText: '<h5>Sí <i class="fa fa-user-plus" aria-hidden="true"></i></h5>',
+cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></h5>'
+})
+.then((result) => {
+if (result.value) {
+window.location.href = '../php/tablas_mantenimiento.php?accion=ACTIESP&id='+codigo2
+}
+}); 
+
+
+}
+
+function aleracticonfe(codigo2) {
+
+  Swal.fire({
+title: '<h3>¿Estas seguro de Activar  el ID:'+codigo2+'?</h3>',
+icon: 'warning',
+showCancelButton: true,
+confirmButtonColor: '#20558A',
+confirmButtonText: '<h5>Sí</h5>',
 cancelButtonText: '<h5>Cancelar <i class="fa fa-times" aria-hidden="true"></i></h5>'
 })
 .then((result) => {
@@ -115,7 +191,7 @@ window.location.href = '../php/tablas_mantenimiento.php?accion=ACTICONFE&id='+co
 function alerarol(codigo2) {
 
     Swal.fire({
-title: '<h3>¿Estas seguro de Activar  el ID:'+codigo2+'?</h3>',
+title: '<h3>¿Estas seguro de Desactivar  el ID:'+codigo2+'?</h3>',
 icon: 'warning',
 showCancelButton: true,
 confirmButtonColor: '#20558A',
@@ -134,7 +210,7 @@ window.location.href = '../php/tablas_mantenimiento.php?accion=DLTROL&id='+codig
 function aleraespci(codigo2) {
 
     Swal.fire({
-title: '<h3>¿Estas seguro de Activar  el ID:'+codigo2+'?</h3>',
+title: '<h3>¿Estas seguro de Desactivar  el ID:'+codigo2+'?</h3>',
 icon: 'warning',
 showCancelButton: true,
 confirmButtonColor: '#20558A',

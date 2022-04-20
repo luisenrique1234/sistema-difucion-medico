@@ -72,7 +72,7 @@ if ($_SESSION["s_admin"] === null) {
         <br>
         <br>
             <div class="panel-heading">
-                <h1> Listado de Artículos</h1>
+                <h1> Listado de Comentario</h1>
                 <div class="panel-body">
                     
                         <a title="Nuevo Médico" href="nuevoman_articulo.php" class="btn btn-info pull-letf" style='right: 24%;  font-size: 19px;'><i class="fa fa-user-plus"></i></a>
@@ -83,12 +83,12 @@ if ($_SESSION["s_admin"] === null) {
                         <thead>
                             <tr style="background-color: #20558A; color:#FFFFFF;">
                                 <!-- fila-->
-                                <th data-hidden="true">Código comentario</th>
-                                <th data-hidden="true">Código Artículo</th>
-                                <th data-hidden="true">Código médico</th>
-                                <th data-hidden="true">_____Comentario_____</th>
-                                <th data-hidden="true">Fecha</th>
-                                <th data-hidden="true">Estado</th>
+                                <th data-hidden="true">Código comentarios</th>
+                                <th data-hidden="true">Artículos</th>
+                                <th data-hidden="true">Médicos</th>
+                                <th data-hidden="true">_____Comentarios_____</th>
+                                <th data-hidden="true">Fechas</th>
+                                <th data-hidden="true">Estados</th>
                                 <th data-hidden="true"></th>
                             </tr>
                         </thead>
@@ -102,16 +102,17 @@ if ($_SESSION["s_admin"] === null) {
                             echo "
             <tr>
             <td>" . $row["id_comen"] . "</td>
-			<td>" . $row["id_public_com"]. "</td>
-            <td>" . $row["id_medico_com"]. "</td>
-			<td>" . substr($row["text_comen"],0,300). "</td>
+            <td>" . substr($row["titulo_public"],0,300). "</td>
+			<td>" . $row["nombre"]. "</td>
+            <td>" . substr($row["text_comen"],0,300). "</td>
+            
             <td>" . $row["fecha_comen"] . "</td>
             <td>" . $row["estado"] . "</td>
 			
             <td>
-            <a title='Editar Artículo' href='editarma_articulo.php?id=" . $row["id_comen"] . "' class='btn btn-info' style='  font-size: 19px;'><i class='fa fa-pencil' aria-hidden='true'></i></a>
+            <a title='Editar Artículo' href='actualizar_comen.php?id=" . $row["id_comen"] . "' class='btn btn-info' style='  font-size: 19px;'><i class='fa fa-pencil' aria-hidden='true'></i></a>
             
-            <a title='Eliminar Artículo' onclick='return alerpublicele(".$row['id_comen'].");' class='btn btn-danger confirm' style='  font-size: 19px;'><i class='fa fa-trash' aria-hidden='true'></i></a>
+            <a title='Eliminar Artículo' onclick='return alercomentario(".$row['id_comen'].");' class='btn btn-danger confirm' style='  font-size: 19px;'><i class='fa fa-trash' aria-hidden='true'></i></a>
             </td>
             </tr>
             ";

@@ -144,6 +144,51 @@ $(document).ready(function(){
 ';
 }
 
+if($i=="UDTCOM"){
+    $msj='';
+
+    $codigom2 =$_POST['codicome'];
+    $comentario=$_POST['comentario'];
+    
+
+    
+    $sql="
+    UPDATE `comentario` SET
+        `text_comen`='$comentario'
+        
+    WHERE
+        id_comen='$codigom2'";
+
+    if($mysqli->query($sql)){
+        $status='successudt';
+    }
+    else{
+        $status='errorudt';
+        echo "error" .mysqli_error($mysqli);
+    }
+    // echo("erro descripcion:" .mysqli_error($mysqli));
+    //header("Location: ../propietarip_mant.php?s=".$msj);
+
+    header("Refresh: 2; URL= ../mantenimiento/mante_comentario.php?s=".$status);
+    echo '
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+
+	swal({
+		title: "Comentario editado",
+		icon: "success",
+		
+	  })
+});
+
+
+</script>
+
+';
+}
+
 
 if($i=="UDTROL"){
     $msj='';
@@ -511,6 +556,86 @@ $(document).ready(function(){
 ';
 }
 
+if($i=="ACTIROL"){
+    $msj='';
+    $codigo=$_GET['id'];
+
+    $sql="
+    UPDATE `rol` SET
+        `estado`='A'
+    WHERE
+    id_roles='$codigo'";
+
+    if($mysqli->query($sql)){
+        $status='successdlt';
+    }
+    else{
+        $status='errordlt';
+        echo "error" .mysqli_error($mysqli);
+    }
+    // echo("erro descripcion:" .mysqli_error($mysqli));
+    //header("Location: ../propietarip_mant.php?s=".$msj);
+
+    header("Refresh: 2; URL= ../mantenimiento/desactivado_rol.php?s=".$status);
+    echo '
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+
+	swal({
+		title: "Activado",
+		icon: "success",
+		
+	  })
+});
+
+
+</script>
+
+';
+}
+
+if($i=="ACTIESP"){
+    $msj='';
+    $codigo=$_GET['id'];
+
+    $sql="
+    UPDATE `especialidad` SET
+        `estado`='A'
+    WHERE
+    id_espec='$codigo'";
+
+    if($mysqli->query($sql)){
+        $status='successdlt';
+    }
+    else{
+        $status='errordlt';
+        echo "error" .mysqli_error($mysqli);
+    }
+    // echo("erro descripcion:" .mysqli_error($mysqli));
+    //header("Location: ../propietarip_mant.php?s=".$msj);
+
+    header("Refresh: 2; URL= ../mantenimiento/desactivado_espec.php?s=".$status);
+    echo '
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+
+	swal({
+		title: "Activado",
+		icon: "success",
+		
+	  })
+});
+
+
+</script>
+
+';
+}
+
 if($i=="ACTPU"){
     $msj='';
     $codigo=$_GET['id'];
@@ -593,6 +718,47 @@ $(document).ready(function(){
 ';
 }
 
+if($i=="ACTCOM"){
+    $msj='';
+    $codigo=$_GET['id'];
+
+    $sql="
+    UPDATE `comentario` SET
+        `estado`='A'
+    WHERE
+    id_comen='$codigo'";
+
+    if($mysqli->query($sql)){
+        $status='successdlt';
+    }
+    else{
+        $status='errordlt';
+        echo "error" .mysqli_error($mysqli);
+    }
+    // echo("erro descripcion:" .mysqli_error($mysqli));
+    //header("Location: ../propietarip_mant.php?s=".$msj);
+
+    header("Refresh: 2; URL= ../mantenimiento/desativado_comen.php?s=".$status);
+    echo '
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+
+	swal({
+		title: "ACTIVADO",
+		icon: "success",
+		
+	  })
+});
+
+
+</script>
+
+';
+}
+
+
 if($i=="DLT"){
     $msj='';
     $codigo=$_GET['id'];
@@ -614,6 +780,45 @@ if($i=="DLT"){
     //header("Location: ../propietarip_mant.php?s=".$msj);
 
     header("Refresh: 2; URL= ../mantenimiento/mante_medico.php?s=".$msj);
+    echo '
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+
+	swal({
+		title: "ELIMINADO",
+		icon: "error",
+		
+	  })
+});
+
+
+</script>
+
+';
+}
+
+if($i=="COMDLT"){
+    $msj='';
+    $codigo=$_GET['id'];
+    $sql="
+    UPDATE `comentario` SET
+        `estado`='I'
+    WHERE
+    id_comen='$codigo'";
+
+    if($mysqli->query($sql)){
+        $status='successdlt';
+    }
+    else{
+        $status='errordlt';
+        echo "error" .mysqli_error($mysqli);
+    }
+    // echo("erro descripcion:" .mysqli_error($mysqli));
+    //header("Location: ../propietarip_mant.php?s=".$msj);
+
+    header("Refresh: 2; URL= ../mantenimiento/mante_comentario.php?s=".$status);
     echo '
 <script type="text/javascript">
 

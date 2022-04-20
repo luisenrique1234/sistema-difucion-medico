@@ -1,6 +1,6 @@
 <?php
 
-include('../php/mante_consultas.php');
+include('../php/consultas_desa.php');
 /*esta fucion sirve para converti toddos los carateres como acentos en formato
 uti-8 indenpedientemente de cual fuera su formato de  origen todo se convertira en 
 utf-8 para que asi todos tengan el mismo formato*/
@@ -33,7 +33,7 @@ if ($_SESSION["s_admin"] === null) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Mantenimiento de Rol</title>
+    <title>Mantenimiento desactivado rol</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/lightbox.css" rel="stylesheet">
@@ -72,10 +72,10 @@ if ($_SESSION["s_admin"] === null) {
             <br>
                 <br>
                 <br>
-                <h1> Listado de Roles</h1>
+                <h1> Listado de Roles médicos desctivado</h1>
                 <div class="panel-body">
                     
-                        <a href="#" class="btn btn-info pull-letf" style='font-size: 19px;'><i class="fa fa-user-plus"></i></a>
+                       <a title="Reporte" href="#" class="btn btn-success" style='  font-size: 19px;'> <i class="fa fa-print" aria-hidden="true"></i></a>
                     
                     <br>
                     <hr>
@@ -94,7 +94,7 @@ if ($_SESSION["s_admin"] === null) {
                         <?php
                         
                         
-                        $query = lista_rol();
+                        $query = lista_desactivadorol();
                         while ($row = $query->fetch_assoc()) {
                             //$fecha2=$row["fecha_public"];
                         //$final = date_create($fecha2)->format('d/m/y');
@@ -104,9 +104,7 @@ if ($_SESSION["s_admin"] === null) {
             <td>" . $row["descripcion"] . "</td>
 			
             <td>
-            <a href='actualizarm_rol.php?id=" . $row["id_roles"] . "' class='btn btn-info' style='  font-size: 19px;'><i class='fa fa-pencil' aria-hidden='true'></i></a>
-            
-            <a onclick='return alerarol(".$row['id_roles'].");' class='btn btn-danger confirm' style='  font-size: 19px;'><i class='fa fa-trash' aria-hidden='true'></i></a>
+            <a onclick='return aleractivarrol(".$row['id_roles'].");' class='btn btn-success' style='  font-size: 19px;'><i class='fa fa-check'></i></a>
             </td>
             </tr>
 

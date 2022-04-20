@@ -111,12 +111,16 @@ function lista_comentario(){
     include('conexion.php');
     
     
-    $sql="SELECT * FROM comentario WHERE  estado='A' ORDER BY id_comen ASC";
+    $sql="SELECT comentario.id_comen,comentario.text_comen,comentario.fecha_comen,comentario.estado,
+    CONCAT(medico.nombre_medico,' ',medico.apellido_medico) nombre,publicacion.titulo_public FROM comentario,medico,publicacion WHERE comentario.id_medico_com=medico.id_medico 
+    AND comentario.id_public_com=publicacion.id_public AND comentario.estado='A' ORDER BY comentario.id_comen ASC";
     return $result = $mysqli->query($sql);
 }
 function extraercomentario($id){
     include('conexion.php');
-    $sql="SELECT * FROM comentario where id_comen='$id'";
+    $sql="SELECT comentario.id_comen,comentario.text_comen,
+    CONCAT(medico.nombre_medico,' ',medico.apellido_medico) nombre,publicacion.titulo_public FROM comentario,medico,publicacion WHERE comentario.id_medico_com=medico.id_medico
+    AND comentario.id_public_com=publicacion.id_public AND comentario.id_comen='$id'";
     return $result = $mysqli->query($sql);
 }
 ?>

@@ -42,3 +42,38 @@ function lista_pudestivado(){
 
 
 ?>
+
+<?php
+
+function lista_cometariodesti(){
+    include('conexion.php');
+    
+    
+    $sql="SELECT comentario.id_comen,comentario.text_comen,comentario.fecha_comen,comentario.estado,
+    CONCAT(medico.nombre_medico,' ',medico.apellido_medico) nombre,publicacion.titulo_public FROM comentario,medico,publicacion WHERE comentario.id_medico_com=medico.id_medico 
+    AND comentario.id_public_com=publicacion.id_public AND comentario.estado='I' ORDER BY comentario.id_comen ASC";
+    return $result = $mysqli->query($sql);
+}
+?>
+
+<?php
+
+function lista_desactivadorol(){
+    include('conexion.php');
+    
+    
+    $sql="SELECT * FROM rol WHERE  estado='I' ORDER BY id_roles ASC";
+    return $result = $mysqli->query($sql);
+}
+?>
+
+<?php
+
+function lista_desactivadoespc(){
+    include('conexion.php');
+    
+    
+    $sql="SELECT * FROM especialidad WHERE  estado='I' ORDER BY id_espec ASC";
+    return $result = $mysqli->query($sql);
+}
+?>

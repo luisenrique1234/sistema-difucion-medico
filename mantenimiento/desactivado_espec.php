@@ -1,6 +1,6 @@
 <?php
 
-include('../php/mante_consultas.php');
+include('../php/consultas_desa.php');
 /*esta fucion sirve para converti toddos los carateres como acentos en formato
 uti-8 indenpedientemente de cual fuera su formato de  origen todo se convertira en 
 utf-8 para que asi todos tengan el mismo formato*/
@@ -33,7 +33,7 @@ if ($_SESSION["s_admin"] === null) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Mantenimiento de Rol</title>
+    <title>Mantenimiento de Especialidades</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/lightbox.css" rel="stylesheet">
@@ -69,13 +69,13 @@ if ($_SESSION["s_admin"] === null) {
         <!-- fin de la segunda parte-->
         <div>
             <div class="panel-heading">
-            <br>
                 <br>
                 <br>
-                <h1> Listado de Roles</h1>
+                <br>
+                <h1> Listado de Especialidades médicas desactivada</h1>
                 <div class="panel-body">
                     
-                        <a href="#" class="btn btn-info pull-letf" style='font-size: 19px;'><i class="fa fa-user-plus"></i></a>
+                        
                     
                     <br>
                     <hr>
@@ -83,7 +83,7 @@ if ($_SESSION["s_admin"] === null) {
                         <thead>
                             <tr style="background-color: #20558A; color:#FFFFFF;">
                                 <!-- fila-->
-                                <th data-hidden="true">Código Rol</th>
+                                <th data-hidden="true">Código Especialidad</th>
                                 <!--th colunma-->
                                 <th data-hidden="true">Descrision</th>
                                 
@@ -94,19 +94,18 @@ if ($_SESSION["s_admin"] === null) {
                         <?php
                         
                         
-                        $query = lista_rol();
+                        $query = lista_desactivadoespc();
                         while ($row = $query->fetch_assoc()) {
                             //$fecha2=$row["fecha_public"];
                         //$final = date_create($fecha2)->format('d/m/y');
                             echo "
             <tr>
-            <td>" . $row["id_roles"] . "</td>
-            <td>" . $row["descripcion"] . "</td>
+            <td>" . $row["id_espec"] . "</td>
+            <td>" . $row["espec_descripsion"] . "</td>
 			
             <td>
-            <a href='actualizarm_rol.php?id=" . $row["id_roles"] . "' class='btn btn-info' style='  font-size: 19px;'><i class='fa fa-pencil' aria-hidden='true'></i></a>
             
-            <a onclick='return alerarol(".$row['id_roles'].");' class='btn btn-danger confirm' style='  font-size: 19px;'><i class='fa fa-trash' aria-hidden='true'></i></a>
+            <a onclick='return aleractivarespes(".$row['id_espec'].");' class='btn btn-success' style='  font-size: 19px;'><i class='fa fa-check'></i></a>
             </td>
             </tr>
 
@@ -123,7 +122,7 @@ if ($_SESSION["s_admin"] === null) {
 
         
             
-            
+        
         <!--boton flotante donde esta los diferentes acciones -->
         <footer id="footer">
         <div class="container">
