@@ -60,6 +60,33 @@ $buscarespec='Todos';
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/ico.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/ico.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/ico.png">
+    <style>
+        /* Color de los enlaces y de mas efectos*/
+  a {
+    outline: none;
+    text-decoration: none;
+    padding: 2px 1px 0;
+  }
+  
+  
+  a:focus {
+    border-bottom: 1px solid;
+    background: #cfddff;
+  }
+  
+  a:hover {
+    border-bottom: 1px solid;
+    background: #F1F1F1;
+  }
+  
+
+  a {
+    -webkit-transition: 300ms;
+    -moz-transition: 300ms;
+    -o-transition: 300ms;
+    transition: 300ms;
+  }
+    </style>
 </head>
 <!--/head-->
 
