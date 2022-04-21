@@ -76,7 +76,7 @@ if ($_SESSION["s_admin"] === null) {
                 <div class="panel-body">
                     
                         <a title="Nuevo Médico" href="nuevoman_articulo.php" class="btn btn-info pull-letf" style='right: 24%;  font-size: 19px;'><i class="fa fa-user-plus"></i></a>
-                        <a title="Reporte" href="../reportes/reporte_public.php" class="btn btn-success" style='  font-size: 19px;'> <i class="fa fa-print" aria-hidden="true"></i></a>
+                        <a title="Reporte"  href="../reportes/reporte_articulo.php" class="btn btn-success" style='  font-size: 19px;'> <i class="fa fa-print" aria-hidden="true"></i></a>
                     
                     <hr>
                     <table class="table tabla1" style="text-align: center;">
@@ -90,7 +90,7 @@ if ($_SESSION["s_admin"] === null) {
                                 <th data-hidden="true">_________________Resumen______________________</th>
                                 <th data-hidden="true">Biblografia</th>
                                 <th data-hidden="true">Fecha publicacion</th>
-                                <th data-hidden="true">Tema</th>
+                                <th data-hidden="true">Categoria</th>
                                 <th data-hidden="true">Apoyo</th>
                                 <th data-hidden="true">____________________</th>
                                 <th data-hidden="true"></th>

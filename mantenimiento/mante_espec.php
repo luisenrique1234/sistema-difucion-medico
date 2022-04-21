@@ -76,7 +76,7 @@ if ($_SESSION["s_admin"] === null) {
                 <div class="panel-body">
                     
                         <a href="nuevo_espec.php" class="btn btn-info pull-letf" style='font-size: 19px;'><i class="fa fa-user-md"></i> <i class="fa fa-plus"></i></a>
-                    
+                        <a title="Reporte"  href="../reportes/reporte_espec.php" class="btn btn-success" style='  font-size: 19px;'> <i class="fa fa-print" aria-hidden="true"></i></a>
                     <br>
                     <hr>
                     <table class="table tabla1" style="text-align: center;">

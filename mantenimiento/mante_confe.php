@@ -76,7 +76,8 @@ if ($_SESSION["s_admin"] === null) {
                 <h1> Listado de Conferencia</h1>
                 <div class="panel-body">
                     
-                        <a href="formumante_conferencia.php" class="btn btn-info pull-letf" style='right: 24%;  font-size: 19px;'><i class="fa fa-user-plus"></i></a>
+                        <a title="Nueva conferencia" href="formumante_conferencia.php" class="btn btn-info pull-letf" style='right: 24%;  font-size: 19px;'><i class="fa fa-users"></i> <i class="fa fa-plus"></i></a>
+                        <a title="Reporte"  href="../reportes/reporte_confe.php" class="btn btn-success" style='  font-size: 19px;'> <i class="fa fa-print" aria-hidden="true"></i></a>
                     
                     <br>
                     <hr>
@@ -91,7 +92,7 @@ if ($_SESSION["s_admin"] === null) {
                                 <th data-hidden="true">Fecha inicio</th>
                                 <th data-hidden="true">Fecha final</th>
                                 <th data-hidden="true">Apoyo</th>
-                                <th data-hidden="true">Tema</th>
+                                <th data-hidden="true">Categoría</th>
                                 <th data-hidden="tre">Etapa</th>
                                 <th>___________________</th>
                                 <th></th>

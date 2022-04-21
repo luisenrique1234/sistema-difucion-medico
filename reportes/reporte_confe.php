@@ -35,18 +35,16 @@ ob_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Reporte publicaciónes</title>
+    <title>Reporte Conferencia</title>
     <link href="http://<?php echo $_SERVER["HTTP_HOST"]?>/medico-red/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://<?php echo $_SERVER["HTTP_HOST"]?>/medico-red/css/font-awesome.min.css" rel="stylesheet">
     <link href="http://<?php echo $_SERVER["HTTP_HOST"]?>/medico-red/css/lightbox.css" rel="stylesheet">
     <link href="http://<?php echo $_SERVER["HTTP_HOST"]?>/medico-red/css/animate.min.css" rel="stylesheet">
     <link href="http://<?php echo $_SERVER["HTTP_HOST"]?>/medico-red/css/responsive.css" rel="stylesheet">
 
-    <link href="css/dark.css" rel="stylesheet">
 
 
     <!--Icon-Font-->
-    <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
 
     <!--[if lt IE 9]>
 	    <script src="js/html5shiv.js"></script>
@@ -70,10 +68,12 @@ ob_start();
         <div>
         <div style="text-align: center;">
                 <h3>Sistema de difusión de información médico</h3>
-                <h3> Listado de Publicaciónes</h3>
+                <h3> Listado de Conferencia</h3>
                 
             </div>
-            <h4 style="text-align: center;"> Fecha:  <?php echo $date;  ?></h4>
+            <h4 style="text-align: center;"> &nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   Fecha:  <?php echo $date;  ?></h4>
                 <div class="panel-body">
                     
                     
@@ -81,39 +81,39 @@ ob_start();
                     <hr>
                     <table class="table tabla1" style="text-align: center;">
                         <thead>
-                            <tr style="background-color: #0d87ac; color:#FFFFFF;">
+                            <tr style="background-color: #20558A; color:#FFFFFF;">
                                 <!-- fila-->
-                                <th data-hidden="true">Código public</th>
+                                <th data-hidden="true">Código conferencia</th>
                                 <th data-hidden="true">Nombre médico</th>
-                                <th data-hidden="true">Tituo</th>
-                                <th data-hidden="true">_____Autor_____</th>
-                                <th data-hidden="true">_____________________Publicación__________________________</th>
-                                <th data-hidden="true">Referencia</th>
-                                <th data-hidden="true">Fecha publicacion</th>
-                                <th data-hidden="true">Categaria</th>
-                                <th data-hidden="true">votos</th>
-                                <th data-hidden="true"></th>
-                                <th data-hidden="true"></th>
+                                <th data-hidden="true">Titulo conferencia</th>
+                                <th data-hidden="true">Autores</th>
+                                <th data-hidden="true">Fecha inicio</th>
+                                <th data-hidden="true">Fecha final</th>
+                                <th data-hidden="true">Apoyo</th>
+                                <th data-hidden="true">Categoría</th>
+                                <th data-hidden="tre">Etapa</th>
+                                <th>___________________</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <?php
                         
                         
-                        $query = lista_public();
+                        $query = lista_conferencia();
                         while ($row = $query->fetch_assoc()) {
                             //$fecha2=$row["fecha_public"];
                         //$final = date_create($fecha2)->format('d/m/y');
                             echo "
-            <tr>
-            <td>" . $row["id_public"] . "</td>
-            <td>" . $row["nombre_medico"] . "</td>
-			<td>" . $row["titulo_public"]. "</td>
-            <td>" . substr($row["autor_pu"],0,100). "</td>
-			<td>" . substr($row["text_public"],0,300). "</td>
-            <td>" . substr($row["referencia_pu"],0,100) . "</td>
-            <td>" . $row["fecha_public"] . "</td>
-            <td>" . $row["espec_descripsion"] . "</td>
-            <td>" . $row["me_gusta_pu"] . "</td>
+                            <tr>
+                            <td>" . $row["id_confe"] . "</td>
+                            <td>" . $row["nombre_medico"] . "</td>
+			                <td>" . $row["titulo_confe"]. "</td>
+                            <td>" . substr($row["autores_confe"],0,100). "</td>
+                            <td>" . substr($row["fachainicio"],0,100) . "</td>
+                            <td>" . substr($row["fechafinal"],0,100) . "</td>
+                            <td>" . substr($row["visttas_confe"],0,100) . "</td>
+                            <td>" . substr($row["espec_descripsion"],0,300) . "</td>
+                            <td>" . substr($row["etapa_confe"],0,300) . "</td>
 
             <td>
             </td>
@@ -147,6 +147,6 @@ $dompdf->setPaper('A3', 'landscape');
 
 $dompdf->render();
 
-$dompdf->stream("lista_de_publicacion.pdf", array("Attachent" => true));
+$dompdf->stream("lista_de_conferencia.pdf", array("Attachent" => true));
 
 ?>

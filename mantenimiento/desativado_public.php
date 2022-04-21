@@ -74,7 +74,7 @@ if ($_SESSION["s_admin"] === null) {
             <div class="panel-heading">
                 <h1> Listado de Articulo Desactivados</h1>
                 <div class="panel-body">
-                        <a title="Reporte" href="../reportes/reporte_desactivapu.php" class="btn btn-success" style='font-size: 19px;'><i class="fa fa-print" aria-hidden="true"></i></a>
+                        <a title="Reporte" href="../reportes/reporte_desaarticulo.php" class="btn btn-success" style='font-size: 19px;'><i class="fa fa-print" aria-hidden="true"></i></a>
                     <br>
                     <hr>
                     <table class="table tabla1" style="text-align: center;">

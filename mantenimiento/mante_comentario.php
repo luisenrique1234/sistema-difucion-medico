@@ -76,7 +76,7 @@ if ($_SESSION["s_admin"] === null) {
                 <div class="panel-body">
                     
                         <a title="Nuevo Médico" href="nuevoman_articulo.php" class="btn btn-info pull-letf" style='right: 24%;  font-size: 19px;'><i class="fa fa-user-plus"></i></a>
-                        <a title="Reporte" href="#" class="btn btn-success" style='  font-size: 19px;'> <i class="fa fa-print" aria-hidden="true"></i></a>
+                        <a title="Reporte" href="../reportes/reporte_comen.php" class="btn btn-success" style='  font-size: 19px;'> <i class="fa fa-print" aria-hidden="true"></i></a>
                     
                     <hr>
                     <table class="table tabla1" style="text-align: center;">
@@ -84,9 +84,9 @@ if ($_SESSION["s_admin"] === null) {
                             <tr style="background-color: #20558A; color:#FFFFFF;">
                                 <!-- fila-->
                                 <th data-hidden="true">Código comentarios</th>
-                                <th data-hidden="true">Artículos</th>
                                 <th data-hidden="true">Médicos</th>
                                 <th data-hidden="true">_____Comentarios_____</th>
+                                <th data-hidden="true">Artículos</th>
                                 <th data-hidden="true">Fechas</th>
                                 <th data-hidden="true">Estados</th>
                                 <th data-hidden="true"></th>
@@ -102,10 +102,9 @@ if ($_SESSION["s_admin"] === null) {
                             echo "
             <tr>
             <td>" . $row["id_comen"] . "</td>
-            <td>" . substr($row["titulo_public"],0,300). "</td>
 			<td>" . $row["nombre"]. "</td>
             <td>" . substr($row["text_comen"],0,300). "</td>
-            
+            <td>" . substr($row["titulo_public"],0,300). "</td>
             <td>" . $row["fecha_comen"] . "</td>
             <td>" . $row["estado"] . "</td>
 			
