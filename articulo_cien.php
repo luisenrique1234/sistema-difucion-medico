@@ -1,5 +1,5 @@
 <?php
-//error_reporting(0);
+error_reporting(0);
 
 /*esta fucion sirve para converti toddos los carateres como acentos en formato
 uti-8 indenpedientemente de cual fuera su formato de  origen todo se convertira en 
@@ -23,6 +23,9 @@ if ($_SESSION["s_medico"] === null ){
 
 $buscar='';
 $buscarespec='Todos';
+
+date_default_timezone_set('America/Santo_Domingo');    
+$DatesantoTime = date('Y-m-d', time());  
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -176,7 +179,6 @@ $buscarespec='Todos';
 
 
                     <?php
-                    $buscar2=$buscar;
                     include 'php/conexion.php';
 
                     if ($buscar == ''  AND $buscafechadesde =='' AND $buscarespec =='Todos' ){ $filtro = "";}else{
@@ -192,30 +194,30 @@ $buscarespec='Todos';
                         if ($buscar == '' AND $buscarespec !='Todos'   AND $buscafechadesde !='' ){ $filtro = "AND especialidad.espec_descripsion = '".$buscarespec."' AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$buscafechahasta."'";}
 
                         
-                        
                         //echo("<h4>$filtro</h4>");
                         //filtro autor
 
                         //if ($buscar != '' AND $titulobus !='Todos'  AND $buscarespec !='Todos'  ){ $filtro = "AND publicacion.titulo_confe  LIKE '%".$buscar."%' AND conferencia.etapa_confe = '".$titulobus."' AND especialidad.espec_descripsion= '".$buscarespec."' ";}
 
                         //fecha
-                        if ($buscar == '' AND $buscarespec !='Todos' AND $buscafechadesde !=''   ){ $filtro = "AND especialidad.espec_descripsion = '".$buscarespec."' AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$buscafechahasta."' ";}
+                        if ($buscar == '' AND $buscarespec !='Todos' AND $buscafechadesde !='' AND $buscafechahasta==''  ){ $filtro = "AND especialidad.espec_descripsion = '".$buscarespec."' AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$DatesantoTime."' ";}
                         
-                        if ($buscar != ''  AND $buscarespec =='Todos' AND $buscafechadesde !='' ){ $filtro = " AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$buscafechahasta."' AND (publicacion.titulo_public LIKE '%".$buscar."%' OR publicacion.text_public LIKE '%".$buscar."%' OR publicacion.contendio_pdf LIKE '%".$buscar."%' 
+                        //estoy aqui
+                        if ($buscar != ''  AND $buscarespec =='Todos' AND $buscafechadesde !='' AND $buscafechahasta=='' ){ $filtro = " AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$DatesantoTime."' AND (publicacion.titulo_public LIKE '%".$buscar."%' OR publicacion.text_public LIKE '%".$buscar."%' OR publicacion.contendio_pdf LIKE '%".$buscar."%' 
                             OR publicacion.etiqueta LIKE '%".$buscar."%' OR publicacion.referencia_pu LIKE '%".$buscar."%')";}
                         
-                        if ($buscar == '' AND $buscarespec =='Todos' AND $buscafechadesde !=''   ){ $filtro = " AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$buscafechahasta."' ";}
+                        if ($buscar == '' AND $buscarespec =='Todos' AND $buscafechadesde !='' AND $buscafechahasta==''  ){ $filtro = " AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$DatesantoTime."' ";}
                         
 
                         if ($buscar != ''   AND $buscarespec !='Todos' AND $buscafechadesde !=''  ){ $filtro = " AND especialidad.espec_descripsion = '".$buscarespec."' AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$buscafechahasta."' AND (publicacion.titulo_public LIKE '%".$buscar."%' OR publicacion.text_public LIKE '%".$buscar."%' OR publicacion.contendio_pdf LIKE '%".$buscar."%' 
                             OR publicacion.etiqueta LIKE '%".$buscar."%' OR publicacion.referencia_pu LIKE '%".$buscar."%')";}
 
-                        if ($buscar != ''  AND $buscarespec !='Todos' AND $buscafechadesde !='' ){ $filtro = " AND especialidad.espec_descripsion = '".$buscarespec."' AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$buscafechahasta."' AND (publicacion.titulo_public LIKE '%".$buscar."%' OR publicacion.text_public LIKE '%".$buscar."%' OR publicacion.contendio_pdf LIKE '%".$buscar."%' 
+                        if ($buscar != ''  AND $buscarespec !='Todos' AND $buscafechadesde !='' AND $buscafechahasta=='' ){ $filtro = " AND especialidad.espec_descripsion = '".$buscarespec."' AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$DatesantoTime."' AND (publicacion.titulo_public LIKE '%".$buscar."%' OR publicacion.text_public LIKE '%".$buscar."%' OR publicacion.contendio_pdf LIKE '%".$buscar."%' 
                             OR publicacion.etiqueta LIKE '%".$buscar."%' OR publicacion.referencia_pu LIKE '%".$buscar."%') ";}
                         
                         if ($buscar != '' AND $buscarespec !='Todos'  AND $buscafechadesde =='' ){ $filtro = "AND especialidad.espec_descripsion = '".$buscarespec."' AND (publicacion.titulo_public LIKE '%".$buscar."%' OR publicacion.text_public LIKE '%".$buscar."%' 
                             OR publicacion.contendio_pdf LIKE '%".$buscar."%' OR publicacion.etiqueta LIKE '%".$buscar."%' OR publicacion.referencia_pu LIKE '%".$buscar."%')";}
-                        echo("<h4>$filtro</h4>");
+                        //echo("<h4>$filtro</h4>");
                         }
 
                     //$espesicialidad =$_SESSION["s_espeme"];

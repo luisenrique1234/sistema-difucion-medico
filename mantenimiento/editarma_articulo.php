@@ -107,7 +107,7 @@ if ($_SESSION["s_admin"] === null) {
 
                                                 <div class="col-md-10 col-md-offset-1 col-sm-4 col-sm-offset-2">
                                                 <div class="form-group">
-                                                    <label class="control-label"><i class="fa fa-file-pdf-o"></i> Contenido PDF<span
+                                                    <label class="control-label"><i class="fa fa-newspaper-o"></i>   Contenido del Artículo<span
                                                             style="color: red">*</span></label>
                                                     <div class="form-group">
                                                         <textarea id="editor2" name="contenido"  

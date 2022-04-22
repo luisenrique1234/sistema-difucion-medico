@@ -75,7 +75,7 @@ if ($_SESSION["s_admin"] === null) {
                 <h1> Listado de Artículos</h1>
                 <div class="panel-body">
                     
-                        <a title="Nuevo Médico" href="nuevoman_articulo.php" class="btn btn-info pull-letf" style='right: 24%;  font-size: 19px;'><i class="fa fa-user-plus"></i></a>
+                        <a title="Nuevo Médico" href="nuevoman_articulo.php" class="btn btn-info pull-letf" style='right: 24%;  font-size: 19px;'><i class="fa fa-newspaper-o"></i> <i class="fa fa-plus"></i></a>
                         <a title="Reporte"  href="../reportes/reporte_articulo.php" class="btn btn-success" style='  font-size: 19px;'> <i class="fa fa-print" aria-hidden="true"></i></a>
                     
                     <hr>
