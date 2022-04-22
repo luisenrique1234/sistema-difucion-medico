@@ -52,7 +52,7 @@ if ($_SESSION["s_medico"] === null){
 <?php include_once "./php/menu_nada.php"; ?>
     <section   class="wow bounceInDown padding-top">
         <div style="display: flex; justify-content: center; width: 100%;">
-        <div style="width: 50%;">
+        <div style="width: 60%;">
                 <div>
                     <div>
                         <div id="cienfico" class="post-thumb">

@@ -64,7 +64,7 @@ if ($_SESSION["s_admin"] === null) {
 <?php include_once "../php/mante_menu.php"; ?>
     <section   class="wow bounceInDown padding-top">
         <div style="display: flex; justify-content: center; width: 100%;">
-        <div style="width: 50%;">
+        <div style="width: 60%;">
                 <div>
                     <div>
                         <div id="cienfico" class="post-thumb">

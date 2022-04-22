@@ -177,7 +177,7 @@ if($i=="UDTART"){
                 $new_archivo=$new_name_file;
             }
         }else{
-            header("Refresh: 4; URL= ../mantenimiento/mante_public.php?id=".$codigocon);
+            header("Refresh: 4; URL= ../mantenimiento/mante_public.php?id=".$codigo2);
         echo '
             <script type="text/javascript">
 

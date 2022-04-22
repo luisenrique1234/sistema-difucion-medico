@@ -121,7 +121,8 @@ if ($_SESSION["s_medico"] === null){
                                         
                                         <?php
                                             if ($archivo != '') {
-                                                echo ('<h4 class="post-author"><a href="php/' . $archivo . '"download="sistema-difucion-medica"><i class="fa fa-download"></i> Descargar Archivo</a></h4>');
+                                                echo ('<h4 style="display: inline;" class="post-author"><a href="php/' . $archivo . '"download="sistema-difucion-medica"><i class="fa fa-download"></i> Descargar Archivo</a> </h4>                    
+                                                &nbsp;&nbsp;&nbsp;&nbsp;<a style="font-size: 17px;" title="Contenido del pdf" target="__blank" href="contenido_pdf.php?id='.$res["id_public"].'"><i class="fa fa-external-link"></i>');
                                             }?>
                                             <br>
                                         <div class="">
