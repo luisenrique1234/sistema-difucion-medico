@@ -6,8 +6,8 @@ require_once "../php/conexion_grafico.php";
 $conexion=conexion();
 $sql="SELECT fecha_public,me_gusta_pu from publicacion WHERE id_medico_pu='$codigome'";
 $result=mysqli_query($conexion,$sql);
-$valoresy=array();//montos
-$valoresx=array();//ventas
+$valoresy=array();//montos1
+$valoresx=array();//ventas2
 
 while($ver=mysqli_fetch_row($result)){
 

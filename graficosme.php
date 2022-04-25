@@ -249,7 +249,7 @@ if ($_SESSION["s_medico"] === null){
     </footer>
     <!--/#footer-->
 
-    <!--codigo del mesange cierre de sesion-->
+    <!--codigo del mesange cierre jj de sesion-->
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/lightbox.min.js"></script>
