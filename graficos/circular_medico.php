@@ -13,7 +13,8 @@ $valoresz=array();// ciudad
     
     $valoresy[]=$ver2[1];
     $valoresz[]=$ver2[0];
-
+    echo "<h4>".$ver2[1]."</h4>";
+    echo "<h4>".$ver2[0]."</h4>";
 }
 
  $datosy=json_encode($valoresy);

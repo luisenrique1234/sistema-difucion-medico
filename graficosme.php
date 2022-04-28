@@ -262,10 +262,10 @@ if ($_SESSION["s_medico"] === null){
 
     <script type="text/javascript">
 $(document).ready(function(){
-	$('#graficalinealme').load('grafico/lineal_medico.php');
-  $('#graficacircular_me').load('grafico/circular_medico.php');
-  $('#cargacircular_me2').load('grafico/circular_medico2.php');
-  $('#graficalineal_me2').load('grafico/lineal_medico2.php');
+	$('#graficalinealme').load('graficos/lineal_medico.php');
+  $('#graficacircular_me').load('graficos/circular_medico.php');
+  $('#cargacircular_me2').load('graficos/circular_medico2.php');
+  $('#graficalineal_me2').load('graficos/lineal_medico2.php');
 
 });
 

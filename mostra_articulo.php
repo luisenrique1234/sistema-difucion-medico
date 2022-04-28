@@ -37,7 +37,7 @@ if ($_SESSION["s_medico"] === null){
     <link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <link href="css/dark.css" rel="stylesheet">
-
+    <script src="js/sweetalert2@11.js"></script>
     <link rel="stylesheet" href="css/boton.css">
     <!--Icon-Font-->
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
@@ -245,24 +245,13 @@ if ($_SESSION["s_medico"] === null){
                 </div>
             </div>
     </footer>
-    <!--/#footer-->
 
-    <!--codigo del mesange cierre de sesion-->
-    <script>
-    function alertaactivar() {
-        var respuesta = confirm("Estas seguro de Cerrar Sesion");
-        if (respuesta == true) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    </script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/lightbox.min.js"></script>
     <script type="text/javascript" src="js/wow.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/medico_alerta.js"></script>
     <!--LUgar donde esta el ativador del modo oscuro -->
     <script type="text/javascript" src="js/temad.js"></script>
 </body>
