@@ -20,7 +20,6 @@ if ($_SESSION["s_medico"] === null) {
         header("Location: ../vistas/pag_error.php");
     }
 }
-$id_med=$_SESSION["s_idme"];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -30,7 +29,7 @@ $id_med=$_SESSION["s_idme"];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Gráficos Conferencia</title>
+    <title>Gráficos Médicos</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/lightbox.css" rel="stylesheet">
@@ -40,7 +39,6 @@ $id_med=$_SESSION["s_idme"];
     <link href="../css/dark.css" rel="stylesheet">
     <script src="../js/sweetalert2@11.js"></script>
     <script type="text/javascript" src="../js/fontawesome.js"></script>
-    <link rel="stylesheet" href="../css/boton.css">
     <script src="./chart.min.js"></script>
     <link rel="shortcut icon" href="../images/ico/ico.png">
     <style>
@@ -48,6 +46,10 @@ $id_med=$_SESSION["s_idme"];
             background-color: #F1F1F1;
             box-shadow: 0 0 1px 1px #000000;
             padding: 15px;
+        }
+        .pastel{
+          right: 60%;
+          left: 70%;
         }
     </style>
 </head>
@@ -63,30 +65,11 @@ $id_med=$_SESSION["s_idme"];
 
     <section class="padding-top">
         <div class="container">
-                <div class="col-md-6 col-sm-12">
-                                <div class="col-md-10 col-sm-9">
-                                <div class="">
-                                    <h3>Visitas de las conferencias</h3>
-                            </div>
-                                    <div style="width: 500px;">
-                                        <canvas id="myChart"></canvas>
-                                            </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-sm-12">
-                                <div class="col-md-10 col-sm-9">
-                                <div class="">
-                                    <h3>Recordatorios de las conferencias</h3>
-                            </div>
-                                <div style="width: 500px;">
-                                    <canvas id="myChart2"></canvas>
-                                        </div>
-                    </div>
-                </div>
+                
+                <div class="">
                                 <div class="col-md-11 col-sm-10">
                                 <div class=" text-center">
-                                    <h3>Recordatorios de las conferencias por especialidad</h3>
+                                    <h3>Médicos registrados por especialidades</h3>
                             </div>
                             <div style="display: flex; justify-content: center; width: 100%;">
                                 <div style=" width: 500px;">
@@ -94,140 +77,16 @@ $id_med=$_SESSION["s_idme"];
                                         </div>
                             </div>
                     </div>
+                </div>
         </div>
     </section>
 
     
-    <!-- Grafico 1-->
-<?php 
-  $con = new mysqli("localhost","root","","red_medica");
-  $query = $con->query("
-    SELECT MONTHNAME(fachainicio) as meses,visttas_confe as visitas FROM conferencia WHERE id_userme='$id_med'
-  ");
-  foreach($query as $data)
-  {
-    $month[] = $data['meses'];
-    $amount[] = $data['visitas'];
-  }
-
-?>
-
-
-
-
-
- 
-<script>
-  const labels = <?php echo json_encode($month) ?>;
-  const data = {
-    labels: labels,
-    datasets: [{
-      label: 'Visitas de las conferencia',
-      data: <?php echo json_encode($amount) ?>,
-      backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(255, 159, 64, 0.2)',
-        'rgba(255, 205, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(201, 203, 207, 0.2)'
-      ],
-      borderColor: [
-        '#20558A'
-      ],
-      tension: 0.4,
-      spanGaps:true,
-      borderWidth: 1
-    }]
-  };
-
-  
-
-  const config = {
-    type: 'line',
-    data: data,
-    options: {
-        fill: {
-                target: 'origin',
-                above: '#20558A'
-              }
-      ,scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-      
-    },
-  };
-
-  var myChart = new Chart(
-    document.getElementById('myChart'),
-    config
-  );
-</script>
-
-
-
-<?php 
-  $con2 = new mysqli("localhost","root","","red_medica");
-  $query2 = $con2->query("
-    SELECT MONTHNAME(conferencia.fachainicio) as meses,recordatorio as cantidad_recorda FROM conferencia WHERE id_userme='$id_med'
-  ");
-  foreach($query2 as $data2)
-  {
-    $month2[] = $data2['meses'];
-    $amount2[] = $data2['cantidad_recorda'];
-  }
-
-?>
-
-
-
-<!-- Grfico2-->
-
- 
-<script>
-  const labels2 = <?php echo json_encode($month2) ?>;
-  const data2 = {
-    labels: labels2,
-    datasets: [{
-      label: 'Recordatorios de las conferencias',
-      data: <?php echo json_encode($amount2) ?>,
-      backgroundColor: [
-        '#20558A'
-      ],
-      borderColor: [
-        '#20558A'
-      ],
-      borderWidth: 1
-    }]
-  };
-
-  const config2 = {
-    type: 'bar',
-    data: data2,
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    },
-  };
-
-  var myChart = new Chart(
-    document.getElementById('myChart2'),
-    config2
-  );
-</script>
-
 
 <?php 
   $con3 = new mysqli("localhost","root","","red_medica");
   $query3 = $con3->query("
-    SELECT especialidad.espec_descripsion as especialidad, COUNT(*) as cantidad FROM conferencia,recordatorio,medico,especialidad WHERE conferencia.id_confe=recordatorio.id_confererec 
-    AND medico.id_medico=recordatorio.id_medicorec AND medico.especialidadm=especialidad.id_espec AND conferencia.id_userme='$id_med' GROUP BY especialidad.espec_descripsion
+    SELECT especialidad.espec_descripsion as especialidad, COUNT(*) as cantidad FROM medico,especialidad WHERE   medico.especialidadm=especialidad.id_espec  GROUP BY especialidad.espec_descripsion
   ");
   foreach($query3 as $data3)
   {
@@ -275,10 +134,6 @@ $id_med=$_SESSION["s_idme"];
   );
 </script>
 
-    <!--boton de subir -->
-    <div class="con">
-        <?php include_once "../php/boton_medico.php"; ?>
-    </div>
     <footer id="footer">
         <div class="container">
             <div class="row footer">

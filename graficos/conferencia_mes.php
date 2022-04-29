@@ -20,8 +20,6 @@ if ($_SESSION["s_medico"] === null) {
         header("Location: ../vistas/pag_error.php");
     }
 }
-
-$id_med=$_SESSION["s_idme"];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -31,7 +29,7 @@ $id_med=$_SESSION["s_idme"];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Gráficos Artículos</title>
+    <title>Estadistica conferencia</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/lightbox.css" rel="stylesheet">
@@ -41,7 +39,6 @@ $id_med=$_SESSION["s_idme"];
     <link href="../css/dark.css" rel="stylesheet">
     <script src="../js/sweetalert2@11.js"></script>
     <script type="text/javascript" src="../js/fontawesome.js"></script>
-    <link rel="stylesheet" href="../css/boton.css">
     <script src="./chart.min.js"></script>
     <link rel="shortcut icon" href="../images/ico/ico.png">
     <style>
@@ -64,110 +61,39 @@ $id_med=$_SESSION["s_idme"];
 
     <section class="padding-top">
         <div class="container">
-                <div class="col-md-6 col-sm-12">
-                                <div class="col-md-10 col-sm-9">
-                                <div class="">
-                                    <h3>Apoyo de los artículos</h3>
+                
+                
+                                <div class="col-md-11 col-sm-10">
+                                <div class=" text-center">
+                                    <h3>Cantidad de conferencias realizadas al mes</h3>
                             </div>
-                            <div class="">
-                                    <div style="width: 500px;">
-                                        <canvas id="myChart"></canvas>
-                                            </div>
-                            </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-sm-12">
-                                <div class="col-md-10 col-sm-9">
-                                <div class="">
-                                    <h3>Artículos comentarios</h3>
-                            </div>
-                            <div class="">
-                                <div style="width: 500px;">
+                            <div style="display: flex; justify-content: center; width: 100%;">
+                                <div style=" width: 800px;">
                                     <canvas id="myChart2"></canvas>
                                         </div>
                             </div>
                     </div>
-                </div>
+                
         </div>
     </section>
-
-    
-    <!-- Grafico 1-->
-<?php 
-  $con = new mysqli("localhost","root","","red_medica");
-  $query = $con->query("
-    SELECT MONTHNAME(fecha_public) as meses,me_gusta_pu as me_gusta_pu2 FROM publicacion WHERE id_medico_pu='$id_med'
-  ");
-  foreach($query as $data)
-  {
-    $month[] = $data['meses'];
-    $amount[] = $data['me_gusta_pu2'];
-  }
-
-?>
 
 
 
 
 
  
-<script>
-  const labels = <?php echo json_encode($month) ?>;
-  const data = {
-    labels: labels,
-    datasets: [{
-      label: 'Apoyo de los artículo',
-      data: <?php echo json_encode($amount) ?>,
-      backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(255, 159, 64, 0.2)',
-        'rgba(255, 205, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(201, 203, 207, 0.2)'
-      ],
-      borderColor: [
-        '#20558A'
-      ],
-      borderWidth: 2
-    }]
-  };
-
-  
-
-  const config = {
-    type: 'line',
-    data: data,
-    options: {
-        
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-      
-    },
-  };
-
-  var myChart = new Chart(
-    document.getElementById('myChart'),
-    config
-  );
-</script>
 
 
 
 <?php 
   $con2 = new mysqli("localhost","root","","red_medica");
   $query2 = $con2->query("
-    SELECT MONTHNAME(fecha_public) as meses,me_gusta_pu as me_gusta_pu2 FROM publicacion WHERE id_medico_pu='$id_med'
+  SELECT MONTHNAME(fachainicio) as meses,COUNT(*) as cantidad FROM conferencia GROUP BY meses
   ");
   foreach($query2 as $data2)
   {
     $month2[] = $data2['meses'];
-    $amount2[] = $data2['me_gusta_pu2'];
+    $amount2[] = $data2['cantidad'];
   }
 
 ?>
@@ -182,7 +108,7 @@ $id_med=$_SESSION["s_idme"];
   const data2 = {
     labels: labels2,
     datasets: [{
-      label: 'Artículos Comentarios',
+      label: 'Cantidad de conferencias realizadas al mes',
       data: <?php echo json_encode($amount2) ?>,
       backgroundColor: [
         '#20558A'
@@ -212,10 +138,9 @@ $id_med=$_SESSION["s_idme"];
   );
 </script>
 
-    <!--boton de subir -->
-    <div class="con">
-        <?php include_once "../php/boton_medico.php"; ?>
-    </div>
+
+
+    
     <footer id="footer">
         <div class="container">
             <div class="row footer">

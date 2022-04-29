@@ -54,6 +54,8 @@
                                 <li><a href="pefil_medico.php">Editar mi perfil</a></li>
                                     <li><a href="mis_articulos.php">Mis Artículos</a></li>
                                     <li><a href="mis_conferencia.php">Mis Conferencia</a></li>
+                                    <li><a href="/medico-red/graficos/articulo_grafico.php">Gráficos Artículos</a></li>
+                                    <li><a href="/medico-red/graficos/conferencia_graficos.php">Gráficos Conferencia</a></li>
                                     <li><a  onclick="return alercerrarme();">Cerrar sesión</a></li>
                                 </ul>
                                  

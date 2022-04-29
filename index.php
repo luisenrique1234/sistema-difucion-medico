@@ -307,11 +307,11 @@ if ($_SESSION["s_medico"] === null ){
                         <div class="col-lg-12 col-lg-offset-0 col-xs-12 col-xs-offset-0">
                         
                         <div class="inicio_ico">
-                                            <a href="graficosme.php" class="fa fa-bar-chart" aria-hidden="true"></a>
-                                            <a href="#" class="fa fa-newspaper-o"></a>
-                                            <a href="#" class="fa fa-youtube-play"></a>
+                                            <a href="#" target="__blank" class="fa fa-bar-chart" aria-hidden="true"></a>
+                                            <a href="#" target="__blank" class="fa fa-newspaper-o"></a>
+                                            <a href="/medico-red/graficos/conferencia_mes.php" target="__blank" class="fa fa-youtube-play"></a>
                                             
-                                            <a href="./contador/dashboard.php" class="fa fa-stethoscope"></a>
+                                            <a href="/medico-red/graficos/medicos_especialidad.php" target="__blank" class="fa fa-stethoscope"></a>
                                         </div>
                     </div>
         </div>
