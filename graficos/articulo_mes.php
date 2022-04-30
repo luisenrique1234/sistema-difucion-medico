@@ -29,7 +29,7 @@ if ($_SESSION["s_medico"] === null) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Gráficos Médicos</title>
+    <title>Estadisticas Artículos</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/lightbox.css" rel="stylesheet">
@@ -56,74 +56,85 @@ if ($_SESSION["s_medico"] === null) {
     <section class="padding-top">
         <div class="container">
                 
-                <div class="">
+                
                                 <div class="col-md-11 col-sm-10">
                                 <div class=" text-center">
-                                    <h3>Médicos registrados por especialidades</h3>
+                                    <h3>Cantidad de artículos realizadas al mes</h3>
                             </div>
                             <div style="display: flex; justify-content: center; width: 100%;">
-                                <div style=" width: 500px;">
-                                    <canvas id="myChart3"></canvas>
+                                <div style=" width: 800px;">
+                                    <canvas id="myChart2"></canvas>
                                         </div>
                             </div>
                     </div>
-                </div>
+                
         </div>
     </section>
 
-    
+
+
+
+
+ 
+
+
 
 <?php 
-  $con3 = new mysqli("localhost","root","","red_medica");
-  $query3 = $con3->query("
-    SELECT especialidad.espec_descripsion as especialidad, COUNT(*) as cantidad FROM medico,especialidad WHERE   medico.especialidadm=especialidad.id_espec  GROUP BY especialidad.espec_descripsion
+  $con2 = new mysqli("localhost","root","","red_medica");
+  $query2 = $con2->query("
+  SELECT MONTHNAME(fecha_public) as meses,COUNT(*) as cantidad FROM publicacion GROUP BY meses
   ");
-  foreach($query3 as $data3)
+  foreach($query2 as $data2)
   {
-    $month3[] = $data3['especialidad'];
-    $amount3[] = $data3['cantidad'];
+    $month2[] = $data2['meses'];
+    $amount2[] = $data2['cantidad'];
   }
 
 ?>
 
 
 
-<!-- Grfico3-->
+<!-- Grfico2-->
 
  
 <script>
-  const labels3 = <?php echo json_encode($month3) ?>;
-  const data3 = {
-    labels: labels3,
+  const labels2 = <?php echo json_encode($month2) ?>;
+  const data2 = {
+    labels: labels2,
     datasets: [{
-      label: 'Recordatorio de conferencia por especialidad',
-      data: <?php echo json_encode($amount3) ?>,
+      label: 'Cantidad de artículos realizadas al mes',
+      data: <?php echo json_encode($amount2) ?>,
       backgroundColor: [
-        '#097188',
-        '#20558A',
-        '#f0ee3d',
-        '#9ae5f3',
-        '#0c9351',
-        '#a9aae8',
-        '#f2985b'
+        '#20558A'
       ],
-      hoverOffset: 1
+      borderColor: [
+        '#20558A'
+      ],
+      borderWidth: 1
     }]
   };
 
-  const config3 = {
-    type: 'doughnut',
-    data: data3,
+  const config2 = {
+    type: 'bar',
+    data: data2,
     options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
     },
   };
 
   var myChart = new Chart(
-    document.getElementById('myChart3'),
-    config3
+    document.getElementById('myChart2'),
+    config2
   );
 </script>
 
+
+
+    
     <footer id="footer">
         <div class="container">
             <div class="row footer">

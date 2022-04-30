@@ -41,12 +41,7 @@ if ($_SESSION["s_medico"] === null) {
     <script type="text/javascript" src="../js/fontawesome.js"></script>
     <script src="./chart.min.js"></script>
     <link rel="shortcut icon" href="../images/ico/ico.png">
-    <style>
-        .caja{
-            background-color: #F1F1F1;
-            box-shadow: 0 0 1px 1px #000000;
-            padding: 15px;
-        }
+    
     </style>
 </head>
 <!--/head-->

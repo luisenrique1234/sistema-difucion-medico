@@ -20,6 +20,7 @@ if ($_SESSION["s_medico"] === null) {
         header("Location: ../vistas/pag_error.php");
     }
 }
+$id_med = $_SESSION["s_idme"];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -29,7 +30,7 @@ if ($_SESSION["s_medico"] === null) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Gráficos Médicos</title>
+    <title>Gráficos Conferencia</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/lightbox.css" rel="stylesheet">
@@ -39,91 +40,88 @@ if ($_SESSION["s_medico"] === null) {
     <link href="../css/dark.css" rel="stylesheet">
     <script src="../js/sweetalert2@11.js"></script>
     <script type="text/javascript" src="../js/fontawesome.js"></script>
+    <link rel="stylesheet" href="../css/boton.css">
     <script src="./chart.min.js"></script>
     <link rel="shortcut icon" href="../images/ico/ico.png">
-    
+    <style>
+        .caja {
+            background-color: #F1F1F1;
+            box-shadow: 0 0 1px 1px #000000;
+            padding: 15px;
+        }
+    </style>
 </head>
-<!--/head-->
-
 <body>
     <?php include_once "../php/menu_nada.php"; ?>
-    <!--/#header-->
-
-
-
-    <!--/#page-breadcrumb-->
-
     <section class="padding-top">
         <div class="container">
-                
-                <div class="">
-                                <div class="col-md-11 col-sm-10">
-                                <div class=" text-center">
-                                    <h3>Médicos registrados por especialidades</h3>
-                            </div>
-                            <div style="display: flex; justify-content: center; width: 100%;">
-                                <div style=" width: 500px;">
-                                    <canvas id="myChart3"></canvas>
-                                        </div>
-                            </div>
-                    </div>
+            <div class=" text-center">
+                <h3>Visitas de las conferencias</h3>
+            </div>
+            <div style="display: flex; justify-content: center; width: 100%;">
+                <div style="width: 800px;">
+                    <canvas id="myChart"></canvas>
                 </div>
+            </div>
         </div>
     </section>
-
-    
-
-<?php 
-  $con3 = new mysqli("localhost","root","","red_medica");
-  $query3 = $con3->query("
-    SELECT especialidad.espec_descripsion as especialidad, COUNT(*) as cantidad FROM medico,especialidad WHERE   medico.especialidadm=especialidad.id_espec  GROUP BY especialidad.espec_descripsion
+    <!-- Grafico 1-->
+    <?php
+    $con = new mysqli("localhost", "root", "", "red_medica");
+    $query = $con->query("
+    SELECT DATE_FORMAT(fecha,'%Y')  as meses,COUNT(*) AS visita1 FROM visitas GROUP BY meses
   ");
-  foreach($query3 as $data3)
-  {
-    $month3[] = $data3['especialidad'];
-    $amount3[] = $data3['cantidad'];
-  }
+    foreach ($query as $data) {
+        $month[] = $data['meses'];
+        $amount[] = $data['visita1'];
+    }
 
-?>
-
-
-
-<!-- Grfico3-->
-
- 
-<script>
-  const labels3 = <?php echo json_encode($month3) ?>;
-  const data3 = {
-    labels: labels3,
-    datasets: [{
-      label: 'Recordatorio de conferencia por especialidad',
-      data: <?php echo json_encode($amount3) ?>,
-      backgroundColor: [
-        '#097188',
-        '#20558A',
-        '#f0ee3d',
-        '#9ae5f3',
-        '#0c9351',
-        '#a9aae8',
-        '#f2985b'
-      ],
-      hoverOffset: 1
-    }]
-  };
-
-  const config3 = {
-    type: 'doughnut',
-    data: data3,
-    options: {
-    },
-  };
-
-  var myChart = new Chart(
-    document.getElementById('myChart3'),
-    config3
-  );
-</script>
-
+    ?>
+    <script>
+        const labels = <?php echo json_encode($month) ?>;
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'Visitas de las conferencia',
+                data: <?php echo json_encode($amount) ?>,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 205, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(201, 203, 207, 0.2)'
+                ],
+                borderColor: [
+                    '#20558A'
+                ],
+                tension: 0.4,
+                spanGaps: true,
+                borderWidth: 1
+            }]
+        };
+        const config = {
+            type: 'line',
+            data: data,
+            options: {
+                fill: {
+                    target: 'origin',
+                    above: '#20558A'
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            },
+        };
+        var myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+    </script>
+    
     <footer id="footer">
         <div class="container">
             <div class="row footer">
