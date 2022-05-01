@@ -66,7 +66,7 @@ if ($_SESSION["s_admin"] === null) {
                             
                             </div>
                             <div class="form-group text-center">                                
-                                <a href="mantenimiento/mante_medico.php"  class="btn btn-info btn-lg btn-block">ENTRAR</a>
+                                <a href="/medico-red/contador/index.php"  class="btn btn-info btn-lg btn-block">ENTRAR</a>
                                 <br>
                                 <a href="bd/logout2.php" class="btn btn-danger">SALIR</a>
                             </div>                            

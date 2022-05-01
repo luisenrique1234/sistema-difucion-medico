@@ -3,13 +3,13 @@
             <div class="navbar" role="banner">
                 <div class="container">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href=".//index.php">
+                        <a class="navbar-brand" href="../admin_bien.php">
                             <img src="../images/admin-logo.png" alt="logo" width="45" height="45">
                         </a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a class="text-muted" href="admin_bien.php">Inicio</a></li>
+                            <li><a class="text-muted" href="/medico-red/contador/index.php">Inicio</a></li>
                             <li class="dropdown"><a class="text-muted" href="mante_medico.php">Lista de Medico<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="mante_medico.php">Lista de médico</a></li>

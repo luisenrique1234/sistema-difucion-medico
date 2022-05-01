@@ -21,7 +21,7 @@ $visitas = obtenerVisitasDePaginaEnRango($inicio, $fin, $url);
 ?>
 <br>
 <section class="section">
-    <div class="columns">
+    <div class="wow bounceInDown columns">
         <div class="column">
 
             <div class="card">

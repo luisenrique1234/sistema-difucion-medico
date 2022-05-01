@@ -42,6 +42,11 @@ if ($_SESSION["s_admin"] === null) {
         top: 15px;
         margin-right: 30px;
         
+        
+      }
+      .bulm_menu{
+        position: relative;
+        left: 150px;
       }
       .boton{
         position: relative;
@@ -81,71 +86,56 @@ if ($_SESSION["s_admin"] === null) {
     </a>
   </div>
   <ul id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-end">
-      <a class="color-menu" href="../admin_bien.php" class="navbar-item">
+    <div class="navbar-end bulm_menu">
+      <a class="color-menu" href="index.php" class="navbar-item">
         Inicio
       </a>
 
       <li class="navbar-item has-dropdown is-hoverable dropdown">
-        <a href="../mante_medico.php" class="link color-menu ">
+        <a href="/medico-red/mantenimiento/mante_medico.php" class="link color-menu ">
         Lista de Medico<i class="fa fa-angle-down"></i>
         </a>
 
         <ul class="navbar-dropdown">
-          <li><a  href="../mante_medico.php" class="navbar-item"> Lista de médico</a></li>
-
-          <li><a href="../desativado_medico.php" class="navbar-item">Lista desactivado médico</a></li>
+        <li><a class="navbar-item" href="/medico-red/mantenimiento/mante_medico.php">Lista de médico</a></li>
+        <li><a class="navbar-item" href="/medico-red/mantenimiento/desativado_medico.php">lista desactivado médico</a></li>
     </ul>
     </li>
 
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a href="../mante_public.php" class="link color-menu ">
-        Lista de publicaciones<i class="fa fa-angle-down"></i>
+      <li class="navbar-item has-dropdown is-hoverable">
+        <a href="/medico-red/mantenimiento/mante_public.php" class="link color-menu ">
+        Lista de Artículos<i class="fa fa-angle-down"></i>
         </a>
+        <ul class="navbar-dropdown">
+        <li><a class="navbar-item" href="/medico-red/mantenimiento/mante_public.php">Lista de Artículos</a></li>
+        <li><a class="navbar-item" href="/medico-red/mantenimiento/desativado_public.php">Lista desctivado de Articulos</a></li>
+        <li><a class="navbar-item" href="/medico-red/mantenimiento/mante_comentario.php">Comentario de Artículo</a></li>
+        <li><a class="navbar-item" href="/medico-red/mantenimiento/desativado_comen.php">Lista desctivado de comentario</a></li>
+        </ul>
+        </li>
 
-        <div class="navbar-dropdown">
-          <a class="text-muted" href="../mante_public.php" class="navbar-item">
-            Lista de publicaciones
-          </a>
-          <a href="#" class="navbar-item">
-            Comentario de publicaciones
-          </a>
-          <a href="../desativado_public.php" class="navbar-item">
-            LIsta de desactivado publicaciones
-          </a>
-        </div>
-      </div>
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a href="../mante_inve.php" class="link color-menu ">
-        Lista  investigaciones <i class="fa fa-angle-down"></i>
+      <li class="navbar-item has-dropdown is-hoverable">
+        <a href="/medico-red/mantenimiento/mante_confe.php" class="link color-menu ">
+        Lista  Conferencia<i class="fa fa-angle-down"></i>
         </a>
+        <ul class="navbar-dropdown">
+        <li><a class="navbar-item" href="/medico-red/mantenimiento/mante_confe.php">Lista Conferencia</a></li>
+        <li><a class="navbar-item" href="/medico-red/mantenimiento/desacti_confe.php">Lista desactivado Conferencia</a></li>
+        </ul>
+        </li>
 
-        <div class="navbar-dropdown">
-          <a href="../mante_inve.php" class="navbar-item">
-            Lista de investigaciones
-          </a>
-          <a href="#" class="navbar-item">
-            Comentario de investigaciones
-          </a>
-          <a href="../desacti_inve.php" class="navbar-item">
-            LIsta de desactivado investigaciones
-          </a>
-        </div>
-      </div>
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a href="../mante_rol.php" class="link color-menu">
+      <li class="navbar-item has-dropdown is-hoverable">
+        <a href="/medico-red/mantenimiento/mante_rol.php" class="link color-menu">
         Roles<i class="fa fa-angle-down"></i>
         </a>
 
-        <div class="navbar-dropdown">
-          <a href="../mante_rol.php" class="navbar-item">
-            Lista Roles médicos
-          </a>
-          <a href="../mante_espec.php" class="navbar-item">
-            Especialidades médicos
-          </a>
-        </div>
-      </div>
+        <ul class="navbar-dropdown">
+          <li><a class="navbar-item" href="/medico-red/mantenimiento/mante_rol.php">Lista de Roles médico</a></li>
+          <li><a class="navbar-item" href="/medico-red/mantenimiento/desactivado_rol.php">Lista de Roles médico desactivado</a></li>
+          <li><a class="navbar-item" href="/medico-red/mantenimiento/mante_espec.php">Especialidades médicos</a></li>
+          <li><a class="navbar-item" href="/medico-red/mantenimiento/desactivado_espec.php">Especialidades médicas desactivada</a> </li>
+          </ul>
+          </li>
       
     </div>
 
@@ -154,14 +144,14 @@ if ($_SESSION["s_admin"] === null) {
     <div class="navbar-item has-dropdown is-hoverable">
     <a href="#" style="background-color: #20558A; color: white;" class="button"><?php echo $_SESSION["s_admin"]; ?>. .<i class="fa fa-user"></i></a>
 
-        <div class="navbar-dropdown">
+        <ul class="navbar-dropdown">
           <a href="#" class="navbar-item">
           Mi perfil
           </a>
           <a onclick="return alercerrarsision();" class="navbar-item">
           Cerrar sesion
           </a>
-        </div>
+        </ul>
       </div>
       
     </div>
