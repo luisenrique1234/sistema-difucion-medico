@@ -37,7 +37,7 @@ $DatesantoTime = date('Y-m-d', time());
     <meta name="author" content="">
     <title>Articulos cientificos</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="./contador/css/all.min.css" rel="stylesheet">
     <link href="css/lightbox.css" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">

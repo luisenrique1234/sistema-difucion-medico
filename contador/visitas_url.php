@@ -19,19 +19,20 @@ $visitasYVisitantes = obtenerConteoVisitasYVisitantesEnRango($hoy, $hoy);
 $visitantes = obtenerVisitantesDePaginaEnRango($inicio, $fin, $url);
 $visitas = obtenerVisitasDePaginaEnRango($inicio, $fin, $url);
 ?>
+<br>
 <section class="section">
     <div class="columns">
         <div class="column">
 
             <div class="card">
                 <header class="card-header">
-                    <p class="card-header-title">
+                    <h5 style="font-size: 18px;" class="card-header-title">
                         Estadísticas para <?php echo $url ?> entre <?php echo $inicio ?> y <?php echo $fin ?>
-                    </p>
+                    </h5>
                 </header>
                 <div class="card-content">
                     <div class="content">
-                        <a class="button is-info mb-2" href="dashboard.php">
+                        <a style="background-color: #20558A; color:white;" class="button is-info mb-2" href="dashboard.php">
                             <i class="fa fa-arrow-left"></i>
                             &nbsp;
                             Volver</a>
@@ -49,7 +50,7 @@ $visitas = obtenerVisitasDePaginaEnRango($inicio, $fin, $url);
                                 <p class="control">
                                     <!--La etiqueta es invisible a propósito para que tome el espacio y alinee el botón-->
                                     <label style="color: white;">ª</label>
-                                    <input type="submit" value="Filtrar" style="background-color: #5bc3db;" class="button  input">
+                                    <input type="submit" value="Filtrar" style="background-color: #20558A; color:white;" class="button  input">
                                 </p>
                             </div>
                         </form>

@@ -28,7 +28,7 @@
                             
                             ?>
                             
-                            <li class="dropdown"><a class="text-muted" href="cirugia_general.php"><i class="fa fa-calendar-plus-o campana" aria-hidden="true"><small style="border-radius: 30px; color: white; background-color: #ef0000 ">+<?php echo"<small>$numeroSql</small>"; ?>&nbsp</small></i></a>
+                            <li class="dropdown"><a class="text-muted" href="#"><i class="fa fa-calendar-plus-o campana" aria-hidden="true"><small style="border-radius: 30px; color: white; background-color: #ef0000 ">+<?php echo"<small>$numeroSql</small>"; ?>&nbsp</small></i></a>
                                         
                                         
                                 <ul role="menu" class="sub-menu">

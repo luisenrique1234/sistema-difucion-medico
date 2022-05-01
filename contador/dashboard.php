@@ -24,7 +24,7 @@ $visitas = obtenerVisitasEnRango($inicio, $fin);
     <div class="columns">
 
         <div class="column">
-        <h5>Visitas de las paginas</h5>
+        <h6 style="font-size: 20px;">Visitas de las paginas</h6>
             <div class="card">
                 <header class="card-header">
                     <p class="card-header-title">
@@ -47,7 +47,7 @@ $visitas = obtenerVisitasEnRango($inicio, $fin);
                                 <p class="control">
                                     <!--La etiqueta es invisible a propósito para que tome el espacio y alinee el botón-->
                                     <label style="color: white;">ª</label>
-                                    <input type="submit" value="OK" style="background-color: #5bc3db;" class="button  input">
+                                    <input type="submit" value="OK" style="background-color: #20558A; color:white" class="button  input">
                                 </p>
                             </div>
                         </form>
@@ -79,21 +79,21 @@ $visitas = obtenerVisitasEnRango($inicio, $fin);
                                 <p class="control">
                                     <!--La etiqueta es invisible a propósito para que tome el espacio y alinee el botón-->
                                     <label style="color: white;">ª</label>
-                                    <input type="submit" value="OK" style="background-color: #5bc3db;" class="button  input">
+                                    <input type="submit" value="OK" style="background-color: #20558A; color:white" class="button  input">
                                 </p>
                             </div>
                         </form>
                         <div class="field is-grouped is-grouped-multiline">
                             <div class="control">
                                 <div class="tags has-addons">
-                                    <span class="tag is-success is-large">Visitas</span>
-                                    <span style="background-color: #5bc3db;" class="tag  is-large"><?php echo $visitasYVisitantes->visitas ?></span>
+                                    <span class="tag is-large" style="background-color: #77dd77;">Visitas</span>
+                                    <span style="background-color: #20558A; color:white;" class="tag  is-large"><?php echo $visitasYVisitantes->visitas ?></span>
                                 </div>
                             </div>
                             <div class="control">
                                 <div class="tags has-addons">
-                                    <span class="tag is-warning is-large">Visitantes</span>
-                                    <span style="background-color: #5bc3db;" class="tag  is-large"><?php echo $visitasYVisitantes->visitantes ?></span>
+                                    <span class="tag is-large" style="background-color: #fdfd96;">Visitantes</span>
+                                    <span style="background-color: #20558A; color:white;" class="tag  is-large"><?php echo $visitasYVisitantes->visitantes ?></span>
                                 </div>
                             </div>
                         </div>
@@ -113,8 +113,8 @@ $visitas = obtenerVisitasEnRango($inicio, $fin);
                                         <td><?php echo $pagina->conteo_visitas ?></td>
                                         <td><?php echo $pagina->conteo_visitantes ?></td>
                                         <td>
-                                            <a style="background-color: #5bc3db;" class="button" href="visitas_url.php?url=<?php echo urlencode($pagina->url) ?>">
-                                                <i class="fa fa-chart-area"></i>
+                                            <a style="background-color: #20558A" class="button" href="visitas_url.php?url=<?php echo urlencode($pagina->url) ?>">
+                                                <i style="color:white;" class="fa fa-chart-area"></i>
                                             </a>
                                         </td>
                                     </tr>
@@ -131,7 +131,7 @@ $visitas = obtenerVisitasEnRango($inicio, $fin);
     </div>
 </section>
 <div class="con">
-        <?php include_once "../php/boton.php"; ?>
+        <?php include_once "../php/boton_medico.php"; ?>
                     </div>
 <script type="text/javascript">
     // Pasar variable de PHP a JS

@@ -32,7 +32,8 @@ if ($_SESSION["s_medico"] === null ){
     <meta name="author" content="">
     <title>Sistama de divulgacion médico</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
-   <link href="css/font-awesome.min.css" rel="stylesheet">
+   <!--<link href="css/font-awesome.min.css" rel="stylesheet">-->
+   <link href="./contador/css/all.min.css" rel="stylesheet">
     <link href="css/lightbox.css" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
@@ -41,7 +42,7 @@ if ($_SESSION["s_medico"] === null ){
     <link rel="stylesheet" href="css/boton.css">
     <link rel="stylesheet" href="css/inicio_ico.css">
 
-    <!--<script src="./contador.js"></script>-->
+    <script src="./contador.js"></script>
     <!--Icon-Font
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
@@ -307,8 +308,8 @@ if ($_SESSION["s_medico"] === null ){
                         <div class="col-lg-12 col-lg-offset-0 col-xs-12 col-xs-offset-0">
                         
                         <div class="inicio_ico">
-                                            <a href="#" target="__blank" class="fa fa-bar-chart" aria-hidden="true"></a>
-                                            <a href="#" target="__blank" class="fa fa-newspaper-o"></a>
+                                            <a href="/medico-red/graficos/visitas_pagina.php" target="__blank" class="fa fa-bar-chart" aria-hidden="true"></a>
+                                            <a href="/medico-red/graficos/articulo_mes.php" target="__blank" class="fa fa-newspaper-o"></a>
                                             <a href="/medico-red/graficos/conferencia_mes.php" target="__blank" class="fa fa-youtube-play"></a>
                                             
                                             <a href="/medico-red/graficos/medicos_especialidad.php" target="__blank" class="fa fa-stethoscope"></a>

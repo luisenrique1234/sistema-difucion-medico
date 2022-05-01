@@ -67,9 +67,10 @@ $id_med = $_SESSION["s_idme"];
     </section>
     <!-- Grafico 1-->
     <?php
+    /*visitas por año SELECT DATE_FORMAT(fecha,'%Y')  as ano ,COUNT(*) AS visita1 FROM visitas GROUP BY ano*/
     $con = new mysqli("localhost", "root", "", "red_medica");
     $query = $con->query("
-    SELECT DATE_FORMAT(fecha,'%Y')  as meses,COUNT(*) AS visita1 FROM visitas GROUP BY meses
+    SELECT MONTHNAME(fecha)  as meses,COUNT(*) AS visita1 FROM visitas GROUP BY meses
   ");
     foreach ($query as $data) {
         $month[] = $data['meses'];
