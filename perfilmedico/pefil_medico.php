@@ -12,10 +12,10 @@ function mostrar($str)
 
 session_start();
 if ($_SESSION["s_medico"] === null) {
-    header("Location: ./login.php");
+    header("Location: ../login.php");
 } else {
     if ($_SESSION["s_idRol2"] == 3) {
-        header("Location: ./vistas/pag_error.php");
+        header("Location: ../vistas/pag_error.php");
     }
 }
 
@@ -29,7 +29,7 @@ if ($_SESSION["s_medico"] === null) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Sistama de divulgacion médico</title>
+    <title>Perfil médico </title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/lightbox.css" rel="stylesheet">
@@ -54,11 +54,17 @@ if ($_SESSION["s_medico"] === null) {
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/ico.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/ico.png">
 </head>
-<!--/head-->
+<!--/head as-->
 <body  >
   <?php include_once "../php/menu_nada.php"; ?>
  <div class="container">
     <div class="main-body">
+      <?php
+      $query = perfil_medico();
+      while ($row = $query->fetch_assoc()) {
+          
+           
+       ?>
           <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
               <div class="card">
@@ -69,8 +75,8 @@ if ($_SESSION["s_medico"] === null) {
                               <button class="btn btn-default fileinput-button" onclick="document.getElementById('file').click()">Actualizar</button>
                               <input type='file'   style="display:none" id="file" accept="image/*" onchange="mostrar()">
                         </spam>
-                        <h4 class="text-secondary mb-1 mt-0 h3">María Altagracia Cárdenas</h4>
-                      <p class="text-secondary mb-1 h4">Médico General</p>
+                        <h4 class="text-secondary mb-1 mt-0 h3"><?php echo $row["user_medico"]; ?></h4>
+                      <p class="text-secondary mb-1 h4"><?php echo $row["espec_descripsion"]; ?></p>
                     </div>
                 </div>
               </div>
@@ -91,7 +97,7 @@ if ($_SESSION["s_medico"] === null) {
                            <h4 class="mb-0"><i class="iconData fa fa-user "></i>Nombre Completo:</h4>
                     </div>
                     <div class="col-sm-7 ">
-                      <h4 class="mb-0"> María Altagracia Cárdenas Abreu<h4>
+                      <h4 class="mb-0"> <?php echo $row["nombreme"]; ?><h4>
                     </div>
                   </div>
                   <hr>
@@ -133,7 +139,8 @@ if ($_SESSION["s_medico"] === null) {
                   <hr>
                   <div class="row">
                     <div class="col-sm-12">
-                      <a class="btn btn-info " target="__blank" href="pefil_medico_edit.php"><i class="iconButton fa fa-pencil "></i>Editar Perfil</a>
+                      <?php echo("<a class='btn btn-info' target='__blank' href='pefil_medico_edit.php?id=".$row["id_medico"]."'><i class='iconButton fa fa-pencil'></i>Editar Perfil</a>");?>
+                      <?php }?>
                     </div>
                   </div>
                 </div>

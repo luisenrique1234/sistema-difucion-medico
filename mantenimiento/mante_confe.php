@@ -40,6 +40,7 @@ if ($_SESSION["s_admin"] === null) {
     <link href="../css/animate.min.css" rel="stylesheet">
     <link href="../css/main.css" rel="stylesheet">
     <link href="../css/responsive.css" rel="stylesheet">
+    <link href="../css/link_mante.css" rel="stylesheet">
 
     <link href="../css/dark.css" rel="stylesheet">
 

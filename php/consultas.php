@@ -37,6 +37,29 @@ function extraerinvestigacion($id){
     return $result = $mysqli->query($sql);
 }
 ?>
+
+<?php
+
+/* donde se muestra las consultas de los perfiles de los medicos */
+
+
+function perfil_medico(){
+    include('conexion.php');
+    
+    $id_med=$_SESSION["s_idme"];
+    $sql="SELECT medico.id_medico, CONCAT(medico.nombre_medico,' ',medico.apellido_medico) nombreme,medico.user_medico,especialidad.espec_descripsion FROM medico,especialidad 
+    WHERE medico.id_medico ='$id_med' AND medico.especialidadm=especialidad.id_espec AND medico.estado='A'";
+    return $result = $mysqli->query($sql);
+}
+function extraerperfil_medico($id){
+    include('conexion.php');
+    $sql="SELECT * FROM medico  where id_medico='$id'";
+    return $result = $mysqli->query($sql);
+}
+?>
+
+
+
 <?php
 
 /* parte donde esta la Consutal de todos las publicaciones de los medico lista de las publicaciones que 

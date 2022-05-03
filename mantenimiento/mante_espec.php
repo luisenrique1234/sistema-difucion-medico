@@ -42,7 +42,7 @@ if ($_SESSION["s_admin"] === null) {
     <link href="../css/responsive.css" rel="stylesheet">
 
     <link href="../css/dark.css" rel="stylesheet">
-
+    <link href="../css/link_mante.css" rel="stylesheet">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <link href="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">

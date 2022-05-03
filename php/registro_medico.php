@@ -5,7 +5,7 @@
 </head>
  
 <?php
-    include 'conexion.php';
+    include 'conexion2p.php';
     $i='';
     if (isset($_GET['accion'])){
         $i=$_GET['accion'];
@@ -80,17 +80,55 @@ $(document).ready(function(){
 if($i=="UDT"){
     $msj='';
 
-
-    $nombre2=$_POST['nombre'];
-    $apellido2=$_POST['apellido'];
-
     $codigom2=$_POST['codigom'];
 
-    $especi=$_POST['especiali'];
+    $file_nameconple = $_FILES['imagen']['name'];
+    list( $file_name) = explode('.', $file_nameconple);
+
+    $new_name_file = null;
+    $new_imgen= null;
+
+    if ($file_name != '' || $file_name != null) {
+        $file_type = $_FILES['imagen']['name'];
+        list($type, $extension) = explode('.', $file_type);
+        if ($extension == 'jpg' || $extension == 'png') {
+            $dir = 'imagenes-perfil/';
+            if (!file_exists($dir)) {
+                mkdir($dir, 0777, true);
+            }
+            $file_tmp_name = $_FILES['imagen']['tmp_name'];
+            //$new_name_file = 'files/' . date('Ymdhis') . '.' . $extension;
+            $new_name_file = $dir . file_name($file_name) . '.' . $extension;
+            if (copy($file_tmp_name, $new_name_file)) {
+                $new_imgen =  str_replace('imagenes-perfil/', '',$new_name_file);
+                echo "<h4>$new_imgen</h4>";
+                exit;
+            }
+        }else{
+            header("Refresh: 4; URL= ../perfil_medico.php?id=".$codigom2);
+        echo '
+            <script type="text/javascript">
+
+
+            $(document).ready(function(){
+
+	        swal({
+	        title: "Tipo de archivo no permitido, Solo se permiten .jpg y .png",
+		    icon: "warning",
+	        })
+            });
+
+
+            </script>'
+            ; exit;
+        }
+
+    }else{
+        $userme=$_POST['user_me'];
+        $especialida=$_POST['especial'];
+        $nombre2=$_POST['nombreme'];
+        $apellido2=$_POST['apellidome'];
     
-    session_start();
-    $codigo2=$_SESSION["s_idme"];
-    echo ("<h4>$codigo2</h4>");
 
     
     $sql="
@@ -102,7 +140,7 @@ if($i=="UDT"){
         `categoria_public`='$categoria2'
         
     WHERE
-        id_public='$codigo2'";
+        id_public='$codigom2'";
 
     if($mysqli->query($sql)){
         $status='successudt';
@@ -114,7 +152,57 @@ if($i=="UDT"){
     // echo("erro descripcion:" .mysqli_error($mysqli));
     //header("Location: ../propietarip_mant.php?s=".$msj);
 
-    header("Refresh: 2; URL= ../lista_publicm.php?s=".$msj);
+    header("Refresh: 2; URL= ../perfil_medico.php?s=".$status);
+    echo '
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+
+	swal({
+		title: "Actualizado",
+		icon: "success",
+		
+	  })
+});
+
+
+</script>
+
+';
+exit;
+    }
+    
+
+
+    $nombre2=$_POST['nombre'];
+    $apellido2=$_POST['apellido'];
+
+    $especi=$_POST['especiali'];
+    
+    
+    $sql="
+    UPDATE `publicacion` SET
+        `titulo_public` ='$titulo2',
+        `autor_pu` ='$autor2',
+        `text_public` ='$public2',
+        `referencia_pu`='$refer',
+        `categoria_public`='$categoria2'
+        
+    WHERE
+        id_public='$codigom2'";
+
+    if($mysqli->query($sql)){
+        $status='successudt';
+    }
+    else{
+        $status='errorudt';
+        echo "error" .mysqli_error($mysqli);
+    }
+    // echo("erro descripcion:" .mysqli_error($mysqli));
+    //header("Location: ../propietarip_mant.php?s=".$msj);
+
+    header("Refresh: 2; URL= ../pefil_medico.php?s=".$status);
     echo '
 <script type="text/javascript">
 
