@@ -10,7 +10,7 @@ function alercerrarme() {
   })
   .then((result) => {
   if (result.value) {
-  window.location.href = 'bd/logout.php'
+  window.location.href = '/medico-red/bd/logout.php'
   }
   }); 
   

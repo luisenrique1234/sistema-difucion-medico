@@ -101,11 +101,10 @@ if($i=="UDT"){
             $new_name_file = $dir . file_name($file_name) . '.' . $extension;
             if (copy($file_tmp_name, $new_name_file)) {
                 $new_imgen =  str_replace('imagenes-perfil/', '',$new_name_file);
-                echo "<h4>$new_imgen</h4>";
-                exit;
+                
             }
         }else{
-            header("Refresh: 4; URL= ../perfil_medico.php?id=".$codigom2);
+            header("Refresh: 4; URL= /medico-red/perfilmedico/pefil_medico_edit.php?id=".$codigom2);
         echo '
             <script type="text/javascript">
 
@@ -128,19 +127,20 @@ if($i=="UDT"){
         $especialida=$_POST['especial'];
         $nombre2=$_POST['nombreme'];
         $apellido2=$_POST['apellidome'];
+        $contra >= base64_encode ($_POST['contra']);
     
 
     
     $sql="
-    UPDATE `publicacion` SET
-        `titulo_public` ='$titulo2',
-        `autor_pu` ='$autor2',
-        `text_public` ='$public2',
-        `referencia_pu`='$refer',
-        `categoria_public`='$categoria2'
+    UPDATE `medico` SET
+        `nombre_medico` ='$nombre2',
+        `apellido_medico` ='$apellido2',
+        `user_medico` ='$userme',
+        `especialidadm`='$especialida'
+        
         
     WHERE
-        id_public='$codigom2'";
+        id_medico='$codigom2'";
 
     if($mysqli->query($sql)){
         $status='successudt';
@@ -152,7 +152,7 @@ if($i=="UDT"){
     // echo("erro descripcion:" .mysqli_error($mysqli));
     //header("Location: ../propietarip_mant.php?s=".$msj);
 
-    header("Refresh: 2; URL= ../perfil_medico.php?s=".$status);
+    header("Refresh: 2; URL= /medico-red/perfilmedico/pefil_medico.php?s=".$status);
     echo '
 <script type="text/javascript">
 
@@ -175,22 +175,21 @@ exit;
     
 
 
-    $nombre2=$_POST['nombre'];
-    $apellido2=$_POST['apellido'];
-
-    $especi=$_POST['especiali'];
-    
+        $userme=$_POST['user_me'];
+        $especialida=$_POST['especial'];
+        $nombre2=$_POST['nombreme'];
+        $apellido2=$_POST['apellidome'];
     
     $sql="
-    UPDATE `publicacion` SET
-        `titulo_public` ='$titulo2',
-        `autor_pu` ='$autor2',
-        `text_public` ='$public2',
-        `referencia_pu`='$refer',
-        `categoria_public`='$categoria2'
+    UPDATE `medico` SET
+        `nombre_medico` ='$nombre2',
+        `apellido_medico` ='$apellido2',
+        `user_medico` ='$userme',
+        `especialidadm`='$especialida',
+        `link_foto`='$new_imgen'
         
     WHERE
-        id_public='$codigom2'";
+        id_medico='$codigom2'";
 
     if($mysqli->query($sql)){
         $status='successudt';
@@ -202,7 +201,7 @@ exit;
     // echo("erro descripcion:" .mysqli_error($mysqli));
     //header("Location: ../propietarip_mant.php?s=".$msj);
 
-    header("Refresh: 2; URL= ../pefil_medico.php?s=".$status);
+    header("Refresh: 2; URL= /medico-red/perfilmedico/pefil_medico.php?s=".$status);
     echo '
 <script type="text/javascript">
 
@@ -211,6 +210,48 @@ $(document).ready(function(){
 
 	swal({
 		title: "Actualizado",
+		icon: "success",
+		
+	  })
+});
+
+
+</script>
+
+';
+}
+
+if($i=="UDTCONTRA"){
+    $msj='';
+
+    $codigom2=$_POST['codigom'];
+    $contra = base64_encode ($_POST['contra']);
+    //echo"<h4> ".base64_decode($contra). "</h4>";
+    $sql="
+    UPDATE `medico` SET
+        `contrasena_me`='$contra'
+    WHERE
+        id_medico='$codigom2'";
+
+    if($mysqli->query($sql)){
+        $status='successdlt';
+    }
+    else{
+        $status='errordlt';
+        echo "error" .mysqli_error($mysqli);
+    }
+    // echo("erro descripcion:" .mysqli_error($mysqli));
+    //header("Location: ../propietarip_mant.php?s=".$msj);
+
+    header("Refresh: 2; URL= /medico-red/perfilmedico/pefil_medico.php?s=".$status);
+    echo '
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+
+	swal({
+		title: "Contraseña cambiada",
 		icon: "success",
 		
 	  })

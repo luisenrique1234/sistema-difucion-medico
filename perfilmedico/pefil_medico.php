@@ -39,20 +39,10 @@ if ($_SESSION["s_medico"] === null) {
     <link href="../css/responsive.css" rel="stylesheet">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="../css/dark.css" rel="stylesheet">
-
     <link rel="stylesheet" href="../css/boton.css">
     <!--Icon-Font-->
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
-
-    <!--[if lt IE 9]>
-	    <script src="js/html5shiv.js"></script>
-	    <script src="js/respond.min.js"></script>
-    <![endif]-->
     <link rel="shortcut icon" href="/medico-red/images/ico/ico.png">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/ico.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/ico.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/ico.png">
-    <link rel="apple-touch-icon-precomposed" href="images/ico/ico.png">
 </head>
 <!--/head as-->
 <body  >
@@ -62,7 +52,7 @@ if ($_SESSION["s_medico"] === null) {
       <?php
       $query = perfil_medico();
       while ($row = $query->fetch_assoc()) {
-          
+          $link_foto =$row["link_foto"];
            
        ?>
           <div class="row gutters-sm">
@@ -71,7 +61,11 @@ if ($_SESSION["s_medico"] === null) {
                 <div class="card-body d-flex flex-column align-items-center text-center">
                     <div class="col-md-12">
                         <spam class="profile-img">
-                            <img id="img"src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+                          <?php 
+                          $backslash='\\';
+                          
+                            echo '<img id="img"src="'.$backslash.'medico-red'.$backslash.'php'.$backslash.'imagenes-perfil'.$backslash.''.$link_foto. '" alt=""/>';
+                            ?>
                               <button class="btn btn-default fileinput-button" onclick="document.getElementById('file').click()">Actualizar</button>
                               <input type='file'   style="display:none" id="file" accept="image/*" onchange="mostrar()">
                         </spam>
@@ -168,6 +162,7 @@ if ($_SESSION["s_medico"] === null) {
       document.getElementById("img").src = reader.result;
     }
   }
-}</script>
+}
+</script>
     </body>
 </html>

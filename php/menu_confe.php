@@ -49,9 +49,9 @@
                            <!-- <div >
                             <img src="images/predeterminado.jpg" width="100%" height="60">
                             </div>-->
-                                <a class="text-muted" href="pefil_medico.php"> <i class="fa fa-user-circle icouser" aria-hidden="true"></i>&nbsp; &nbsp;<?php  echo $_SESSION["s_medico"];?>&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                                <a class="text-muted" href="/medico-red/perfilmedico/pefil_medico.php"> <i class="fa fa-user-circle icouser" aria-hidden="true"></i>&nbsp; &nbsp;<?php  echo $_SESSION["s_medico"];?>&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                <li><a href="pefil_medico.php">Editar mi perfil</a></li>
+                                <li><a href="/medico-red/perfilmedico/pefil_medico.php">Editar mi perfil</a></li>
                                     <li><a href="mis_articulos.php">Mis artículos</a></li>
                                     <li><a href="mis_conferencia.php">Mis Conferencia</a></li>
                                     <li><a href="/medico-red/graficos/articulo_grafico.php">Gráficos Artículos</a></li>

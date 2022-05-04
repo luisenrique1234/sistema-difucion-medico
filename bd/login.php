@@ -8,11 +8,12 @@ $conexion = $objeto->Conectar();
 $usuario = (isset($_POST['usuario'])) ? $_POST['usuario'] : '';
 $password = (isset($_POST['password'])) ? $_POST['password'] : '';
 
-$pass = md5($password);
+//$pass = md5($password);
 //$pass = ($password);
+$pass = base64_encode($password);
 
 $consulta = "SELECT medico.id_medico AS idme, medico.idRol AS idRol, rol.descripcion AS rol2,medico.especialidadm AS espe,medico.apellido_medico AS apelli,medico.nombre_medico AS nombre,
-medico.provincia_me AS prov,
+medico.provincia_me AS prov,medico.link_foto AS foto,
 medico.codigo_medico AS codigome FROM medico JOIN rol ON medico.idRol = rol.id_roles WHERE user_medico='$usuario' AND contrasena_me='$pass' ";	
 $resultado = $conexion->prepare($consulta);
 $resultado->execute(); 
@@ -34,6 +35,8 @@ if($resultado->rowCount() >= 1){
     $_SESSION["s_codime"] = $data[0]["codigome"];
 
     $_SESSION["s_idRol2"] = $data[0]["idRol"];
+    
+    $_SESSION["s_foto"] = $data[0]["foto"];
     $_SESSION["s_rol_descripcion2"] = $data[0]["rol2"];
 }else{
     $_SESSION["s_medico"] = null;  

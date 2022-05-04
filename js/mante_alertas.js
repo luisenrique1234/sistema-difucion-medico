@@ -238,7 +238,7 @@ cancelButtonText: '<h5>Cancelar</h5>'
 })
 .then((result) => {
 if (result.value) {
-window.location.href = '../bd/logout2.php'
+window.location.href = '/medico-red/bd/logout2.php'
 }
 }); 
 
@@ -259,7 +259,7 @@ cancelButtonText: '<h5>Cancelar</h5>'
 })
 .then((result) => {
 if (result.value) {
-window.location.href = '../bd/logout2.php'
+window.location.href = '/medico-red/bd/logout2.php'
 }
 }); 
 

@@ -2,7 +2,6 @@
 include('../php/consultas.php');
 $query = extraerperfil_medico($_GET['id']);
 $row = $query->fetch_assoc();
-
 function mostrar($str)
 {
   $codi = mb_detect_encoding($str, "ISO-8859-1,UTF-8");
@@ -29,7 +28,7 @@ if ($_SESSION["s_medico"] === null) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Sistama de divulgacion médico</title>
+  <title>Editar perfil medico</title>
   <link href="../css/bootstrap.min.css" rel="stylesheet">
   <link href="../css/font-awesome.min.css" rel="stylesheet">
   <link href="../css/lightbox.css" rel="stylesheet">
@@ -70,7 +69,11 @@ if ($_SESSION["s_medico"] === null) {
                 <form action="../php/registro_medico.php?accion=UDT" method="POST" enctype="multipart/form-data">
                 <input  type="hidden" name="codigom" require="" placeholder="ID"  readonly value="<?php echo $row['id_medico']?>">
                   <spam class="profile-img">
-                    <img id="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt="" />
+                        <?php 
+                        $link_foto =$row["link_foto"];
+                          $backslash='\\';
+                            echo '<img id="img"src="'.$backslash.'medico-red'.$backslash.'php'.$backslash.'imagenes-perfil'.$backslash.''.$link_foto. '" alt=""/>';
+                            ?>
                     <a class="btn btn-default fileinput-button" onclick="document.getElementById('file').click()">Actualizar</a>
                     <input type='file' style="display:none" id="file" name="imagen" accept="image/*" onchange="mostrar()">
                   </spam>
@@ -203,26 +206,33 @@ if ($_SESSION["s_medico"] === null) {
           <div class="container">
             <div class="row">
               <div class="col-sm-3">
-
+              <form action="../php/registro_medico.php?accion=UDTCONTRA" method="POST">
+              <input  type="hidden" name="codigom" required placeholder="ID"  readonly value="<?php echo $row['id_medico'];?>">
                 <label>Contraseña Actual</label>
                 <div class="form-group pass_show">
-                  <input type="password" class="form-control">
+                  <input type="password" id="password" required class="form-control" value="<?php echo base64_decode($row['contrasena_me']); ?>">
+                  
                 </div>
                 <label>Nueva Contraseña</label>
                 <div class="form-group pass_show">
-                  <input type="password" class="form-control">
+                  <input type="password" id="password2" required class="form-control">
                 </div>
                 <label>Confirmar Contraseña</label>
                 <div class="form-group pass_show">
-                  <input type="password" class="form-control">
+                  <input type="password" name="contra" required id="password3" class="form-control">
                 </div>
+                <div style="margin-top:15px;">
+                  <input style="margin-left:20px;" type="checkbox" id="mostrar_contrasena" title="clic para mostrar contraseña"/>
+                  &nbsp;&nbsp;Mostrar Contraseñas
+                  </div>
               </div>
             </div>
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-info"><i class="iconButton fa fa-save"></i>Guardar</button>
+          <input type="submit" class="btn btn-info mb-4" value="Guardar">
+          </form>
         </div>
       </div>
     </div>
@@ -249,6 +259,36 @@ if ($_SESSION["s_medico"] === null) {
         }
       }
     }
+    /* mostra contraseña de los input de cambio de contraseña*/
+    $(document).ready(function () {
+  $('#mostrar_contrasena').click(function () {
+    if ($('#mostrar_contrasena').is(':checked')) {
+      $('#password').attr('type', 'text');
+    } else {
+      $('#password').attr('type', 'password');
+    }
+  });
+});
+
+$(document).ready(function () {
+  $('#mostrar_contrasena').click(function () {
+    if ($('#mostrar_contrasena').is(':checked')) {
+      $('#password2').attr('type', 'text');
+    } else {
+      $('#password2').attr('type', 'password');
+    }
+  });
+});
+
+$(document).ready(function () {
+  $('#mostrar_contrasena').click(function () {
+    if ($('#mostrar_contrasena').is(':checked')) {
+      $('#password3').attr('type', 'text');
+    } else {
+      $('#password3').attr('type', 'password');
+    }
+  });
+});
   </script>
 </body>
 

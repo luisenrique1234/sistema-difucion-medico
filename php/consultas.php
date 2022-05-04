@@ -47,7 +47,7 @@ function perfil_medico(){
     include('conexion.php');
     
     $id_med=$_SESSION["s_idme"];
-    $sql="SELECT medico.id_medico, CONCAT(medico.nombre_medico,' ',medico.apellido_medico) nombreme,medico.user_medico,especialidad.espec_descripsion FROM medico,especialidad 
+    $sql="SELECT medico.id_medico, CONCAT(medico.nombre_medico,' ',medico.apellido_medico) nombreme,medico.user_medico,medico.link_foto,medico.contrasena_me,especialidad.espec_descripsion FROM medico,especialidad 
     WHERE medico.id_medico ='$id_med' AND medico.especialidadm=especialidad.id_espec AND medico.estado='A'";
     return $result = $mysqli->query($sql);
 }
