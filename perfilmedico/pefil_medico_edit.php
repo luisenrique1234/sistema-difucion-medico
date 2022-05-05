@@ -100,7 +100,7 @@ if ($_SESSION["s_medico"] === null) {
                     ?>
                   </select>
                   <h4 class="text-left mb-0"><i class="iconData fa fa-envelope "></i>Email:</h4>
-                  <input placeholder="MiEmail@gmail.com" type="text" name="work" id="work" class="form-control">
+                  <input placeholder="MiEmail@gmail.com" type="text" name="email" id="work" class="form-control" value="<?php echo $row['email_me'] ?>">
 
               </div>
             </div>
@@ -133,7 +133,7 @@ if ($_SESSION["s_medico"] === null) {
                   <h4 class="mb-0"><i class="iconData fa fa-home "></i>Trabaja en:</h4>
                 </div>
                 <div class="col-sm-7 ">
-                  <input placeholder="Ej. Clinica Nombre" type="text" name="work" id="work" class="form-control">
+                  <input placeholder="Ej. Clinica Nombre" type="text" name="trabajo" id="work" class="form-control" value="<?php echo $row['lugar_trabajo'] ?>">
                 </div>
               </div>
               <hr>
@@ -142,13 +142,12 @@ if ($_SESSION["s_medico"] === null) {
                   <h4 class="mb-0"><i class="iconData fa fa-user-md "></i>Area:</h4>
                 </div>
                 <div class="col-sm-7 ">
-                  <select class="form-control" id="inputGroupSelect01">
-                    <option selected>Elegir...</option>
-                    <option value="Asistencial">Asistencial</option>
-                    <option value="Investigación">Investigación</option>
-                    <option value="Docencia">Docencia</option>
-                    <option value="Administrativa">Administrativa</option>
-                    <option value="Informativa">Informativa</option>
+                  <select class="form-control" id="inputGroupSelect01" name="area">
+                    <option value="Asistencial" <?php if($row['area_me']=='Asistencial'){echo "selected";} ?>>Asistencial</option>
+                    <option value="Investigación" <?php if($row['area_me']=='Investigación'){echo "selected";} ?>>Investigación</option>
+                    <option value="Docencia" <?php if($row['area_me']=='Docencia'){echo "selected";} ?>>Docencia</option>
+                    <option value="Administrativa"<?php if($row['area_me']=='Administrativa'){echo "selected";} ?>>Administrativa</option>
+                    <option value="Informativa" <?php if($row['area_me']=='Informativa'){echo "selected";} ?>>Informativa</option>
                   </select>
                 </div>
               </div>
@@ -158,7 +157,7 @@ if ($_SESSION["s_medico"] === null) {
                   <h4 class="mb-0"><i class="iconData fa fa-compass"></i>Cargo:</h4>
                 </div>
                 <div class="col-sm-7 ">
-                  <input placeholder="Ej. Medico Enterino" type="text" name="work" id="work" class="form-control">
+                  <input placeholder="Ej. Medico Enterino" type="text" name="cargo" id="work" class="form-control" value="<?php echo $row['cargo_me'] ?>">
                 </div>
               </div>
               <hr>
@@ -167,7 +166,7 @@ if ($_SESSION["s_medico"] === null) {
                   <h4 class="mb-0"><i class="iconData fa fa-clock-o "></i>Años Ejercidos:</h4>
                 </div>
                 <div class="col-sm-7 ">
-                  <input placeholder="Cantidad de años" type="number" name="work" id="work" class="form-control">
+                  <input placeholder="Cantidad de años" type="number" name="exper" id="work" class="form-control" value="<?php echo $row['experiencia_me'] ?>">
                 </div>
               </div>
               <hr>

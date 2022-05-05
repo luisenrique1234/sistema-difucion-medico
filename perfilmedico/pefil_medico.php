@@ -78,7 +78,7 @@ if ($_SESSION["s_medico"] === null) {
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                     <h4 class="mb-0"><i class="iconData fa fa-envelope "></i>Email:</h4>
-                    <span class="text-secondary">MariaCardenas@gmail.com</span>
+                    <span class="text-secondary"><?php echo $row["email_me"]; ?></span>
                   </li>
                 </ul>
               </div>
@@ -100,7 +100,7 @@ if ($_SESSION["s_medico"] === null) {
                            <h4 class="mb-0"><i class="iconData fa fa-home "></i>Trabaja en:</h4>
                     </div>
                     <div class="col-sm-7 ">
-                      <h4 class="mb-0"> Clínica San Agustinian<h4>
+                      <h4 class="mb-0"> <?php echo $row["lugar_trabajo"]; ?><h4>
                     </div>
                   </div>
                   <hr>
@@ -109,7 +109,7 @@ if ($_SESSION["s_medico"] === null) {
                            <h4 class="mb-0"><i class="iconData fa fa-user-md "></i>Area:</h4>
                     </div>
                     <div class="col-sm-7 ">
-                      <h4 class="mb-0">Asistencial<h4>
+                      <h4 class="mb-0"><?php echo $row["area_me"]; ?><h4>
                     </div>
                   </div>
                   <hr>
@@ -118,7 +118,7 @@ if ($_SESSION["s_medico"] === null) {
                            <h4 class="mb-0"><i class="iconData fa fa-compass"></i>Cargo:</h4>
                     </div>
                     <div class="col-sm-7 ">
-                      <h4 class="mb-0">Medico<h4>
+                      <h4 class="mb-0"><?php echo $row["cargo_me"]; ?><h4>
                     </div>
                   </div>
                   <hr>
@@ -127,7 +127,7 @@ if ($_SESSION["s_medico"] === null) {
                            <h4 class="mb-0"><i class="iconData fa fa-clock-o "></i>Años Ejercidos:</h4>
                     </div>
                     <div class="col-sm-7 ">
-                      <h4 class="mb-0">5<h4>
+                      <h4 class="mb-0"><?php echo $row["experiencia_me"]; ?><h4>
                     </div>
                   </div>
                   <hr>

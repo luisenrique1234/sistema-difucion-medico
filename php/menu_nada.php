@@ -49,7 +49,7 @@
                            <!-- <div >
                             <img src="images/predeterminado.jpg" width="100%" height="60">
                             </div>-->
-                                <a class="text-muted" href="/medico-red/perfilmedico/pefil_medico.php"> <?php $backslash='\\'; echo  '<img style="border-radius: 30px; position: relative; top: -5px;" id="img"src="'.$backslash.'medico-red'.$backslash.'php'.$backslash.'imagenes-perfil'.$backslash.''.$_SESSION["s_foto"]. '" alt="" width="24" height="24"/>'; ?> &nbsp;<?php  echo $_SESSION["s_medico"];?>&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                                <a class="text-muted" href="/medico-red/perfilmedico/pefil_medico.php"> <?php $backslash='\\'; echo  '<img style="border-radius: 30px; position: relative; top: -5px;" src="'.$backslash.'medico-red'.$backslash.'php'.$backslash.'imagenes-perfil'.$backslash.''.$_SESSION["s_foto"]. '" alt="" width="24" height="24"/>'; ?> &nbsp;<?php  echo $_SESSION["s_medico"];?>&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></a>
                                 <ul role="menu" class="sub-menu">
                                 <li><a href="/medico-red/perfilmedico/pefil_medico.php">Editar mi perfil</a></li>
                                     <li><a href="/medico-red/mis_articulos.php">Mis Artículos</a></li>

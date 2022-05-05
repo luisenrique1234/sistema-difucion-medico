@@ -127,7 +127,12 @@ if($i=="UDT"){
         $especialida=$_POST['especial'];
         $nombre2=$_POST['nombreme'];
         $apellido2=$_POST['apellidome'];
-        $contra >= base64_encode ($_POST['contra']);
+        $email=$_POST['email'];
+        $trabajo=$_POST['trabajo'];
+        $area=$_POST['area'];
+        $cargo=$_POST['cargo'];
+        $experiencia=$_POST['exper'];
+
     
 
     
@@ -136,6 +141,11 @@ if($i=="UDT"){
         `nombre_medico` ='$nombre2',
         `apellido_medico` ='$apellido2',
         `user_medico` ='$userme',
+        `email_me` ='$email',
+        `lugar_trabajo` ='$trabajo',
+        `area_me` ='$area',
+        `cargo_me` ='$cargo',
+        `experiencia_me` ='$experiencia',
         `especialidadm`='$especialida'
         
         
@@ -160,7 +170,7 @@ if($i=="UDT"){
 $(document).ready(function(){
 
 	swal({
-		title: "Actualizado",
+		title: "Editado",
 		icon: "success",
 		
 	  })
@@ -174,19 +184,28 @@ exit;
     }
     
 
-
-        $userme=$_POST['user_me'];
-        $especialida=$_POST['especial'];
-        $nombre2=$_POST['nombreme'];
-        $apellido2=$_POST['apellidome'];
+    $userme=$_POST['user_me'];
+    $especialida=$_POST['especial'];
+    $nombre2=$_POST['nombreme'];
+    $apellido2=$_POST['apellidome'];
+    $email=$_POST['email'];
+    $trabajo=$_POST['trabajo'];
+    $area=$_POST['area'];
+    $cargo=$_POST['cargo'];
+    $experiencia=$_POST['exper'];
     
     $sql="
     UPDATE `medico` SET
         `nombre_medico` ='$nombre2',
         `apellido_medico` ='$apellido2',
         `user_medico` ='$userme',
-        `especialidadm`='$especialida',
-        `link_foto`='$new_imgen'
+        `link_foto` ='$new_imgen',
+        `email_me` ='$email',
+        `lugar_trabajo` ='$trabajo',
+        `area_me` ='$area',
+        `cargo_me` ='$cargo',
+        `experiencia_me` ='$experiencia',
+        `especialidadm`='$especialida'
         
     WHERE
         id_medico='$codigom2'";
@@ -220,6 +239,7 @@ $(document).ready(function(){
 
 ';
 }
+
 
 if($i=="UDTCONTRA"){
     $msj='';
