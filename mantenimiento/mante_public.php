@@ -85,7 +85,7 @@ if ($_SESSION["s_admin"] === null) {
                                 <!-- fila-->
                                 <th data-hidden="true">Código Artículo</th>
                                 <th data-hidden="true">Nombre médico</th>
-                                <th data-hidden="true">Tituo</th>
+                                <th data-hidden="true">________Titulo_______</th>
                                 <th data-hidden="true">_____Autor_____</th>
                                 <th data-hidden="true">_________________Resumen______________________</th>
                                 <th data-hidden="true">Biblografia</th>

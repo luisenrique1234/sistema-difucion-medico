@@ -66,8 +66,6 @@ if ($_SESSION["s_medico"] === null) {
                           
                             echo '<img id="img"src="'.$backslash.'medico-red'.$backslash.'php'.$backslash.'imagenes-perfil'.$backslash.''.$link_foto. '" alt=""/>';
                             ?>
-                              <button class="btn btn-default fileinput-button" onclick="document.getElementById('file').click()">Actualizar</button>
-                              <input type='file'   style="display:none" id="file" accept="image/*" onchange="mostrar()">
                         </spam>
                         <h4 class="text-secondary mb-1 mt-0 h3"><?php echo $row["user_medico"]; ?></h4>
                       <p class="text-secondary mb-1 h4"><?php echo $row["espec_descripsion"]; ?></p>

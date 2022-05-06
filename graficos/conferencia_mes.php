@@ -60,7 +60,7 @@ if ($_SESSION["s_medico"] === null) {
                 
                                 <div class="col-md-11 col-sm-10">
                                 <div class=" text-center">
-                                    <h3>Cantidad de conferencias realizadas al mes</h3>
+                                    <h3>Conferencias realizadas al mes</h3>
                             </div>
                             <div style="display: flex; justify-content: center; width: 100%;">
                                 <div style=" width: 800px;">
@@ -103,7 +103,7 @@ if ($_SESSION["s_medico"] === null) {
   const data2 = {
     labels: labels2,
     datasets: [{
-      label: 'Cantidad de conferencias realizadas al mes',
+      label: 'Conferencias realizadas al mes',
       data: <?php echo json_encode($amount2) ?>,
       backgroundColor: [
         '#20558A'

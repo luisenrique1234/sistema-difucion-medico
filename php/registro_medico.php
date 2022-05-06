@@ -18,16 +18,32 @@
     if ($i=="INS"){
         
 
+        $userme=$_POST['userne'];
         $nombre=$_POST['nombre'];
         $apellido=$_POST['apellido'];
-        $codime2=$_POST['codime'];
-        $user=$_POST['usurio'];
+        $trabajo=$_POST['trabajo'];
+        $area=$_POST['area'];
+        $cargo=$_POST['cargo'];
+        $exqua=$_POST['exequ'];
+        $especialida=$_POST['espec'];
+        $email=$_POST['email'];
+        $experiencia=$_POST['exper'];
+        $pass = base64_encode($_POST['password']);
 
-        $provi=$_POST['provicia'];
-        $pass = md5($_POST['password']);
-        
-
-        $espec=$_POST['espec'];
+        echo"<h4>
+        $userme
+        $nombre
+        $apellido
+        $trabajo
+        $area
+        $cargo
+        $exqua
+        $especialida
+        $email
+        $experiencia
+        $pass
+        </h4>";
+        exit;
         //$date = (new DateTime())->format('y-m-d');
 
     

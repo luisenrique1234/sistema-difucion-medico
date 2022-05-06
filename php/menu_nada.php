@@ -6,7 +6,7 @@
                 <div class="container">
                     <div class="navbar-header">
                         <a class="navbar-brand" href="index.php">
-                            <img src="/medico-red/images/logo.png" alt="logo" width="45" height="45">
+                            <img style="position: relative; top: -6px;" src="/medico-red/images/logo.png" alt="logo" width="45" height="45">
                         </a>
 
                     </div>

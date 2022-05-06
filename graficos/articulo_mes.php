@@ -59,7 +59,7 @@ if ($_SESSION["s_medico"] === null) {
                 
                                 <div class="col-md-11 col-sm-10">
                                 <div class=" text-center">
-                                    <h3>Cantidad de artículos realizadas al mes</h3>
+                                    <h3>Artículos Publicada al mes</h3>
                             </div>
                             <div style="display: flex; justify-content: center; width: 100%;">
                                 <div style=" width: 800px;">

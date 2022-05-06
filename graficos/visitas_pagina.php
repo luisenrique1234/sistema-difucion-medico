@@ -30,7 +30,7 @@ $id_med = $_SESSION["s_idme"];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Gráficos Conferencia</title>
+    <title>Gráfico pagina</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/lightbox.css" rel="stylesheet">
@@ -56,7 +56,7 @@ $id_med = $_SESSION["s_idme"];
     <section class="padding-top">
         <div class="container">
             <div class=" text-center">
-                <h3>Visitas de las conferencias</h3>
+                <h3>Visitas de la página</h3>
             </div>
             <div style="display: flex; justify-content: center; width: 100%;">
                 <div style="width: 800px;">
@@ -83,7 +83,7 @@ $id_med = $_SESSION["s_idme"];
         const data = {
             labels: labels,
             datasets: [{
-                label: 'Visitas de las conferencia',
+                label: 'Visitas de la página',
                 data: <?php echo json_encode($amount) ?>,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
