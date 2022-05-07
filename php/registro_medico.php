@@ -29,33 +29,23 @@
         $email=$_POST['email'];
         $experiencia=$_POST['exper'];
         $pass = base64_encode($_POST['password']);
-
-        echo"<h4>
-        $userme
-        $nombre
-        $apellido
-        $trabajo
-        $area
-        $cargo
-        $exqua
-        $especialida
-        $email
-        $experiencia
-        $pass
-        </h4>";
-        exit;
         //$date = (new DateTime())->format('y-m-d');
 
     
-    $sql = " INSERT INTO `medico` ( `nombre_medico`,`apellido_medico`,`user_medico`, `codigo_medico`,`especialidadm`,`provincia_me`,`idRol`,`contrasena_me`, `estado`) 
+    $sql = " INSERT INTO `medico` ( `nombre_medico`,`apellido_medico`,`user_medico`, `link_foto`, `email_me`, `lugar_trabajo`, `area_me`, `cargo_me`, `experiencia_me`, `codigo_medico`,`especialidadm`,`idRol`,`contrasena_me`, `estado`) 
     VALUES (
 
         '$nombre',
         '$apellido',
-        '$user',
-        '$codime2',
-        '$espec',
-        '$provi',
+        '$userme',
+        'perfil_default.jpg',
+        '$email',
+        '$trabajo',
+        '$area',
+        '$cargo',
+        '$experiencia',
+        '$exqua',
+        '$especialida',
         '3',
         '$pass',
         'A')";
@@ -69,8 +59,6 @@
         $status='error';
         echo "error" .mysqli_error($mysqli);
     }
-    // echo("erro descripcion:" .mysqli_error($mysqli));
-    //header("Location: ../propietarip_mant.php?s=".$status);
 
     header("Refresh: 2; URL= ../login.php?s=".$status);
     echo '
