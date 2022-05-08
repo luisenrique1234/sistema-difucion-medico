@@ -36,72 +36,59 @@
 
                         <div id="login-box" class="col-md-12  bg-light text-dark">
                             <form action="php/registro_medico.php?accion=INS" method="POST">
-                                 <h3 class="text-center text-dark">Registró Médico</h3>
+                                <h3 class="text-center text-dark">Registró Médico</h3>
 
-                                 <div class="col-md-6 col-md-offset-0">
-                                                    <div class="form-group">
-                                                        <label class="control-label"><i class="fa fa-user"></i> Nombre<span
-                                                                style="color: red">*</span></label>
-                                                        <input type="text" name="nombre" required 
-                                                            placeholder="Escribir Nombre" class="form-control">
-                                                    </div>
+                                <div class="col-md-6 col-md-offset-0">
+                                    <div class="form-group">
+                                        <label class="control-label"><i class="fa fa-user"></i> Nombre<span style="color: red">*</span></label>
+                                        <input type="text" name="nombre" required placeholder="Escribir Nombre" class="form-control">
+                                    </div>
                                 </div>
 
                                 <div class="col-md-6 col-md-offset-0">
-                                                    <div class="form-group">
-                                                        <label class="control-label"><i class="fa fa-user"></i> Apellido<span
-                                                                style="color: red">*</span></label>
-                                                        <input type="text" name="apellido" required
-                                                            placeholder="Escribir Apellido" class="form-control">
-                                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><i class="fa fa-user"></i> Apellido<span style="color: red">*</span></label>
+                                        <input type="text" name="apellido" required placeholder="Escribir Apellido" class="form-control">
+                                    </div>
                                 </div>
                                 <div class="col-md-6 col-md-offset-0">
-                                                    <div class="form-group">
-                                                        <label class="control-label"><i class="fa fa-user-circle"></i> Usuario<span
-                                                                style="color: red">*</span></label>
-                                                        <input type="text" name="userne" required
-                                                            placeholder="Escribir User" class="form-control">
-                                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><i class="fa fa-user-circle"></i> Usuario<span style="color: red">*</span></label>
+                                        <input type="text" name="userne" required placeholder="Escribir User" class="form-control">
+                                    </div>
                                 </div>
 
                                 <div class="col-md-6 col-md-offset-0">
-                                                    <div class="form-group">
-                                                        <label class="control-label"><i class="iconData fa fa-home "></i>Lugar de trabaja<span
-                                                                style="color: red">*</span></label>
-                                                        <input type="text" name="trabajo" required
-                                                            placeholder="Ej. Clinica Nombre" class="form-control">
-                                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><i class="iconData fa fa-home "></i>Lugar de trabaja<span style="color: red">*</span></label>
+                                        <input type="text" name="trabajo" required placeholder="Ej. Clinica Nombre" class="form-control">
+                                    </div>
                                 </div>
                                 <div class="col-md-6 col-md-offset-0">
-                                <label class="control-label"><i class="iconData fa fa-user-md "></i> Area<span
-                                style="color: red">*</span></label>
-                                <select class="form-control" id="inputGroupSelect01" required  name="area">
-                                    <option value="Asistencial" >Asistencial</option>
-                                    <option value="Investigación" >Investigación</option>
-                                    <option value="Docencia" >Docencia</option>
-                                    <option value="Administrativa">Administrativa</option>
-                                    <option value="Informativa" >Informativa</option>
-                                </select>
+                                    <label class="control-label"><i class="iconData fa fa-user-md "></i> Area<span style="color: red">*</span></label>
+                                    <select class="form-control" id="inputGroupSelect01" required name="area">
+                                        <option value="Asistencial">Asistencial</option>
+                                        <option value="Investigación">Investigación</option>
+                                        <option value="Docencia">Docencia</option>
+                                        <option value="Administrativa">Administrativa</option>
+                                        <option value="Informativa">Informativa</option>
+                                    </select>
                                 </div>
 
                                 <div class="col-md-6 col-md-offset-0">
-                                                    <div class="form-group">
-                                                        <label class="control-label"><i class="iconData fa fa-compass"></i> Cargo<span
-                                                                style="color: red">*</span></label>
-                                                        <input type="text" name="cargo" required
-                                                            placeholder="Ej. Medico Enterino" class="form-control">
-                                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><i class="iconData fa fa-compass"></i> Cargo<span style="color: red">*</span></label>
+                                        <input type="text" name="cargo" required placeholder="Ej. Medico Enterino" class="form-control">
+                                    </div>
                                 </div>
                                 <div class="col-md-6 col-md-offset-0">
-                                                    <div class="form-group">
-                                                        <label class="control-label"><i class="fa fa-id-card"></i> Exequátur<span
-                                                                style="color: red">*</span></label>
-                                                        <input type="text" name="exequ" required
-                                                            placeholder="Ej. E1W2D2" class="form-control">
-                                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><i class="fa fa-id-card"></i> Exequátur<span style="color: red">*</span></label>
+                                        <input type="text" name="exequ" required placeholder="Ej. E1W2D2" class="form-control">
+                                    </div>
                                 </div>
                                 <div class="col-md-6 col-md-offset-0">
-                                <label class="control-label"><i class="iconData fa fa-graduation-cap  "></i> Especialidad<span style="color:red">*</span> </label>
+                                    <label class="control-label"><i class="iconData fa fa-graduation-cap  "></i> Especialidad<span style="color:red">*</span> </label>
                                     <select name="espec" class="form-control" required>
                                         <?php
                                         include 'php/conexion.php';
@@ -118,19 +105,16 @@
                                     </select>
                                 </div>
                                 <div class="col-md-12 col-md-offset-0">
-                                                    <div class="form-group">
-                                                        <label class="control-label"><i class="fa fa-envelope"></i> Email<span
-                                                                style="color: red">*</span></label>
-                                                        <input type="text" name="email" required
-                                                            placeholder="MiEmail@gmail.com" class="form-control">
-                                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><i class="fa fa-envelope"></i> Email<span style="color: red">*</span></label>
+                                        <input type="text" name="email" required placeholder="MiEmail@gmail.com" class="form-control">
+                                    </div>
                                 </div>
                                 <div class="col-md-6 col-md-offset-0">
-                                                    <div class="form-group">
-                                                        <label class="control-label"><i class="fa fa-clock"></i> Años Ejercidos<span
-                                                                style="color: red">*</span></label>
-                                                                <input placeholder="Cantidad de años" type="number" required  name="exper" class="form-control">
-                                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><i class="fa fa-clock"></i> Años Ejercidos<span style="color: red">*</span></label>
+                                        <input placeholder="Cantidad de años" type="number" required name="exper" class="form-control">
+                                    </div>
                                 </div>
 
                                 <!--<div class="form-group">
@@ -143,15 +127,14 @@
                                     </select>
                                 </div>-->
                                 <div class="col-md-6 col-md-offset-0">
-                                <div class="form-group">
-                                <label class="control-label"><i class="iconData fa fa-clock-o "></i> password<span
-                                                                style="color: red">*</span></label>
-                                                                <input type="password" name="password" id="password2" required class="form-control">
-                                    <div style="margin-top:8px;">
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style="margin-left:20px;" type="checkbox" id="mostrar_contrasena" title="clic para mostrar contraseña"/>
-                                 &nbsp;&nbsp;Mostrar Contraseña
-                                </div>
-                                </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><i class="iconData fa fa-clock-o "></i> password<span style="color: red">*</span></label>
+                                        <input type="password" name="password" id="password2" required class="form-control">
+                                        <div style="margin-top:8px;">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style="margin-left:20px;" type="checkbox" id="mostrar_contrasena" title="clic para mostrar contraseña" />
+                                            &nbsp;&nbsp;Mostrar Contraseña
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="form-group text-center">
@@ -167,17 +150,17 @@
         </div>
     </div>
 
-<script>
-$(document).ready(function () {
-  $('#mostrar_contrasena').click(function () {
-    if ($('#mostrar_contrasena').is(':checked')) {
-      $('#password2').attr('type', 'text');
-    } else {
-      $('#password2').attr('type', 'password');
-    }
-  });
-});
-</script>
+    <script>
+        $(document).ready(function() {
+            $('#mostrar_contrasena').click(function() {
+                if ($('#mostrar_contrasena').is(':checked')) {
+                    $('#password2').attr('type', 'text');
+                } else {
+                    $('#password2').attr('type', 'password');
+                }
+            });
+        });
+    </script>
 
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>

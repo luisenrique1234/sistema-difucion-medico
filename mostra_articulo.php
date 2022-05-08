@@ -59,10 +59,14 @@ if ($_SESSION["s_medico"] === null){
   top: 50px;
 }
         .comentario{
-            right: 107px;
+            right: 90px;
         }
         .cojacom{
-            right: 80px;
+            right: 60px;
+        }
+        .gusta{
+            right: -10px;
+            position: relative;
         }
     </style>
 </head>
@@ -85,16 +89,17 @@ if ($_SESSION["s_medico"] === null){
                                     <?php
                                 $public = "SELECT publicacion.id_public,publicacion.titulo_public,publicacion.text_public,publicacion.link_imagen,publicacion.link_video,
                     publicacion.link_audio,publicacion.link_archivo,DATE_FORMAT(publicacion.fecha_public,'%d/%m/%y') AS fecha,publicacion.categoria_public,publicacion.me_gusta_pu,publicacion.referencia_pu,
-                    CONCAT(medico.nombre_medico,' ',medico.apellido_medico) nombreme,especialidad.espec_descripsion FROM publicacion,medico,especialidad WHERE publicacion.id_public=$id AND publicacion.id_medico_pu=medico.id_medico  AND publicacion.estado='A' AND publicacion.estado_articulo='Publico'
+                    CONCAT(medico.nombre_medico,' ',medico.apellido_medico) nombreme,medico.link_foto,medico.id_medico,especialidad.espec_descripsion FROM publicacion,medico,especialidad WHERE publicacion.id_public=$id AND publicacion.id_medico_pu=medico.id_medico  AND publicacion.estado='A' AND publicacion.estado_articulo='Publico'
                     AND publicacion.categoria_public=especialidad.id_espec";
                     $public2 = $mysqli->query($public);
                     while ($res = mysqli_fetch_array($public2)) {
-                        $link_imagen = $res['link_imagen'];
+                        $link_foto = $res['link_foto'];
                         $video = $res['link_video'];
                         $audio = $res['link_audio'];
                         $fecha = $res['fecha'];
                         $archivo = $res['link_archivo'];
                         $nombre = $res['nombreme'];
+                        $backslash='\\'; 
 
                     ?>
                                 <!--animacion js wow fadeInDowm de las publicaciones-->
@@ -102,19 +107,12 @@ if ($_SESSION["s_medico"] === null){
                             <div class="col-md-12 col-sm-12">
                                 <div class="single-blog two-column">
                                     <div class="post-thumb">
-                                        <?php
-                                            if ($link_imagen != '') {
-                                                $elcha='\\';
-
-                                                echo ('<a href="blogdetails.html"><img src="php'.$elcha.'imagenes'.$elcha.''. $link_imagen . '" class="img-responsive" alt="">');
-                                                //echo ("<h4>$link_imagen </h4>");
-                                            } ?></a>
                                     </div>
                                     <div class="post-content overflow">
                                         <h2><?php mostrar($res['titulo_public']); ?></h2>
                                         <h3>Resumen</h3>
                                         <p><?php mostrar($res['text_public']); ?></p>
-                                        <?php echo '<h3 class="post-author"><a href="#">Subido por: ' .$nombre. '</a></h3>' ?>
+                                        <?php echo '<h3 class="post-author"><a target="__blank" href="/medico-red/perfilmedico/pefiles_me.php?id='.$res["id_medico"].'">Subido por:  <img style="border-radius: 30px; position: relative; top: -1px;" src="'.$backslash.'medico-red'.$backslash.'php'.$backslash.'imagenes-perfil'.$backslash.''.$link_foto. '" alt="" width="24" height="24"/>&nbsp; ' .$nombre. '</a></h3>' ?>
                                         <h4>Bibliografia</h4>
                                         <p><?php mostrar($res['referencia_pu']); ?></p>
                                         
@@ -162,9 +160,9 @@ if ($_SESSION["s_medico"] === null){
     <div class=" col-lg-7 col-lg-offset-1 cojacom">
                     <div class="contact-form bottom">
                         <form <?php echo "action='php/comentariop.php?id2=".$id."&accion=INS'  method='post'"; ?> >
-                        <a class="pull-left logocom" href="#">
-                            <img class="media-object" src="images/imagenes_guardadas/dibu1.png" alt="logo" width="45" height="45">
-                        </a>
+                        <?php 
+                        echo'  <a class="pull-left logocom" href="#"><img class="media-object" style="border-radius: 30px;" src="'.$backslash.'medico-red'.$backslash.'php'.$backslash.'imagenes-perfil'.$backslash.''.$_SESSION["s_foto"]. '" alt="logo" width="45" height="45"/></a>';
+                        ?>
                             <div class="form-group">
                                 <textarea name="comentario"  required="required" class="form-control" rows="1" placeholder="Añadir un comentario..."></textarea>
                             </div>
@@ -179,14 +177,16 @@ if ($_SESSION["s_medico"] === null){
 
                                     <?php 
                                     include 'php/conexion.php';
-                                    $comen ="SELECT comentario.text_comen,DATE_FORMAT(comentario.fecha_comen,'%d/%m/%y') AS fecha2,medico.nombre_medico,medico.apellido_medico FROM medico,publicacion,comentario WHERE comentario.id_public_com=publicacion.id_public 
-                                    AND comentario.id_medico_com=medico.id_medico  AND comentario.id_public_com=$id ORDER BY fecha2 DESC";
+                                    $comen ="SELECT comentario.text_comen,DATE_FORMAT(comentario.fecha_comen,'%d/%m/%y') AS fecha2,medico.nombre_medico,medico.apellido_medico,medico.link_foto,medico.id_medico FROM medico,publicacion,comentario WHERE comentario.id_public_com=publicacion.id_public 
+                                    AND comentario.id_medico_com=medico.id_medico  AND comentario.id_public_com=$id ORDER BY fecha2 ASC";
 
                                     $comen2 = $mysqli->query($comen);
                                     while ($resco = mysqli_fetch_array($comen2)) {
                                         $nombre2 = $resco['nombre_medico'];
                                         $apellido2 = $resco['apellido_medico'];
                                         $fecha2 =$resco['fecha2'];
+                                        $link_foto2 =$resco['link_foto'];
+                                        $backslash='\\'; 
 
                                     
                                     ?>
@@ -195,17 +195,19 @@ if ($_SESSION["s_medico"] === null){
                                         <ul class="media-list">
                                             <li class="">
                                                 <div class="">
-                                                    <a class="pull-left" href="#">
-                                                        <img class="media-object" src="images/imagenes_guardadas/dibu1.png" alt="logo" width="45" height="45">
-                                                    </a>
+                                                    <?php 
+                                                    echo'  <a class="pull-left" href="#"><img class="media-object" style="border-radius: 30px; position: relative; top: 15px;" src="'.$backslash.'medico-red'.$backslash.'php'.$backslash.'imagenes-perfil'.$backslash.''.$link_foto2. '" alt="logo" width="45" height="45"/></a>';
+                                                    ?>
                                                     <div class="media-body">
-                                                        <?php echo '<h6 style="display: inline;" class="post-author"><a href="#">' . $nombre2 . " " . $apellido2 . '</a></h6>' ?>
-                                                        <h5><?php mostrar($resco['text_comen']);?></h5>
+                                                        <?php echo '&nbsp;&nbsp;<h6 style="display: inline;" class="post-author"><a target="__blank" href="/medico-red/perfilmedico/pefiles_me.php?id='.$resco["id_medico"].'">' . $nombre2 . " " . $apellido2 . '</a></h6>' ?>
+                                                        <h5>&nbsp;&nbsp;<?php mostrar($resco['text_comen']);?></h5>
+                                                        <div class="gusta">
                                                         <ul class="nav navbar-nav post-nav">
                                                             <li><a href="#"><i class="fa fa-thumbs-up"></i> 25</a></li>
                                                             <li><a href="#">RESPONDER</a></li>
                                                             <li><a href="#">  <?php echo("<spam>$fecha2</spam>");?> <i class="fa fa-clock-o"></i></a></li>
                                                         </ul>
+                                                    </div>
                                                     </div>
                                                 </div>
                                             </li>

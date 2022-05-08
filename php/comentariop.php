@@ -25,6 +25,7 @@
         $comenr=$_POST['comentario'];
         session_start();
         $id_me=$_SESSION["s_idme"];
+        date_default_timezone_set('America/Santo_Domingo');
         $date2 = (new DateTime())->format('y-m-d');
         
     
@@ -49,7 +50,7 @@
     // echo("erro descripcion:" .mysqli_error($mysqli));
     //header("Location: ../propietarip_mant.php?s=".$status);
 
-    header("Refresh: 2; URL= ../memoriac.php?id=".$id2);
+    header("Refresh: 2; URL= ../mostra_articulo.php?id=".$id2);
     echo '
 <script type="text/javascript">
 
