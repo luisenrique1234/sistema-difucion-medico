@@ -43,10 +43,9 @@ $DatesantoTime = date('Y-m-d', time());
     <link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <link href="css/dark.css" rel="stylesheet">
-
-    
-
     <link rel="stylesheet" href="css/boton.css">
+
+    <script src="./contador.js"></script>
     <!--<script src="./contador.js"></script>
     Icon-Font
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>

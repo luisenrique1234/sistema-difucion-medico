@@ -172,21 +172,60 @@ swal({
 if($i=="UDT"){
     $msj='';
 
-
-    $nombre2=$_POST['nombre'];
-    $apellido2=$_POST['apellido'];
-
     $codigom2=$_POST['codigom'];
-     $userac=$_POST['userac'];
-    $sqmedico=$_POST['sqmedico'];
-    $espcial=$_POST['especial'];
-//$contra=$_POST['contra'];
 
-    $especi=$_POST['especial'];
-    $rolme=$_POST['rolm'];
-    
-    //$pass = md5($_POST['contra']);
-    $pass = $_POST['contra'];
+    $file_nameconple = $_FILES['imagen']['name'];
+    list( $file_name) = explode('.', $file_nameconple);
+
+    $new_name_file = null;
+    $new_imgen= null;
+
+    if ($file_name != '' || $file_name != null) {
+        $file_type = $_FILES['imagen']['name'];
+        list($type, $extension) = explode('.', $file_type);
+        if ($extension == 'jpg' || $extension == 'png') {
+            $dir = 'imagenes-perfil/';
+            if (!file_exists($dir)) {
+                mkdir($dir, 0777, true);
+            }
+            $file_tmp_name = $_FILES['imagen']['tmp_name'];
+            //$new_name_file = 'files/' . date('Ymdhis') . '.' . $extension;
+            $new_name_file = $dir . file_name($file_name) . '.' . $extension;
+            if (copy($file_tmp_name, $new_name_file)) {
+                $new_imgen =  str_replace('imagenes-perfil/', '',$new_name_file);
+                
+            }
+        }else{
+            header("Refresh: 4; URL= ../mantenimiento/manteni_medico_edit.php?id=".$codigom2);
+        echo '
+            <script type="text/javascript">
+
+
+            $(document).ready(function(){
+
+	        swal({
+	        title: "Tipo de archivo no permitido, Solo se permiten .jpg y .png",
+		    icon: "warning",
+	        })
+            });
+
+
+            </script>'
+            ; exit;
+        }
+
+    }else{
+        $userme=$_POST['user_me'];
+        $especialida=$_POST['especial'];
+        $nombre2=$_POST['nombreme'];
+        $apellido2=$_POST['apellidome'];
+        $email=$_POST['email'];
+        $trabajo=$_POST['trabajo'];
+        $area=$_POST['area'];
+        $cargo=$_POST['cargo'];
+        $experiencia=$_POST['exper'];
+        $rolme=$_POST['rolm'];
+
     
 
     
@@ -194,10 +233,74 @@ if($i=="UDT"){
     UPDATE `medico` SET
         `nombre_medico` ='$nombre2',
         `apellido_medico` ='$apellido2',
-        `user_medico` ='$userac',
-        `codigo_medico` ='$sqmedico',
-        `especialidadm`='$especi',
-        `contrasena_me`='$pass',
+        `user_medico` ='$userme',
+        `email_me` ='$email',
+        `lugar_trabajo` ='$trabajo',
+        `area_me` ='$area',
+        `cargo_me` ='$cargo',
+        `experiencia_me` ='$experiencia',
+        `especialidadm`='$especialida',
+        `idRol`='$rolme'
+        
+        
+    WHERE
+        id_medico='$codigom2'";
+
+    if($mysqli->query($sql)){
+        $status='successudt';
+    }
+    else{
+        $status='errorudt';
+        echo "error" .mysqli_error($mysqli);
+    }
+    // echo("erro descripcion:" .mysqli_error($mysqli));
+    //header("Location: ../propietarip_mant.php?s=".$msj);
+
+    header("Refresh: 2; URL= ../mantenimiento/mante_medico.php?s=".$status);
+    echo '
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+
+	swal({
+		title: "Editado",
+		icon: "success",
+		
+	  })
+});
+
+
+</script>
+
+';
+exit;
+    }
+    
+
+    $userme=$_POST['user_me'];
+    $especialida=$_POST['especial'];
+    $nombre2=$_POST['nombreme'];
+    $apellido2=$_POST['apellidome'];
+    $email=$_POST['email'];
+    $trabajo=$_POST['trabajo'];
+    $area=$_POST['area'];
+    $cargo=$_POST['cargo'];
+    $experiencia=$_POST['exper'];
+    $rolme=$_POST['rolm'];
+    
+    $sql="
+    UPDATE `medico` SET
+        `nombre_medico` ='$nombre2',
+        `apellido_medico` ='$apellido2',
+        `user_medico` ='$userme',
+        `link_foto` ='$new_imgen',
+        `email_me` ='$email',
+        `lugar_trabajo` ='$trabajo',
+        `area_me` ='$area',
+        `cargo_me` ='$cargo',
+        `experiencia_me` ='$experiencia',
+        `especialidadm`='$especialida',
         `idRol`='$rolme'
         
     WHERE
@@ -213,7 +316,7 @@ if($i=="UDT"){
     // echo("erro descripcion:" .mysqli_error($mysqli));
     //header("Location: ../propietarip_mant.php?s=".$msj);
 
-    header("Refresh: 2; URL= ../mantenimiento/mante_medico.php?s=".$msj);
+    header("Refresh: 2; URL= ../mantenimiento/mante_medico.php?s=".$status);
     echo '
 <script type="text/javascript">
 
@@ -221,7 +324,7 @@ if($i=="UDT"){
 $(document).ready(function(){
 
 	swal({
-		title: "Actualizado",
+		title: "Editado",
 		icon: "success",
 		
 	  })
@@ -232,6 +335,49 @@ $(document).ready(function(){
 
 ';
 }
+
+if($i=="UDTCONTRA"){
+    $msj='';
+
+    $codigom2=$_POST['codigom'];
+    $contra = base64_encode ($_POST['contra']);
+    //echo"<h4> ".base64_decode($contra). "</h4>";
+    $sql="
+    UPDATE `medico` SET
+        `contrasena_me`='$contra'
+    WHERE
+        id_medico='$codigom2'";
+
+    if($mysqli->query($sql)){
+        $status='successdlt';
+    }
+    else{
+        $status='errordlt';
+        echo "error" .mysqli_error($mysqli);
+    }
+    // echo("erro descripcion:" .mysqli_error($mysqli));
+    //header("Location: ../propietarip_mant.php?s=".$msj);
+
+    header("Refresh: 2; URL= ../mantenimiento/mante_medico.php?s=".$status);
+    echo '
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+
+	swal({
+		title: "Contraseña cambiada",
+		icon: "success",
+		
+	  })
+});
+
+
+</script>
+
+';
+}
+
 
 if($i=="UDTCOM"){
     $msj='';
@@ -876,7 +1022,7 @@ if($i=="DLT"){
 $(document).ready(function(){
 
 	swal({
-		title: "ELIMINADO",
+		title: "Desactivado",
 		icon: "error",
 		
 	  })

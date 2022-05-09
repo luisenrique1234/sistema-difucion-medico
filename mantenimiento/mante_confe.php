@@ -88,13 +88,13 @@ if ($_SESSION["s_admin"] === null) {
                                 <!-- fila-->
                                 <th data-hidden="true">Código conferencia</th>
                                 <th data-hidden="true">Nombre médico</th>
-                                <th data-hidden="true">Titulo conferencia</th>
-                                <th data-hidden="true">Autores</th>
+                                <th style=" text-align: center;" data-hidden="true">Titulo conferencia</th>
+                                <th style=" text-align: center;" data-hidden="true">Autores</th>
                                 <th data-hidden="true">Fecha inicio</th>
                                 <th data-hidden="true">Fecha final</th>
                                 <th data-hidden="true">Apoyo</th>
                                 <th data-hidden="true">Categoría</th>
-                                <th data-hidden="tre">Etapa</th>
+                                <th style=" text-align: center;" data-hidden="tre">Etapa</th>
                                 <th>___________________</th>
                                 <th></th>
                             </tr>

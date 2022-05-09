@@ -232,7 +232,7 @@ exit;
 $(document).ready(function(){
 
 	swal({
-		title: "Actualizado",
+		title: "Editado",
 		icon: "success",
 		
 	  })

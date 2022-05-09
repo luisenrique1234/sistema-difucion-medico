@@ -83,12 +83,11 @@ if ($_SESSION["s_admin"] === null) {
                         <thead>
                             <tr style="background-color: #20558A; color:#FFFFFF;">
                                 <!-- fila-->
-                                <th data-hidden="true">Código comentarios</th>
-                                <th data-hidden="true">Médicos</th>
-                                <th data-hidden="true">_____Comentarios_____</th>
-                                <th data-hidden="true">Artículos</th>
-                                <th data-hidden="true">Fechas</th>
-                                <th data-hidden="true">Estados</th>
+                                <th style=" text-align: center;" data-hidden="true">Código comentarios</th>
+                                <th style=" text-align: center;" data-hidden="true">Médicos</th>
+                                <th style=" text-align: center;" data-hidden="true">Comentarios</th>
+                                <th style=" text-align: center;" data-hidden="true">Artículos</th>
+                                <th style=" text-align: center;" data-hidden="true">Fechas</th>
                                 <th data-hidden="true"></th>
                             </tr>
                         </thead>
@@ -106,7 +105,6 @@ if ($_SESSION["s_admin"] === null) {
             <td>" . substr($row["text_comen"],0,300). "</td>
             <td>" . substr($row["titulo_public"],0,300). "</td>
             <td>" . $row["fecha_comen"] . "</td>
-            <td>" . $row["estado"] . "</td>
 			
             <td>
             <a title='Editar Artículo' href='actualizar_comen.php?id=" . $row["id_comen"] . "' class='btn btn-info' style='  font-size: 19px;'><i class='fa fa-pencil' aria-hidden='true'></i></a>

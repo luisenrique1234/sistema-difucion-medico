@@ -99,7 +99,8 @@ if ($_SESSION["s_admin"] === null) {
                                 <th data-hidden="true">Nombre usuario</th>
                                 <th data-hidden="true">Especialidad</th>
                                 <th data-hidden="true">Rol de médico</th>
-                                <th data-hidden="true">Provincia</th>
+                                <th style=" text-align: center;" data-hidden="true">
+                                Lugar de trabaja</th>
                                 
                                 <th></th>
                                 <th></th>
@@ -120,10 +121,10 @@ if ($_SESSION["s_admin"] === null) {
             <td>" . $row["user_medico"]. "</td>
             <td>" . $row["espec_descripsion"] . "</td>
             <td>" . $row["descripcion"] . "</td>
-            <td>" . $row["provincia_me"] . "</td>
+            <td>" . $row["lugar_trabajo"] . "</td>
 			
             <td>
-            <a title='Editar Médico' href='actualizarm_medico.php?id=" . $row["id_medico"] . "' class='btn btn-info' style='  font-size: 19px;'><i class='fa fa-pencil' aria-hidden='true'></i></a>
+            <a title='Editar Médico' href='manteni_medico_edit.php?id=" . $row["id_medico"] . "' class='btn btn-info' style='  font-size: 19px;'><i class='fa fa-pencil' aria-hidden='true'></i></a>
             
             <a title='Eliminar Médico' onclick='return alereliminar(".$row['id_medico'].");'  class='btn btn-danger confirm' style='  font-size: 19px;' ><i class='fa fa-trash' aria-hidden='true'></i></a>
             </td>

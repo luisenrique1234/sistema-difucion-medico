@@ -82,16 +82,16 @@ if ($_SESSION["s_admin"] === null) {
                                 <!-- fila-->
                                 <tr style="background-color: #20558A; color:#FFFFFF;">
                                 <!-- fila-->
-                                <th data-hidden="true">Código public</th>
-                                <th data-hidden="true">Nombre médico</th>
-                                <th data-hidden="true">Tituo</th>
-                                <th data-hidden="true">_____Autor_____</th>
-                                <th data-hidden="true">_________________Publicación______________________</th>
-                                <th data-hidden="true">Referencia</th>
-                                <th data-hidden="true">Fecha publicación</th>
-                                <th data-hidden="true">Categaria</th>
-                                <th data-hidden="true">votos</th>
-                                <th data-hidden="true"></th>
+                                <th data-hidden="true">Código Artículo</th>
+                                <th style=" text-align: center;" data-hidden="true">Nombre médico</th>
+                                <th style=" text-align: center;" data-hidden="true">Titulo</th>
+                                <th style=" text-align: center;" data-hidden="true">Autor</th>
+                                <th style=" text-align: center;" data-hidden="true">Resumen</th>
+                                <th data-hidden="true">Biblografia</th>
+                                <th data-hidden="true">Fecha publicacion</th>
+                                <th data-hidden="true">Categoria</th>
+                                <th data-hidden="true">Apoyo</th>
+                                <th data-hidden="true">____________________</th>
                                 <th data-hidden="true"></th>
                             </tr>
                         </thead>

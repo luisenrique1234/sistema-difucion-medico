@@ -88,7 +88,8 @@ if ($_SESSION["s_admin"] === null) {
                                 <th data-hidden="true">Nombre usuario</th>
                                 <th data-hidden="true">Especialidad</th>
                                 <th data-hidden="true">Rol de médico</th>
-                                <th data-hidden="true">Provincia</th>
+                                <th style=" text-align: center;" data-hidden="true">
+                                Lugar de trabaja</th>
                                 
                                 <th></th>
                                 <th></th>
@@ -109,7 +110,7 @@ if ($_SESSION["s_admin"] === null) {
             <td>" . $row["user_medico"]. "</td>
             <td>" . $row["espec_descripsion"] . "</td>
             <td>" . $row["descripcion"] . "</td>
-            <td>" . $row["provincia_me"] . "</td>
+            <td>" . $row["lugar_trabajo"] . "</td>
 			
             <td>
             <a title='Activar Médico' onclick='return aleractivar2(".$row['id_medico'].");' class='btn btn-success' style='  font-size: 19px;'><i class='fa fa-check'></i></a>

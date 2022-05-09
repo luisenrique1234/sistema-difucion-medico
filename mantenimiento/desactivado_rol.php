@@ -83,9 +83,9 @@ if ($_SESSION["s_admin"] === null) {
                         <thead>
                             <tr style="background-color: #20558A; color:#FFFFFF;">
                                 <!-- fila-->
-                                <th data-hidden="true">Código Rol</th>
+                                <th style=" text-align: center;" data-hidden="true">Código Rol</th>
                                 <!--th colunma-->
-                                <th data-hidden="true">Descrision</th>
+                                <th style=" text-align: center;" data-hidden="true">Descrision</th>
                                 
                                 <th></th>
                                 <th></th>
