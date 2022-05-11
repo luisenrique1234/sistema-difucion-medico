@@ -14,12 +14,14 @@ function mostrar($str)
 session_start();
 if ($_SESSION["s_medico"] === null ){
 	header("Location: ./login.php");
-}else{
-    if($_SESSION["s_idRol2"]==3){
-        header("Location: ./vistas/pag_error.php");
+}elseif($_SESSION["s_idRol2"]==3){
+        header("Location: /medico-red/vistas/pag_error.php");
+    }elseif($_SESSION["s_estado"]=='I'){
+        header("Location: /medico-red/vistas/eliminado.php");
+
     }
     
-}
+
 
 ?>
 <!DOCTYPE html>

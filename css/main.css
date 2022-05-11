@@ -202,6 +202,12 @@
   right: 83px;
   margin-top: 35px;
 }
+.label_seleartimi{
+  position: relative;
+  right: 53px;
+  margin-top: 35px;
+}
+
 .select_bus{
   position: relative;
   margin-top: -35px;
@@ -217,9 +223,12 @@
 }
 .fecha_mis{
   position: relative;
-  right: 24%;
+  right: 28%;
 }
-
+.estadopri{
+  position: relative;
+  right: 22%;
+}
 
 .misconferencia{
   position: relative;

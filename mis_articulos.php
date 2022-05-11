@@ -136,6 +136,15 @@ $buscar='';
                                             value="<?php echo $buscafechahasta=$_POST["buscafechahasta"]; ?>"
                                             style="border: #bababa 1px solid; color:#20558A;">
                                     </div>
+                                    <div class="col-lg-2 col-lg-offset-0 col-xs-12 col-xs-offset-0 estadopri">
+
+                                        <div class="label_seleartimi"><label class="control-label">Estado:</label></div>
+                                        
+                                            <select name="estado" class="form-control select_bus" >
+                                                            <option value="Publico" class="icono" > Público </option>
+                                                            <option value="Privado"><i class="fa fa-eye-slash"></i> Privado</option>
+                                                            </select>
+                                    </div>
                                         </div>
                                 </thead>
                         </table>

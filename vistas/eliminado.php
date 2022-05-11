@@ -17,14 +17,14 @@ if ($_SESSION["s_medico"] === null){
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../css/pag_error.css">
+    <link rel="stylesheet" href="../css/eliminar.css">
 
     
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
 
-    <title>Permisos</title>
+    <title>Eliminado</title>
     <link rel="shortcut icon" href="../images../ico/ico.png" type="image/x-icon">
 </head>
 
@@ -42,14 +42,12 @@ if ($_SESSION["s_medico"] === null){
                     <br>
                     <br>
                     <br>
-                    <div id="login-box" class="col-md-8  bg-light text-dark">
+                    <div id="login-box" class="col-md-9  bg-light text-dark">
                         
-                            <h3 class="text-center text-dark">Su cuenta<span class="btn btn-info"><?php echo $_SESSION["s_medico"];?></span></h3>
+                            <h3 class="text-center text-dark">Su cuenta<span class="btn btn-danger"><?php echo $_SESSION["s_medico"];?></span></h3>
                             
-                            <h3 class="text-center text-dark">No</h3>
-                            <h4 class="text-center text-dark">cuenta con los permisos autorizado 
-                                contacte al personal acreditado a través de este correó:</h4>
-                            <h4 class="text-center text-dark">sistemadedifucionmedico@gmail.com</h4>
+                            <h4 class="text-center text-dark">Esta cuenta fue eliminada por no cumplir con nuestras políticas, póngase en contacto a través de este correó para más información:</h4>
+                            <h4 class="text-center text-dark"> <span class="bg-info">infodifusióndeinformaciónmedica@gmail.com</span></h4>
                             <div class="form-group">
                             
                             </div>
