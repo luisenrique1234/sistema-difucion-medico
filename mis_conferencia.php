@@ -28,6 +28,9 @@ if ($_SESSION["s_medico"] === null){
 }
 
 $buscar='';
+
+date_default_timezone_set('America/Santo_Domingo');
+$DatesantoTime = date('Y-m-d', time());
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -121,7 +124,7 @@ $buscar='';
                                                 </div>
                                                 
 
-                                                <div class=" col-lg-2 col-lg-offset-2 col-xs-12 col-xs-offset-0 fecha_mis">
+                                                <div class=" col-lg-2 col-lg-offset-2 col-xs-12 col-xs-offset-0 fecha_misconf">
 
                                         <div class="label_bus" ><label class="control-label">Fecha desde: </label></div>
                                         <input type="date" id="buscafechadesde" name="buscafechadesde"
@@ -130,7 +133,7 @@ $buscar='';
                                             style="border: #bababa 1px solid; color:#20558A;">
                                     </div>
 
-                                    <div class="col-lg-2 col-lg-offset-1 col-xs-12 col-xs-offset-0 fecha_mis">
+                                    <div class="col-lg-2 col-lg-offset-1 col-xs-12 col-xs-offset-0 fecha_misconf">
 
                                         <div class="label_bus"><label class="control-label">Fecha hasta:</label></div>
                                         <input type="date" id="buscafechahasta" name="buscafechahasta"
@@ -150,12 +153,25 @@ $buscar='';
         <?php 
         /*FILTRO de busqueda////////////////////////////////////////////*/
 
-        if ($buscar == ''  ){ $filtro = "";}else{
-        if ($buscar != ''  ){ $filtro = "AND conferencia.titulo_confe LIKE '%".$buscar."%'";}
+        if ($buscar == '' AND $buscafechadesde=='' AND $buscafechahasta==''   ){ $filtro = "";}else{
+        if ($buscar != '' AND $buscafechadesde=='' AND $buscafechahasta==''  ){ $filtro = "AND conferencia.titulo_confe LIKE '%".$buscar."%'";}
+
+        if ($buscar == '' AND $buscafechadesde!='' AND $buscafechahasta!=''  ){ $filtro = "  AND fachainicio BETWEEN '" . $buscafechadesde . "' AND '" . $buscafechahasta . "'";}
+
+        if ($buscar != '' AND $buscafechadesde!='' AND $buscafechahasta!=''  ){ $filtro = "  AND fachainicio BETWEEN '" . $buscafechadesde . "' AND '" . $buscafechahasta . "' AND conferencia.titulo_confe LIKE '%".$buscar."%'";}
+
+        if ($buscar == '' AND $buscafechadesde!='' AND $buscafechahasta==''  ){ $filtro = "  AND fachainicio BETWEEN '" . $buscafechadesde . "' AND '" . $DatesantoTime . "'";}
+
+        if ($buscar != '' AND $buscafechadesde!='' AND $buscafechahasta==''  ){ $filtro = "  AND fachainicio BETWEEN '" . $buscafechadesde . "' AND '" . $DatesantoTime . "' AND conferencia.titulo_confe LIKE '%".$buscar."%'";}
+
+        if ($buscar == '' AND $buscafechadesde=='' AND $buscafechahasta!=''  ){ $filtro = " ";}
+
+        if ($buscar != '' AND $buscafechadesde=='' AND $buscafechahasta!=''  ){ $filtro = "AND conferencia.titulo_confe LIKE '%".$buscar."%'";}
         
         }
+        echo "<h4>$filtro </h4>";
         $id_med=$_SESSION["s_idme"];
-        $sql2=("SELECT conferencia.id_confe,conferencia.titulo_confe,conferencia.autores_confe,conferencia.material_confe,conferencia.fachainicio,conferencia.fechafinal,conferencia.categoria_confe,
+        $sql2=("SELECT conferencia.id_confe,conferencia.titulo_confe,conferencia.autores_confe,conferencia.material_confe,DATE_FORMAT(conferencia.fachainicio,'%Y-%m-%d') AS fechainicio,conferencia.fachainicio,conferencia.fechafinal,conferencia.categoria_confe,
         conferencia.etapa_confe,conferencia.visttas_confe,conferencia.recordatorio,especialidad.espec_descripsion FROM conferencia,especialidad WHERE conferencia.categoria_confe=especialidad.id_espec AND conferencia.id_userme='$id_med' AND conferencia.estado='A' $filtro ");
         $sql= $mysqli->query($sql2);
         $numeroSql = mysqli_num_rows($sql);
@@ -176,7 +192,6 @@ $buscar='';
                 <?php while ($rowSql = mysqli_fetch_assoc($sql)){ 
                         
                         $archivo= $rowSql["material_confe"];
-                        
                         $fecha2=$rowSql["fachainicio"];
                         $inicial = date_create($fecha2)->format('d/m/y  g:iA');
                         $fecha3=$rowSql["fechafinal"];
@@ -220,9 +235,6 @@ $buscar='';
 </div>
 </div>
 </div>
-
-
-
 </div>
 </div>
 
