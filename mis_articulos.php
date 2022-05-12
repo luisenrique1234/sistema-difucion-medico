@@ -4,7 +4,7 @@
 
 
 // Desactivar toda notificación de error si quieres ver los errores tienes que quitar esta linea
-error_reporting(0);
+//error_reporting(0);
 
 
 
@@ -28,6 +28,7 @@ if ($_SESSION["s_medico"] === null){
 }
 
 $buscar='';
+$buscarestado='Todos';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -140,7 +141,12 @@ $buscar='';
 
                                         <div class="label_seleartimi"><label class="control-label">Estado:</label></div>
                                         
-                                            <select name="estado" class="form-control select_bus" >
+                                            <select  id="buscarestado" name="buscarestado" class="form-control select_bus" >
+                                            <?php if ($_POST["buscarestado"] != ''){ ?>
+                                            <option value="<?php echo $_POST["buscarestado"]; ?>">
+                                                <?php echo $buscarestado=$_POST["buscarestado"]; ?></option>
+                                            <?php } ?>
+                                                            <option value="Todos">Todos</option>
                                                             <option value="Publico" class="icono" > Público </option>
                                                             <option value="Privado"><i class="fa fa-eye-slash"></i> Privado</option>
                                                             </select>
@@ -156,10 +162,26 @@ $buscar='';
         <?php 
         /*FILTRO de busqueda////////////////////////////////////////////*/
 
-        if ($buscar == ''  ){ $filtro = "";}else{
-        if ($buscar != ''  ){ $filtro = "AND publicacion.titulo_public LIKE '%".$buscar."%'";}
+        if ($buscar == '' AND $buscafechadesde =='' AND $buscafechahasta=='' AND $buscarestado =='Todos'  ){ $filtro = "";}else{
+        if ($buscar != ''  AND $buscafechadesde =='' AND $buscafechahasta=='' AND $buscarestado =='Todos'  ){ $filtro = "AND (publicacion.titulo_public LIKE '%".$buscar."%' OR publicacion.text_public LIKE '%".$buscar."%' OR publicacion.contendio_pdf LIKE '%".$buscar."%' 
+            OR publicacion.etiqueta LIKE '%".$buscar."%' OR publicacion.referencia_pu LIKE '%".$buscar."%')";}
+            //estados filtros-----------------
+            if ($buscar == ''  AND $buscafechadesde =='' AND $buscafechahasta=='' AND $buscarestado !='Todos'  ){ $filtro = "AND publicacion.estado_articulo = '".$buscarestado."'";}
+
+            if ($buscar == ''  AND $buscafechadesde !='' AND $buscafechahasta !='' AND $buscarestado !='Todos'){ $filtro = " AND publicacion.estado_articulo = '".$buscarestado."' AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$buscafechahasta."'";}
+
+            if ($buscar != ''  AND $buscafechadesde =='' AND $buscafechahasta=='' AND $buscarestado !='Todos'  ){ $filtro = "AND publicacion.estado_articulo = '".$buscarestado."'AND (publicacion.titulo_public LIKE '%".$buscar."%' OR publicacion.text_public LIKE '%".$buscar."%' OR publicacion.contendio_pdf LIKE '%".$buscar."%' 
+                OR publicacion.etiqueta LIKE '%".$buscar."%' OR publicacion.referencia_pu LIKE '%".$buscar."%')";}
+
+                if ($buscar != ''  AND $buscafechadesde !='' AND $buscafechahasta !='' AND $buscarestado !='Todos'){ $filtro = " AND publicacion.estado_articulo = '".$buscarestado."' AND publicacion.fecha_public BETWEEN '".$buscafechadesde."' AND '".$buscafechahasta."'AND (publicacion.titulo_public LIKE '%".$buscar."%' 
+                    OR publicacion.text_public LIKE '%".$buscar."%' OR publicacion.contendio_pdf LIKE '%".$buscar."%' 
+                    OR publicacion.etiqueta LIKE '%".$buscar."%' OR publicacion.referencia_pu LIKE '%".$buscar."%')";}
+        //--------------------------------------------------------------------------------------------------------------
+
+        
         
         }
+        echo"<h4>$filtro </h4>";
         $id_med=$_SESSION["s_idme"];
         $sql2=("SELECT publicacion.id_public,publicacion.titulo_public,publicacion.text_public,publicacion.autor_pu,publicacion.link_video,publicacion.estado_articulo,
         publicacion.link_audio,publicacion.link_archivo,DATE_FORMAT(publicacion.fecha_public,'%d/%m/%y') AS fecha,publicacion.categoria_public,publicacion.me_gusta_pu,publicacion.referencia_pu,
