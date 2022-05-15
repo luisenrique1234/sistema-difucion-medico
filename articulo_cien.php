@@ -257,7 +257,8 @@ $DatesantoTime = date('Y-m-d', time());
                         <?php include_once "./php/boton_medico.php"; ?>
                     </div>
                     <!--*******************************************************-->
-                    <div class="blog-pagination">
+                    <!--zona de paginacion de la pagina
+                        <div class="blog-pagination">
                         <ul class="pagination">
                             <li><a href="#">left</a></li>
                             <li class="active"><a href="#">1</a></li>
@@ -271,7 +272,7 @@ $DatesantoTime = date('Y-m-d', time());
                             <li><a href="#">9</a></li>
                             <li><a href="#">right</a></li>
                         </ul>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>

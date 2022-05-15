@@ -4,7 +4,7 @@
 
 
 // Desactivar toda notificación de error si quieres ver los errores tienes que quitar esta linea
-//error_reporting(0);
+error_reporting(0);
 
 
 

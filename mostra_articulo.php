@@ -87,18 +87,17 @@ if ($_SESSION["s_medico"] === null){
                             <div class="single-blog blog-details two-column">
                                 <div class="post-thumb">
                                     <?php
-                                $public = "SELECT publicacion.id_public,publicacion.titulo_public,publicacion.text_public,publicacion.link_imagen,publicacion.link_video,
-                    publicacion.link_audio,publicacion.link_archivo,DATE_FORMAT(publicacion.fecha_public,'%d/%m/%y') AS fecha,publicacion.categoria_public,publicacion.me_gusta_pu,publicacion.referencia_pu,
+                                $public = "SELECT publicacion.id_public,publicacion.titulo_public,publicacion.text_public,publicacion.autor_pu,
+                    publicacion.link_archivo,DATE_FORMAT(publicacion.fecha_public,'%d/%m/%y') AS fecha,publicacion.categoria_public,publicacion.me_gusta_pu,publicacion.referencia_pu,
                     CONCAT(medico.nombre_medico,' ',medico.apellido_medico) nombreme,medico.link_foto,medico.id_medico,especialidad.espec_descripsion FROM publicacion,medico,especialidad WHERE publicacion.id_public=$id AND publicacion.id_medico_pu=medico.id_medico  AND publicacion.estado='A' AND publicacion.estado_articulo='Publico'
                     AND publicacion.categoria_public=especialidad.id_espec";
                     $public2 = $mysqli->query($public);
                     while ($res = mysqli_fetch_array($public2)) {
                         $link_foto = $res['link_foto'];
-                        $video = $res['link_video'];
-                        $audio = $res['link_audio'];
                         $fecha = $res['fecha'];
                         $archivo = $res['link_archivo'];
                         $nombre = $res['nombreme'];
+                        $autores= $res['autor_pu'];
                         $backslash='\\'; 
 
                     ?>
@@ -112,16 +111,27 @@ if ($_SESSION["s_medico"] === null){
                                         <h2><?php mostrar($res['titulo_public']); ?></h2>
                                         <h3>Resumen</h3>
                                         <p><?php mostrar($res['text_public']); ?></p>
-                                        <?php echo '<h3 class="post-author"><a target="__blank" href="/medico-red/perfilmedico/pefiles_me.php?id='.$res["id_medico"].'">Subido por:  <img style="border-radius: 30px; position: relative; top: -1px;" src="'.$backslash.'medico-red'.$backslash.'php'.$backslash.'imagenes-perfil'.$backslash.''.$link_foto. '" alt="" width="24" height="24"/>&nbsp; ' .$nombre. '</a></h3>' ?>
+                                        <?php echo '<h3 class="post-author"><a target="__blank" href="/medico-red/perfilmedico/pefiles_me.php?id='.$res["id_medico"].'">Subido por:  <img style="border-radius: 30px; position: relative; top: -1px;" src="'.$backslash.'medico-red'.$backslash.'php'.$backslash.'imagenes-perfil'.$backslash.''.$link_foto. '" alt="" width="24" height="24"/>&nbsp; ' .$nombre. ' </a> </h3>' ?>
+                                        <div class="col-sm-6">
+                                        <h5  style="right: 12px; display: inline; position: relative; top: 10px;">Autores:</h5> <?php echo "<span style='left: 45px; position:  relative; top: -12px;'>$autores</span>"; ?>
+                                        </div>
+                                        
+                                        <div style="right: 12px; position: relative;" class="col-sm-12">
                                         <h4>Bibliografia</h4>
-                                        <p><?php mostrar($res['referencia_pu']); ?></p>
-                                        
-                                        
+                                        <?php mostrar($res['referencia_pu']); ?>
+                                        <br>
+                                        </div>
+                                        <br>
+                                            <br>
+                                        <div class="col-sm-6">
                                         <?php
                                             if ($archivo != '') {
-                                                echo ('<h4 style="display: inline;" class="post-author"><a href="php/' . $archivo . '"download="sistema-difucion-medica"><i class="fa fa-download"></i> Descargar Archivo</a> </h4>                    
-                                                &nbsp;&nbsp;&nbsp;&nbsp;<a style="font-size: 17px;" title="Contenido del pdf" target="__blank" href="contenido_pdf.php?id='.$res["id_public"].'"><i class="fa fa-external-link"></i>');
+                                                echo ('<h4 style="right: 12px; position: relative; display: inline;" class="post-author"><a href="php/' . $archivo . '"download="sistema-difucion-medica"><i class="fa fa-download"></i> Descargar Archivo</a> </h4>                    
+                                                &nbsp;&nbsp;<a style="font-size: 17px;" title="Contenido del pdf" target="__blank" href="contenido_pdf.php?id='.$res["id_public"].'"><i class="fa fa-external-link"></i>');
                                             }?>
+                                        </div>
+                                            <br>
+                                            <br>
                                             <br>
                                         <div class="">
                                             <ul class="nav navbar-nav post-nav">
