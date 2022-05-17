@@ -142,10 +142,10 @@ if ($_SESSION["s_admin"] === null) {
     <div class="navbar-end">
     <div class="navbar-item">
     <div class="navbar-item has-dropdown is-hoverable">
-    <a href="#" style="background-color: #20558A; color: white;" class="button"><?php echo $_SESSION["s_admin"]; ?>. .<i class="fa fa-user"></i></a>
+    <a href="/medico-red/perfiladmin/pefil_admin.php" style="background-color: #20558A; color: white;" class="button"><?php echo $_SESSION["s_admin"]; ?>. .<i class="fa fa-user"></i></a>
 
         <ul class="navbar-dropdown">
-          <a href="#" class="navbar-item">
+          <a href="/medico-red/perfiladmin/pefil_admin.php" class="navbar-item">
           Mi perfil
           </a>
           <a onclick="return alercerrarsision();" class="navbar-item">

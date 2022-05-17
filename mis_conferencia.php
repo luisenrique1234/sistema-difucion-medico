@@ -169,7 +169,6 @@ $DatesantoTime = date('Y-m-d', time());
         if ($buscar != '' AND $buscafechadesde=='' AND $buscafechahasta!=''  ){ $filtro = "AND conferencia.titulo_confe LIKE '%".$buscar."%'";}
         
         }
-        echo "<h4>$filtro </h4>";
         $id_med=$_SESSION["s_idme"];
         $sql2=("SELECT conferencia.id_confe,conferencia.titulo_confe,conferencia.autores_confe,conferencia.material_confe,DATE_FORMAT(conferencia.fachainicio,'%Y-%m-%d') AS fechainicio,conferencia.fachainicio,conferencia.fechafinal,conferencia.categoria_confe,
         conferencia.etapa_confe,conferencia.visttas_confe,conferencia.recordatorio,especialidad.espec_descripsion FROM conferencia,especialidad WHERE conferencia.categoria_confe=especialidad.id_espec AND conferencia.id_userme='$id_med' AND conferencia.estado='A' $filtro ");

@@ -1,7 +1,26 @@
 <?php
 
+function perfil_admin(){
+    include('conexion.php');
+    
+    $id_admin=$_SESSION["s_idadmin"];
+    $sql="SELECT administrador.adminis,administrador.id_admin,rol.descripcion FROM administrador,rol WHERE administrador.idRolA=rol.id_roles  AND id_admin='$id_admin' AND idRolA='1'";
+    return $result = $mysqli->query($sql);
+}
+function extraadmin($id){
+    include('conexion.php');
+    $sql="SELECT * FROM administrador where id_admin='$id'";
+    return $result = $mysqli->query($sql);
+}
+?>
+
+
+
+<?php
+
 /* parte donde esta la Consutal de todos las publicaciones de los medico lista de las publicaciones que 
 ellos mis han publicado y se extra las mismas */
+
 
 
 function lista_medico(){
