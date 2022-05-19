@@ -148,6 +148,9 @@ if ($_SESSION["s_admin"] === null) {
           <a href="/medico-red/perfiladmin/pefil_admin.php" class="navbar-item">
           Mi perfil
           </a>
+          <a href="/medico-red/mantenimiento/mante_admin.php" class="navbar-item">
+          Administradores
+          </a>
           <a onclick="return alercerrarsision();" class="navbar-item">
           Cerrar sesion
           </a>

@@ -85,7 +85,7 @@ if ($_SESSION["s_admin"] === null) {
                                 <!-- fila-->
                                 <th style=" text-align: center;" data-hidden="true">Código Rol</th>
                                 <!--th colunma-->
-                                <th style=" text-align: center;" data-hidden="true">Descrision</th>
+                                <th style=" text-align: center;" data-hidden="true">Descripción</th>
                                 
                                 <th></th>
                                 <th></th>

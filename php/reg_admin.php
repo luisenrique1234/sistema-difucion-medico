@@ -1,6 +1,6 @@
 <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../js/jquery341.min.js"></script>
+    <script src="../js/sweetalert.min.js"></script>
     <script src="../codigo.js"></script>
 </head>
 
@@ -9,6 +9,136 @@ include 'conexion2p.php';
 $i = '';
 if (isset($_GET['accion'])) {
     $i = $_GET['accion'];
+}
+
+if ($i=="INS"){
+        
+
+    $nombread=$_POST['nombread'];
+    $passwor= base64_encode ($_POST['pass']);
+    $idrol=$_POST['roladmin'];
+    //$date = (new DateTime())->format('y-m-d');
+
+
+$sql = " INSERT INTO `administrador` ( `adminis`,`pass`,`idRolA`,`estado`) 
+VALUES (
+
+    '$nombread',
+    '$passwor',
+    '$idrol',
+    'A')";
+
+
+if ($mysqli->query($sql))
+{
+    $status='success';
+}
+else{
+    $status='error';
+    echo "error" .mysqli_error($mysqli);
+}
+
+header("Refresh: 2; URL= ../mantenimiento/mante_admin.php?s=".$status);
+echo '
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+
+swal({
+    title: "Administrador creado",
+    icon: "success",
+  })
+});
+
+
+</script>
+
+';
+}
+
+if ($i == "UDT2") {
+    $msj = '';
+
+    $codigoadm = $_POST['codigoadm'];
+    $admin = $_POST['nombread'];
+    $roladm = $_POST['roladmin'];
+    $pass = base64_encode ($_POST['pass']);
+
+
+    $sql = "
+    UPDATE `administrador` SET
+        `adminis`='$admin',
+        `pass`='$pass',
+        `idRolA`='$roladm'
+        
+    WHERE
+        id_admin ='$codigoadm'";
+
+    if ($mysqli->query($sql)) {
+        $status = 'successudt';
+    } else {
+        $status = 'errorudt';
+        echo "error" . mysqli_error($mysqli);
+    }
+
+    header("Refresh: 2; URL= ../mantenimiento/mante_admin.php?s=" . $status);
+    echo '
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+
+	swal({
+		title: "Administrador editado",
+		icon: "success",
+		
+	  })
+});
+
+
+</script>
+
+';
+}
+
+if ($i == "DLT") {
+    $msj = '';
+
+    $codigo=$_GET['id'];
+
+    $sql = "
+    UPDATE `administrador` SET
+        `estado`='I'
+        
+    WHERE
+        id_admin ='$codigo'";
+
+    if ($mysqli->query($sql)) {
+        $status = 'successudt';
+    } else {
+        $status = 'errorudt';
+        echo "error" . mysqli_error($mysqli);
+    }
+
+    header("Refresh: 2; URL= ../mantenimiento/mante_admin.php?s=" . $status);
+    echo '
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+
+	swal({
+		title: "Desactivado",
+		icon: "error",
+		
+	  })
+});
+
+
+</script>
+
+';
 }
 
 if ($i == "UDT") {

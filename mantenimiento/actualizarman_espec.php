@@ -45,11 +45,7 @@ header("Location: ../vistas/pag_error.php");
 	    <script src="js/html5shiv.js"></script>
 	    <script src="js/respond.min.js"></script>
     <![endif]-->
-    <link rel="shortcut icon" href="images/ico/ico.png">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/ico.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/ico.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/ico.png">
-    <link rel="apple-touch-icon-precomposed" href="images/ico/ico.png">
+    <link rel="shortcut icon" href="../images/ico/ico.png">
 </head>
 <body class="dark" style="background: #F1F1F1">
 

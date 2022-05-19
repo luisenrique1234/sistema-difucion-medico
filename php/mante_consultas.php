@@ -14,6 +14,23 @@ function extraadmin($id){
 }
 ?>
 
+<?php
+
+function perfiles_admin(){
+    include('conexion.php');
+    
+    
+    $sql="SELECT administrador.adminis,administrador.id_admin,rol.descripcion FROM administrador,rol WHERE administrador.idRolA=rol.id_roles   
+    AND administrador.estado='A' ";
+    return $result = $mysqli->query($sql);
+}
+function extraeradmin($id){
+    include('conexion.php');
+    $sql="SELECT * FROM administrador where id_admin='$id'";
+    return $result = $mysqli->query($sql);
+}
+?>
+
 
 
 <?php

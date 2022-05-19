@@ -22,7 +22,7 @@ if ($_SESSION["s_admin"] === null) {
         header("Location: ../vistas/pag_error.php");
     }
 }
-
+date_default_timezone_set('America/Santo_Domingo'); 
 $date = (new DateTime())->format('d/m/y');
 ob_start();
 

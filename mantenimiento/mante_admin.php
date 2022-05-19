@@ -1,6 +1,6 @@
 <?php
 
-include('../php/consultas_desa.php');
+include('../php/mante_consultas.php');
 /*esta fucion sirve para converti toddos los carateres como acentos en formato
 uti-8 indenpedientemente de cual fuera su formato de  origen todo se convertira en 
 utf-8 para que asi todos tengan el mismo formato*/
@@ -33,7 +33,7 @@ if ($_SESSION["s_admin"] === null) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Mantenimiento desactivado rol</title>
+    <title>Mantenimiento de Rol</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/lightbox.css" rel="stylesheet">
@@ -72,19 +72,19 @@ if ($_SESSION["s_admin"] === null) {
             <br>
                 <br>
                 <br>
-                <h1> Listado de Roles médicos desctivado</h1>
+                <h1> Listado de Administradores</h1>
                 <div class="panel-body">
                     
-                       <a title="Reporte" href="#" class="btn btn-success" style='  font-size: 19px;'> <i class="fa fa-print" aria-hidden="true"></i></a>
-                    
+                        <a href="registro_admin.php" class="btn btn-info pull-letf" style='font-size: 19px;'><i class="fa fa-id-card-o"></i> <i class="fa fa-plus"></i></a>
+                        <a title="Reporte"  href="../reportes/reporte_admin.php" class="btn btn-success" style='  font-size: 19px;'> <i class="fa fa-print" aria-hidden="true"></i></a>
                     <br>
                     <hr>
                     <table class="table tabla1" style="text-align: center;">
                         <thead>
                             <tr style="background-color: #20558A; color:#FFFFFF;">
                                 <!-- fila-->
-                                <th style=" text-align: center;" data-hidden="true">Código Rol</th>
-                                <!--th colunma-->
+                                <th style=" text-align: center;" data-hidden="true">Código administrador</th>
+                                <th style="text-align: center;" data-hidden="true">Nombre</th>
                                 <th style=" text-align: center;" data-hidden="true">Descripción</th>
                                 
                                 <th></th>
@@ -94,17 +94,18 @@ if ($_SESSION["s_admin"] === null) {
                         <?php
                         
                         
-                        $query = lista_desactivadorol();
+                        $query = perfiles_admin();
                         while ($row = $query->fetch_assoc()) {
-                            //$fecha2=$row["fecha_public"];
-                        //$final = date_create($fecha2)->format('d/m/y');
                             echo "
             <tr>
-            <td>" . $row["id_roles"] . "</td>
+            <td>" . $row["id_admin"] . "</td>
+            <td>" . $row["adminis"] . "</td>
             <td>" . $row["descripcion"] . "</td>
 			
             <td>
-            <a onclick='return aleractivarrol(".$row['id_roles'].");' class='btn btn-success' style='  font-size: 19px;'><i class='fa fa-check'></i></a>
+            <a href='editar_admin.php?id=" . $row["id_admin"] . "' class='btn btn-info' style='  font-size: 19px;'><i class='fa fa-pencil' aria-hidden='true'></i></a>
+            
+            <a onclick='return aleratadmin(".$row["id_admin"].");' class='btn btn-danger confirm' style='  font-size: 19px;'><i class='fa fa-trash' aria-hidden='true'></i></a>
             </td>
             </tr>
 
@@ -147,6 +148,7 @@ if ($_SESSION["s_admin"] === null) {
         <script type="text/javascript" src="../js/main.js"></script>
         <script type="text/javascript" src="../js/mante_buscador.js"></script>
         <script type="text/javascript" src="../js/mante_alertas.js"></script>
+        <script type="text/javascript" src="../js/alerta_admin.js"></script>
         <!--LUgar donde esta el ativador del../ modo oscuro -->
         <script type="text/javascript" src="../js/temad.js"></script>
     </body>

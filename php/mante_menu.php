@@ -45,6 +45,7 @@
                                 <a href="/medico-red/perfiladmin/pefil_admin.php" class="btn btn-info"><?php echo $_SESSION["s_admin"]; ?>. .<i class="fa fa-user"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="/medico-red/perfiladmin/pefil_admin.php">Mi perfil</a></li>
+                                    <li><a href="/medico-red/mantenimiento/mante_admin.php">Administradores </a></li>
                                     <li><a  onclick="return alertaactivar();">Cerrar sesion</a></li>
                                 </ul>
                             </li>
