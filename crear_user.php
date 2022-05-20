@@ -84,7 +84,7 @@
                                 <div class="col-md-6 col-md-offset-0">
                                     <div class="form-group">
                                         <label class="control-label"><i class="fa fa-id-card"></i> Exequátur<span style="color: red">*</span></label>
-                                        <input type="text" name="exequ" required placeholder="Ej. E1W2D2" class="form-control">
+                                        <input type="text" name="exequ" minlength="6" maxlength="6" required placeholder="Ej. E1W2D2" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-md-offset-0">

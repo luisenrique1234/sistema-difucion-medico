@@ -1,7 +1,7 @@
 <head>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="../codigo.js"></script>
+    <script src="../js/jquery341.min.js"></script>
+    <script src="../js/sweetalert.min.js"></script>
+    <script src="../codigo.js"></script>
 </head>
  
 <?php
@@ -30,53 +30,86 @@
         $experiencia=$_POST['exper'];
         $pass = base64_encode($_POST['password']);
         //$date = (new DateTime())->format('y-m-d');
+        $verificar='';
+                                        $getAlumno1 = "SELECT * FROM  medico";
+                                        $gerAlumno2 = $mysqli->query($getAlumno1);
+                                        while ($row2 = mysqli_fetch_array($gerAlumno2)) {
+                                            $id2 = $row2['id_medico'];
+                                            $exqu2=$exqua;
+                                            if($exqu2==$id2){
+                                                $verificar='coincidencia';
+                                            }
+                                        }
+                                        if($verificar=='coincidencia'){
+                                            //echo"<h4>coincidencia $exqu2==$id2 </h4>";
+                                            header("Refresh: 2; URL= ../crear_user.php");
+                                            echo '
+                                        <script type="text/javascript">
+                                        
+                                        
+                                        $(document).ready(function(){
+                                        
+                                            swal({
+                                                title: "El código Exequátur que utilizo ya está registrado",
+                                                icon: "warning",
+                                              })
+                                        });
+                                        
+                                        
+                                        </script>
+                                        
+                                        ';
 
+                                        }elseif($verificar==''){
+                                            //echo"<h4>nuevo $exqu2 </h4>";
+                                            //exit;
+
+                                            $sql = " INSERT INTO `medico` ( `id_medico`,`nombre_medico`,`apellido_medico`,`user_medico`, `link_foto`, `email_me`, `lugar_trabajo`, `area_me`, `cargo_me`, `experiencia_me`, `codigo_medico`,`especialidadm`,`idRol`,`contrasena_me`, `estado`) 
+                                            VALUES (
+                                        
+                                                '$exqua',
+                                                '$nombre',
+                                                '$apellido',
+                                                '$userme',
+                                                'perfil_default.jpg',
+                                                '$email',
+                                                '$trabajo',
+                                                '$area',
+                                                '$cargo',
+                                                '$experiencia',
+                                                '$exqua',
+                                                '$especialida',
+                                                '3',
+                                                '$pass',
+                                                'A')";
+                                            
+                                        
+                                           if ($mysqli->query($sql))
+                                            {
+                                                $status='success';
+                                            }
+                                            else{
+                                                $status='error';
+                                                echo "error" .mysqli_error($mysqli);
+                                            }
+                                        
+                                            header("Refresh: 2; URL= ../login.php?s=".$status);
+                                            echo '
+                                        <script type="text/javascript">
+                                        
+                                        
+                                        $(document).ready(function(){
+                                        
+                                            swal({
+                                                title: "REGISTRADO",
+                                                icon: "success",
+                                              })
+                                        });
+                                        </script>
+                                        ';
+                                        }
     
-    $sql = " INSERT INTO `medico` ( `nombre_medico`,`apellido_medico`,`user_medico`, `link_foto`, `email_me`, `lugar_trabajo`, `area_me`, `cargo_me`, `experiencia_me`, `codigo_medico`,`especialidadm`,`idRol`,`contrasena_me`, `estado`) 
-    VALUES (
-
-        '$nombre',
-        '$apellido',
-        '$userme',
-        'perfil_default.jpg',
-        '$email',
-        '$trabajo',
-        '$area',
-        '$cargo',
-        '$experiencia',
-        '$exqua',
-        '$especialida',
-        '3',
-        '$pass',
-        'A')";
-    
-
-   if ($mysqli->query($sql))
-    {
-        $status='success';
-    }
-    else{
-        $status='error';
-        echo "error" .mysqli_error($mysqli);
-    }
-
-    header("Refresh: 2; URL= ../login.php?s=".$status);
-    echo '
-<script type="text/javascript">
-
-
-$(document).ready(function(){
-
-	swal({
-		title: "REGISTRADO",
-		icon: "success",
-	  })
-});
-
-
-</script>
-
-';
+   
 }
 
 
