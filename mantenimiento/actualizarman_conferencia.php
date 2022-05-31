@@ -72,7 +72,7 @@ header("Location: ../vistas/pag_error.php");
                                                 <div class="col-md-5 col-md-offset-1 col-sm-4 col-sm-offset-2">
                                                     <div class="form-group">
                                                         <label class="control-label"><i class="fa fa-header"></i>  Titulo de la conferencia<span
-                                                                style="color: #20558A">*</span></label>
+                                                                style="color: red">*</span></label>
                                                         <input type="text" name="titulo" required="required"
                                                             placeholder="Titulo" class="form-control" value="<?php echo $row['titulo_confe']?>">
                                                     </div>
@@ -81,7 +81,7 @@ header("Location: ../vistas/pag_error.php");
                                                 <div class="col-md-5 col-md-offset-0 col-sm-4 col-sm-offset-2">
                                                     <div class="form-group">
                                                     <label class="control-label"><i class="fa fa-link" aria-hidden="true"></i> Link de la conferencia<span
-                                                            style="color: #20558A">*</span></label>
+                                                            style="color: red">*</span></label>
                                                     <div class="form-group">
                                                     <input type="text" name="link" required="required"
                                                             placeholder="LInk conferencia" class="form-control" value="<?php echo $row['link_confe']?>">
@@ -94,7 +94,7 @@ header("Location: ../vistas/pag_error.php");
                                                 <div class="col-lg-5 col-lg-offset-1 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
                                                         <label class="control-label"><i class="fa fa-calendar" aria-hidden="true"></i> Fecha de inicio<span
-                                                                style="color: #20558A">*</span></label>
+                                                                style="color: red">*</span></label>
                                                                 <input type="datetime-local" name="fechini" required="required"
                                                             placeholder="Fecha inicio" class="form-control" value="<?php echo $row['fachainicio']?>">
                                                     </div>
@@ -103,7 +103,7 @@ header("Location: ../vistas/pag_error.php");
                                                     <div class="col-lg-5 col-lg-offset-0 col-xs-12 col-xs-offset-0">
                                                     
                                                         <label class="control-label"><i class="fa fa-calendar" aria-hidden="true"></i> Fecha de Cierre<span
-                                                                style="color: #20558A">*</span></label>
+                                                                style="color: red">*</span></label>
                                                                 <input type="datetime-local" name="fechfinal" required="required"
                                                             placeholder="Fecha Cierre" class="form-control" value="<?php echo $row['fechafinal']?>">
                                                     
@@ -111,8 +111,8 @@ header("Location: ../vistas/pag_error.php");
 
                                                 <div class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-                                                        <label class="control-label"><i class="fa fa-users" aria-hidden="true"></i>  Participantes <span
-                                                                style="color: #20558A">*</span></label>
+                                                        <label class="control-label"><i class="fa fa-users" aria-hidden="true"></i>  Participantes<span
+                                                                style="color: red">*</span></label>
                                                         <textarea name="parti" id="parti" required="required"
                                                             class="form-control" rows="3"
                                                             placeholder="Participantes"><?php echo $row['autores_confe']?></textarea>
@@ -122,7 +122,7 @@ header("Location: ../vistas/pag_error.php");
                                                 <div class="col-lg-5 col-lg-offset-1 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
                                                         <label class="control-label"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Estado de la conferencia<span
-                                                                style="color: #20558A">*</span></label>
+                                                                style="color: red">*</span></label>
                                                                 <select name="etapa" class="form-control" required="required">
                                                                     <option value="Programada" <?php if($row['etapa_confe']=='Programada'){echo "selected";} ?>>Programada</option>
                                                                     <option value="En vivo" <?php if($row['etapa_confe']=='En vivo'){echo "selected";} ?>>En vivo</option>
@@ -133,8 +133,8 @@ header("Location: ../vistas/pag_error.php");
 
                                                 <div class="col-lg-5 col-lg-offset-0 col-xs-12 col-xs-offset-0">
                                                 <div class="form-group">
-                                                        <label  class="control-label"><i class="fa fa-tag"></i> Tema<span
-                                                                style="color:#20558A">*</span> </label>
+                                                        <label  class="control-label"><i class="fa fa-tag"></i> Categoría<span
+                                                                style="color:red">*</span> </label>
                                                     
 
                                                         <select name="tema" class="form-control" required="required">

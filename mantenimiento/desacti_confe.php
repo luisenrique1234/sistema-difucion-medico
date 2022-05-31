@@ -91,8 +91,8 @@ if ($_SESSION["s_admin"] === null) {
                                 <th style=" text-align: center;" data-hidden="true">Autores</th>
                                 <th data-hidden="true">Fecha inicio</th>
                                 <th data-hidden="true">Fecha final</th>
-                                <th data-hidden="true">Apoyo</th>
-                                <th data-hidden="true">Tema</th>
+                                <th data-hidden="true">Visitas</th>
+                                <th data-hidden="true">Categoría</th>
                                 <th data-hidden="tre">Etapa</th>
                                 <th>___________________</th>
                                 <th></th>

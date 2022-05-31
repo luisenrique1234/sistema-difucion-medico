@@ -113,7 +113,7 @@ if ($_SESSION["s_medico"] === null ){
         <?php 
         /*FILTRO de busqueda////////////////////////////////////////////*/
         $sql2=("SELECT  conferencia.id_confe,conferencia.titulo_confe,conferencia.autores_confe,conferencia.material_confe,conferencia.fachainicio,conferencia.fechafinal,conferencia.categoria_confe,
-        conferencia.etapa_confe,conferencia.visttas_confe,conferencia.link_confe,especialidad.espec_descripsion FROM conferencia,especialidad WHERE conferencia.categoria_confe=especialidad.id_espec  AND conferencia.estado='A'  ORDER BY conferencia.fachainicio DESC LIMIT 0,9  ");
+        conferencia.etapa_confe,conferencia.visttas_confe,conferencia.link_confe,medico.id_medico,CONCAT(medico.nombre_medico,' ',medico.apellido_medico) nombreme,especialidad.espec_descripsion FROM conferencia,especialidad,medico WHERE conferencia.categoria_confe=especialidad.id_espec AND conferencia.id_userme=medico.id_medico  AND conferencia.estado='A'  ORDER BY conferencia.fachainicio DESC LIMIT 0,9  ");
         $sql= $mysqli->query($sql2);
         //$numeroSql = mysqli_num_rows($sql);
 
@@ -140,8 +140,8 @@ if ($_SESSION["s_medico"] === null ){
                             <div class="imag-ultim text-center">
                         <img src="images/play4.png"  width="75" height="75">
                         <br>
-                        <h4 style="display: inline;"><?php echo (' <a href="'.$rowSql["link_confe"].'" target="_blank"> '.$titulo_con. '</a>');?></h4>
-                        <br><h5 style="display: inline;">Autor: </h5> <?php echo substr($rowSql["autores_confe"],0,25); ?><?php echo(' <a href="'.$rowSql["link_confe"].'" target="_blank"> <i class="fa fa-external-link"></i></a>');?>
+                        <h4 style="display: inline;"><?php echo (' <a title="LInk conferencia" href="'.$rowSql["link_confe"].'" target="_blank"> '.$titulo_con. '</a>');?></h4>
+                        <br><h5 style="display: inline;">Anfitrión: </h5> <?php echo substr($rowSql["nombreme"],0,25); ?><?php echo(' <a href="/medico-red/perfilmedico/pefiles_me.php?id='.$rowSql["id_medico"].'" target="_blank"> <i class="fa fa-external-link"></i></a>');?>
                         <br>
                         <h5 style="display: inline;">Tema:</h5> <?php echo $rowSql['espec_descripsion']; ?> &nbsp;&nbsp; <?php  if ($archivo != '') { echo ('<h5 style="display: inline;"><a href="php/' . $archivo . '"download="sistema-difucion-medica-conferencia"><i class="fa fa-download"></i></a></h5>'); }?> </h5><?php echo $inicial; ?>
                         </div>
@@ -217,7 +217,7 @@ if ($_SESSION["s_medico"] === null ){
         $sql= $mysqli->query($sql2);
         //$numeroSql = mysqli_num_rows($sql);
         ?>
-    <h3><i class="fa fa-heartbeat"></i> Artículos más apoyados</h3>
+    <h3><i class="fa fa-heartbeat"></i> Artículos con más me gusta</h3>
         
                <main class="columna-perso">
                 <?php while ($rowSql = mysqli_fetch_assoc($sql)){ 

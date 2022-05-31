@@ -91,7 +91,7 @@ if ($_SESSION["s_admin"] === null) {
                                 <th data-hidden="true">Biblografia</th>
                                 <th data-hidden="true">Fecha publicacion</th>
                                 <th data-hidden="true">Categoria</th>
-                                <th data-hidden="true">Apoyo</th>
+                                <th data-hidden="true">Me gustas</th>
                                 <th data-hidden="true">____________________</th>
                                 <th data-hidden="true"></th>
                             </tr>

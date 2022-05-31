@@ -67,7 +67,7 @@ $id_med=$_SESSION["s_idme"];
                 <div class="col-md-6 col-sm-12">
                                 <div class="col-md-10 col-sm-9">
                                 <div class="">
-                                    <h3>Apoyo de los artículos</h3>
+                                    <h3>Me gustas de los artículos</h3>
                             </div>
                             <div class="">
                                     <div style="width: 500px;">
@@ -117,7 +117,7 @@ $id_med=$_SESSION["s_idme"];
   const data = {
     labels: labels,
     datasets: [{
-      label: 'Apoyo de los artículo',
+      label: 'Me gusta de los artículos',
       data: <?php echo json_encode($amount) ?>,
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',

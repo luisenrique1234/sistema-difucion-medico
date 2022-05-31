@@ -89,7 +89,7 @@ ob_start();
                                 <th data-hidden="true">Autores</th>
                                 <th data-hidden="true">Fecha inicio</th>
                                 <th data-hidden="true">Fecha final</th>
-                                <th data-hidden="true">Apoyo</th>
+                                <th data-hidden="true">Visitas</th>
                                 <th data-hidden="true">Categoría</th>
                                 <th data-hidden="tre">Etapa</th>
                                 <th>___________________</th>
