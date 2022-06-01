@@ -87,7 +87,7 @@ if ($_SESSION["s_medico"] === null){
                                                 <div class="col-md-5 col-md-offset-1 col-sm-4 col-sm-offset-2">
                                                     <div class="form-group">
                                                         <label class="control-label"><i class="fa fa-header"></i> Titulo de la conferencia<span
-                                                                style="color: #20558A">*</span></label>
+                                                                style="color: red">*</span></label>
                                                         <input type="text" name="titulo" required="required"
                                                             placeholder="Mí conferencia" class="form-control">
                                                     </div>
@@ -96,7 +96,7 @@ if ($_SESSION["s_medico"] === null){
                                                 <div class="col-md-5 col-md-offset-0 col-sm-4 col-sm-offset-2">
                                                     <div class="form-group">
                                                     <label class="control-label"><i class="fa fa-link"></i> Link de la conferencia<span
-                                                            style="color: #20558A"> *</span></label>
+                                                            style="color: red">*</span></label>
                                                     <div class="form-group">
                                                     <input type="text" name="link" required="required"
                                                             placeholder="https://www.youtube.com/mi-conferecia" class="form-control">
@@ -109,7 +109,7 @@ if ($_SESSION["s_medico"] === null){
                                                 <div class="col-lg-5 col-lg-offset-1 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
                                                         <label class="control-label"><i class="fa fa-calendar"></i> Fecha de inicio<span
-                                                                style="color: turquoise">*</span></label>
+                                                                style="color: red">*</span></label>
                                                                 <input type="datetime-local" name="fechini" required="required"
                                                             placeholder="Fecha inicio" class="form-control">
                                                     </div>
@@ -117,14 +117,15 @@ if ($_SESSION["s_medico"] === null){
 
                                                     <div class="col-lg-5 col-lg-offset-0 col-xs-12 col-xs-offset-0">
                                                         <label class="control-label"><i class="fa fa-calendar"></i> Fecha de Cierre<span
-                                                                style="color: turquoise">*</span></label>
+                                                                style="color: red">*</span></label>
                                                                 <input type="datetime-local" name="fechfinal" required="required"
                                                             placeholder="Fecha Cierre" class="form-control">
                                                 </div>
 
                                                 <div class="col-lg-10 col-lg-offset-1 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-                                                        <label class="control-label"><i class="fa fa-users"></i> Participantes</label>
+                                                        <label class="control-label"><i class="fa fa-users"></i> Participantes<span
+                                                                style="color: red">*</span></label>
                                                         <textarea name="parti" id="parti" required="required"
                                                             class="form-control" rows="3"
                                                             placeholder="Agregar participante"></textarea>
@@ -133,7 +134,7 @@ if ($_SESSION["s_medico"] === null){
                                                 <div class="col-lg-5 col-lg-offset-1 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
                                                     <label  class="control-label"><i class="fa fa-tag"></i> Tema<span
-                                                                style="color:#20558A">*</span> </label>
+                                                                style="color: red">*</span> </label>
                                                     
 
                                                         <select name="tema" class="form-control" required="required">
@@ -155,7 +156,8 @@ if ($_SESSION["s_medico"] === null){
                                                     </div>
                                                 </div>
                                                 <div  class=" col-sm-offset-1 col-lg-5 col-lg-offset-0 col-xs-12 col-xs-offset-0">
-                                                    <label class="control-label"><i class="fa fa-file-pdf-o"></i> Subir material de apoyo</label>
+                                                    <label class="control-label"><i class="fa fa-file-pdf-o"></i> Subir material de apoyo<span
+                                                                style="color: red">*</span></label>
                                                     <input type="file" name="archivo" >
                                                 </div>
                                                 <br>

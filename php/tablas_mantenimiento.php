@@ -17,61 +17,100 @@
 
      if ($i=="INS"){
         
-
-        $nombre=$_POST['nombre'];
-        $apellido=$_POST['apellido'];
-        $codime2=$_POST['sqmedico'];
-        $user=$_POST['userac'];
-        $pass = md5($_POST['contra']);
-        $rol=$_POST['rolm'];
-        $prov=$_POST["provicia"];
-
-        $espec=$_POST['especial'];
+        
+        $rolme=$_POST['rolm'];
+        $userme=$_POST['user_me'];
+        $nombre=$_POST['nombreme'];
+        $apellido=$_POST['apellidome'];
+        $trabajo=$_POST['trabajo'];
+        $area=$_POST['area'];
+        $cargo=$_POST['cargo'];
+        $exqua=$_POST['Exequ'];
+        $especialida=$_POST['especial'];
+        $email=$_POST['email'];
+        $experiencia=$_POST['exper'];
+        $pass = base64_encode($_POST['contra']);
         //$date = (new DateTime())->format('y-m-d');
+        $verificar='';
+                                        $getAlumno1 = "SELECT * FROM  medico";
+                                        $gerAlumno2 = $mysqli->query($getAlumno1);
+                                        while ($row2 = mysqli_fetch_array($gerAlumno2)) {
+                                            $id2 = $row2['id_medico'];
+                                            $exqu2=$exqua;
+                                            if($exqu2==$id2){
+                                                $verificar='coincidencia';
+                                            }
+                                        }
+                                        if($verificar=='coincidencia'){
+                                            //echo"<h4>coincidencia $exqu2==$id2 </h4>";
+                                            header("Refresh: 2; URL= ../mantenimiento/nuevoma_medico.php");
+                                            echo '
+                                        <script type="text/javascript">
+                                        
+                                        
+                                        $(document).ready(function(){
+                                        
+                                            swal({
+                                                title: "El código Exequátur que utilizo ya está registrado",
+                                                icon: "warning",
+                                              })
+                                        });
+                                        
+                                        
+                                        </script>
+                                        
+                                        ';
 
+                                        }elseif($verificar==''){
+                                            //echo"<h4>nuevo $exqu2 </h4>";
+                                            //exit;
+
+                                            $sql = " INSERT INTO `medico` ( `id_medico`,`nombre_medico`,`apellido_medico`,`user_medico`, `link_foto`, `email_me`, `lugar_trabajo`, `area_me`, `cargo_me`, `experiencia_me`, `codigo_medico`,`especialidadm`,`idRol`,`contrasena_me`, `estado`) 
+                                            VALUES (
+                                        
+                                                '$exqua',
+                                                '$nombre',
+                                                '$apellido',
+                                                '$userme',
+                                                'perfil_default.jpg',
+                                                '$email',
+                                                '$trabajo',
+                                                '$area',
+                                                '$cargo',
+                                                '$experiencia',
+                                                '$exqua',
+                                                '$especialida',
+                                                '$rolme',
+                                                '$pass',
+                                                'A')";
+                                            
+                                        
+                                           if ($mysqli->query($sql))
+                                            {
+                                                $status='success';
+                                            }
+                                            else{
+                                                $status='error';
+                                                echo "error" .mysqli_error($mysqli);
+                                            }
+                                        
+                                            header("Refresh: 2; URL= ../mantenimiento/mante_medico.php?s=".$status);
+                                            echo '
+                                        <script type="text/javascript">
+                                        
+                                        
+                                        $(document).ready(function(){
+                                        
+                                            swal({
+                                                title: "REGISTRADO",
+                                                icon: "success",
+                                              })
+                                        });
+                                        </script>
+                                        ';
+                                        }
     
-    $sql = " INSERT INTO `medico` ( `nombre_medico`,`apellido_medico`,`user_medico`, `codigo_medico`,`especialidadm`,`provincia_me`,`idRol`,`contrasena_me`, `estado`) 
-    VALUES (
-
-        '$nombre',
-        '$apellido',
-        '$user',
-        '$codime2',
-        '$espec',
-        '$prov',
-        '$rol',
-        '$pass',
-        'A')";
-    
-
-   if ($mysqli->query($sql))
-    {
-        $status='success';
-    }
-    else{
-        $status='error';
-        echo "error" .mysqli_error($mysqli);
-    }
-    // echo("erro descripcion:" .mysqli_error($mysqli));
-    //header("Location: ../propietarip_mant.php?s=".$status);
-
-    header("Refresh: 2; URL= ../mantenimiento/mante_medico.php?s=".$status);
-    echo '
-<script type="text/javascript">
-
-
-$(document).ready(function(){
-
-	swal({
-		title: "REGISTRADO",
-		icon: "success",
-	  })
-});
-
-
-</script>
-
-';
+   
 }
 
 if ($i=="INSROL"){

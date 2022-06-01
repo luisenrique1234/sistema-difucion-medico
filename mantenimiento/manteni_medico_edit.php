@@ -81,7 +81,7 @@ if ($_SESSION["s_admin"] === null) {
                     <a class="btn btn-default fileinput-button" onclick="document.getElementById('file').click()">Actualizar</a>
                     <input type='file' style="display:none" id="file" name="imagen" accept="image/*" onchange="mostrar()">
                   </spam>
-                  <h4 class="mb-0 text-left"><i class="fa fa-id-card-o"></i> Rol médico:</h4>
+                  <h4 class="mb-0 text-left"><i class="iconData fa fa-id-card-o"></i> Rol médico:</h4>
                   <select name="rolm" class="form-control" required="required">
                     <?php
                     include '../php/conexion.php';
