@@ -210,11 +210,11 @@ if ($_SESSION["s_medico"] === null){
                                                 <div
                                                     class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-lg-6 col-lg-offset-3 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-                                                        <label class="control-label">Bibliografia<span
+                                                        <label class="control-label">Bibliografía<span
                                                                 style="color: turquoise">*</span></label>
                                                         <div class="form-group">
                                                             <textarea name="biblio" id="biblio" 
-                                                                class="form-control" placeholder="Bibliografia" cols="40"
+                                                                class="form-control" placeholder="Bibliografía" cols="40"
                                                                 rows="2" style="resize: both;"><?php echo $row['bibliografia'];?></textarea>
                                                         </div>
                                                     </div>
@@ -231,7 +231,7 @@ if ($_SESSION["s_medico"] === null){
                                                 <div
                                                     class="col-md-3 col-md-offset-2 col-sm-3 col-sm-offset-2 col-lg-3 col-lg-offset-3 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-                                                                <input style="background-color: #5dcfcf; color:#000000;" type="hidden" name="categoria" require="" placeholder="categoria" class="form-control" readonly="" value="<?php echo $row['cotegoria_inv']?>">
+                                                                <input style="background-color: #5dcfcf; color:#000000;" type="hidden" name="categoria" require="" placeholder="categoría" class="form-control" readonly="" value="<?php echo $row['cotegoria_inv']?>">
                                                     </div>
                                                 </div>
                                                 <!-- parte que ocupada la pantalla completa -->

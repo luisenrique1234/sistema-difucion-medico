@@ -162,7 +162,7 @@ header("Location: ../vistas/pag_error.php");
                                                     <div class="form-group">
                                                         <!--<label  class="control-label">Categoria<span
                                                                 style="color:turquoise">*</span> </label>-->
-                                                                <input style="background-color: #45bcdb; color:#000000;" type="hidden"  name="categoria" require="" placeholder="categoria" class="form-control" readonly="" value="<?php echo $_SESSION["s_espeme"];?>">
+                                                                <input style="background-color: #45bcdb; color:#000000;" type="hidden"  name="categoria" require="" placeholder="categoría" class="form-control" readonly="" value="<?php echo $_SESSION["s_espeme"];?>">
                                                     </div>
                                                 </div>
                                                 

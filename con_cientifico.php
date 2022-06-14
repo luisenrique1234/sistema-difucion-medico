@@ -249,7 +249,7 @@ if ($_SESSION["s_medico"] === null){
                                                         <br>
                                                         <?php
                                                          if ($biblo != '') { echo"
-                                                        <font face='times new toman' size=6>Bibliografia</font>
+                                                        <font face='times new toman' size=6>Bibliografía</font>
                                                         <br>
                                                         <br>
                                                         <font face='Times New Roman' size=4>$biblo</font>);

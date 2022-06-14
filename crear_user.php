@@ -60,7 +60,7 @@
 
                                 <div class="col-md-6 col-md-offset-0">
                                     <div class="form-group">
-                                        <label class="control-label"><i class="iconData fa fa-home "></i>Lugar de trabaja<span style="color: red">*</span></label>
+                                        <label class="control-label"><i class="iconData fa fa-home "></i>Lugar de trabajo<span style="color: red">*</span></label>
                                         <input type="text" name="trabajo" required placeholder="Ej. Clinica Nombre" class="form-control">
                                     </div>
                                 </div>

@@ -117,7 +117,7 @@ if ($_SESSION["s_medico"] === null){
                                         </div>
                                         
                                         <div style="right: 12px; position: relative;" class="col-sm-12">
-                                        <h4>Bibliografia</h4>
+                                        <h4>Bibliografía</h4>
                                         <?php mostrar($res['referencia_pu']); ?>
                                         <br>
                                         </div>

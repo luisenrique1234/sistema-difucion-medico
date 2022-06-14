@@ -131,7 +131,7 @@ if ($_SESSION["s_medico"] === null){
                                                 
                                                 <div class="col-md-3 col-md-offset-2 col-sm-3 col-sm-offset-2 col-lg-3 col-lg-offset-3 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-                                                        <input  type="hidden" name="categoria" require="" placeholder="categoria" class="form-control" readonly="" value="<?php echo $row['categoria_public']?>">
+                                                        <input  type="hidden" name="categoria" require="" placeholder="categoría" class="form-control" readonly="" value="<?php echo $row['categoria_public']?>">
                                                     </div>
                                                 </div>
                                                 <!--<div  class="col-lg-2 col-lg-offset-0 col-xs-12 col-xs-offset-0">

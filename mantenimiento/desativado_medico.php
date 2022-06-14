@@ -89,7 +89,7 @@ if ($_SESSION["s_admin"] === null) {
                                 <th data-hidden="true">Especialidad</th>
                                 <th data-hidden="true">Rol de médico</th>
                                 <th style=" text-align: center;" data-hidden="true">
-                                Lugar de trabaja</th>
+                                Lugar de trabajo</th>
                                 
                                 <th></th>
                                 <th></th>

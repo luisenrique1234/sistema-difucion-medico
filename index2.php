@@ -113,7 +113,7 @@ $tipo='Todos';
                                 <thead>
                                         <div>
                                                 <div class="col-lg-2 col-lg-offset-2 col-xs-12 col-xs-offset-0">    
-                                                <label  class="control-label">Categoria </label>
+                                                <label  class="control-label">Categoría </label>
                                                         <select id="assigned-tutor-filter" id="buscacategoria" name="buscacategoria" class="form-control mt-2">
                                                                 <?php if ($_POST["buscacategoria"] != ''){ ?>
                                                                 <option value="<?php echo $_POST["buscacategoria"]; ?>"><?php echo $buscacategoria=$_POST["buscacategoria"]; ?></option>
@@ -213,7 +213,7 @@ $tipo='Todos';
                         <tr style="background-color: #0d87ac; color:#FFFFFF;">
                                 <th style=" text-align: center;"> Tilulo </th>
                                 <th style=" text-align: center;"> publicacion</th>
-                                <th style=" text-align: center;"> Categoria </th>
+                                <th style=" text-align: center;"> Categoría </th>
                                 <th style=" text-align: center;"> Fecha </th>
                                 <th style=" text-align: center;"> tipo </th>
                                 <th style="text-align: center;">Ver</th>

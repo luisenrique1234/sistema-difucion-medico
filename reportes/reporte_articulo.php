@@ -77,7 +77,7 @@ ob_start();
                                 <th style=" text-align: center;"data-hidden="true">Autor</th>
                                 <th style=" text-align: center;"data-hidden="true">Resumen</th>
                                 <th data-hidden="true">Biblografia</th>
-                                <th data-hidden="true">Fecha publicacion</th>
+                                <th data-hidden="true">Fecha publicación</th>
                                 <th data-hidden="true">Categoría</th>
                                 <th data-hidden="true">Me gustas</th>
                                 <th data-hidden="true">____________________</th>

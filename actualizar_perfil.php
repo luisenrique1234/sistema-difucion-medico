@@ -81,7 +81,7 @@ if ($_SESSION["s_medico"] === null) {
                                                 <div class="col-md-1 col-md-offset-1 col-sm-1 col-sm-offset-2 col-lg-2 col-lg-offset-5 col-xs-12 col-xs-offset-0">
                                             <div class="form-group">
                                                                 <input style="background-color: #5cc4dc; color:#000000;" type="hidden" 
-                                                                name="codigom" require="" placeholder="categoria" class="form-control" readonly="" value="<?php echo $row['id_medico']?>">
+                                                                name="codigom" require="" placeholder="categoría" class="form-control" readonly="" value="<?php echo $row['id_medico']?>">
                                             </div>
 				                            </div>
                                                 <div class="col-md-1 col-md-offset-1 col-sm-1 col-sm-offset-2 col-lg-3 col-lg-offset-5 col-xs-12 col-xs-offset-0">
