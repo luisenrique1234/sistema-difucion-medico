@@ -71,7 +71,7 @@ if ($_SESSION["s_medico"] === null){
 
                                                 <div class="col-md-10 col-md-offset-1 col-sm-4 col-sm-offset-2">
                                                     <div class="form-group">
-                                                        <label class="control-label"><i class="fa fa-header"></i> Titulo del Artículo<span
+                                                        <label class="control-label"><i class="fa fa-header"></i> Título del Artículo<span
                                                                 style="color: red">*</span></label>
                                                         <input type="text" name="titulo" required="required"
                                                         class="form-control" readonly value="<?php echo $row['titulo_public']?>">
@@ -191,7 +191,7 @@ if ($_SESSION["s_medico"] === null){
                 <div class="col-sm-12 ">
                     <div class="col-sm-12">
                         <div class=" copyright-text text-center ">
-                            <p>Sistema de difusión de información medica 2022. Todos los derechos reservados.</p>
+                            <p>Sistema de difusión de información médica 2022. Todos los derechos reservados.</p>
                             <p>Diseñado por: <a  target="_blank" href="http://luis-enrique.com">Sr.LEGG</a></p>
                         </div>
                     </div>

@@ -40,7 +40,7 @@ $DatesantoTime = date('Y-m-d', time());
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Mis Conferencia</title>
+    <title>Mis Conferencias</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/lightbox.css" rel="stylesheet">
@@ -89,7 +89,7 @@ $DatesantoTime = date('Y-m-d', time());
    <div class="fom_buscar">     
 <br>
         
-<h3 class="col-lg-5 col-lg-offset-5 col-xs-12 col-xs-offset-0">Mis Conferencia</h3>
+<h3 class="col-lg-5 col-lg-offset-5 col-xs-12 col-xs-offset-0">Mis Conferencias</h3>
 
 <form id="form2" name="form2" method="POST" action="mis_conferencia.php">
         
@@ -111,7 +111,7 @@ $DatesantoTime = date('Y-m-d', time());
                                                 <button class="btn btn-info mis_conferencia" type="sumit" ><i class="fa fa-search" aria-hidden="true"></i></button>
                                                 </div>
                                                 <div class="col-lg-6 col-lg-offset-0 col-xs-12 col-xs-offset-0 misconferencia">
-                                                <label  class="form-label">Titulo de la Conferencia</label>
+                                                <label  class="form-label">Título de la Conferencia</label>
                                                 
                                                 
                                                 <input   type="text" class="form-control"  id="buscar" name="buscar" value="<?php  echo $buscar = $_POST["buscar"]?>"  >

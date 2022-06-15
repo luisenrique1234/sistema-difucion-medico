@@ -85,7 +85,7 @@ if ($_SESSION["s_admin"] === null) {
                                 <!-- fila-->
                                 <th data-hidden="true">Código Artículo</th>
                                 <th data-hidden="true">Nombre médico</th>
-                                <th style=" text-align: center;" data-hidden="true">Titulo</th>
+                                <th style=" text-align: center;" data-hidden="true">Título</th>
                                 <th style=" text-align: center;" data-hidden="true">Autor</th>
                                 <th style=" text-align: center;" data-hidden="true">Resumen</th>
                                 <th data-hidden="true">Biblografia</th>
@@ -137,7 +137,7 @@ if ($_SESSION["s_admin"] === null) {
                 <div class="col-sm-12 ">
                     <div class="col-sm-12">
                         <div class=" copyright-text text-center ">
-                            <p>Sistema de difusión de información medica 2022. Todos los derechos reservados.</p>
+                            <p>Sistema de difusión de información médica 2022. Todos los derechos reservados.</p>
                             <p>Diseñado por: <a target="_blank" href="http://luis-enrique.com">Sr.LEGG</a></p>
                         </div>
                     </div>

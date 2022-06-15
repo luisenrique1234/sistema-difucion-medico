@@ -89,7 +89,7 @@ if ($_SESSION["s_medico"] === null){
 				                            </div>
                                                 <div class="col-lg-6 col-lg-offset-3 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-                                                        <label class="control-label">Titulo<span
+                                                        <label class="control-label">Título<span
                                                                 style="color: turquoise">*</span></label>
                                                         <input type="text" name="titulo" required="required"
                                                             placeholder="Titulo" class="form-control" value="<?php echo $row['titulo_inv']?>">

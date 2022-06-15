@@ -101,7 +101,7 @@ $tipo='Todos';
             <div class="col-lg-9 col-lg-offset-1 col-xs-12 col-xs-offset-0 ">
             
             <h3 class="card-title">Buscador</h3>
-                    <label  class="form-label">Titulo a buscar</label>
+                    <label  class="form-label">Título a buscar</label>
                      
                     <input type="text" class="form-control" id="buscar" name="buscar" value="<?php echo $busca=$_POST["buscar"];?>"  >
                     

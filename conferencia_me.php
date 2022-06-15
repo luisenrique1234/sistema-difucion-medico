@@ -141,7 +141,7 @@ $buscarespec='Todos';
                                                 <button class="btn btn-info conferencia" type="sumit" ><i class="fa fa-search" aria-hidden="true"></i></button>
                                                 </div>
                                                 <div class="col-lg-4 col-lg-offset-0 col-xs-12 col-xs-offset-0 ">
-                                                <label  class="form-label">Titulo de la Conferencia</label>
+                                                <label  class="form-label">Título de la Conferencia</label>
                                                 
                                                 
                                                 <input   type="text" class="form-control"  id="buscar" name="buscar" value="<?php  echo $buscar = $_POST["buscar"]?>"  >
@@ -241,7 +241,7 @@ $minufinal=substr($rowSql["fechafinal"],14,2);
 
                         ?>
                         <tr class="col-lg-8 col-lg-offset-1 col-xs-12 col-xs-offset-0" >
-                        <td class="col-lg-8" ><h4 style="display: inline;">Titulo:</h4><?php echo  $rowSql["titulo_confe"]; ?>    
+                        <td class="col-lg-8" ><h4 style="display: inline;">Título:</h4><?php echo  $rowSql["titulo_confe"]; ?>    
                         <br><h5 style="display: inline;">Por:</h5> <?php echo $rowSql["autores_confe"]; ?> 
                         <br>
                         <h5 style="display: inline;">Especialidad:</h5> <?php echo $rowSql["espec_descripsion"]; ?>

@@ -75,7 +75,7 @@ header("Location: ../vistas/pag_error.php");
 				                            </div>
                                                 <div class="col-md-5 col-md-offset-1 col-sm-4 col-sm-offset-2">
                                                     <div class="form-group">
-                                                        <label class="control-label"><i class="fa fa-header"></i>  Titulo del Artículo <span
+                                                        <label class="control-label"><i class="fa fa-header"></i>  Título del Artículo <span
                                                                 style="color: #20558A">*</span></label>
                                                         <input type="text"  required="required" readonly
                                                             placeholder="Titulo" class="form-control" value="<?php echo $row['titulo_public']?>">
@@ -139,7 +139,7 @@ header("Location: ../vistas/pag_error.php");
                 <div class="col-sm-12 ">
                     <div class="col-sm-12">
                         <div class=" copyright-text text-center ">
-                            <p>Sistema de difusión de información medica 2022. Todos los derechos reservados.</p>
+                            <p>Sistema de difusión de información médica 2022. Todos los derechos reservados.</p>
                             <p>Diseñado por: <a  target="_blank" href="http://luis-enrique.com">Sr.LEGG</a></p>
                         </div>
                     </div>

@@ -93,7 +93,7 @@ $DatesantoTime = date('Y-m-d', time());
                                                     <button class="btn btn-info mis_conferencia" type="sumit"><i class="fa fa-search" aria-hidden="true"></i></button>
                                                 </div>
                                                 <div class="col-lg-6 col-lg-offset-0 col-xs-12 col-xs-offset-0 misconferencia">
-                                                    <label class="form-label">Titulo del Artículo</label>
+                                                    <label class="form-label">Título del Artículo</label>
 
 
                                                     <input type="text" class="form-control" id="buscar" name="buscar" value="<?php echo $buscar = $_POST["buscar"] ?>">
@@ -243,7 +243,7 @@ $DatesantoTime = date('Y-m-d', time());
                                                     <td class="col-lg-10">
                                                         <i class="fa fa-heart" aria-hidden="true"> <?php echo $rowSql["me_gusta_pu"]; ?></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-comments"> <?php echo $rowSql["me_gusta_pu"]; ?> </i>
                                                         <br>
-                                                        <h5 style="display: inline;">Titulo:</h5><?php mostrar($rowSql['titulo_public']); ?>
+                                                        <h5 style="display: inline;">Título:</h5><?php mostrar($rowSql['titulo_public']); ?>
                                                         <br>
                                                         <h5 style="display: inline;">Resumen: </h5><?php mostrar(substr($rowSql['text_public'], 0, 200)); ?>
                                                         <h5 class="altura" style="display: inline; position: relative; top: -10px;">Autores:</h5> <?php echo "<span style='left: 56px; position:  relative; top: -29px;'>$autores</span>"; ?>

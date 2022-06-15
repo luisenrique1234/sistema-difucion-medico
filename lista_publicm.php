@@ -78,7 +78,7 @@ if ($_SESSION["s_medico"] === null) {
                         <thead>
                             <tr style="background-color: #45bcdb; color:#FFFFFF;">
                                 <!-- fila-->
-                                <th>Titulo</th>
+                                <th>Título</th>
                                 <!--th colunma-->
                                 <th>Autor</th>
                                 <th>Resumen</th>
@@ -131,7 +131,7 @@ if ($_SESSION["s_medico"] === null) {
                         <thead>
                             <tr style="background-color: #45bcdb; color:#FFFFFF;">
                                 <!-- fila-->
-                                <th>Titulo</th>
+                                <th>Título</th>
                                 <!--th colunma-->
                                 <th>Autor</th>
                                 <th>Resumen</th>
