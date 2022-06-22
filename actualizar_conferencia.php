@@ -126,6 +126,7 @@ if ($_SESSION["s_medico"] === null){
                                                                 <select name="etapa" class="form-control" required="required">
                                                                     <option value="Programada" <?php if($row['etapa_confe']=='Programada'){echo "selected";} ?>>Programada</option>
                                                                     <option value="En vivo" <?php if($row['etapa_confe']=='En vivo'){echo "selected";} ?>>En vivo</option>
+                                                                    <option value="Terminada" <?php if($row['etapa_confe']=='Terminada'){echo "selected";} ?>>Terminada</option>
                                                 
                                                                     </select>
                                                     </div>
