@@ -133,7 +133,7 @@ if ($_SESSION["s_medico"] === null){
                                                 </div>
                                                 <div class="col-lg-5 col-lg-offset-1 col-xs-12 col-xs-offset-0">
                                                     <div class="form-group">
-                                                    <label  class="control-label"><i class="fa fa-tag"></i> Tema<span
+                                                    <label  class="control-label"><i class="fa fa-tag"></i> Categoría<span
                                                                 style="color: red">*</span> </label>
                                                     
 
