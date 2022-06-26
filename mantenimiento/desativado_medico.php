@@ -102,6 +102,7 @@ if ($_SESSION["s_admin"] === null) {
                         while ($row = $query->fetch_assoc()) {
                             //$fecha2=$row["fecha_public"];
                         //$final = date_create($fecha2)->format('d/m/y');
+                        $comillas='"';
                             echo "
             <tr>
             <td>" . $row["id_medico"] . "</td>
@@ -113,7 +114,7 @@ if ($_SESSION["s_admin"] === null) {
             <td>" . $row["lugar_trabajo"] . "</td>
 			
             <td>
-            <a title='Activar Médico' onclick='return aleractivar2(".$row['id_medico'].");' class='btn btn-success' style='  font-size: 19px;'><i class='fa fa-check'></i></a>
+            <a title='Activar Médico' onclick='return aleractivar2($comillas".$row['id_medico']."$comillas);' class='btn btn-success' style='  font-size: 19px;'><i class='fa fa-check'></i></a>
             </td>
             </tr>
             ";

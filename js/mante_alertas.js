@@ -1,7 +1,7 @@
-function alereliminar(codigo) {
 
+function alereliminar(codigo) {
     Swal.fire({
-title: '<h3>¿Estas Segura de eliminar el ID:'+codigo+'?</h3>',
+title: '<h3>¿Estas Segura de desactivar el ID:'+codigo+'?</h3>',
 icon: 'warning',
 showCancelButton: true,
 confirmButtonColor: '#20558A',
@@ -20,7 +20,7 @@ window.location.href = '../php/tablas_mantenimiento.php?accion=DLT&id='+codigo
 function alerpublicele(codigo3) {
 
     Swal.fire({
-title: '<h3>¿Estas Segura de eliminar el ID:'+codigo3+'?</h3>',
+title: '<h3>¿Estas Segura de desactivar el ID:'+codigo3+'?</h3>',
 icon: 'warning',
 showCancelButton: true,
 confirmButtonColor: '#20558A',
@@ -39,7 +39,7 @@ window.location.href = '../php/tablas_mantenimiento.php?accion=DLTPU&id='+codigo
 function alercomentario(codigo4) {
 
   Swal.fire({
-title: '<h3>¿Estas Segura de eliminar el ID:'+codigo4+'?</h3>',
+title: '<h3>¿Estas Segura de desactivar el ID:'+codigo4+'?</h3>',
 icon: 'warning',
 showCancelButton: true,
 confirmButtonColor: '#20558A',

@@ -8,7 +8,8 @@ function mostrar($str)
 {
     $codi = mb_detect_encoding($str, "ISO-8859-1,UTF-8");
     $str = iconv($codi, 'ISO-8859-1', $str);
-    echo $str;
+    //echo "<td>$str</td>";
+    return $str;
 }
 
 session_start();
@@ -103,7 +104,7 @@ if ($_SESSION["s_admin"] === null) {
             <td>" . $row["id_comen"] . "</td>
 			<td>" . $row["nombre"]. "</td>
             <td>" . substr($row["text_comen"],0,300). "</td>
-            <td>" . substr($row["titulo_public"],0,300). "</td>
+            <td>" . mostrar(substr($row["titulo_public"],0,40)). "</td>
             <td>" . $row["fecha_comen"] . "</td>
 			
             <td>

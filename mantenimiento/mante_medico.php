@@ -113,6 +113,7 @@ if ($_SESSION["s_admin"] === null) {
                         while ($row = $query->fetch_assoc()) {
                             //$fecha2=$row["fecha_public"];
                         //$final = date_create($fecha2)->format('d/m/y');
+                        $comilla= '"';
                             echo "
             <tr>
             <td>" . $row["id_medico"] . "</td>
@@ -126,7 +127,7 @@ if ($_SESSION["s_admin"] === null) {
             <td>
             <a title='Editar Médico' href='manteni_medico_edit.php?id=" . $row["id_medico"] . "' class='btn btn-info' style='  font-size: 19px;'><i class='fa fa-pencil' aria-hidden='true'></i></a>
             
-            <a title='Eliminar Médico' onclick='return alereliminar(".$row['id_medico'].");'  class='btn btn-danger confirm' style='  font-size: 19px;' ><i class='fa fa-trash' aria-hidden='true'></i></a>
+            <a title='Eliminar Médico' onclick='return alereliminar($comilla".$row["id_medico"]."$comilla);'  class='btn btn-danger confirm' style='  font-size: 19px;' ><i class='fa fa-trash' aria-hidden='true'></i></a>
             </td>
             </tr>
 
