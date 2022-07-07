@@ -7,6 +7,7 @@
                         <a class="navbar-brand" href="index.php">
                             <img style="position: relative; top: -6px;" src="images/logo.png" alt="logo" width="45" height="45">
                         </a>
+                        <h5 class="text-muted navbar-brand"><b>HOW DOCTOR</b></h5>
 
                     </div>
                     <div class="collapse navbar-collapse">

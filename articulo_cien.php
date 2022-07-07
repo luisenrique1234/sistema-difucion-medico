@@ -284,8 +284,7 @@ $DatesantoTime = date('Y-m-d', time());
                 <div class="col-sm-12 ">
                     <div class="col-sm-12">
                         <div class=" copyright-text text-center ">
-                            <p>Sistema de difusión de información médica 2022. Todos los derechos reservados.</p>
-                            <p>Diseñado por: <a target="_blank" href="http://luis-enrique.com">Sr.LEGG</a></p>
+                        <p>HOW DOCTOR. Diseñado por: <a  target="_blank" href="http://luis-enrique.com">Sr.LEGG</a></p>
                         </div>
                     </div>
                 </div>
