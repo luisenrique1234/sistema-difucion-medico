@@ -49,7 +49,7 @@
                                 <input type="text" name="usuario" id="usuario" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="password" class="text-dark">Password</label><br>
+                                <label for="password" class="text-dark">Contraseña</label><br>
                                 <input type="password" name="password" id="password" class="form-control">
                                 <div style="margin-top:15px;">
                                 <input style="margin-left:20px;" type="checkbox" id="mostrar_contrasena" title="clic para mostrar contraseña"/>
@@ -58,7 +58,7 @@
                             </div>
                             <div class="form-group text-center">                                
                                 <input type="submit" name="submit" class="btn btn-info btn-lg btn-block" value="Iniciar">
-                                <a href="#"> Recuperar contrasena </a>
+                                <!--<a href="#"> Recuperar contrasena </a>-->
                                 <h5 class="text-dark"><a href="crear_user.php"> Registro</a></h5>
                             </div>                            
                         </form>
