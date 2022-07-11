@@ -94,7 +94,7 @@ if ($_SESSION["s_medico"] === null){
             </div>
     </section>
 
-    <!--boton flotante donde esta los diferentes acciones -->
+    <!--boton flotante donde esta los digfdgdfgerentes acciones -->
     <br>
     <footer id="footer">
         <div class="container">
