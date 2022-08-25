@@ -194,7 +194,7 @@ if ($_SESSION["s_medico"] === null){
             </div>
     </section>
 
-    <!--boton flotante donde esta los diferentes acciones -->
+    <!--parte inferio de la pagina -->
     <br>
     <footer id="footer">
         <div class="container">
